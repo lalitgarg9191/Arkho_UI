@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage NavigationPage.HasNavigationBar="false" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DFS.Views.UserInformationPage">
+    <ContentPage.Content>
+        <RelativeLayout>
+        
+            <!-- Outer View -->
+            <StackLayout Spacing="0" x:Name="outerLayout" BackgroundColor="{StaticResource WhiteColor}" 
+                             RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                Property=Height,Factor=0,Constant=0}"
+                             RelativeLayout.WidthConstraint="{ConstraintExpression
+                                Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                             RelativeLayout.HeightConstraint="{ConstraintExpression
+                                Type=RelativeToParent,Property=Height,Factor=1,Constant=0}">
+            
+        
+                <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackColor}" HorizontalOptions="FillAndExpand">
+                    <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <StackLayout>
+                                <Label Text="PERSONAL INFORMATION" Margin="20" Font="Bold,Italic"  HorizontalTextAlignment="Start" TextColor="{StaticResource GreenColor}"/>
+                                <!-- Image View -->
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame CornerRadius="10" Padding="0" Margin="20,0">
+                                        <Image Source="{Binding UserIcon}" HorizontalOptions="Start" HeightRequest="120" WidthRequest="120" />
+                                    </Frame>
+                                    <Label Text="Upload Photo" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" TextColor="White">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="Handle_PictureTapped" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+
+                                </StackLayout>
+
+                                <StackLayout Margin="20,0">
+                                    <Label Text="Title" TextColor="White" Font="Bold"/>
+                                    <Picker ItemsSource="{Binding TitleList}" SelectedIndex="{Binding TitleIndex, Mode=TwoWay}" Title="Select Title" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}"></Picker>
+                                </StackLayout>
+
+                                <StackLayout Margin="20,0">
+                                    <Label Text="Name" TextColor="White" Font="Bold"/>
+                                    <Entry Text="{Binding Name}" Placeholder="Enter Name" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" PlaceholderColor="{StaticResource UserText}"/>
+                                </StackLayout>
+
+                                <StackLayout Margin="20,0">
+                                    <Label Text="Gender" TextColor="White" Font="Bold"/>
+                                    <Picker ItemsSource="{Binding GenderList}" SelectedIndex="{Binding GenderIndex, Mode=TwoWay}" Title="Select Gender" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}"></Picker>
+                                </StackLayout>
+
+                                <StackLayout Margin="20,0">
+                                    <Label Text="Date of Birth" TextColor="White" Font="Bold"/>
+                                    <DatePicker Date="{Binding DateOfBirth}" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}"></DatePicker>
+                                </StackLayout>
+
+                                <StackLayout Margin="20,0">
+                                    <Label Text="Phone Number" TextColor="White" Font="Bold"/>
+                                    <Entry Text="{Binding TelephoneNumber}" Placeholder="Enter Phone Number" Keyboard="Telephone" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" PlaceholderColor="{StaticResource UserText}"/>
+                                </StackLayout>
+
+                                <StackLayout Margin="20,0">
+                                    <Label Text="Height" TextColor="White" Font="Bold"/>
+                                    <Entry Text="{Binding Height}" Placeholder="Enter Height" Keyboard="Telephone" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" PlaceholderColor="{StaticResource UserText}"/>
+                                </StackLayout>
+
+                                <StackLayout Margin="20,0">
+                                    <Label Text="Weight" TextColor="White" Font="Bold"/>
+                                    <Entry Text="{Binding Weight}" Placeholder="Enter Weight" Keyboard="Telephone" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" PlaceholderColor="{StaticResource UserText}"/>
+                                </StackLayout>
+
+                                <StackLayout Margin="20,0">
+                                    <Label Text="Sports Interest" TextColor="White" Font="Bold"/>
+                                    <Picker ItemsSource="{Binding SportsList}" SelectedIndex="{Binding SportsIndex,Mode=TwoWay}" Title="Select Sports" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" ></Picker>
+                                </StackLayout>
+
+                                <StackLayout Margin="20,0">
+                                    <Label Text="Medical Information" TextColor="White" Font="Bold"/>
+                                    <Editor Text="{Binding MedicalInfo}" HeightRequest="50" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}"/>
+                                </StackLayout>
+                            </StackLayout>
+
+                            <!-- Service View -->
+                            <StackLayout IsVisible="{Binding IsTrainerView}">
+                                <Label Text="SERVICES" Margin="20" FontSize="Large" Font="Bold,Italic"  HorizontalTextAlignment="Start" TextColor="{StaticResource GreenColor}"/>
+
+                                <StackLayout Margin="20,0">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Speciality" TextColor="White" Font="Bold"/>
+<!--                                        <Image Source="plus_green" HorizontalOptions="EndAndExpand" Margin="15,0" HeightRequest="25" WidthRequest="25"/>-->
+                                    </StackLayout>
+                                    <Picker Title="Select Speciality" ItemsSource="{Binding SpecialityList}" SelectedIndex="{Binding SpecialityIndex, Mode=TwoWay}" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}"/>
+                                    
+                                </StackLayout>
+
+                                <StackLayout Margin="20,0">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Experience" TextColor="White" Font="Bold"/>
+<!--                                        <Image Source="plus_green" HorizontalOptions="EndAndExpand" Margin="15,0" HeightRequest="25" WidthRequest="25"/>-->
+                                    </StackLayout>
+                                    
+                                    <Entry Text="{Binding Experience}" Placeholder="Enter Experience" Keyboard="Numeric" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" PlaceholderColor="{StaticResource UserText}"/>
+                                </StackLayout>
+                                
+                                <StackLayout Margin="20,0">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Accolades" TextColor="White" Font="Bold"/>
+<!--                                        <Image Source="plus_green" HorizontalOptions="EndAndExpand" Margin="15,0" HeightRequest="25" WidthRequest="25"/>-->
+                                    </StackLayout>
+                                    
+                                    <Entry Text="{Binding Accolades}" Placeholder="Enter Accolades" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" PlaceholderColor="{StaticResource UserText}"/>
+                                    <!--<Entry Text="{Binding Accolades}" Placeholder="Enter Accolades" TextColor="Gray" PlaceholderColor="Gray" BackgroundColor="White"/>-->
+                                </StackLayout>
+                                
+                                <StackLayout Margin="20,0">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Certification" TextColor="White" Font="Bold"/>
+<!--                                        <Image Source="plus_green" HorizontalOptions="EndAndExpand" Margin="15,0" HeightRequest="25" WidthRequest="25"/>-->
+                                    </StackLayout>
+                                    <Entry Text="{Binding Certification}" Placeholder="Enter Certification" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" PlaceholderColor="{StaticResource UserText}"/>
+                                    <!--<Entry Text="{Binding Certification2}" Placeholder="Enter Certification" TextColor="Gray" PlaceholderColor="Gray" BackgroundColor="White"/>-->
+                                </StackLayout>
+                                
+                                <StackLayout Margin="20,0">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Services" TextColor="White" Font="Bold"/>
+<!--                                        <Image Source="plus_green" HorizontalOptions="EndAndExpand" Margin="15,0" HeightRequest="25" WidthRequest="25"/>-->
+                                    </StackLayout>
+                                    
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                        <Entry Text="{Binding Services}" HorizontalOptions="FillAndExpand" Placeholder="Enter Services" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" PlaceholderColor="{StaticResource UserText}"/>
+                                        <Entry HorizontalOptions="EndAndExpand" Text="{Binding ServicesPrice}" Keyboard="Numeric" Placeholder="Price / Hr" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" PlaceholderColor="{StaticResource UserText}"/>
+                                    </StackLayout>
+                                    
+                                    <Editor Text="{Binding ServiceInfo}" HeightRequest="50" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}"/>
+                                    
+                                    <!--<Entry Text="{Binding Services2}" Placeholder="Enter Services" TextColor="Gray" PlaceholderColor="Gray" BackgroundColor="White"/>-->
+                                </StackLayout>
+
+
+                            </StackLayout>
+
+                            <Button WidthRequest="120" Command="{Binding SaveCommand}" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0" Text="SAVE" TextColor="Black" BackgroundColor="{StaticResource GreenColor}"/>
+                            
+                        </StackLayout>
+                    </ScrollView>
+                </StackLayout>
+            </StackLayout>
+            
+            <StackLayout
+                    IsVisible="{Binding IsServiceInProgress}"
+                    BackgroundColor="Black" Opacity="0.5"
+                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,
+                                            ElementName=outerLayout,Property=Height,Factor=0,Constant=0}"
+                                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,
+                                        ElementName=outerLayout,Property=Width,Factor=0,Constant=0}"
+                                    RelativeLayout.WidthConstraint="{ConstraintExpression
+                                        Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                                    RelativeLayout.HeightConstraint="{ConstraintExpression
+                                        Type=RelativeToParent,Property=Height,Factor=1,Constant=0}"  >
+            
+             </StackLayout>
+
+            <StackLayout IsVisible="{Binding IsServiceInProgress}" Padding="12"
+                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,
+                                        ElementName=outerLayout,Property=Height,Factor=0.5,Constant=0}"
+                                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,
+                                    ElementName=outerLayout,Property=Width,Factor=0,Constant=0}"
+                                RelativeLayout.WidthConstraint="{ConstraintExpression
+                                    Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                                RelativeLayout.HeightConstraint="{ConstraintExpression
+                                    Type=RelativeToParent,Property=Height,Factor=1,Constant=0}"  >
+
+               <ActivityIndicator IsRunning="true" Color ="{StaticResource GreenColor}"/>
+
+               <Label Text="Loading..." HorizontalOptions="Center" TextColor="{StaticResource GreenColor}"/>
+            </StackLayout>
+
+            
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>
