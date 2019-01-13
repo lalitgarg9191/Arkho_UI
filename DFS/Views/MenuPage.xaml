@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DFS.MenuPage"  Title="{Binding Title}"
-    Icon="{Binding Icon}">
+    Icon="{Binding Icon}" xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations">
     <ContentPage.Content>
        <StackLayout VerticalOptions="FillAndExpand">
 
@@ -19,7 +19,7 @@
             <StackLayout Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource GreenColor}">
                     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                         
-                        <Frame 
+                        <!--<Frame 
                                 CornerRadius="60"
                                 HorizontalOptions="CenterAndExpand"
                                 VerticalOptions="CenterAndExpand"
@@ -31,7 +31,12 @@
                                 MinimumHeightRequest="120"
                                 HeightRequest="120">
                             <Image MinimumWidthRequest="120" MinimumHeightRequest="120" HeightRequest="120" WidthRequest="120" Source="{Binding ImageSource}"/>
-                        </Frame>
+                        </Frame>-->
+                        <ffimageloading:CachedImage HeightRequest="120" WidthRequest="120" DownsampleToViewSize="true" Aspect="AspectFit" Source="{Binding ImageSource}" LoadingPlaceholder="{Binding ImageSource}" ErrorPlaceholder="{Binding ImageSource}">
+                                <ffimageloading:CachedImage.Transformations>
+                                    <fftransformations:CircleTransformation />
+                                </ffimageloading:CachedImage.Transformations>
+                            </ffimageloading:CachedImage>
                         <Label x:Name="ProfileName" Font="Bold" FontSize="20" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                     </StackLayout>
             </StackLayout>

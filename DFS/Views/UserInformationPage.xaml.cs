@@ -95,10 +95,7 @@ namespace DFS.Views
                             var imageData = new byte[fs.Length];
                             fs.Read(imageData, 0, (int)fs.Length);
                             signupViewModel.User64String = Convert.ToBase64String(imageData);
-
                         }
-
-
                     }
                 }
                 else if (status != PermissionStatus.Unknown)

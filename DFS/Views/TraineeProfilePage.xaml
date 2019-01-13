@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DFS.Views.TraineeProfilePage" xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DFS.Views.TraineeProfilePage" xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView" xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations">
     <ContentPage.Content>
         <AbsoluteLayout>
             <StackLayout AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0" AbsoluteLayout.LayoutFlags="All">
@@ -19,10 +19,19 @@
                             </Image.GestureRecognizers>
                         </Image>
                         <StackLayout Margin="0,-20,0,0" Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                            <Frame CornerRadius="60" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsClippedToBounds="true" Margin="0" Padding="0" WidthRequest="120" MinimumWidthRequest="120" MinimumHeightRequest="120" HeightRequest="120">
+                            <!--<Frame CornerRadius="60" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsClippedToBounds="true" Margin="0" Padding="0" WidthRequest="120" MinimumWidthRequest="120" MinimumHeightRequest="120" HeightRequest="120">
                                 <Image MinimumWidthRequest="120" MinimumHeightRequest="120" HeightRequest="120" WidthRequest="120" Source="{Binding ImageSource}" />
-                            </Frame>
-                            <Image Source="lightgray_cal" HeightRequest="25" WidthRequest="25" VerticalOptions="CenterAndExpand" />
+                            </Frame>-->
+                            <ffimageloading:CachedImage HeightRequest="120" WidthRequest="120" DownsampleToViewSize="true" Aspect="AspectFit" Source="{Binding ImageSource}" LoadingPlaceholder="{Binding ImageSource}" ErrorPlaceholder="{Binding ImageSource}">
+                                <ffimageloading:CachedImage.Transformations>
+                                    <fftransformations:CircleTransformation />
+                                </ffimageloading:CachedImage.Transformations>
+                            </ffimageloading:CachedImage>
+                            <Image Source="lightgray_cal" HeightRequest="25" WidthRequest="25" VerticalOptions="CenterAndExpand">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding CalanderCommand}"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
                         </StackLayout>
                         <Label Text="{Binding TraineeName}" TextColor="White" Font="Bold" FontSize="18" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" />
                         <Frame HasShadow="false" CornerRadius="5" HorizontalOptions="CenterAndExpand" BackgroundColor="{StaticResource GreenColor}" Padding="70,10" Margin="0,0,0,10">

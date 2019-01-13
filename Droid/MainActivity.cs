@@ -27,6 +27,7 @@ namespace DFS.Droid
             global::Xamarin.Forms.Forms.Init(this, bundle);
             Xamarin.FormsGoogleMaps.Init(this, bundle);
             CrossCurrentActivity.Current.Init(this, bundle);
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: true);
             Xamarin.Forms.DependencyService.Register<Platform_Implementation_Android>();
             Xamarin.Forms.DependencyService.Register<Camera_Implementation_Android>();
 
@@ -44,6 +45,8 @@ namespace DFS.Droid
                 // Do something if there are not any pages in the `PopupStack`
             }
         }
+
+
 
        // public override void OnRes
 

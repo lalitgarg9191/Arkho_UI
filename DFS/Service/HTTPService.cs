@@ -275,7 +275,7 @@ namespace DFS
                     if (response.IsSuccessStatusCode)
                     {
 
-                        LoginRequestModel loginRequestModel = new LoginRequestModel("App", signupModel.email, App.SelectedView, signupModel.email);
+                        LoginRequestModel loginRequestModel = new LoginRequestModel("App", signupModel.email, App.SelectedView, signupModel.password);
                         var message = await App.TodoManager.Login(loginRequestModel);
 
                         if (message == "Success")

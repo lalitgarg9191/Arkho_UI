@@ -4,6 +4,9 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using DFS.Views;
+using Xamarin.Forms;
 
 namespace DFS.ViewModels
 {
@@ -28,6 +31,16 @@ namespace DFS.ViewModels
             {
                 _traineeInterest = value;
                 RaisePropertyChanged(nameof(TraineeInterest));
+            }
+        }
+
+        public String TraineeGoals
+        {
+            get { return _traineeGoals; }
+            set
+            {
+                _traineeGoals = value;
+                RaisePropertyChanged(nameof(TraineeGoals));
             }
         }
 
@@ -86,6 +99,11 @@ namespace DFS.ViewModels
 
         public ObservableCollection<string> Gallery { get; set; }
 
+        public ICommand CalanderCommand
+        {
+            get { return new Command(CalanderHandler); }
+        }
+
         public TraineeProfileViewModel()
         {
             //Models.LoginResponse.SyncLoginResponse syncLoginResponse = App.DatabaseManager.SyncLoginResponse("Trainee");
@@ -111,15 +129,11 @@ namespace DFS.ViewModels
             }
         }
 
-        public String TraineeGoals
+        async void CalanderHandler(object obj)
         {
-            get { return _traineeGoals; }
-            set
-            {
-                _traineeGoals = value;
-                RaisePropertyChanged(nameof(TraineeGoals));
-            }
+            await Application.Current.MainPage.Navigation.PushAsync(new TraineeCalanderPage());
         }
+
 
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
 

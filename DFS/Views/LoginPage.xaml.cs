@@ -96,7 +96,7 @@ namespace DFS
                         signupViewModel.SelectedView = App.SelectedView;
 
 
-                        App.Current.MainPage = new Views.UserInformationPage(signupViewModel);
+                        App.Current.MainPage =new NavigationPage( new Views.UserInformationPage(signupViewModel));
                     }
                     else
                     {
@@ -105,7 +105,13 @@ namespace DFS
                 }
                 else
                 {
-                    Application.Current.MainPage = new RootPage(userProfileViewModel.SelectedView);
+                    Application.Current.MainPage =new NavigationPage(new RootPage(userProfileViewModel.SelectedView));
+                }
+
+                if (userProfileViewModel.IsRememberMe)
+                {
+                    var member = App.SelectedView == "Trainee" ? App.LoginResponse : App.TrainerData;
+                    CredentialsService.SaveCredentials(userName: App.LoginResponse.Email, password: App.LoginResponse.Password, member: member, userType: App.SelectedView);
                 }
             });
 

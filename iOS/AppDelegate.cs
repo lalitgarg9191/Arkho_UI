@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using CloudRailSI;
+using FFImageLoading.Transformations;
 using Foundation;
 using Syncfusion.ListView.XForms.iOS;
 using UIKit; 
@@ -22,6 +23,8 @@ namespace DFS.iOS
             XamForms.Controls.iOS.Calendar.Init();
             SfListViewRenderer.Init();
             CRCloudRail.AppKey = "5c27501221b62e522887898e";
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
+            var ignore = new CircleTransformation();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

@@ -4,6 +4,7 @@ using DFS.Service;
 using DFS.Utils;
 using DFS.Views;
 using DLToolkit.Forms.Controls;
+using FFImageLoading.Transformations;
 using Newtonsoft.Json;
 using Xamarin.Forms;
 using static DFS.Models.LoginResponse;
@@ -37,6 +38,7 @@ namespace DFS
             try
             {
                 InitializeComponent();
+                var ignore = new CircleTransformation();
                 FlowListView.Init();
 
                 TodoManager = new TodoItemManager(new HTTPService());
@@ -67,7 +69,7 @@ namespace DFS
                         var instaMedia = JsonConvert.DeserializeObject<InstagramMedia>(account.Properties["InstagramMedia"]);
                         App.InstagramMedia = instaMedia;
                     }
-                    MainPage = new RootPage(App.SelectedView);
+                    MainPage =new NavigationPage(new RootPage(App.SelectedView));
                 }
                 else
                 {
