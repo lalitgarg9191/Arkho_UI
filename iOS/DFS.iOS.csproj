@@ -32,7 +32,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <MtouchFloat32>true</MtouchFloat32>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
-    <CodesignProvision>TousifProvisionAdhoc</CodesignProvision>
+    <CodesignProvision>Updated_Maya</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>pdbonly</DebugType>
@@ -345,6 +345,7 @@
     <Compile Include="Controls\CornerLayout_iOS.cs" />
     <Compile Include="Implementations\FacebookManager.cs" />
     <Compile Include="Implementations\InstagramManager.cs" />
+    <Compile Include="Controls\CustomListViewRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\truck.png" />

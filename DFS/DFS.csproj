@@ -178,6 +178,11 @@
       <DependentUpon>TraineeCalanderPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\TraineeCalanderViewModel.cs" />
+    <Compile Include="Controls\CustomGroupHeaderTemplate.cs" />
+    <Compile Include="Controls\CustomListView.cs" />
+    <Compile Include="Controls\PersonDataTemplateSelector.cs" />
+    <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\CustomSignupModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />

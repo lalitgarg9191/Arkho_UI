@@ -459,10 +459,26 @@ namespace DFS.ViewModels
             }
         }
 
+
+        private ObservableCollection<Models.CustomSignupModel> _staticListData;
+
+        public ObservableCollection<Models.CustomSignupModel> StaticListData
+        {
+            get { return _staticListData; }
+            set
+            {
+                _staticListData = value;
+                RaisePropertyChanged(nameof(StaticListData));
+            }
+        }
+
+
+
         public ICommand SaveCommand { get; set; }
         public ICommand PictureCommand { get; set; }
+        public ICommand AddCommand { get; set; }
 
-         void SelectImage()
+        void SelectImage()
         {
 
         }
@@ -475,11 +491,6 @@ namespace DFS.ViewModels
             {
                 IsTrainerView = false;
             }
-
-            TitleList = new ObservableCollection<String>();
-            TitleList.Add("Mr.");
-            TitleList.Add("Mrs.");
-            TitleList.Add("Miss");
 
             GenderList = new ObservableCollection<String>();
             GenderList.Add("Male");
@@ -507,6 +518,64 @@ namespace DFS.ViewModels
             SpecialityList.Add("Athletics");
             SpecialityList.Add("Others");
 
+            DateOfBirth = new DateTime(2000, 1, 1);
+
+
+
+            StaticListData = new ObservableCollection<Models.CustomSignupModel>();
+
+            Models.CustomSignupModel basicSignUpModel = new Models.CustomSignupModel { HeaderName = "Basic Information" };
+
+            basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Name", IsAdditionAvailable = false });
+            basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", PlaceholderText = "Enter Name", IsAdditionAvailable = false });
+
+
+            basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Gender", IsAdditionAvailable = false });
+            basicSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Select Gender", IsAdditionAvailable = false, SelectionData = GenderList });
+
+            basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Date of Birth", IsAdditionAvailable = false });
+            basicSignUpModel.Add(new Models.SignupData { InputType = "Picker", SelectedDate = DateOfBirth, IsAdditionAvailable=true });
+
+            basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Phone Number", IsAdditionAvailable = false });
+            basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Phone Number" });
+
+            basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Height (in cm)", IsAdditionAvailable = false });
+            basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Height" });
+
+            basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Weight (in kg)", IsAdditionAvailable = false });
+            basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Weight" });
+
+            basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Sports Interest", IsAdditionAvailable = false });
+            basicSignUpModel.Add(new Models.SignupData { InputType = "Picker", IsAdditionAvailable = false, SelectionData = SportsList });
+
+            basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Medical Information", IsAdditionAvailable = false });
+            basicSignUpModel.Add(new Models.SignupData { InputType = "Editor" });
+
+
+            StaticListData.Add(basicSignUpModel);
+
+
+            Models.CustomSignupModel serviceSignUpModel = new Models.CustomSignupModel { HeaderName = "Services" };
+
+            serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Specialty", IsAdditionAvailable = false });
+            serviceSignUpModel.Add(new Models.SignupData { InputType = "Picker", IsAdditionAvailable = false, SelectionData = SpecialityList });
+
+
+            serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Experience", IsAdditionAvailable = false });
+            serviceSignUpModel.Add(new Models.SignupData { InputType = "Entry", PlaceholderText= "Enter Experience", IsAdditionAvailable = true});
+
+            serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Awards", IsAdditionAvailable = true });
+            serviceSignUpModel.Add(new Models.SignupData { InputType = "Entry", PlaceholderText= "Enter Awards", IsAdditionAvailable = false});
+
+            serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Certification", IsAdditionAvailable = true });
+            serviceSignUpModel.Add(new Models.SignupData { InputType = "Entry", PlaceholderText = "Enter Certification", IsAdditionAvailable = false });
+
+            serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Service", IsAdditionAvailable = true });
+            serviceSignUpModel.Add(new Models.SignupData { InputType = "Service"});
+
+
+            StaticListData.Add(serviceSignUpModel);
+
             UserIcon = "defaultIcon.png";
 
             User64String = "NA";
@@ -514,17 +583,42 @@ namespace DFS.ViewModels
             // Intialize commands
             SaveCommand = new Command(() => SaveClicked());
             PictureCommand = new Command(() => SelectImage());
-
+            AddCommand = new Command(AddRow);
             IsServiceInProgress = false;
 
-            DateOfBirth = new DateTime(2000, 1, 1);
 
             Initialization = InitializeAsync();
 
         }
 
+        private void AddRow(object obj)
+        {
+            var item = obj as Models.SignupData;
+
+            int index = StaticListData[1].IndexOf(item);
+
+            if(item.PlaceholderText == "Awards")
+            {
+                StaticListData[1].Insert(index + 1, new Models.SignupData { InputType = "Entry", IsAdditionAvailable = false, PlaceholderText = "Enter Awards"});
+            }
+            else if (item.PlaceholderText == "Certification")
+            {
+                StaticListData[1].Insert(index + 1, new Models.SignupData { InputType = "Entry", PlaceholderText = "Enter Certification", IsAdditionAvailable = false });
+            }
+            else if (item.PlaceholderText == "Service")
+            {
+                StaticListData[1].Insert(index + 1, new Models.SignupData { InputType = "Service" });
+            }
+
+
+        }
+
         private async void SaveClicked()
         {
+
+            int genderIndex = StaticListData[0].IndexOf(new Models.SignupData { InputType = "Label", PlaceholderText = "Gender", IsAdditionAvailable = false });
+
+            System.Diagnostics.Debug.WriteLine(StaticListData.ToString());
 
             if(MedicalInfo == null || GenderIndex < 0 || Height == null || TelephoneNumber == null || SportsIndex < 0 || TitleIndex < 0 || Weight == null)
             {
