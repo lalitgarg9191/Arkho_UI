@@ -47,6 +47,7 @@ namespace DFS
 
                 MainPage = new HanselmanNavigationPage(new Views.SelectionPage());
 
+
                 var isExist = CredentialsService.DoCredentialsExist();
                 if (isExist)
                 {

@@ -487,11 +487,6 @@ namespace DFS.ViewModels
 
         public SignupViewModel()
         {
-            if(App.SelectedView == "Trainee")
-            {
-                IsTrainerView = false;
-            }
-
             GenderList = new ObservableCollection<String>();
             GenderList.Add("Male");
             GenderList.Add("Female");
@@ -527,54 +522,68 @@ namespace DFS.ViewModels
             Models.CustomSignupModel basicSignUpModel = new Models.CustomSignupModel { HeaderName = "Basic Information" };
 
             basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Name", IsAdditionAvailable = false });
+            // Index Number 1 (Name)
             basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", PlaceholderText = "Enter Name", IsAdditionAvailable = false });
 
-
             basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Gender", IsAdditionAvailable = false });
+            // Index Number 3 (Gender)
             basicSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Select Gender", IsAdditionAvailable = false, SelectionData = GenderList });
 
             basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Date of Birth", IsAdditionAvailable = false });
-            basicSignUpModel.Add(new Models.SignupData { InputType = "Picker", SelectedDate = DateOfBirth, IsAdditionAvailable=true });
+            // Index Number 5 (DOB)
+            basicSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Date of Birth", SelectedDate = DateOfBirth, IsAdditionAvailable = true });
 
             basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Phone Number", IsAdditionAvailable = false });
+            // Index Number 7 (Phone)
             basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Phone Number" });
 
             basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Height (in cm)", IsAdditionAvailable = false });
+            // Index Number 9 (Height)
             basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Height" });
 
             basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Weight (in kg)", IsAdditionAvailable = false });
+            // Index Number 11 (Weight)
             basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Weight" });
 
             basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Sports Interest", IsAdditionAvailable = false });
-            basicSignUpModel.Add(new Models.SignupData { InputType = "Picker", IsAdditionAvailable = false, SelectionData = SportsList });
+            // Index Number 13 (Sports Interest)
+            basicSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Select Sport", IsAdditionAvailable = false, SelectionData = SportsList });
 
             basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Medical Information", IsAdditionAvailable = false });
-            basicSignUpModel.Add(new Models.SignupData { InputType = "Editor" });
+            // Index Number 15 (Medical Info)
+            basicSignUpModel.Add(new Models.SignupData { InputType = "Editor", PlaceholderText = "Enter Medical Information" });
 
 
             StaticListData.Add(basicSignUpModel);
 
+            if (App.SelectedView == "Trainer")
+            {
 
-            Models.CustomSignupModel serviceSignUpModel = new Models.CustomSignupModel { HeaderName = "Services" };
+                Models.CustomSignupModel serviceSignUpModel = new Models.CustomSignupModel { HeaderName = "Services" };
 
-            serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Specialty", IsAdditionAvailable = false });
-            serviceSignUpModel.Add(new Models.SignupData { InputType = "Picker", IsAdditionAvailable = false, SelectionData = SpecialityList });
+                serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Specialty", IsAdditionAvailable = false });
+                // Index Number 1 (Specialty)
+                serviceSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Select Specialty", IsAdditionAvailable = false, SelectionData = SpecialityList });
+
+                serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Experience", IsAdditionAvailable = false });
+                // Index Number 1 (Experiance)
+                serviceSignUpModel.Add(new Models.SignupData { InputType = "Entry", PlaceholderText = "Enter Experience", IsAdditionAvailable = true });
+
+                serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Awards", IsAdditionAvailable = true });
+                // Index Number 1 (Awards)
+                serviceSignUpModel.Add(new Models.SignupData { InputType = "Entry", PlaceholderText = "Enter Awards", IsAdditionAvailable = false });
+
+                serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Certification", IsAdditionAvailable = true });
+                // Index Number 1 (Certification)
+                serviceSignUpModel.Add(new Models.SignupData { InputType = "Entry", PlaceholderText = "Enter Certification", IsAdditionAvailable = false });
+
+                serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Service", IsAdditionAvailable = true });
+                // Index Number 1 (Service)
+                serviceSignUpModel.Add(new Models.SignupData { InputType = "Service" });
 
 
-            serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Experience", IsAdditionAvailable = false });
-            serviceSignUpModel.Add(new Models.SignupData { InputType = "Entry", PlaceholderText= "Enter Experience", IsAdditionAvailable = true});
-
-            serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Awards", IsAdditionAvailable = true });
-            serviceSignUpModel.Add(new Models.SignupData { InputType = "Entry", PlaceholderText= "Enter Awards", IsAdditionAvailable = false});
-
-            serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Certification", IsAdditionAvailable = true });
-            serviceSignUpModel.Add(new Models.SignupData { InputType = "Entry", PlaceholderText = "Enter Certification", IsAdditionAvailable = false });
-
-            serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Service", IsAdditionAvailable = true });
-            serviceSignUpModel.Add(new Models.SignupData { InputType = "Service"});
-
-
-            StaticListData.Add(serviceSignUpModel);
+                StaticListData.Add(serviceSignUpModel);
+            }
 
             UserIcon = "defaultIcon.png";
 
@@ -615,17 +624,6 @@ namespace DFS.ViewModels
 
         private async void SaveClicked()
         {
-
-            int genderIndex = StaticListData[0].IndexOf(new Models.SignupData { InputType = "Label", PlaceholderText = "Gender", IsAdditionAvailable = false });
-
-            System.Diagnostics.Debug.WriteLine(StaticListData.ToString());
-
-            if(MedicalInfo == null || GenderIndex < 0 || Height == null || TelephoneNumber == null || SportsIndex < 0 || TitleIndex < 0 || Weight == null)
-            {
-                MessagingCenter.Send<SignupViewModel, String>(this, "SignUpFailure", "Please enter all manadatory fields.");
-                return;
-            }
-
             IsServiceInProgress = true;
 
             Models.TraineeSignupModel signupModel = new Models.TraineeSignupModel();
@@ -639,50 +637,94 @@ namespace DFS.ViewModels
 
             Models.TraineeSignupModel.BasicInfo basicInfo = new Models.TraineeSignupModel.BasicInfo();
             basicInfo.address = position.Accuracy + "";
-            basicInfo.anyMedicalCondition = MedicalInfo;
             basicInfo.country = position.Altitude + "";
-            basicInfo.dateOfBirth = DateOfBirth.ToString();
-            basicInfo.gender = GenderList[GenderIndex];
-            basicInfo.height = Height + "";
             basicInfo.id = 1;
             basicInfo.imageUrl = "NA";
             basicInfo.instaGramId = "NA";
             basicInfo.latitude = position.Latitude + "";
             basicInfo.longitude = position.Longitude + "";
-            basicInfo.mobileNumber = TelephoneNumber + "";
-            basicInfo.name = Name;
-            basicInfo.phoneNumber = TelephoneNumber + "";
-            basicInfo.sportsInterest = SportsList[SportsIndex];
             basicInfo.state = "NA";
-            basicInfo.title = TitleList[TitleIndex];
             basicInfo.valueAdded = "NA";
-            basicInfo.weight = Weight + "";
+
+            if (StaticListData[0][1].MainSelectedData == null || StaticListData[0][7].MainSelectedData == null || StaticListData[0][9].MainSelectedData == null || StaticListData[0][11].MainSelectedData == null)
+            {
+                MessagingCenter.Send<SignupViewModel, String>(this, "SignUpFailure", "Please enter all manadatory fields.");
+                IsServiceInProgress = false;
+                return;
+            }
+
+
+            basicInfo.name = StaticListData[0][1].MainSelectedData;
+            basicInfo.gender = StaticListData[0][3].SelectionData[StaticListData[0][3].SelectedIndex];
+            basicInfo.dateOfBirth = StaticListData[0][5].SelectedDate.ToString();
+            basicInfo.mobileNumber = StaticListData[0][7].MainSelectedData;
+            basicInfo.phoneNumber = StaticListData[0][7].MainSelectedData;
+            basicInfo.height = StaticListData[0][9].MainSelectedData;
+            basicInfo.weight = StaticListData[0][11].MainSelectedData;
+            basicInfo.sportsInterest = StaticListData[0][13].SelectionData[StaticListData[0][13].SelectedIndex];
+            basicInfo.anyMedicalCondition = StaticListData[0][15].MainSelectedData;
+
 
             Models.TraineeSignupModel.ProfessionalInfo professionalInfo = new Models.TraineeSignupModel.ProfessionalInfo();
-            professionalInfo.speciality = SpecialityList[SpecialityIndex];
-            professionalInfo.experience = Experience;
-            professionalInfo.accolades = Accolades;
 
-            // Add certificates
-            List<Models.TraineeSignupModel.Certifications> certifications = new List<Models.TraineeSignupModel.Certifications>();
-            Models.TraineeSignupModel.Certifications certification = new Models.TraineeSignupModel.Certifications();
-            certification.certification = Certification;
 
-            certifications.Add(certification);
+            if (App.SelectedView == "Trainer")
+            {
+                // Add certificates
+                List<Models.TraineeSignupModel.Certifications> certifications = new List<Models.TraineeSignupModel.Certifications>();
 
-            professionalInfo.certifications = certifications;
+                // Add Services
+                List<Models.TraineeSignupModel.Services> services = new List<Models.TraineeSignupModel.Services>();
 
-            // Add Services
-            List<Models.TraineeSignupModel.Services> services = new List<Models.TraineeSignupModel.Services>();
-            Models.TraineeSignupModel.Services service = new Models.TraineeSignupModel.Services();
-            service.chargingPeriod = ServiceInfo;
-            service.serviceName = Services;
-            service.charges = Convert.ToDouble(ServicesPrice);
 
-            services.Add(service);
+                var enteredProfessionalInfo = StaticListData[1];
+                foreach (var item in enteredProfessionalInfo)
+                {
+                    if (item.PlaceholderText == "Select Specialty" && item.InputType == "Picker")
+                    {
+                        professionalInfo.speciality = item.SelectionData[item.SelectedIndex];
+                    }
+                    else if (item.PlaceholderText == "Enter Experience" && item.InputType == "Entry")
+                    {
+                        professionalInfo.experience = item.MainSelectedData;
+                    }
+                    else if (item.PlaceholderText == "Enter Awards")
+                    {
+                        professionalInfo.accolades = item.MainSelectedData;
+                    }
+                    else if (item.PlaceholderText == "Enter Certification")
+                    {
+                        Models.TraineeSignupModel.Certifications certification = new Models.TraineeSignupModel.Certifications();
+                        certification.certification = item.MainSelectedData;
 
-            professionalInfo.services = services;
+                        certifications.Add(certification);
+                    }
+                    else if (item.InputType == "Service")
+                    {
+                        Models.TraineeSignupModel.Services service = new Models.TraineeSignupModel.Services();
+                        service.chargingPeriod = item.SessionDesc;
+                        service.serviceName = item.MainSelectedData;
+                        service.charges = Convert.ToDouble(item.SessionAmount);
+                        service.workLocaton = item.SessionLocation;
+                        service.teamSize = item.SessionTeam;
 
+                        services.Add(service);
+                    }
+
+
+                }
+
+                professionalInfo.certifications = certifications;
+
+                professionalInfo.services = services;
+
+                if (professionalInfo.accolades == null || professionalInfo.experience == null || professionalInfo.speciality == null || professionalInfo.certifications.Count < 1 || professionalInfo.services.Count < 1)
+                {
+                    MessagingCenter.Send<SignupViewModel, String>(this, "SignUpFailure", "Please enter all manadatory fields.");
+                    IsServiceInProgress = false;
+                    return;
+                }
+            }
 
             // Creating the final object
             signupModel.basicInfo = basicInfo;
@@ -747,26 +789,86 @@ namespace DFS.ViewModels
             }
             else
             {
-                Name = App.LoginResponse.basicInfo.Name;
-                Height = App.LoginResponse.basicInfo.Height;
-                Weight = App.LoginResponse.basicInfo.Weight;
-                TelephoneNumber = App.LoginResponse.basicInfo.PhoneNumber;
-                DateOfBirth = DateTime.Parse(App.LoginResponse.basicInfo.DateOfBirth);
-                MedicalInfo = App.LoginResponse.basicInfo.AnyMedicalCondition;
+                StaticListData = new ObservableCollection<Models.CustomSignupModel>();
 
-                GenderIndex = GenderList.IndexOf( App.LoginResponse.basicInfo.Gender);
-                TitleIndex = TitleList.IndexOf(App.LoginResponse.basicInfo.Title);
+                Models.CustomSignupModel basicSignUpModel = new Models.CustomSignupModel { HeaderName = "Basic Information" };
+
+                basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Name", IsAdditionAvailable = false });
+                // Index Number 1 (Name)
+                basicSignUpModel.Add(new Models.SignupData { MainSelectedData= App.LoginResponse.basicInfo.Name, InputType = "Entry", PlaceholderText = "Enter Name", IsAdditionAvailable = false });
+
+                basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Gender", IsAdditionAvailable = false });
+                // Index Number 3 (Gender)
+                basicSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Select Gender", IsAdditionAvailable = false, SelectionData = GenderList, SelectedIndex = GenderList.IndexOf(App.LoginResponse.basicInfo.Gender) });
+
+                basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Date of Birth", IsAdditionAvailable = false });
+                // Index Number 5 (DOB)
+                basicSignUpModel.Add(new Models.SignupData {  InputType = "Picker", PlaceholderText = "Date of Birth", SelectedDate = DateTime.Parse(App.LoginResponse.basicInfo.DateOfBirth), IsAdditionAvailable = true });
+
+                basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Phone Number", IsAdditionAvailable = false });
+                // Index Number 7 (Phone)
+                basicSignUpModel.Add(new Models.SignupData { MainSelectedData= App.LoginResponse.basicInfo.PhoneNumber, InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Phone Number" });
+
+                basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Height (in cm)", IsAdditionAvailable = false });
+                // Index Number 9 (Height)
+                basicSignUpModel.Add(new Models.SignupData { MainSelectedData= App.LoginResponse.basicInfo.Height, InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Height" });
+
+                basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Weight (in kg)", IsAdditionAvailable = false });
+                // Index Number 11 (Weight)
+                basicSignUpModel.Add(new Models.SignupData { MainSelectedData= App.LoginResponse.basicInfo.Weight, InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Weight" });
+
+                basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Sports Interest", IsAdditionAvailable = false });
+                // Index Number 13 (Sports Interest)
+                basicSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Select Sport", IsAdditionAvailable = false, SelectionData = SportsList , SelectedIndex = SportsList.IndexOf(App.LoginResponse.basicInfo.SportsInterest) });
+
+                basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Medical Information", IsAdditionAvailable = false });
+                // Index Number 15 (Medical Info)
+                basicSignUpModel.Add(new Models.SignupData { MainSelectedData= App.LoginResponse.basicInfo.AnyMedicalCondition, InputType = "Editor", PlaceholderText = "Enter Medical Information" });
+
+
+                StaticListData.Add(basicSignUpModel);
 
                 if (App.SelectedView == "Trainer")
                 {
-                    SpecialityIndex = SpecialityList.IndexOf(App.LoginResponse.professionalInfo.Speciality);
-                    Experience = App.LoginResponse.professionalInfo.Experience;
-                    Accolades = App.LoginResponse.professionalInfo.Accolades;
-                    Certification = App.LoginResponse.professionalInfo.certifications[0].Certification;
-                    Services = App.LoginResponse.professionalInfo.services[0].ServiceName;
-                    ServiceInfo = App.LoginResponse.professionalInfo.services[0].ChargingPeriod;
-                    ServicesPrice = App.LoginResponse.professionalInfo.services[0].Charges;
+
+                    Models.CustomSignupModel serviceSignUpModel = new Models.CustomSignupModel { HeaderName = "Services" };
+
+                    serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Specialty", IsAdditionAvailable = false });
+                    // Index Number 1 (Specialty)
+                    serviceSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Select Specialty", IsAdditionAvailable = false, SelectionData = SpecialityList, SelectedIndex = SpecialityList.IndexOf(App.LoginResponse.professionalInfo.Speciality) });
+
+                    serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Experience", IsAdditionAvailable = false });
+                    // Index Number 1 (Experiance)
+                    serviceSignUpModel.Add(new Models.SignupData { MainSelectedData= App.LoginResponse.professionalInfo.Experience, InputType = "Entry", PlaceholderText = "Enter Experience", IsAdditionAvailable = true });
+
+                    serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Awards", IsAdditionAvailable = true });
+                    // Index Number 1 (Awards)
+                    serviceSignUpModel.Add(new Models.SignupData { MainSelectedData= App.LoginResponse.professionalInfo.Accolades, InputType = "Entry", PlaceholderText = "Enter Awards", IsAdditionAvailable = false });
+
+                    serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Certification", IsAdditionAvailable = true });
+                    // Index Number 1 (Certification)
+
+                    foreach(var certItem in App.LoginResponse.professionalInfo.certifications)
+                    {
+                        serviceSignUpModel.Add(new Models.SignupData { MainSelectedData=certItem.Certification, InputType = "Entry", PlaceholderText = "Enter Certification", IsAdditionAvailable = false });
+                    }
+
+
+
+                    serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Service", IsAdditionAvailable = true });
+                    // Index Number 1 (Service)
+                    foreach(var serviceItem in App.LoginResponse.professionalInfo.services)
+                    {
+                        serviceSignUpModel.Add(new Models.SignupData { MainSelectedData = serviceItem.ServiceName, SessionDesc = serviceItem.ChargingPeriod, SessionAmount = serviceItem.Charges, InputType = "Service" });
+                    }
+
+
+
+                    StaticListData.Add(serviceSignUpModel);
                 }
+
+
+
 
                 EmailAddress = App.LoginResponse.Email;
                 Password = App.LoginResponse.Password;

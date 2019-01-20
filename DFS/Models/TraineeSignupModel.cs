@@ -82,6 +82,10 @@ namespace DFS.Models
 
             public String chargingPeriod { get; set; }
 
+            public String workLocaton { get; set; }
+
+            public String teamSize { get; set; }
+
         }
 
         public class Certifications

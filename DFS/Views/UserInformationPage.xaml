@@ -51,8 +51,13 @@
                 <ViewCell Height="30">
                         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackColor}" Orientation="Horizontal" >
                             <Label VerticalOptions="CenterAndExpand" Text="{Binding PlaceholderText}" TextColor="White" FontSize="16"/>
-                            <Button FontSize="16" Command="{Binding Path=BindingContext.AddCommand, Source={x:Reference Name=UserInfoPage}}"
-                                    CommandParameter="{Binding .}" VerticalOptions="EndAndExpand"  Text="Add" TextColor="White"/>
+                            <Image Source="plus_green" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Margin="15,0" HeightRequest="25" WidthRequest="25">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.AddCommand, Source={x:Reference Name=UserInfoPage}}"
+                                    CommandParameter="{Binding .}" />
+                                </Image.GestureRecognizers>
+                            </Image>
+<!--                            <Button FontSize="16"   Text="Add" TextColor="White"/>-->
                         </StackLayout>
                     </ViewCell>
             </DataTemplate>
