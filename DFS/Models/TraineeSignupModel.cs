@@ -86,6 +86,26 @@ namespace DFS.Models
 
             public String teamSize { get; set; }
 
+            public List<Schedule> schedule { get; set; }
+
+        }
+
+        public class Schedule
+        {
+            public String day { get; set; }
+
+            public String month { get; set; }
+
+            public String year { get; set; }
+
+            public String scheduleType { get; set; }
+
+            public String startTime { get; set; }
+
+            public String endTime { get; set; }
+
+            public String weekDay { get; set; }
+
         }
 
         public class Certifications

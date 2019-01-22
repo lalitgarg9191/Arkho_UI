@@ -83,6 +83,10 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\SignUpCalenderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -183,6 +187,9 @@
     <Compile Include="Controls\PersonDataTemplateSelector.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\CustomSignupModel.cs" />
+    <Compile Include="Views\SignUpCalenderPage.xaml.cs">
+      <DependentUpon>SignUpCalenderPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />

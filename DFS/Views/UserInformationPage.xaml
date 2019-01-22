@@ -84,9 +84,15 @@
                 <ViewCell>
                     <StackLayout>
                                     
-                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0,5,0,0">
+                        <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="FillAndExpand" Margin="0,5,0,0">
                             <Entry Text="{Binding MainSelectedData}" HorizontalOptions="FillAndExpand" Placeholder="Enter Services" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" PlaceholderColor="{StaticResource UserText}"/>
                             <Entry HorizontalOptions="EndAndExpand" Text="{Binding SessionAmount}" Keyboard="Numeric" Placeholder="Price" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" PlaceholderColor="{StaticResource UserText}"/>
+                            <Image Source="green_cal" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" HeightRequest="25" WidthRequest="25">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.CalendarCommand, Source={x:Reference Name=UserInfoPage}}"
+                                    CommandParameter="{Binding .}" />
+                                </Image.GestureRecognizers>
+                            </Image>
                         </StackLayout>
                         
                         <Editor Text="{Binding SessionDesc}" HeightRequest="50" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}"/>

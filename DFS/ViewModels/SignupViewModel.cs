@@ -161,21 +161,6 @@ namespace DFS.ViewModels
             }
         }
 
-        private String _name { get; set; }
-
-        public String Name
-        {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                _name = value;
-
-                RaisePropertyChanged(nameof(Name));
-            }
-        }
 
         private DateTime _dateOfBirth { get; set; }
 
@@ -192,53 +177,6 @@ namespace DFS.ViewModels
             }
         }
 
-        private String _telephoneNumber { get; set; }
-
-        public String TelephoneNumber
-        {
-            get
-            {
-                return _telephoneNumber;
-            }
-            set
-            {
-                _telephoneNumber = value;
-
-                RaisePropertyChanged(nameof(TelephoneNumber));
-            }
-        }
-
-        private String _height { get; set; }
-
-        public String Height
-        {
-            get
-            {
-                return _height;
-            }
-            set
-            {
-                _height = value;
-
-                RaisePropertyChanged(nameof(Height));
-            }
-        }
-
-        private String _weight { get; set; }
-
-        public String Weight
-        {
-            get
-            {
-                return _weight;
-            }
-            set
-            {
-                _weight = value;
-
-                RaisePropertyChanged(nameof(Weight));
-            }
-        }
 
         private ObservableCollection<String> _sportsList { get; set; }
 
@@ -304,21 +242,6 @@ namespace DFS.ViewModels
             }
         }
 
-        private String _medicalInfo { get; set; }
-
-        public String MedicalInfo
-        {
-            get
-            {
-                return _medicalInfo;
-            }
-            set
-            {
-                _medicalInfo = value;
-
-                RaisePropertyChanged(nameof(MedicalInfo));
-            }
-        }
 
         private String _userIcon { get; set; }
 
@@ -352,102 +275,6 @@ namespace DFS.ViewModels
             }
         }
 
-        private String _experience { get; set; }
-
-        public String Experience
-        {
-            get
-            {
-                return _experience;
-            }
-            set
-            {
-                _experience = value;
-
-                RaisePropertyChanged(nameof(Experience));
-            }
-        }
-
-        private String _accolades { get; set; }
-
-        public String Accolades
-        {
-            get
-            {
-                return _accolades;
-            }
-            set
-            {
-                _accolades = value;
-
-                RaisePropertyChanged(nameof(Accolades));
-            }
-        }
-
-        private String _certification { get; set; }
-
-        public String Certification
-        {
-            get
-            {
-                return _certification;
-            }
-            set
-            {
-                _certification = value;
-
-                RaisePropertyChanged(nameof(Certification));
-            }
-        }
-
-        private String _services { get; set; }
-
-        public String Services
-        {
-            get
-            {
-                return _services;
-            }
-            set
-            {
-                _services = value;
-
-                RaisePropertyChanged(nameof(Services));
-            }
-        }
-
-        private string _servicesPrice { get; set; }
-
-        public string ServicesPrice
-        {
-            get
-            {
-                return _servicesPrice;
-            }
-            set
-            {
-                _servicesPrice = value;
-
-                RaisePropertyChanged(nameof(ServicesPrice));
-            }
-        }
-
-        private String _serviceInfo { get; set; }
-
-        public String ServiceInfo
-        {
-            get
-            {
-                return _serviceInfo;
-            }
-            set
-            {
-                _serviceInfo = value;
-
-                RaisePropertyChanged(nameof(ServiceInfo));
-            }
-        }
-
         private Boolean _isServiceInProgress;
         public Boolean IsServiceInProgress
         {
@@ -456,6 +283,17 @@ namespace DFS.ViewModels
             {
                 _isServiceInProgress = value;
                 RaisePropertyChanged(nameof(IsServiceInProgress));
+            }
+        }
+
+        private Boolean _timeSelectionVisible;
+        public Boolean TimeSelectionVisible
+        {
+            get { return _timeSelectionVisible; }
+            set
+            {
+                _timeSelectionVisible = value;
+                RaisePropertyChanged(nameof(TimeSelectionVisible));
             }
         }
 
@@ -472,21 +310,161 @@ namespace DFS.ViewModels
             }
         }
 
+        private int _selectedCalenderIndex { get; set; }
 
+        public int SelectedCalenderIndex
+        {
+            get
+            {
+                return _selectedCalenderIndex;
+            }
+            set
+            {
+                _selectedCalenderIndex = value;
+
+                RaisePropertyChanged(nameof(SelectedCalenderIndex));
+            }
+        }
+
+        private ObservableCollection<String> _listViewData;
+        public ObservableCollection<String> ListViewData
+        {
+            get
+            {
+                return _listViewData;
+            }
+            set
+            {
+                _listViewData = value;
+
+                RaisePropertyChanged(nameof(ListViewData));
+            }
+        }
+
+        private String _recentlySelectedItem { get; set; }
+
+        public String RecentlySelectedItem
+        {
+            get
+            {
+                return _recentlySelectedItem;
+            }
+            set
+            {
+                if (value == null)
+                    return;
+
+                _recentlySelectedItem = value;
+                RaisePropertyChanged(nameof(RecentlySelectedItem));
+                if (TimeHeader == "Please Select Starting Time")
+                {
+                    StaticListData[1][SelectedCalenderIndex].StartTime = value;
+                    TimeHeader = "Please Select End Time";
+                }
+                else
+                {
+                    TimeSelectionVisible = false;
+                    StaticListData[1][SelectedCalenderIndex].EndTime = value;
+                    TimeHeader = "Please Select Starting Time";
+
+                    MessagingCenter.Send<SignupViewModel>(this, "MoveBack");
+                }
+
+
+            }
+        }
+
+        private String _timeHeader { get; set; }
+
+        public String TimeHeader
+        {
+            get
+            {
+                return _timeHeader;
+            }
+            set
+            {
+                _timeHeader = value;
+
+                RaisePropertyChanged(nameof(TimeHeader));
+            }
+        }
 
         public ICommand SaveCommand { get; set; }
         public ICommand PictureCommand { get; set; }
         public ICommand AddCommand { get; set; }
+        public ICommand CalendarCommand { get; set; }
 
         void SelectImage()
         {
 
         }
 
+        public ICommand DateChosen
+        {
+            get
+            {
+                return new Command( (obj) => {
+                    System.Diagnostics.Debug.WriteLine(obj as DateTime?);
+
+                    DateTime dateTime = (DateTime)obj;
+
+
+                    StaticListData[1][SelectedCalenderIndex].Day = dateTime.Day + "";
+                    StaticListData[1][SelectedCalenderIndex].Month = dateTime.Month + "";
+                    StaticListData[1][SelectedCalenderIndex].Year = dateTime.Year + "";
+                    StaticListData[1][SelectedCalenderIndex].WeekDay = dateTime.DayOfWeek.ToString();
+
+
+
+                    TimeSelectionVisible = true;
+
+                });
+            }
+        }
+
+
+
         public Task Initialization { get; private set; }
 
         public SignupViewModel()
         {
+            ListViewData = new ObservableCollection<String>();
+
+            ListViewData.Add("9:00 AM");
+            ListViewData.Add("9:15 AM");
+            ListViewData.Add("9:30 AM");
+            ListViewData.Add("9:45 AM");
+            ListViewData.Add("10:00 AM");
+            ListViewData.Add("10:15 AM");
+            ListViewData.Add("10:30 AM");
+            ListViewData.Add("10:45 AM");
+            ListViewData.Add("11:00 AM");
+            ListViewData.Add("11:15 AM");
+            ListViewData.Add("11:30 AM");
+            ListViewData.Add("11:45 AM");
+            ListViewData.Add("12:00 AM");
+            ListViewData.Add("12:15 AM");
+            ListViewData.Add("12:30 AM");
+            ListViewData.Add("12:45 AM");
+            ListViewData.Add("1:00 PM");
+            ListViewData.Add("1:15 PM");
+            ListViewData.Add("1:30 PM");
+            ListViewData.Add("1:45 PM");
+            ListViewData.Add("2:00 PM");
+            ListViewData.Add("2:15 PM");
+            ListViewData.Add("2:30 PM");
+            ListViewData.Add("2:45 PM");
+            ListViewData.Add("3:00 PM");
+            ListViewData.Add("3:15 PM");
+            ListViewData.Add("3:30 PM");
+            ListViewData.Add("3:45 PM");
+            ListViewData.Add("4:00 PM");
+            ListViewData.Add("4:15 PM");
+            ListViewData.Add("4:30 PM");
+            ListViewData.Add("4:45 PM");
+            ListViewData.Add("5:00 PM");
+
             GenderList = new ObservableCollection<String>();
             GenderList.Add("Male");
             GenderList.Add("Female");
@@ -515,7 +493,9 @@ namespace DFS.ViewModels
 
             DateOfBirth = new DateTime(2000, 1, 1);
 
+            TimeSelectionVisible = false;
 
+            _timeHeader = "Please Select Starting Time";
 
             StaticListData = new ObservableCollection<Models.CustomSignupModel>();
 
@@ -593,11 +573,21 @@ namespace DFS.ViewModels
             SaveCommand = new Command(() => SaveClicked());
             PictureCommand = new Command(() => SelectImage());
             AddCommand = new Command(AddRow);
+            CalendarCommand = new Command(CalenderSelction);
             IsServiceInProgress = false;
 
 
             Initialization = InitializeAsync();
 
+        }
+
+        private void CalenderSelction(object obj)
+        {
+            var item = obj as Models.SignupData;
+
+            SelectedCalenderIndex = StaticListData[1].IndexOf(item);
+
+            MessagingCenter.Send<SignupViewModel>(this, "SignUpCalenderPage");
         }
 
         private void AddRow(object obj)
@@ -707,6 +697,29 @@ namespace DFS.ViewModels
                         service.charges = Convert.ToDouble(item.SessionAmount);
                         service.workLocaton = item.SessionLocation;
                         service.teamSize = item.SessionTeam;
+
+                        if(item.StartTime == null)
+                        {
+                            MessagingCenter.Send<SignupViewModel, String>(this, "SignUpFailure", "Please Select Time.");
+                            IsServiceInProgress = false;
+                            return;
+                        }
+
+                        List<Models.TraineeSignupModel.Schedule> schedules = new List<Models.TraineeSignupModel.Schedule>();
+                        Models.TraineeSignupModel.Schedule schedule = new Models.TraineeSignupModel.Schedule();
+
+                        schedule.day = item.Day;
+                        schedule.month = item.Month;
+                        schedule.year = item.Year;
+                        schedule.scheduleType = "Week";
+                        schedule.startTime = item.StartTime;
+                        schedule.endTime = item.EndTime;
+                        schedule.weekDay = item.WeekDay;
+
+                        schedules.Add(schedule);
+
+                        service.schedule = schedules;
+
 
                         services.Add(service);
                     }

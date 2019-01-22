@@ -33,6 +33,11 @@ namespace DFS.Views
         {
             base.OnAppearing();
 
+            MessagingCenter.Subscribe<ViewModels.SignupViewModel>(this, "SignUpCalenderPage", async (sender) =>
+            {
+                await this.Navigation.PushAsync(new SignUpCalenderPage(signupViewModel));
+            });
+
             MessagingCenter.Subscribe<ViewModels.SignupViewModel>(this, "SignUpSuccess", (sender) =>
             {
                 var member = App.SelectedView == "Trainee" ? App.LoginResponse : App.TrainerData;
@@ -53,6 +58,7 @@ namespace DFS.Views
 
             MessagingCenter.Unsubscribe<ViewModels.SignupViewModel>(this, "SignUpSuccess");
             MessagingCenter.Unsubscribe<ViewModels.SignupViewModel, String>(this, "SignUpFailure");
+            MessagingCenter.Unsubscribe<ViewModels.SignupViewModel>(this, "SignUpCalenderPage");
         }
 
         async void Handle_PictureTapped(object sender, System.EventArgs e)

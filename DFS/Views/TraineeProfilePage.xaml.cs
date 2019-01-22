@@ -34,6 +34,12 @@ namespace DFS.Views
         {
             base.OnAppearing();
 
+            MessagingCenter.Subscribe<TraineeProfileViewModel>(this, "CalenderPage", async (sender) =>
+            {
+
+                await this.Navigation.PushAsync(new TraineeCalanderPage());
+            });
+
             MessagingCenter.Subscribe<Object, string>(this, "InstagramMedia", async (arg1, arg2) =>
             {
                 try
@@ -67,6 +73,7 @@ namespace DFS.Views
         {
             base.OnDisappearing();
             MessagingCenter.Unsubscribe<InstagramLoginPage, string>(this, "InstagramMedia");
+            MessagingCenter.Unsubscribe<TraineeProfileViewModel>(this, "CalenderPage");
         }
 
         async void Handle_Tapped_1(object sender, System.EventArgs e)

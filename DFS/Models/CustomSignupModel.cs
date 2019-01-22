@@ -26,5 +26,13 @@ namespace DFS.Models
         public String SessionTeam { get; set; }
 
 
+        public String Day { get; set; }
+        public String Month { get; set; }
+        public String Year { get; set; }
+        public String ScheduleType { get; set; }
+        public String StartTime { get; set; }
+        public String EndTime { get; set; }
+        public String WeekDay { get; set; }
+
     }
 }

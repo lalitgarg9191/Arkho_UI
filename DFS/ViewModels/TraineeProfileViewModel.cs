@@ -129,9 +129,10 @@ namespace DFS.ViewModels
             }
         }
 
-        async void CalanderHandler(object obj)
+        void CalanderHandler(object obj)
         {
-            await Application.Current.MainPage.Navigation.PushAsync(new TraineeCalanderPage());
+            //await Application.Current.MainPage.Navigation.PushAsync(new TraineeCalanderPage());
+            MessagingCenter.Send<TraineeProfileViewModel>(this, "CalenderPage");
         }
 
 

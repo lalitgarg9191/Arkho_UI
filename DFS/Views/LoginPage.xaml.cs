@@ -50,7 +50,7 @@ namespace DFS
                             ViewModels.SignupViewModel signupViewModel = new ViewModels.SignupViewModel();
                             signupViewModel.EmailAddress = App.InstagramUser.data.username;
                             signupViewModel.Password = "fb@trainme";
-                            signupViewModel.Name = App.InstagramUser.data.full_name;
+                            //signupViewModel.Name = App.InstagramUser.data.full_name;
                             signupViewModel.UserIcon = App.InstagramUser.data.profile_picture;
                             signupViewModel.SelectedView = App.SelectedView;
 
@@ -131,7 +131,7 @@ namespace DFS
             MessagingCenter.Unsubscribe<InstagramLoginPage, string>(this, "InstagramLogin");
         }
 
-        async void Handle_Facebook(object sender, System.EventArgs e)
+        void Handle_Facebook(object sender, System.EventArgs e)
         {
             var iFacebookManger = DependencyService.Get<IFacebookManager>();
             iFacebookManger.Login(HandleAction);
@@ -160,7 +160,7 @@ namespace DFS
                     ViewModels.SignupViewModel signupViewModel = new ViewModels.SignupViewModel();
                     signupViewModel.EmailAddress = App.FacebookUser.Email;
                     signupViewModel.Password = "fb@trainme";
-                    signupViewModel.Name = arg1.FirstName + " " + arg1.LastName;
+                    //signupViewModel.Name = arg1.FirstName + " " + arg1.LastName;
                     signupViewModel.UserIcon = arg1.Picture;
                     signupViewModel.SelectedView = App.SelectedView;
 
