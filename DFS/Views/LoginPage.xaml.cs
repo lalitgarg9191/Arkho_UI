@@ -58,7 +58,7 @@ namespace DFS
 
                             if (data.Profile == null || data.Profile == "")
                             {
-                                App.Current.MainPage = new Views.UserInformationPage(signupViewModel);
+                                await this.Navigation.PushAsync(new Views.UserInformationPage(signupViewModel));
                             }
                             else
                             {
@@ -96,7 +96,7 @@ namespace DFS
                         signupViewModel.SelectedView = App.SelectedView;
 
 
-                        App.Current.MainPage =new NavigationPage( new Views.UserInformationPage(signupViewModel));
+                        await this.Navigation.PushAsync(new Views.UserInformationPage(signupViewModel));
                     }
                     else
                     {
@@ -168,7 +168,7 @@ namespace DFS
 
                     if (data.Profile == null || data.Profile == "")
                     {
-                        App.Current.MainPage = new Views.UserInformationPage(signupViewModel);
+                        await this.Navigation.PushAsync(new Views.UserInformationPage(signupViewModel));
                     }
                     else
                     {

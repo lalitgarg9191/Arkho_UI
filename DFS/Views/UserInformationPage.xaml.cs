@@ -29,10 +29,9 @@ namespace DFS.Views
 
         }
 
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
 
+        private void RegisterEvent()
+        {
             MessagingCenter.Subscribe<ViewModels.SignupViewModel>(this, "SignUpCalenderPage", async (sender) =>
             {
                 await this.Navigation.PushAsync(new SignUpCalenderPage(signupViewModel));
@@ -41,7 +40,7 @@ namespace DFS.Views
             MessagingCenter.Subscribe<ViewModels.SignupViewModel>(this, "SignUpSuccess", (sender) =>
             {
                 var member = App.SelectedView == "Trainee" ? App.LoginResponse : App.TrainerData;
-                CredentialsService.SaveCredentials(App.FacebookUser.Email, "fb@trainme", member, App.FacebookUser,userType: App.SelectedView);
+                CredentialsService.SaveCredentials(App.FacebookUser.Email, "fb@trainme", member, App.FacebookUser, userType: App.SelectedView);
 
                 Application.Current.MainPage = new RootPage(signupViewModel.SelectedView);
             });
@@ -50,6 +49,14 @@ namespace DFS.Views
             {
                 await DisplayAlert("Alert", message, "Ok");
             });
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            RegisterEvent();
+
         }
 
         protected override void OnDisappearing()

@@ -367,6 +367,8 @@ namespace DFS.ViewModels
                     StaticListData[1][SelectedCalenderIndex].EndTime = value;
                     TimeHeader = "Please Select Starting Time";
 
+                    //InitializeCalender();
+
                     MessagingCenter.Send<SignupViewModel>(this, "MoveBack");
                 }
 
@@ -429,41 +431,7 @@ namespace DFS.ViewModels
 
         public SignupViewModel()
         {
-            ListViewData = new ObservableCollection<String>();
-
-            ListViewData.Add("9:00 AM");
-            ListViewData.Add("9:15 AM");
-            ListViewData.Add("9:30 AM");
-            ListViewData.Add("9:45 AM");
-            ListViewData.Add("10:00 AM");
-            ListViewData.Add("10:15 AM");
-            ListViewData.Add("10:30 AM");
-            ListViewData.Add("10:45 AM");
-            ListViewData.Add("11:00 AM");
-            ListViewData.Add("11:15 AM");
-            ListViewData.Add("11:30 AM");
-            ListViewData.Add("11:45 AM");
-            ListViewData.Add("12:00 AM");
-            ListViewData.Add("12:15 AM");
-            ListViewData.Add("12:30 AM");
-            ListViewData.Add("12:45 AM");
-            ListViewData.Add("1:00 PM");
-            ListViewData.Add("1:15 PM");
-            ListViewData.Add("1:30 PM");
-            ListViewData.Add("1:45 PM");
-            ListViewData.Add("2:00 PM");
-            ListViewData.Add("2:15 PM");
-            ListViewData.Add("2:30 PM");
-            ListViewData.Add("2:45 PM");
-            ListViewData.Add("3:00 PM");
-            ListViewData.Add("3:15 PM");
-            ListViewData.Add("3:30 PM");
-            ListViewData.Add("3:45 PM");
-            ListViewData.Add("4:00 PM");
-            ListViewData.Add("4:15 PM");
-            ListViewData.Add("4:30 PM");
-            ListViewData.Add("4:45 PM");
-            ListViewData.Add("5:00 PM");
+            InitializeCalender();
 
             GenderList = new ObservableCollection<String>();
             GenderList.Add("Male");
@@ -916,6 +884,45 @@ namespace DFS.ViewModels
                 System.Diagnostics.Debug.WriteLine("Unable to get location: " + ex);
             }
 
+        }
+
+        private void InitializeCalender()
+        {
+            ListViewData = new ObservableCollection<String>();
+
+            ListViewData.Add("9:00 AM");
+            ListViewData.Add("9:15 AM");
+            ListViewData.Add("9:30 AM");
+            ListViewData.Add("9:45 AM");
+            ListViewData.Add("10:00 AM");
+            ListViewData.Add("10:15 AM");
+            ListViewData.Add("10:30 AM");
+            ListViewData.Add("10:45 AM");
+            ListViewData.Add("11:00 AM");
+            ListViewData.Add("11:15 AM");
+            ListViewData.Add("11:30 AM");
+            ListViewData.Add("11:45 AM");
+            ListViewData.Add("12:00 AM");
+            ListViewData.Add("12:15 AM");
+            ListViewData.Add("12:30 AM");
+            ListViewData.Add("12:45 AM");
+            ListViewData.Add("1:00 PM");
+            ListViewData.Add("1:15 PM");
+            ListViewData.Add("1:30 PM");
+            ListViewData.Add("1:45 PM");
+            ListViewData.Add("2:00 PM");
+            ListViewData.Add("2:15 PM");
+            ListViewData.Add("2:30 PM");
+            ListViewData.Add("2:45 PM");
+            ListViewData.Add("3:00 PM");
+            ListViewData.Add("3:15 PM");
+            ListViewData.Add("3:30 PM");
+            ListViewData.Add("3:45 PM");
+            ListViewData.Add("4:00 PM");
+            ListViewData.Add("4:15 PM");
+            ListViewData.Add("4:30 PM");
+            ListViewData.Add("4:45 PM");
+            ListViewData.Add("5:00 PM");
         }
 
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
