@@ -84,8 +84,8 @@ namespace DFS.ViewModels
                 if (currentDate.Date >= DateTime.Now.Date)
                 {
                     IsServiceInProgress = true;
-                    var email = App.SelectedView.Equals("Trainer") ? App.TrainerData.Email : App.LoginResponse.Email;
-                    var request = new GetTimeSlotRequest { emailID = App.TrainerData.Email, month = currentDate.Month.ToString(), year = currentDate.Year.ToString() };
+                    //var email = App.SelectedView.Equals("Trainer") ? App.TrainerData.Email : App.LoginResponse.Email;
+                    var request = new GetTimeSlotRequest { emailID = App.LoginResponse.Email, month = currentDate.Month.ToString(), year = currentDate.Year.ToString() };
                     var response = await App.TodoManager.GetTimeSlots(request);
                     if (response != null && response.TimeSlots.timeSlot.Any())
                     {

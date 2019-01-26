@@ -25,7 +25,7 @@ namespace DFS.Views
 
         async void Handle_Calender(object sender, System.EventArgs e)
         {
-            await this.Navigation.PushAsync(new CalenderPage());
+            await this.Navigation.PushAsync(new TraineeCalanderPage());
         }
 
         void Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
