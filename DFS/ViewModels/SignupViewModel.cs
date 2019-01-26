@@ -11,6 +11,7 @@ using Plugin.Geolocator;
 using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
 using DFS.Utils;
+using XamForms.Controls;
 
 namespace DFS.ViewModels
 {
@@ -358,18 +359,19 @@ namespace DFS.ViewModels
                 RaisePropertyChanged(nameof(RecentlySelectedItem));
                 if (TimeHeader == "Please Select Starting Time")
                 {
-                    StaticListData[1][SelectedCalenderIndex].StartTime = value;
+                    StaticListData[1][SelectedCalenderIndex].selectedTime[(StaticListData[1][SelectedCalenderIndex].selectedTime.Count) - 1].StartTime = value;
+                    //SelectedTime[SelectedTime.Count - 1].StartTime = value;
                     TimeHeader = "Please Select End Time";
                 }
                 else
                 {
                     TimeSelectionVisible = false;
-                    StaticListData[1][SelectedCalenderIndex].EndTime = value;
                     TimeHeader = "Please Select Starting Time";
-
+                    //SelectedTime[SelectedTime.Count - 1].EndTime = value;
+                    StaticListData[1][SelectedCalenderIndex].selectedTime[(StaticListData[1][SelectedCalenderIndex].selectedTime.Count) - 1].EndTime = value;
                     //InitializeCalender();
 
-                    MessagingCenter.Send<SignupViewModel>(this, "MoveBack");
+
                 }
 
 
@@ -392,10 +394,18 @@ namespace DFS.ViewModels
             }
         }
 
+        private ObservableCollection<XamForms.Controls.SpecialDate> attendances;
+        public ObservableCollection<XamForms.Controls.SpecialDate> Attendances
+        {
+            get { return attendances; }
+            set { attendances = value; RaisePropertyChanged(nameof(Attendances)); }
+        }
+
         public ICommand SaveCommand { get; set; }
         public ICommand PictureCommand { get; set; }
         public ICommand AddCommand { get; set; }
         public ICommand CalendarCommand { get; set; }
+        public ICommand HideCalenderCommand { get; private set; }
 
         void SelectImage()
         {
@@ -411,14 +421,16 @@ namespace DFS.ViewModels
 
                     DateTime dateTime = (DateTime)obj;
 
+                    Attendances.Add(new SpecialDate(dateTime) { BackgroundColor = Color.Red, Selectable = true });
 
-                    StaticListData[1][SelectedCalenderIndex].Day = dateTime.Day + "";
-                    StaticListData[1][SelectedCalenderIndex].Month = dateTime.Month + "";
-                    StaticListData[1][SelectedCalenderIndex].Year = dateTime.Year + "";
-                    StaticListData[1][SelectedCalenderIndex].WeekDay = dateTime.DayOfWeek.ToString();
+                    Models.SelectedTime selectedTime = new Models.SelectedTime();
+                    selectedTime.Day = dateTime.Day + "";
+                    selectedTime.Month = dateTime.Month + "";
+                    selectedTime.Year = dateTime.Year + "";
+                    selectedTime.WeekDay = dateTime.DayOfWeek.ToString();
+                    selectedTime.SelectedIndex = SelectedCalenderIndex;
 
-
-
+                    StaticListData[1][SelectedCalenderIndex].selectedTime.Add(selectedTime);
                     TimeSelectionVisible = true;
 
                 });
@@ -542,6 +554,10 @@ namespace DFS.ViewModels
             PictureCommand = new Command(() => SelectImage());
             AddCommand = new Command(AddRow);
             CalendarCommand = new Command(CalenderSelction);
+            HideCalenderCommand = new Command(() => OnDateSelection());
+
+            //SelectedTime = new ObservableCollection<Models.SelectedTime>();
+            Attendances = new ObservableCollection<SpecialDate>();
             IsServiceInProgress = false;
 
 
@@ -549,11 +565,25 @@ namespace DFS.ViewModels
 
         }
 
+        private void OnDateSelection()
+        {
+            System.Diagnostics.Debug.WriteLine(Attendances.ToString());
+
+            System.Diagnostics.Debug.WriteLine(ListViewData.ToString());
+
+            System.Diagnostics.Debug.WriteLine(StaticListData.ToString());
+
+            MessagingCenter.Send<SignupViewModel>(this, "MoveBack");
+        }
+
         private void CalenderSelction(object obj)
         {
             var item = obj as Models.SignupData;
 
             SelectedCalenderIndex = StaticListData[1].IndexOf(item);
+            Attendances = new ObservableCollection<SpecialDate>();
+            InitializeCalender();
+            StaticListData[1][SelectedCalenderIndex].selectedTime = new ObservableCollection<Models.SelectedTime>();
 
             MessagingCenter.Send<SignupViewModel>(this, "SignUpCalenderPage");
         }
@@ -666,7 +696,7 @@ namespace DFS.ViewModels
                         service.workLocaton = item.SessionLocation;
                         service.teamSize = item.SessionTeam;
 
-                        if(item.StartTime == null)
+                        if(item.selectedTime == null)
                         {
                             MessagingCenter.Send<SignupViewModel, String>(this, "SignUpFailure", "Please Select Time.");
                             IsServiceInProgress = false;
@@ -674,17 +704,21 @@ namespace DFS.ViewModels
                         }
 
                         List<Models.TraineeSignupModel.Schedule> schedules = new List<Models.TraineeSignupModel.Schedule>();
-                        Models.TraineeSignupModel.Schedule schedule = new Models.TraineeSignupModel.Schedule();
 
-                        schedule.day = item.Day;
-                        schedule.month = item.Month;
-                        schedule.year = item.Year;
-                        schedule.scheduleType = "Week";
-                        schedule.startTime = item.StartTime;
-                        schedule.endTime = item.EndTime;
-                        schedule.weekDay = item.WeekDay;
+                        foreach (var timeItem in item.selectedTime)
+                        {
+                            Models.TraineeSignupModel.Schedule schedule = new Models.TraineeSignupModel.Schedule();
 
-                        schedules.Add(schedule);
+                            schedule.day = timeItem.Day;
+                            schedule.month = timeItem.Month;
+                            schedule.year = timeItem.Year;
+                            schedule.scheduleType = "Week";
+                            schedule.startTime = timeItem.StartTime;
+                            schedule.endTime = timeItem.EndTime;
+                            schedule.weekDay = timeItem.WeekDay;
+
+                            schedules.Add(schedule);
+                        }
 
                         service.schedule = schedules;
 

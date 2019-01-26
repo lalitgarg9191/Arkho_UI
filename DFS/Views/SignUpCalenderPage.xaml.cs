@@ -14,7 +14,14 @@ namespace DFS.Views
 
             BindingContext = signupViewModel;
 
-            calendar.MinDate = DateTime.Now;
+            DateTime futuerDate = DateTime.Now;
+
+
+            calendar.MinDate = futuerDate;
+
+            futuerDate = futuerDate.AddDays(7);
+
+            calendar.MaxDate = futuerDate;
         }
 
         void Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)

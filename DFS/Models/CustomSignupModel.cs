@@ -25,7 +25,13 @@ namespace DFS.Models
         public String SessionLocation { get; set; }
         public String SessionTeam { get; set; }
 
+        public ObservableCollection<SelectedTime> selectedTime { get; set; }
 
+    }
+
+    public class SelectedTime
+    {
+        public int SelectedIndex { get; set; }
         public String Day { get; set; }
         public String Month { get; set; }
         public String Year { get; set; }
@@ -33,6 +39,6 @@ namespace DFS.Models
         public String StartTime { get; set; }
         public String EndTime { get; set; }
         public String WeekDay { get; set; }
-
     }
+
 }
