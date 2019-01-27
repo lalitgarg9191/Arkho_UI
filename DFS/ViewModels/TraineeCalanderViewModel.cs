@@ -28,6 +28,15 @@ namespace DFS.ViewModels
             set { attendances = value; RaisePropertyChanged(nameof(Attendances)); }
         }
 
+        private ObservableCollection<String> _scheduleList { get; set; }
+        public ObservableCollection<String> ScheduleList
+        {
+            get { return _scheduleList; }
+            set { _scheduleList = value; RaisePropertyChanged(nameof(ScheduleList)); }
+        }
+
+
+
         private bool _isServiceInProgress;
         public bool IsServiceInProgress
         {
@@ -42,9 +51,23 @@ namespace DFS.ViewModels
             }
         }
 
+        private bool _isInfoVisible;
+        public bool IsInfoVisible
+        {
+            get
+            {
+                return _isInfoVisible;
+            }
+            set
+            {
+                _isInfoVisible = value;
+                RaisePropertyChanged(nameof(IsInfoVisible));
+            }
+        }
+
         public TraineeCalanderViewModel()
         {
-
+            ScheduleList = new ObservableCollection<string>();
         }
 
         DateTime currentDate = DateTime.Now;
@@ -65,6 +88,27 @@ namespace DFS.ViewModels
             }
         }
 
+        public ICommand DateChosen
+        {
+            get
+            {
+                return new Command((obj) => {
+                    IsInfoVisible = true;
+                });
+            }
+        }
+
+        public ICommand CalenderSubmitCommand
+        {
+            get
+            {
+                return new Command((obj) => {
+                    IsInfoVisible = false;
+                });
+            }
+        }
+
+
         void HandleAction(object obj)
         {
             currentDate = currentDate.AddMonths(-1);
@@ -83,7 +127,10 @@ namespace DFS.ViewModels
             {
                 IsServiceInProgress = true;
                 var email = App.SelectedView.Equals("Trainee") ? (App.TrainerData == null ? App.LoginResponse.Email : App.TrainerData.Email) : App.LoginResponse.Email;
-                var request = new GetTimeSlotRequest { emailID = App.LoginResponse.Email, month = currentDate.Month.ToString(), year = currentDate.Year.ToString() };
+
+                String currentMonth = currentDate.Month > 9 ? currentDate.Month.ToString() : "0" + (currentDate.Month.ToString());
+
+                var request = new GetTimeSlotRequest { emailID = App.LoginResponse.Email, month = currentMonth, year = currentDate.Year.ToString() };
                 var response = await App.TodoManager.GetTimeSlots(request);
                 if (response != null && response.TimeSlots.timeSlot.Any())
                 {
@@ -92,6 +139,7 @@ namespace DFS.ViewModels
                     {
                         var date = new DateTime(Convert.ToInt32(item.year), Convert.ToInt32(item.month), Convert.ToInt32(item.day));
                         bookedDates.Add(new SpecialDate(date) { BackgroundColor = Color.Red, Selectable = true });
+
                     }
                     Attendances = new ObservableCollection<SpecialDate>(bookedDates);
                 }
