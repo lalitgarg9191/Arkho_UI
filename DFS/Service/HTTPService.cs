@@ -395,6 +395,7 @@ namespace DFS
                 }
                 catch (Exception ex)
                 {
+                    System.Diagnostics.Debug.WriteLine(ex.ToString());
                 }
             }
             return null;
@@ -423,6 +424,7 @@ namespace DFS
                 }
                 catch (Exception ex)
                 {
+                    System.Diagnostics.Debug.WriteLine(ex.ToString());
                 }
             }
             return null;
@@ -452,6 +454,7 @@ namespace DFS
                 }
                 catch (Exception ex)
                 {
+                    System.Diagnostics.Debug.WriteLine(ex.ToString());
                 }
             }
             return null;

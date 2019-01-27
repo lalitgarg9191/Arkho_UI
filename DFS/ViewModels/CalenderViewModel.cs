@@ -285,6 +285,7 @@ namespace DFS.ViewModels
             }
             catch (Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
             }
             IsServiceInProgress = false;
         }

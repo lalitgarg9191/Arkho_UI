@@ -20,29 +20,31 @@ namespace DFS.Views
             calendar.MinDate = DateTime.Now;
         }
 
-        protected async override void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
 
             try
             {
                 viewModel.IsServiceInProgress = true;
-                var email = App.SelectedView.Equals("Trainer") ? App.TrainerData.Email : App.LoginResponse.Email;
-                var request = new GetTimeSlotRequest { emailID = email, month = DateTime.Now.Month.ToString(), year = DateTime.Now.Year.ToString() };
-                var response = await App.TodoManager.GetTimeSlots(request);
-                if (response != null && response.TimeSlots.timeSlot.Any())
-                {
-                    var bookedDates = new List<SpecialDate>();
-                    foreach (var item in response.TimeSlots.timeSlot)
-                    {
-                        var date = new DateTime(Convert.ToInt32(item.year), Convert.ToInt32(item.month), Convert.ToInt32(item.day));
-                        bookedDates.Add(new SpecialDate(date) { BackgroundColor = Color.Red, Selectable = true });
-                    }
-                    viewModel.Attendances = new ObservableCollection<SpecialDate>(bookedDates);
-                }
+                //var email = App.SelectedView.Equals("Trainer") ? App.TrainerData.Email : App.LoginResponse.Email;
+                //var request = new GetTimeSlotRequest { emailID = email, month = DateTime.Now.Month.ToString(), year = DateTime.Now.Year.ToString() };
+                //var response = await App.TodoManager.GetTimeSlots(request);
+                //if (response != null && response.TimeSlots.timeSlot.Any())
+                //{
+                //    var bookedDates = new List<SpecialDate>();
+                //    foreach (var item in response.TimeSlots.timeSlot)
+                //    {
+                //        var date = new DateTime(Convert.ToInt32(item.year), Convert.ToInt32(item.month), Convert.ToInt32(item.day));
+                //        bookedDates.Add(new SpecialDate(date) { BackgroundColor = Color.Red, Selectable = true });
+                //    }
+                //    viewModel.Attendances = new ObservableCollection<SpecialDate>(bookedDates);
+                //}
+
+                viewModel.GetTimeSlots();
             }
-            catch(Exception ex) { 
-            
+            catch(Exception ex) {
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
             }
             viewModel.IsServiceInProgress = false;
         }

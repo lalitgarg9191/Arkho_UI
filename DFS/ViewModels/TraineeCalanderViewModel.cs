@@ -77,30 +77,29 @@ namespace DFS.ViewModels
             GetTimeSlots();
         }
 
-        private async void GetTimeSlots()
+        public async void GetTimeSlots()
         {
             try
             {
-                if (currentDate.Date >= DateTime.Now.Date)
+                IsServiceInProgress = true;
+                var email = App.SelectedView.Equals("Trainee") ? (App.TrainerData == null ? App.LoginResponse.Email : App.TrainerData.Email) : App.LoginResponse.Email;
+                var request = new GetTimeSlotRequest { emailID = App.LoginResponse.Email, month = currentDate.Month.ToString(), year = currentDate.Year.ToString() };
+                var response = await App.TodoManager.GetTimeSlots(request);
+                if (response != null && response.TimeSlots.timeSlot.Any())
                 {
-                    IsServiceInProgress = true;
-                    //var email = App.SelectedView.Equals("Trainer") ? App.TrainerData.Email : App.LoginResponse.Email;
-                    var request = new GetTimeSlotRequest { emailID = App.LoginResponse.Email, month = currentDate.Month.ToString(), year = currentDate.Year.ToString() };
-                    var response = await App.TodoManager.GetTimeSlots(request);
-                    if (response != null && response.TimeSlots.timeSlot.Any())
+                    var bookedDates = new List<SpecialDate>();
+                    foreach (var item in response.TimeSlots.timeSlot)
                     {
-                        var bookedDates = new List<SpecialDate>();
-                        foreach (var item in response.TimeSlots.timeSlot)
-                        {
-                            var date = new DateTime(Convert.ToInt32(item.year), Convert.ToInt32(item.month), Convert.ToInt32(item.day));
-                            bookedDates.Add(new SpecialDate(date) { BackgroundColor = Color.Red, Selectable = true });
-                        }
-                        Attendances = new ObservableCollection<SpecialDate>(bookedDates);
+                        var date = new DateTime(Convert.ToInt32(item.year), Convert.ToInt32(item.month), Convert.ToInt32(item.day));
+                        bookedDates.Add(new SpecialDate(date) { BackgroundColor = Color.Red, Selectable = true });
                     }
+                    Attendances = new ObservableCollection<SpecialDate>(bookedDates);
                 }
+
             }
             catch (Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
             }
             IsServiceInProgress = false;
         }

@@ -75,6 +75,7 @@ namespace DFS
                 }
                 catch(Exception ex)
                 {
+                    System.Diagnostics.Debug.WriteLine(ex.ToString());
                     await DisplayAlert("Alert", "something went wrong", "Ok");
                 }
                 userProfileViewModel.IsServiceInProgress = false;

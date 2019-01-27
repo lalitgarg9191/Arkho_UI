@@ -81,6 +81,7 @@ namespace DFS
                 //FacebookProfile = new Models.FacebookProfile();
             }
             catch(Exception ex) {
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
                 MainPage = new HanselmanNavigationPage(new Views.SelectionPage());
             }
         }

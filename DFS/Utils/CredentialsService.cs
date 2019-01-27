@@ -74,6 +74,7 @@ namespace DFS.Utils
             }
             catch (Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
                 return false;                   
             }
         }
@@ -90,6 +91,7 @@ namespace DFS.Utils
             }
             catch (Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
                 return null;
             }
             return null;
