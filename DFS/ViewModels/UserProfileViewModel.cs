@@ -84,6 +84,8 @@ namespace DFS
         public UserProfileViewModel()
         {
 
+            IsRememberMe = true;
+
             LoginCommand = new Command(() => OnLogin());
             SignUpCommand = new Command(() => OnSignUp());
 

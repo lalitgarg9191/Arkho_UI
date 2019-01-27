@@ -9,6 +9,7 @@ namespace DFS
     {
         public BaseViewModel()
         {
+            ImageSource = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
         }
 
         private string title = string.Empty;
@@ -85,7 +86,7 @@ namespace DFS
             set { SetProperty(ref canLoadMore, value); }
         }
 
-        private string _imageSource = App.FacebookUser != null ? App.FacebookUser.Picture : App.InstagramUser != null ? App.InstagramUser.data.profile_picture : "profile1.jpeg";
+        private string _imageSource { get; set; } //= App.FacebookUser != null ? App.FacebookUser.Picture : App.InstagramUser != null ? App.InstagramUser.data.profile_picture : "profile1.jpeg";
         public string ImageSource
         {
             get
@@ -95,6 +96,7 @@ namespace DFS
             set
             {
                 _imageSource = value;
+                OnPropertyChanged(nameof(ImageSource));
             }
         }
 

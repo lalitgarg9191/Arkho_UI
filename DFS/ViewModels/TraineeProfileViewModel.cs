@@ -46,7 +46,7 @@ namespace DFS.ViewModels
 
         private String _traineeGoals;
 
-        private string _imageSource = App.FacebookUser != null ? App.FacebookUser.Picture : App.InstagramUser != null ? App.InstagramUser.data.profile_picture : "profile1.jpeg";
+        private string _imageSource { get; set; } // = App.FacebookUser != null ? App.FacebookUser.Picture : App.InstagramUser != null ? App.InstagramUser.data.profile_picture : "profile1.jpeg";
         public string ImageSource
         {
             get
@@ -56,6 +56,7 @@ namespace DFS.ViewModels
             set
             {
                 _imageSource = value;
+                RaisePropertyChanged(nameof(ImageSource));
             }
         }
 
@@ -111,6 +112,7 @@ namespace DFS.ViewModels
             TraineeName = App.LoginResponse.basicInfo.Name;
             TraineeGoals = App.LoginResponse.basicInfo.SportsInterest;
             TraineeInterest = App.LoginResponse.basicInfo.SportsInterest;
+            ImageSource = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
 
             if(App.InstagramMedia!=null && App.InstagramMedia.data != null) {
                 GalleryVisible = true;

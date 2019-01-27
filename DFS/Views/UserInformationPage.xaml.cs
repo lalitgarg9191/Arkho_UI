@@ -40,7 +40,7 @@ namespace DFS.Views
             MessagingCenter.Subscribe<ViewModels.SignupViewModel>(this, "SignUpSuccess", (sender) =>
             {
                 var member = App.SelectedView == "Trainee" ? App.LoginResponse : App.TrainerData;
-                CredentialsService.SaveCredentials(App.FacebookUser.Email, "fb@trainme", member, App.FacebookUser, userType: App.SelectedView);
+                CredentialsService.SaveCredentials(signupViewModel.EmailAddress, signupViewModel.Password, member, App.FacebookUser, userType: App.SelectedView);
 
                 Application.Current.MainPage = new RootPage(signupViewModel.SelectedView);
             });

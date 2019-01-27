@@ -749,8 +749,8 @@ namespace DFS.ViewModels
 
             if (message == "Success")
             {
-                Application.Current.MainPage = new RootPage(App.SelectedView);
-                //MessagingCenter.Send<SignupViewModel>(this, "SignUpSuccess");
+                //Application.Current.MainPage = new RootPage(App.SelectedView);
+                MessagingCenter.Send<SignupViewModel>(this, "SignUpSuccess");
             }
             else
             {
@@ -887,7 +887,7 @@ namespace DFS.ViewModels
 
                 EmailAddress = App.LoginResponse.Email;
                 Password = App.LoginResponse.Password;
-                User64String = "NA";
+                User64String = App.LoginResponse.ImagePayload;
                 SelectedView = App.SelectedView;
 
             }

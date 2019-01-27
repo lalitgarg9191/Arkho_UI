@@ -54,6 +54,11 @@ namespace DFS
                     var account = CredentialsService.GetAccount();
                     var data = JsonConvert.DeserializeObject<Member>(account.Properties["Member"]);
                     App.LoginResponse = data;
+                    if(App.LoginResponse.Email.Equals(null))
+                    {
+                        CredentialsService.DeleteCredentials();
+                    }
+
                     App.SelectedView = account.Properties["UserType"];
                     if (account.Properties.ContainsKey("FacebookUser"))
                     {
