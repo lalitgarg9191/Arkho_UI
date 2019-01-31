@@ -12,36 +12,36 @@ namespace DFS.Views
     {
         ViewModels.CalenderViewModel calenderViewModel;
         DateTime selectedDate;
-        public CalenderPage()
+        public CalenderPage(List<LoginResponse.Schedule> schedules)
         {
             InitializeComponent();
 
-            BindingContext = calenderViewModel = new ViewModels.CalenderViewModel();
+            BindingContext = calenderViewModel = new ViewModels.CalenderViewModel(schedules);
 
             calendar.MinDate = DateTime.Now; 
 
-            MessagingCenter.Subscribe<ViewModels.CalenderViewModel, DateTime>(this, "DateSelected", (sender, _selectedDate) =>
-            {
-                //await this.Navigation.PushAsync(new TimeSelectionPopup());
-                TimeView.IsVisible = true;
-                OpaqueView.IsVisible = true;
+            //MessagingCenter.Subscribe<ViewModels.CalenderViewModel, DateTime>(this, "DateSelected", (sender, _selectedDate) =>
+            //{
+            //    //await this.Navigation.PushAsync(new TimeSelectionPopup());
+            //    TimeView.IsVisible = true;
+            //    OpaqueView.IsVisible = true;
 
-                selectedDate = _selectedDate;
+            //    selectedDate = _selectedDate;
 
-            });
-
-        }
-
-        void Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
-        {
-            // don't do anything if we just de-selected the row.
-            if (e.SelectedItem == null) return;
-
-            // Deselect the item.
-            if (sender is ListView lv) lv.SelectedItem = null;
+            //});
 
         }
 
+        //void Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
+        //{
+        //    // don't do anything if we just de-selected the row.
+        //    if (e.SelectedItem == null) return;
+
+        //    // Deselect the item.
+        //    if (sender is ListView lv) lv.SelectedItem = null;
+
+        //}
+        /*
         async void Handle_Calender(object sender, System.EventArgs e)
         {
             if (calenderViewModel.StartingIndex == calenderViewModel.EndIndex)
@@ -97,32 +97,32 @@ namespace DFS.Views
                     calenderViewModel.IsServiceInProgress = false;
                 }
             }
-        }
+        }*/
 
-        void Hide_Calender(object sender, System.EventArgs e)
-        {
-            TimeView.IsVisible = false;
-            OpaqueView.IsVisible = false;
-        }
+        //void Hide_Calender(object sender, System.EventArgs e)
+        //{
+        //    TimeView.IsVisible = false;
+        //    OpaqueView.IsVisible = false;
+        //}
 
-        protected override async void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
-            calenderViewModel.IsServiceInProgress = true;
-            var email = App.SelectedView.Equals("Trainer") ? App.TrainerData.Email : App.LoginResponse.Email;
-            var request = new GetTimeSlotRequest { emailID = email, month = DateTime.Now.Month.ToString(), year = DateTime.Now.Year.ToString() };
-            var response = await App.TodoManager.GetTimeSlots(request);
-            if (response != null && response.TimeSlots.timeSlot.Any())
-            {
-                var bookedDates = new List<SpecialDate>();
-                foreach (var item in response.TimeSlots.timeSlot)
-                {
-                    var date = new DateTime(Convert.ToInt32(item.year), Convert.ToInt32(item.month), Convert.ToInt32(item.day));
-                    bookedDates.Add(new SpecialDate(date) { BackgroundColor = Color.Red, Selectable = true });
-                }
-                calenderViewModel.Attendances = new ObservableCollection<SpecialDate>(bookedDates);
-            }
-            calenderViewModel.IsServiceInProgress = false;
+            //calenderViewModel.IsServiceInProgress = true;
+            //var email = App.SelectedView.Equals("Trainer") ? App.TrainerData.Email : App.LoginResponse.Email;
+            //var request = new GetTimeSlotRequest { emailID = email, month = DateTime.Now.Month.ToString(), year = DateTime.Now.Year.ToString() };
+            //var response = await App.TodoManager.GetTimeSlots(request);
+            //if (response != null && response.TimeSlots.timeSlot.Any())
+            //{
+            //    var bookedDates = new List<SpecialDate>();
+            //    foreach (var item in response.TimeSlots.timeSlot)
+            //    {
+            //        var date = new DateTime(Convert.ToInt32(item.year), Convert.ToInt32(item.month), Convert.ToInt32(item.day));
+            //        bookedDates.Add(new SpecialDate(date) { BackgroundColor = Color.Red, Selectable = true });
+            //    }
+            //    calenderViewModel.Attendances = new ObservableCollection<SpecialDate>(bookedDates);
+            //}
+            //calenderViewModel.IsServiceInProgress = false;
         }
     }
 }

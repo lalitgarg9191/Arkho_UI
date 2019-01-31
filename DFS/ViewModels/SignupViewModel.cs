@@ -567,12 +567,6 @@ namespace DFS.ViewModels
 
         private void OnDateSelection()
         {
-            System.Diagnostics.Debug.WriteLine(Attendances.ToString());
-
-            System.Diagnostics.Debug.WriteLine(ListViewData.ToString());
-
-            System.Diagnostics.Debug.WriteLine(StaticListData.ToString());
-
             MessagingCenter.Send<SignupViewModel>(this, "MoveBack");
         }
 
@@ -583,7 +577,20 @@ namespace DFS.ViewModels
             SelectedCalenderIndex = StaticListData[1].IndexOf(item);
             Attendances = new ObservableCollection<SpecialDate>();
             InitializeCalender();
-            StaticListData[1][SelectedCalenderIndex].selectedTime = new ObservableCollection<Models.SelectedTime>();
+
+            if (StaticListData[1][SelectedCalenderIndex].selectedTime.Count > 0)
+            {
+                foreach(var timeItem in StaticListData[1][SelectedCalenderIndex].selectedTime)
+                {
+                    DateTime dateTime = new DateTime(Convert.ToInt16(timeItem.Year), Convert.ToInt16(timeItem.Month), Convert.ToInt16(timeItem.Day));
+
+                    Attendances.Add(new SpecialDate(dateTime) { BackgroundColor = Color.Red, Selectable = true });
+                }
+            }
+            else
+            {
+                StaticListData[1][SelectedCalenderIndex].selectedTime = new ObservableCollection<Models.SelectedTime>();
+            }
 
             MessagingCenter.Send<SignupViewModel>(this, "SignUpCalenderPage");
         }
@@ -874,7 +881,24 @@ namespace DFS.ViewModels
                     // Index Number 1 (Service)
                     foreach(var serviceItem in App.LoginResponse.professionalInfo.services)
                     {
-                        serviceSignUpModel.Add(new Models.SignupData { MainSelectedData = serviceItem.ServiceName, SessionDesc = serviceItem.ChargingPeriod, SessionAmount = serviceItem.Charges, InputType = "Service" });
+                        ObservableCollection<Models.SelectedTime> selectedTimes = new ObservableCollection<Models.SelectedTime>();
+                        foreach(var scheduleItem in serviceItem.schedules)
+                        {
+                            Models.SelectedTime selectedTime = new Models.SelectedTime();
+
+                            selectedTime.Day = scheduleItem.Day;
+                            selectedTime.Month = scheduleItem.Month;
+                            selectedTime.Year = scheduleItem.Year;
+                            selectedTime.EndTime = scheduleItem.EndTime;
+                            selectedTime.ScheduleType = scheduleItem.ScheduleType;
+                            selectedTime.StartTime = scheduleItem.StartTime;
+                            selectedTime.WeekDay = scheduleItem.WeekDay;
+                            //selectedTime.SelectedIndex = ;
+                            selectedTimes.Add(selectedTime);
+
+                        }
+
+                        serviceSignUpModel.Add(new Models.SignupData { selectedTime=selectedTimes, MainSelectedData = serviceItem.ServiceName, SessionDesc = serviceItem.ChargingPeriod, SessionAmount = serviceItem.Charges, InputType = "Service" });
                     }
 
 

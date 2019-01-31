@@ -20,7 +20,7 @@ namespace DFS.Views
         void Handle_Tapped(object sender, System.EventArgs e)
         {
             //this.Navigation.PushAsync(new UserInformationPage(new ViewModels.SignupViewModel()));
-            App.Current.MainPage = new UserInformationPage(new ViewModels.SignupViewModel());
+            App.Current.MainPage = new HanselmanNavigationPage(new UserInformationPage(new ViewModels.SignupViewModel()));
         }
 
         async void Handle_Calender(object sender, System.EventArgs e)
@@ -41,9 +41,10 @@ namespace DFS.Views
                 ServiceLabel.IsVisible = true;
                 lv.SelectedItem = null;
 
-                this.Navigation.PushAsync(new CalenderPage());
+                this.Navigation.PushAsync(new CalenderPage(service.schedules));
 
             }
+
         }
 
         void Handle_PanUpdated(object sender, Xamarin.Forms.PanUpdatedEventArgs e)

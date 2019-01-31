@@ -170,20 +170,29 @@ namespace DFS.ViewModels
 
         }
 
-        public CalenderViewModel()
+        public CalenderViewModel(List<LoginResponse.Schedule> schedules)
         {
-            RefreshData();
-
-            _isServiceInProgress = false;
-
-            if(App.SelectedView == "Trainer")
+            var bookedDates = new List<SpecialDate>();
+            foreach (var item in schedules)
             {
-                IsSubmitVisible = false;
+                var date = new DateTime(Convert.ToInt32(item.Year), Convert.ToInt32(item.Month), Convert.ToInt32(item.Day));
+                bookedDates.Add(new SpecialDate(date) { BackgroundColor = Color.Red, Selectable = true });
+
+                Attendances = new ObservableCollection<SpecialDate>(bookedDates);
             }
-            else
-            {
-                IsSubmitVisible = true;
-            }
+
+            //RefreshData();
+
+            //_isServiceInProgress = false;
+
+            //if(App.SelectedView == "Trainer")
+            //{
+            //    IsSubmitVisible = false;
+            //}
+            //else
+            //{
+            //    IsSubmitVisible = true;
+            //}
 
             /*var dt = DateTime.Now;
             var list = new List<SpecialDate> { new SpecialDate(dt) { BackgroundColor = Color.Red, Selectable = true }, new SpecialDate(dt.AddDays(1)) { BackgroundColor = Color.Red, Selectable = true } };
@@ -215,13 +224,16 @@ namespace DFS.ViewModels
                 return new Command(async(obj) => {
                     System.Diagnostics.Debug.WriteLine(obj as DateTime?);
 
-                    DateTime dateTime = (DateTime)obj;
+                    if (App.SelectedView == "Trainee")
+                    {
+                        DateTime dateTime = (DateTime)obj;
 
-                    var isExist =Attendances!=null? Attendances.Where(x => x.Date.Date == dateTime.Date).Any():false;
-                    if (isExist)
-                        await Application.Current.MainPage.DisplayAlert("Alert", "Date already selected", "OK");
-                    else
-                        MessagingCenter.Send<CalenderViewModel, DateTime>(this, "DateSelected", dateTime);
+                        var isExist = Attendances != null ? Attendances.Where(x => x.Date.Date == dateTime.Date).Any() : false;
+                        if (isExist)
+                            await Application.Current.MainPage.DisplayAlert("Alert", "show detail", "OK");
+                        else
+                            await Application.Current.MainPage.DisplayAlert("Alert", "show nothing", "OK");
+                    }
                 });
             }
         }
@@ -252,14 +264,14 @@ namespace DFS.ViewModels
 
         void HandleAction(object obj)
         {
-            currentDate=currentDate.AddMonths(-1);
-            GetTimeSlots();
+            //currentDate=currentDate.AddMonths(-1);
+            //GetTimeSlots();
         }
 
         private void HandleAction1(object obj)
         {
-            currentDate=currentDate.AddMonths(1);
-            GetTimeSlots();
+            //currentDate=currentDate.AddMonths(1);
+            //GetTimeSlots();
         }
 
         private async void GetTimeSlots() {

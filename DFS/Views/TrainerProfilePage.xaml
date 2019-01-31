@@ -163,7 +163,7 @@
                                 </StackLayout>
                             </StackLayout>
                             <!-- Reviews view  -->
-                            <ListView IsVisible="{Binding IsReviewsVisible}" VerticalOptions="StartAndExpand" HasUnevenRows="true" ItemSelected="Handle_ItemSelected" ItemsSource="{Binding ServiceListData}" SeparatorColor="Gray" Margin="20">
+                            <ListView IsVisible="{Binding IsReviewsVisible}" VerticalOptions="StartAndExpand" HasUnevenRows="true" ItemsSource="{Binding ServiceListData}" SeparatorColor="Gray" Margin="20">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <ViewCell>
