@@ -131,6 +131,38 @@ namespace DFS.Models
             [JsonProperty("chargingPeriod")]
             public String ChargingPeriod { get; set; }
 
+            [JsonProperty("workLocaton")]
+            public String WorkLocaton { get; set; }
+
+            [JsonProperty("teamSize")]
+            public String TeamSize { get; set; }
+
+            [JsonProperty("schedule")]
+            public List<Schedule> schedules { get; set; }
+        }
+
+        public class Schedule
+        {
+            [JsonProperty("day")]
+            public String Day { get; set; }
+
+            [JsonProperty("month")]
+            public String Month { get; set; }
+
+            [JsonProperty("year")]
+            public String Year { get; set; }
+
+            [JsonProperty("startTime")]
+            public String StartTime { get; set; }
+
+            [JsonProperty("endTime")]
+            public String EndTime { get; set; }
+
+            [JsonProperty("weekDay")]
+            public String WeekDay { get; set; }
+
+            [JsonProperty("scheduleType")]
+            public String ScheduleType { get; set; }
         }
 
         public class SyncLoginResponse
