@@ -578,7 +578,7 @@ namespace DFS.ViewModels
             Attendances = new ObservableCollection<SpecialDate>();
             InitializeCalender();
 
-            if (StaticListData[1][SelectedCalenderIndex].selectedTime.Count > 0)
+            if (StaticListData[1][SelectedCalenderIndex].selectedTime != null && StaticListData[1][SelectedCalenderIndex].selectedTime.Count > 0)
             {
                 foreach(var timeItem in StaticListData[1][SelectedCalenderIndex].selectedTime)
                 {
@@ -898,7 +898,7 @@ namespace DFS.ViewModels
 
                         }
 
-                        serviceSignUpModel.Add(new Models.SignupData { selectedTime=selectedTimes, MainSelectedData = serviceItem.ServiceName, SessionDesc = serviceItem.ChargingPeriod, SessionAmount = serviceItem.Charges, InputType = "Service" });
+                        serviceSignUpModel.Add(new Models.SignupData { SessionLocation=serviceItem.WorkLocaton,SessionTeam=serviceItem.TeamSize, selectedTime=selectedTimes, MainSelectedData = serviceItem.ServiceName, SessionDesc = serviceItem.ChargingPeriod, SessionAmount = serviceItem.Charges, InputType = "Service" });
                     }
 
 
