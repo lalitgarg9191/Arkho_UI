@@ -225,7 +225,7 @@ namespace DFS.ViewModels
         public ICommand ProfileCommand { get; set; }
 
 
-        private string _imageSource = App.FacebookUser != null ? App.FacebookUser.Picture : App.InstagramUser != null ? App.InstagramUser.data.profile_picture : "profile1.jpeg";
+        private string _imageSource { get; set; }// = App.FacebookUser != null ? App.FacebookUser.Picture : App.InstagramUser != null ? App.InstagramUser.data.profile_picture : "profile1.jpeg";
         public string ImageSource
         {
             get
@@ -294,7 +294,7 @@ namespace DFS.ViewModels
                 TrainerAccolades = App.LoginResponse.professionalInfo.Accolades;
                 TrainerExperience = App.LoginResponse.professionalInfo.Experience;
                 TrainerSpeciality = App.LoginResponse.professionalInfo.Speciality;
-
+                ImageSource = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
                 ServiceListData = App.LoginResponse.professionalInfo.services;
 
                 TrainerCert = "";
