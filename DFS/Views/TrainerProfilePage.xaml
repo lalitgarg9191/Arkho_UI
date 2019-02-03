@@ -167,13 +167,17 @@
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <ViewCell>
-                                            <StackLayout Margin="0,5">
-                                                <Label FontSize="15" Text="Bethany" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" Margin="20,0,0,0" TextColor="Black" />
-                                                <Label FontSize="14" Text="Awesome, fantublous Awesome, fantublous Awesome, fantublous Awesome, fantublous Awesome, fantublous Awesome, fantublous Awesome, fantublous Awesome, fantublous Awesome, fantublous" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" Margin="20,0,0,0" TextColor="{StaticResource GreyTextColor}" />
+                                            <StackLayout Margin="0,5" HeightRequest="50" MinimumHeightRequest="50">
+                                                <Label Text="{Binding .}" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="{StaticResource GreyTextColor}" Font="15"/>
                                             </StackLayout>
                                         </ViewCell>
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
+                                <ListView.ItemsSource>
+                                      <x:Array Type="{x:Type x:String}">
+                                        <x:String>No Review Available.</x:String>
+                                      </x:Array>
+                                  </ListView.ItemsSource>
                             </ListView>
                         </StackLayout>
                     </StackLayout>

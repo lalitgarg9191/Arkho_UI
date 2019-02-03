@@ -19,7 +19,7 @@ namespace DFS.Views
 
             calendar.MinDate = futuerDate;
 
-            futuerDate = futuerDate.AddDays(7);
+            futuerDate = futuerDate.AddDays(14);
 
             calendar.MaxDate = futuerDate;
         }
