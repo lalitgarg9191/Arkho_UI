@@ -46,7 +46,8 @@
     <MtouchArch>ARM64</MtouchArch>
     <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
     <PlatformTarget>x86</PlatformTarget>
-    <CodesignProvision>VS: WildCard Development</CodesignProvision>
+    <CodesignProvision>iOS Team Provisioning Profile: com.silva.fitness</CodesignProvision>
+    <MtouchSdkVersion>11.4</MtouchSdkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>pdbonly</DebugType>
@@ -272,17 +273,6 @@
     <ImageAsset Include="Assets.xcassets\lightgray_cal.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\lightgray_cal.imageset\1x-07.png" />
     <ImageAsset Include="Assets.xcassets\lightgray_cal.imageset\Sin título-2-06.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Notification%403x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small-40.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iTunesArtwork%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-76%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-83.5%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-60%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small%403x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small-40%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iphonespot%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iphonespot%403x.png" />
     <ImageAsset Include="Assets.xcassets\edit_icon.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\edit_icon.imageset\__Pencil 1x.png" />
     <ImageAsset Include="Assets.xcassets\edit_icon.imageset\__Pencil 2x.png" />
@@ -296,25 +286,31 @@
     <ImageAsset Include="Assets.xcassets\green_cal.imageset\__Calendar Green 2x.png" />
     <ImageAsset Include="Assets.xcassets\green_cal.imageset\__Calendar Green 3x.png" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone X-01.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small-40.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small-40%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Notification%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iphone120*120.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iphone120*120 2.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small_extra%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-83.5%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-76%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iTunesArtwork%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-83.5_180_180%403x.png" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone X-02.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone 8 Plus-01.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone 8 Plus-02.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\12.9 iPad Pro-01.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\9.7 iPadPro-01.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\9.7 iPadPro-02.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\9.7 iPadPro-02 copy.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone 6s-01.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\9.7 iPadPro-01 copy.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\7.9 iPad mini 4-02.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone 6s-01 copy.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone 6s-02 copy.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone X-01.png" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone SE-01.png" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone SE-01 copy.png" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone SE-01 copy 5.png" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone SE-01 copy 4.png" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone SE-01 copy 3.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\7.9 iPad mini 4-01 copy.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone 8 Plus-02.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone 8 Plus-01.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone 6s-02 copy.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone 6s-01.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\9.7 iPadPro-02.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPad.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />

@@ -11,7 +11,7 @@ namespace DFS.Views
     public partial class CalenderPage : ContentPage
     {
         ViewModels.CalenderViewModel calenderViewModel;
-        DateTime selectedDate;
+        //DateTime selectedDate;
         public CalenderPage(List<LoginResponse.Schedule> schedules)
         {
             InitializeComponent();

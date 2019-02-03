@@ -70,7 +70,6 @@
       "minimum-system-version": "7.0",
       "orientation": "portrait",
       "extent": "full-screen",
-      "filename": "12.9 iPad Pro-01.png",
       "size": "1024x1366",
       "scale": "2x",
       "idiom": "ipad"
@@ -88,7 +87,7 @@
       "minimum-system-version": "7.0",
       "orientation": "portrait",
       "extent": "full-screen",
-      "filename": "iPhone SE-01.png",
+      "filename": "iPhone SE-01 copy 4.png",
       "size": "320x568",
       "subtype": "retina4",
       "scale": "2x",
@@ -98,7 +97,6 @@
       "minimum-system-version": "7.0",
       "orientation": "portrait",
       "extent": "full-screen",
-      "filename": "iPhone 6s-01 copy.png",
       "size": "768x1024",
       "scale": "1x",
       "idiom": "ipad"
@@ -107,7 +105,6 @@
       "minimum-system-version": "7.0",
       "orientation": "portrait",
       "extent": "full-screen",
-      "filename": "9.7 iPadPro-01.png",
       "size": "768x1024",
       "scale": "2x",
       "idiom": "ipad"
@@ -149,7 +146,7 @@
     {
       "orientation": "portrait",
       "extent": "full-screen",
-      "filename": "iPhone SE-01 copy 4.png",
+      "filename": "iPhone SE-01.png",
       "size": "320x568",
       "subtype": "retina4",
       "scale": "2x",
@@ -165,7 +162,7 @@
     {
       "orientation": "portrait",
       "extent": "to-status-bar",
-      "filename": "7.9 iPad mini 4-01 copy.png",
+      "filename": "iPad.png",
       "size": "768x1004",
       "scale": "2x",
       "idiom": "ipad"
@@ -180,7 +177,6 @@
     {
       "orientation": "portrait",
       "extent": "full-screen",
-      "filename": "9.7 iPadPro-01 copy.png",
       "size": "768x1024",
       "scale": "2x",
       "idiom": "ipad"
@@ -195,7 +191,6 @@
     {
       "orientation": "landscape",
       "extent": "to-status-bar",
-      "filename": "7.9 iPad mini 4-02.png",
       "size": "1024x748",
       "scale": "2x",
       "idiom": "ipad"
@@ -210,7 +205,6 @@
     {
       "orientation": "landscape",
       "extent": "full-screen",
-      "filename": "9.7 iPadPro-02 copy.png",
       "size": "1024x768",
       "scale": "2x",
       "idiom": "ipad"

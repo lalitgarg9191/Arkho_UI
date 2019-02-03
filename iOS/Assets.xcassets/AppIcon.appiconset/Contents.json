@@ -25,56 +25,56 @@
       "idiom": "iphone"
     },
     {
-      "filename": "iphonespot@2x.png",
-      "size": "40x40",
-      "scale": "2x",
-      "idiom": "iphone"
-    },
-    {
-      "filename": "iphonespot@3x.png",
-      "size": "40x40",
-      "scale": "3x",
-      "idiom": "iphone"
-    },
-    {
-      "filename": "Icon-60@2x.png",
-      "size": "60x60",
-      "scale": "2x",
-      "idiom": "iphone"
-    },
-    {
-      "filename": "Icon-60@3x.png",
-      "size": "60x60",
-      "scale": "3x",
-      "idiom": "iphone"
-    },
-    {
-      "size": "20x20",
-      "scale": "1x",
-      "idiom": "ipad"
-    },
-    {
-      "size": "20x20",
-      "scale": "2x",
-      "idiom": "ipad"
-    },
-    {
-      "size": "29x29",
-      "scale": "1x",
-      "idiom": "ipad"
-    },
-    {
-      "size": "29x29",
-      "scale": "2x",
-      "idiom": "ipad"
-    },
-    {
-      "size": "40x40",
-      "scale": "1x",
-      "idiom": "ipad"
-    },
-    {
       "filename": "Icon-Small-40@2x.png",
+      "size": "40x40",
+      "scale": "2x",
+      "idiom": "iphone"
+    },
+    {
+      "filename": "iphone120*120.png",
+      "size": "40x40",
+      "scale": "3x",
+      "idiom": "iphone"
+    },
+    {
+      "filename": "iphone120*120 2.png",
+      "size": "60x60",
+      "scale": "2x",
+      "idiom": "iphone"
+    },
+    {
+      "filename": "Icon-83.5_180_180@3x.png",
+      "size": "60x60",
+      "scale": "3x",
+      "idiom": "iphone"
+    },
+    {
+      "size": "20x20",
+      "scale": "1x",
+      "idiom": "ipad"
+    },
+    {
+      "size": "20x20",
+      "scale": "2x",
+      "idiom": "ipad"
+    },
+    {
+      "size": "29x29",
+      "scale": "1x",
+      "idiom": "ipad"
+    },
+    {
+      "filename": "Icon-Small_extra@2x.png",
+      "size": "29x29",
+      "scale": "2x",
+      "idiom": "ipad"
+    },
+    {
+      "size": "40x40",
+      "scale": "1x",
+      "idiom": "ipad"
+    },
+    {
       "size": "40x40",
       "scale": "2x",
       "idiom": "ipad"
