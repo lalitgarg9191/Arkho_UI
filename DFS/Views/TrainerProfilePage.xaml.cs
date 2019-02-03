@@ -41,7 +41,7 @@ namespace DFS.Views
                 ServiceLabel.IsVisible = true;
                 lv.SelectedItem = null;
 
-                this.Navigation.PushAsync(new CalenderPage(service.schedules));
+                this.Navigation.PushAsync(new CalenderPage(service));
 
             }
 
