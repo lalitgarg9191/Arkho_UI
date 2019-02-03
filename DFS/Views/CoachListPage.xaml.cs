@@ -25,11 +25,12 @@ namespace DFS.Views
             var trainee = e.SelectedItem as Models.TrainerListModel.Trainee;
 
             trainerListViewModel.IsServiceInProgress = true;
-            String message = await App.TodoManager.Login(new Models.LoginRequestModel("App",trainee.Email,"Trainer","qwertyqazxcvbnm"));
+            String message = await App.TodoManager.Login(new Models.LoginRequestModel(App.LoginResponse.SignUpMetod,trainee.Email,"Trainer", "qwertyqazxcvbnm"));
             if (message == "Success")
             {
                 await this.Navigation.PushAsync(new TrainerProfilePage());
             }
+
             trainerListViewModel.IsServiceInProgress = false;
         }
     }

@@ -172,13 +172,17 @@ namespace DFS.ViewModels
 
         public CalenderViewModel(List<LoginResponse.Schedule> schedules)
         {
-            var bookedDates = new List<SpecialDate>();
-            foreach (var item in schedules)
+            if (schedules != null)
             {
-                var date = new DateTime(Convert.ToInt32(item.Year), Convert.ToInt32(item.Month), Convert.ToInt32(item.Day));
-                bookedDates.Add(new SpecialDate(date) { BackgroundColor = Color.Red, Selectable = true });
 
-                Attendances = new ObservableCollection<SpecialDate>(bookedDates);
+                var bookedDates = new List<SpecialDate>();
+                foreach (var item in schedules)
+                {
+                    var date = new DateTime(Convert.ToInt32(item.Year), Convert.ToInt32(item.Month), Convert.ToInt32(item.Day));
+                    bookedDates.Add(new SpecialDate(date) { BackgroundColor = Color.Red, Selectable = true });
+
+                    Attendances = new ObservableCollection<SpecialDate>(bookedDates);
+                }
             }
 
             //RefreshData();

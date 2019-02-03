@@ -331,13 +331,9 @@ namespace DFS.ViewModels
                 TrainerExperience = App.TrainerData.professionalInfo.Experience;
                 TrainerSpeciality = App.TrainerData.professionalInfo.Speciality;
 
-                if (App.LoginResponse.professionalInfo.services.Any())
-                    ServiceListData = App.LoginResponse.professionalInfo.services;
-                else
-                {
-                    var services = new List<Services> { new Services { ServiceName = "ServiceSample", Charges = "10", ChargingPeriod = "1" } };
-                    ServiceListData = new ObservableCollection<Services>(services);
-                }
+                if (App.TrainerData.professionalInfo.services.Any())
+                    ServiceListData = App.TrainerData.professionalInfo.services;
+
 
 
                 TrainerCert = "";
