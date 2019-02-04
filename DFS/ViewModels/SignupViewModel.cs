@@ -627,7 +627,7 @@ namespace DFS.ViewModels
             signupModel.password = Password;
             signupModel.profile = SelectedView;
             signupModel.signUpMetod = (Password == "fb@trainme") ? "FB" : "App";
-            signupModel.imagePayload = User64String;
+            signupModel.imagePayload = (User64String != null) ? User64String : "NA";
 
 
             Models.TraineeSignupModel.BasicInfo basicInfo = new Models.TraineeSignupModel.BasicInfo();
@@ -641,7 +641,7 @@ namespace DFS.ViewModels
             basicInfo.state = "NA";
             basicInfo.valueAdded = "NA";
 
-            if (StaticListData[0][1].MainSelectedData == null || StaticListData[0][7].MainSelectedData == null || StaticListData[0][9].MainSelectedData == null || StaticListData[0][11].MainSelectedData == null)
+            if (StaticListData[0][1].MainSelectedData == null || StaticListData[0][7].MainSelectedData == null)
             {
                 MessagingCenter.Send<SignupViewModel, String>(this, "SignUpFailure", "Please enter all manadatory fields.");
                 IsServiceInProgress = false;
@@ -699,32 +699,36 @@ namespace DFS.ViewModels
                         Models.TraineeSignupModel.Services service = new Models.TraineeSignupModel.Services();
                         service.chargingPeriod = item.SessionDesc;
                         service.serviceName = item.MainSelectedData;
-                        service.charges = Convert.ToDouble(item.SessionAmount);
+                        service.charges = (item.SessionAmount == "" || item.SessionAmount == null) ? 0 : Convert.ToDouble(item.SessionAmount);
                         service.workLocaton = item.SessionLocation;
                         service.teamSize = item.SessionTeam;
 
-                        if(item.selectedTime == null)
-                        {
-                            MessagingCenter.Send<SignupViewModel, String>(this, "SignUpFailure", "Please Select Time.");
-                            IsServiceInProgress = false;
-                            return;
-                        }
+                        //if(item.selectedTime == null)
+                        //{
+                        //    MessagingCenter.Send<SignupViewModel, String>(this, "SignUpFailure", "Please Select Time.");
+                        //    IsServiceInProgress = false;
+                        //    return;
+                        //}
 
                         List<Models.TraineeSignupModel.Schedule> schedules = new List<Models.TraineeSignupModel.Schedule>();
 
-                        foreach (var timeItem in item.selectedTime)
+                        if (item.selectedTime != null)
                         {
-                            Models.TraineeSignupModel.Schedule schedule = new Models.TraineeSignupModel.Schedule();
 
-                            schedule.day = timeItem.Day;
-                            schedule.month = timeItem.Month;
-                            schedule.year = timeItem.Year;
-                            schedule.scheduleType = "Week";
-                            schedule.startTime = timeItem.StartTime;
-                            schedule.endTime = timeItem.EndTime;
-                            schedule.weekDay = timeItem.WeekDay;
+                            foreach (var timeItem in item.selectedTime)
+                            {
+                                Models.TraineeSignupModel.Schedule schedule = new Models.TraineeSignupModel.Schedule();
 
-                            schedules.Add(schedule);
+                                schedule.day = timeItem.Day;
+                                schedule.month = timeItem.Month;
+                                schedule.year = timeItem.Year;
+                                schedule.scheduleType = "Week";
+                                schedule.startTime = timeItem.StartTime;
+                                schedule.endTime = timeItem.EndTime;
+                                schedule.weekDay = timeItem.WeekDay;
+
+                                schedules.Add(schedule);
+                            }
                         }
 
                         service.schedule = schedules;
@@ -740,12 +744,12 @@ namespace DFS.ViewModels
 
                 professionalInfo.services = services;
 
-                if (professionalInfo.accolades == null || professionalInfo.experience == null || professionalInfo.speciality == null || professionalInfo.certifications.Count < 1 || professionalInfo.services.Count < 1)
-                {
-                    MessagingCenter.Send<SignupViewModel, String>(this, "SignUpFailure", "Please enter all manadatory fields.");
-                    IsServiceInProgress = false;
-                    return;
-                }
+                //if (professionalInfo.accolades == null || professionalInfo.experience == null || professionalInfo.speciality == null || professionalInfo.certifications.Count < 1 || professionalInfo.services.Count < 1)
+                //{
+                //    MessagingCenter.Send<SignupViewModel, String>(this, "SignUpFailure", "Please enter all manadatory fields.");
+                //    IsServiceInProgress = false;
+                //    return;
+                //}
             }
 
             // Creating the final object

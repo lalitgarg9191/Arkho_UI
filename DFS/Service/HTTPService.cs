@@ -258,6 +258,9 @@ namespace DFS
 
         public async Task<string> SignUpAsync(TraineeSignupModel signupModel)
         {
+
+            Debug.WriteLine(JsonConvert.SerializeObject(signupModel));
+
             if (CrossConnectivity.Current.IsConnected)
             {
                 var uri = new Uri("http://104.238.81.169:4080/FitnessApp/manageservices/v1/members/signup");
@@ -275,7 +278,7 @@ namespace DFS
                     if (response.IsSuccessStatusCode)
                     {
 
-                        LoginRequestModel loginRequestModel = new LoginRequestModel("App", signupModel.email, App.SelectedView, signupModel.password);
+                        LoginRequestModel loginRequestModel = new LoginRequestModel(App.SelectedView, signupModel.email, App.SelectedView, signupModel.password);
                         var message = await App.TodoManager.Login(loginRequestModel);
 
                         if (message == "Success")
