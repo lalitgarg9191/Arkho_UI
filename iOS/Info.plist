@@ -51,8 +51,6 @@
 	<string></string>
 	<key>Custom Property</key>
 	<string></string>
-	<key>CFBundleName</key>
-	<string>Fitness</string>
 	<key>XSLaunchImageAssets</key>
 	<string>Assets.xcassets/LaunchImage.launchimage</string>
 	<key>CFBundleURLTypes</key>
@@ -68,5 +66,7 @@
 	<string>346722962815727</string>
 	<key>FacebookDisplayName</key>
 	<string></string>
+	<key>CFBundleName</key>
+	<string>TRAIN ME</string>
 </dict>
 </plist>

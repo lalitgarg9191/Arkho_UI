@@ -65,6 +65,10 @@ namespace DFS
                         Pages.Add(id, new HanselmanNavigationPage(new Views.CoachListPage()));
                         break;
 
+                    case (int)MenuType.Contact:
+                        Pages.Add(id, new HanselmanNavigationPage(new Views.ScheduleList()));
+                        break;
+
 
                     case (int)MenuType.Logout:
                         App.LoginResponse = new Models.LoginResponse.Member();
