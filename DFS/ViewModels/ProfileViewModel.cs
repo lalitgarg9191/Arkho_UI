@@ -152,6 +152,20 @@ namespace DFS.ViewModels
             }
         }
 
+        private Boolean _isEditable;
+        public Boolean IsEditable
+        {
+            get
+            {
+                return _isEditable;
+            }
+            set
+            {
+                _isEditable = value;
+                RaisePropertyChanged(nameof(IsEditable));
+            }
+        }
+
 
         private Color _profileColor;
         public Color ProfileColor
@@ -288,7 +302,7 @@ namespace DFS.ViewModels
 
             if (App.SelectedView == "Trainer")
             {
-
+                IsEditable = true;
                 TrainerName = App.LoginResponse.basicInfo.Name;
                 TrainingPlace = App.LoginResponse.basicInfo.Address;
                 TrainerAccolades = App.LoginResponse.professionalInfo.Accolades;
@@ -325,6 +339,7 @@ namespace DFS.ViewModels
             }
             else
             {
+                IsEditable = false;
                 TrainerName = App.TrainerData.basicInfo.Name;
                 TrainingPlace = App.TrainerData.basicInfo.Address;
                 TrainerAccolades = App.TrainerData.professionalInfo.Accolades;
