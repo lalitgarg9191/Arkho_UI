@@ -66,23 +66,59 @@ namespace DFS.Views
 
                 if (result)
                 {
-                    var paymentRequest = new PaymentRequest
+
+                    SetTimeSlotsRequestModel setTimeSlots = new SetTimeSlotsRequestModel();
+                    setTimeSlots.emailID = App.TrainerData.Email;
+                    setTimeSlots.addByEmailID = App.LoginResponse.Email;
+
+                    List<Models.SetTimeSlotsRequestModel.TimeSlot> timeSlots = new List<Models.SetTimeSlotsRequestModel.TimeSlot>();
+
+                    foreach(var item in calenderViewModel.Attendances)
                     {
-                        BusinessTransaction = new BusinessTransaction
+
+                        if (item.BackgroundColor == Color.Green)
                         {
-                            PayeeId = App.TrainerData.Email,
-                            PayerId = App.LoginResponse.Email,
-                            Amount = (count * Convert.ToDouble(calenderViewModel.Charges)) + "",
-                            EventId = "1"
+
+                            Models.SetTimeSlotsRequestModel.TimeSlot timeSlot = new Models.SetTimeSlotsRequestModel.TimeSlot();
+                            timeSlot.day = item.Date.Day.ToString();
+                            timeSlot.month = item.Date.Month.ToString();
+                            timeSlot.year = item.Date.Year.ToString();
+
+                            int index = calenderViewModel.Attendances.IndexOf(item);
+
+                            timeSlot.startTime = calenderViewModel.Schedules[index].StartTime;
+                            timeSlot.endTime = calenderViewModel.Schedules[index].EndTime;
+                            timeSlot.remarks = "Appointment";
+
+                            timeSlots.Add(timeSlot);
                         }
-                    };
-                    var paymentResponse = await App.TodoManager.StartPayment(paymentRequest);
-                    if (paymentResponse != null && paymentResponse.TransactionStatus != null && !string.IsNullOrEmpty(paymentResponse.TransactionStatus.processURL))
+                    }
+
+
+
+                    setTimeSlots.timeSlot = timeSlots;
+
+                    var slotResponseModel = await App.TodoManager.SetTimeSlot(setTimeSlots);
+                    if (slotResponseModel != null && !string.IsNullOrEmpty(slotResponseModel.status.status) && slotResponseModel.status.status.ToLower().Equals("success"))
                     {
-                        await this.Navigation.PushAsync(new PaymentPage(paymentResponse.TransactionStatus.processURL));
+
+                        var paymentRequest = new PaymentRequest
+                        {
+                            BusinessTransaction = new BusinessTransaction
+                            {
+                                PayeeId = App.TrainerData.Email,
+                                PayerId = App.LoginResponse.Email,
+                                Amount = (count * Convert.ToDouble(calenderViewModel.Charges)) + "",
+                                EventId = slotResponseModel.status.slotId
+                            }
+                        };
+                        var paymentResponse = await App.TodoManager.StartPayment(paymentRequest);
+                        if (paymentResponse != null && paymentResponse.TransactionStatus != null && !string.IsNullOrEmpty(paymentResponse.TransactionStatus.processURL))
+                        {
+                            await this.Navigation.PushAsync(new PaymentPage(paymentResponse.TransactionStatus.processURL));
+                        }
                     }
                 }
-
 
             }
         }

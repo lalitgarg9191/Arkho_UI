@@ -13,6 +13,7 @@ namespace DFS.Models
             [JsonProperty("status")]
             public string status { get; set; }
 
+            [JsonProperty("slotId")]
             public string slotId { get; set; }
 
         }
