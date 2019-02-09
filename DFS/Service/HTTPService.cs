@@ -410,7 +410,18 @@ namespace DFS
             {
                 try
                 {
-                    var uri = new Uri("http://104.238.81.169:4080/FitnessApp/manageservices/v1/members/getTimeSlots");
+                    Uri uri;
+
+                    if(App.SelectedView == "Trainee")
+                    {
+                        uri = new Uri("https://trainmeapp.in:8443/FitnessApp/manageservices/v1/members/trainee/getTimeSlots");
+                    }
+                    else
+                    {
+                        uri = new Uri("http://104.238.81.169:4080/FitnessApp/manageservices/v1/members/getTimeSlots");
+                    }
+
+
                     var json = JsonConvert.SerializeObject(getTimeSlotRequest);
                     var content = new StringContent(json, Encoding.UTF8, "application/json");
 

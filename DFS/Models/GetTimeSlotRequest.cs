@@ -3,8 +3,12 @@ namespace DFS.Models
 {
     public class GetTimeSlotRequest
     {
+        public GetTimeSlotRequest()
+        {
+            status = "Pending";
+        }
+
         public string emailID { get; set; }
-        public string month { get; set; }
-        public string year { get; set; }
+        public String status { get; set; }
     }
 }

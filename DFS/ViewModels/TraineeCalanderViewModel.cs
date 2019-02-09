@@ -93,7 +93,7 @@ namespace DFS.ViewModels
             get
             {
                 return new Command((obj) => {
-                    IsInfoVisible = true;
+                    //IsInfoVisible = true;
                 });
             }
         }
@@ -130,7 +130,7 @@ namespace DFS.ViewModels
 
                 String currentMonth = currentDate.Month > 9 ? currentDate.Month.ToString() : "0" + (currentDate.Month.ToString());
 
-                var request = new GetTimeSlotRequest { emailID = App.LoginResponse.Email, month = currentMonth, year = currentDate.Year.ToString() };
+                var request = new GetTimeSlotRequest { emailID = App.LoginResponse.Email};
                 var response = await App.TodoManager.GetTimeSlots(request);
                 if (response != null && response.TimeSlots.timeSlot.Any())
                 {
