@@ -7,6 +7,8 @@ namespace DFS.Models
     {
         public String profile { get; set; }
 
+        public String paypalId { get; set; }
+
         public String signUpMetod { get; set; }
 
         public String password { get; set; }

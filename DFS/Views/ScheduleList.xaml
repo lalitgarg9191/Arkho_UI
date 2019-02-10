@@ -21,6 +21,7 @@
                                         <StackLayout Orientation="Horizontal">
                                             <StackLayout MinimumHeightRequest="100" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
                                                 <Label VerticalOptions="CenterAndExpand" Text="{Binding trainerEmailId}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" Font="Bold" FontSize="18" />        
+                                                <Label VerticalOptions="CenterAndExpand" Text="{Binding addByEmailID}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" Font="Bold" FontSize="18" />        
                                                 
                                                 <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
                                                     <Label VerticalOptions="CenterAndExpand" Text="{Binding day}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />        

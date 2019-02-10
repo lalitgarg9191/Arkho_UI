@@ -30,6 +30,9 @@ namespace DFS.Models
             [JsonProperty("imagePayload")]
             public String ImagePayload { get; set; }
 
+            [JsonProperty("paypalId")]
+            public String PaypalId { get; set; }
+
             [JsonProperty("basicInfo")]
             public BasicInfo basicInfo { get; set; }
 

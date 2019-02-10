@@ -541,6 +541,10 @@ namespace DFS.ViewModels
                 // Index Number 1 (Service)
                 serviceSignUpModel.Add(new Models.SignupData { InputType = "Service" });
 
+                serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "PayPal ID", IsAdditionAvailable = false });
+                // Index Number 1 (Experiance)
+                serviceSignUpModel.Add(new Models.SignupData { InputType = "Entry", PlaceholderText = "Enter PayPal ID", IsAdditionAvailable = false });
+
 
                 StaticListData.Add(serviceSignUpModel);
             }
@@ -686,6 +690,10 @@ namespace DFS.ViewModels
                     else if (item.PlaceholderText == "Enter Awards")
                     {
                         professionalInfo.accolades = item.MainSelectedData;
+                    }
+                    else if (item.PlaceholderText == "Enter PayPal ID")
+                    {
+                        signupModel.paypalId = item.MainSelectedData;
                     }
                     else if (item.PlaceholderText == "Enter Certification")
                     {
@@ -905,6 +913,9 @@ namespace DFS.ViewModels
                         serviceSignUpModel.Add(new Models.SignupData { SessionLocation=serviceItem.WorkLocaton,SessionTeam=serviceItem.TeamSize, selectedTime=selectedTimes, MainSelectedData = serviceItem.ServiceName, SessionDesc = serviceItem.ChargingPeriod, SessionAmount = serviceItem.Charges, InputType = "Service" });
                     }
 
+                    serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "PayPal ID", IsAdditionAvailable = false });
+                    // Index Number 1 (PayPal ID)
+                    serviceSignUpModel.Add(new Models.SignupData { InputType = "Entry", PlaceholderText = "Enter PayPal ID", IsAdditionAvailable = false, MainSelectedData= App.LoginResponse.PaypalId });
 
 
                     StaticListData.Add(serviceSignUpModel);
