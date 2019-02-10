@@ -28,6 +28,7 @@ namespace DFS.Models
         public string endTime { get; set; }
         public object remarks { get; set; }
         public string addByEmailID { get; set; }
+        public string trainerEmailId { get; set; }
         public int serviceId { get; set; }
         public object slotId { get; set; }
         public List<Service> services { get; set; }

@@ -19,23 +19,16 @@
                                 <ViewCell>
                                     <StackLayout Padding="10">
                                         <StackLayout Orientation="Horizontal">
-                                            <Frame 
-                                                    CornerRadius="40"
-                                                    HorizontalOptions="Center"
-                                                    VerticalOptions="CenterAndExpand"
-                                                    IsClippedToBounds="true"
-                                                    Margin="0"
-                                                    Padding="0"
-                                                    WidthRequest="80"
-                                                    MinimumWidthRequest="80"
-                                                    MinimumHeightRequest="80"
-                                                    HeightRequest="80">
-                                                <Image MinimumWidthRequest="80" MinimumHeightRequest="80" HeightRequest="80" WidthRequest="80" Source="https://pixabay.com/en/profile-man-male-photo-face-2092113/"/>
-                                            </Frame>
-                                            <StackLayout MinimumHeightRequest="100" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                                                <Label Text="{Binding Name}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" Font="Bold" FontSize="18" />        
-                                                <Label Text="{Binding Rating}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />        
-                                                <Label Text="{Binding SportsInterest}" LineBreakMode="WordWrap" Style="{DynamicResource ListItemTextStyle}" Font="Italic" FontSize="16" />    
+                                            <StackLayout MinimumHeightRequest="100" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                <Label VerticalOptions="CenterAndExpand" Text="{Binding trainerEmailId}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" Font="Bold" FontSize="18" />        
+                                                
+                                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                                                    <Label VerticalOptions="CenterAndExpand" Text="{Binding day}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />        
+                                                    <Label VerticalOptions="CenterAndExpand" Text="/" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />        
+                                                    <Label VerticalOptions="CenterAndExpand" Text="{Binding month}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />        
+                                                    <Label VerticalOptions="CenterAndExpand" Text="/" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />        
+                                                    <Label VerticalOptions="CenterAndExpand" Text="{Binding year}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />        
+                                                </StackLayout>
                                                 
                                             </StackLayout>
                                         </StackLayout>

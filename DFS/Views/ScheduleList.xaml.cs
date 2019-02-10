@@ -22,9 +22,9 @@ namespace DFS.Views
 
         private async Task InitializeAsync()
         {
-            var response = await App.TodoManager.FetchTrainerList();
+            var response = await App.TodoManager.GetTimeSlots(new Models.GetTimeSlotRequest{emailID=App.LoginResponse.Email});
 
-            ItemsListView.ItemsSource = response.trainee;
+            ItemsListView.ItemsSource = response.TimeSlots.timeSlot;
 
             OpaqueView.IsVisible = false;
             IndicatorView.IsVisible = false;
