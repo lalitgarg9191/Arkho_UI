@@ -5,7 +5,7 @@ namespace DFS.Models
     {
         public GetTimeSlotRequest()
         {
-            status = "Pending";
+            status = "Completed";
         }
 
         public string emailID { get; set; }

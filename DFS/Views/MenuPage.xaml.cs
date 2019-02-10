@@ -37,12 +37,10 @@ namespace DFS
                 ListViewMenu.ItemsSource = menuItems = new List<HomeMenuItem>
                 {
                     new HomeMenuItem { Title = "Profile", MenuType = MenuType.TrainerProfile, Icon ="about.png" },
-                    new HomeMenuItem { Title = "Contacts", MenuType = MenuType.Contact, Icon ="about.png" },
+                    new HomeMenuItem { Title = "Previous Trransaction", MenuType = MenuType.Contact, Icon ="about.png" },
                     new HomeMenuItem { Title = "Settings", MenuType = MenuType.TrainerProfile, Icon ="about.png" },
-                    new HomeMenuItem { Title = "Notifications", MenuType = MenuType.TrainerProfile, Icon ="about.png" },
                     new HomeMenuItem { Title = "Legal", MenuType = MenuType.TrainerProfile, Icon ="about.png" },
                     //new HomeMenuItem { Title = "Connect", MenuType = MenuType.TrainerProfile, Icon ="about.png" },
-                    new HomeMenuItem { Title = "Events", MenuType = MenuType.TrainerProfile, Icon ="about.png" },
                     new HomeMenuItem { Title = "Logout", MenuType = MenuType.Logout, Icon ="about.png" }
 
                 };
@@ -53,14 +51,11 @@ namespace DFS
                 ListViewMenu.ItemsSource = menuItems = new List<HomeMenuItem>
                 {
                     new HomeMenuItem { Title = "Find Trainer", MenuType = MenuType.CoachList, Icon ="about.png" },
-                    new HomeMenuItem { Title = "Contacts", MenuType = MenuType.Contact, Icon ="about.png" },
+                    new HomeMenuItem { Title = "Previous Trransaction", MenuType = MenuType.Contact, Icon ="about.png" },
                     new HomeMenuItem { Title = "Profile", MenuType = MenuType.TraineeProfile, Icon ="about.png" },
-                    new HomeMenuItem { Title = "Settings", MenuType = MenuType.CoachList, Icon ="about.png" },
-                    new HomeMenuItem { Title = "Notifications", MenuType = MenuType.CoachList, Icon ="about.png" },
-                    new HomeMenuItem { Title = "Previous transaction", MenuType = MenuType.CoachList, Icon ="about.png" },
-                    new HomeMenuItem { Title = "Legal", MenuType = MenuType.CoachList, Icon ="about.png" },
+                    new HomeMenuItem { Title = "Settings", MenuType = MenuType.TraineeProfile, Icon ="about.png" },
+                    new HomeMenuItem { Title = "Legal", MenuType = MenuType.TraineeProfile, Icon ="about.png" },
                     //new HomeMenuItem { Title = "Connect", MenuType = MenuType.CoachList, Icon ="about.png" },
-                    new HomeMenuItem { Title = "Events", MenuType = MenuType.CoachList, Icon ="about.png" },
                     new HomeMenuItem { Title = "Logout", MenuType = MenuType.Logout, Icon ="about.png" }
 
                 };

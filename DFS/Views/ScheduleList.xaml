@@ -30,6 +30,12 @@
                                                     <Label VerticalOptions="CenterAndExpand" Text="{Binding year}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />        
                                                 </StackLayout>
                                                 
+                                                <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+                                                    <Label VerticalOptions="CenterAndExpand" Text="{Binding startTime}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />        
+                                                    <Label VerticalOptions="CenterAndExpand" Text="-" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />        
+                                                    <Label VerticalOptions="CenterAndExpand" Text="{Binding endTime}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />        
+                                                </StackLayout>
+                                                
                                             </StackLayout>
                                         </StackLayout>
 

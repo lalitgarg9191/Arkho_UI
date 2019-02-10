@@ -360,6 +360,8 @@ namespace DFS.ViewModels
                 TrainerAccolades = App.TrainerData.professionalInfo.Accolades;
                 TrainerExperience = App.TrainerData.professionalInfo.Experience;
                 TrainerSpeciality = App.TrainerData.professionalInfo.Speciality;
+                ImageSource = App.TrainerData.basicInfo.ImageUrl != null ? App.TrainerData.basicInfo.ImageUrl : "defaultIcon.png";
+                PlaceHolderImageSource = "defaultIcon.png";
 
                 if (App.TrainerData.professionalInfo.services.Any())
                     ServiceListData = App.TrainerData.professionalInfo.services;
