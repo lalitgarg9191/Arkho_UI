@@ -10,6 +10,7 @@ namespace DFS
         public BaseViewModel()
         {
             ImageSource = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
+            PlaceHolderImageSource = "defaultIcon.png";
         }
 
         private string title = string.Empty;
@@ -97,6 +98,20 @@ namespace DFS
             {
                 _imageSource = value;
                 OnPropertyChanged(nameof(ImageSource));
+            }
+        }
+
+        private string _placeHolderImageSource { get; set; } //= App.FacebookUser != null ? App.FacebookUser.Picture : App.InstagramUser != null ? App.InstagramUser.data.profile_picture : "profile1.jpeg";
+        public string PlaceHolderImageSource
+        {
+            get
+            {
+                return _placeHolderImageSource;
+            }
+            set
+            {
+                _placeHolderImageSource = value;
+                OnPropertyChanged(nameof(PlaceHolderImageSource));
             }
         }
 

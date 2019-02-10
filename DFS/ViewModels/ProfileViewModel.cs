@@ -252,6 +252,20 @@ namespace DFS.ViewModels
             }
         }
 
+        private string _placeHolderImageSource { get; set; } //= App.FacebookUser != null ? App.FacebookUser.Picture : App.InstagramUser != null ? App.InstagramUser.data.profile_picture : "profile1.jpeg";
+        public string PlaceHolderImageSource
+        {
+            get
+            {
+                return _placeHolderImageSource;
+            }
+            set
+            {
+                _placeHolderImageSource = value;
+                RaisePropertyChanged(nameof(PlaceHolderImageSource));
+            }
+        }
+
         private Boolean _isServiceInProgress;
         public Boolean IsServiceInProgress
         {
@@ -309,6 +323,7 @@ namespace DFS.ViewModels
                 TrainerExperience = App.LoginResponse.professionalInfo.Experience;
                 TrainerSpeciality = App.LoginResponse.professionalInfo.Speciality;
                 ImageSource = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
+                PlaceHolderImageSource = "defaultIcon.png";
                 ServiceListData = App.LoginResponse.professionalInfo.services;
 
                 TrainerCert = "";

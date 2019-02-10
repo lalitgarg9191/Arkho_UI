@@ -32,7 +32,7 @@
                                 HeightRequest="120">
                             <Image MinimumWidthRequest="120" MinimumHeightRequest="120" HeightRequest="120" WidthRequest="120" Source="{Binding ImageSource}"/>
                         </Frame>-->
-                            <ffimageloading:CachedImage HeightRequest="120" WidthRequest="120" DownsampleToViewSize="true" Aspect="AspectFit" Source="{Binding ImageSource}" LoadingPlaceholder="{Binding ImageSource}" ErrorPlaceholder="{Binding ImageSource}">
+                            <ffimageloading:CachedImage HeightRequest="120" WidthRequest="120" DownsampleToViewSize="true" Aspect="AspectFit" Source="{Binding ImageSource}" LoadingPlaceholder="{Binding PlaceHolderImageSource}" ErrorPlaceholder="{Binding PlaceHolderImageSource}">
                                 <ffimageloading:CachedImage.Transformations>
                                     <fftransformations:CircleTransformation />
                                 </ffimageloading:CachedImage.Transformations>

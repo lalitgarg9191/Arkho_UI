@@ -60,6 +60,20 @@ namespace DFS.ViewModels
             }
         }
 
+        private string _placeHolderImageSource { get; set; } //= App.FacebookUser != null ? App.FacebookUser.Picture : App.InstagramUser != null ? App.InstagramUser.data.profile_picture : "profile1.jpeg";
+        public string PlaceHolderImageSource
+        {
+            get
+            {
+                return _placeHolderImageSource;
+            }
+            set
+            {
+                _placeHolderImageSource = value;
+                RaisePropertyChanged(nameof(PlaceHolderImageSource));
+            }
+        }
+
         private Boolean _isServiceInProgress;
         public Boolean IsServiceInProgress
         {
@@ -113,8 +127,9 @@ namespace DFS.ViewModels
             TraineeGoals = App.LoginResponse.basicInfo.SportsInterest;
             TraineeInterest = App.LoginResponse.basicInfo.SportsInterest;
             ImageSource = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
+            PlaceHolderImageSource = "defaultIcon.png";
 
-            if(App.InstagramMedia!=null && App.InstagramMedia.data != null) {
+            if (App.InstagramMedia!=null && App.InstagramMedia.data != null) {
                 GalleryVisible = true;
                 InstaVisible = false;
 
