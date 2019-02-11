@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>Fitness</string>
+	<string>TRAIN ME</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.silva.fitness</string>
 	<key>CFBundleShortVersionString</key>

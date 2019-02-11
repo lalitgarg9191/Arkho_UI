@@ -22,17 +22,52 @@ namespace DFS.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        private String _timeSlot;
+        public String TimeSlot
+        {
+            get
+            {
+                return _timeSlot;
+            }
+            set
+            {
+                _timeSlot = value;
+                RaisePropertyChanged(nameof(TimeSlot));
+            }
+        }
+
+        private String _emailId;
+        public String EmailId
+        {
+            get
+            {
+                return _emailId;
+            }
+            set
+            {
+                _emailId = value;
+                RaisePropertyChanged(nameof(EmailId));
+            }
+        }
+
+        private String _date;
+        public String Date
+        {
+            get
+            {
+                return _date;
+            }
+            set
+            {
+                _date = value;
+                RaisePropertyChanged(nameof(Date));
+            }
+        }
+
         public ObservableCollection<XamForms.Controls.SpecialDate> Attendances
         {
             get { return attendances; }
             set { attendances = value; RaisePropertyChanged(nameof(Attendances)); }
-        }
-
-        private ObservableCollection<String> _scheduleList { get; set; }
-        public ObservableCollection<String> ScheduleList
-        {
-            get { return _scheduleList; }
-            set { _scheduleList = value; RaisePropertyChanged(nameof(ScheduleList)); }
         }
 
 
@@ -65,9 +100,23 @@ namespace DFS.ViewModels
             }
         }
 
+        private GetTimeSlotResponse _timeSlotResponse;
+        public GetTimeSlotResponse TimeSlotResponse
+        {
+            get
+            {
+                return _timeSlotResponse;
+            }
+            set
+            {
+                _timeSlotResponse = value;
+                RaisePropertyChanged(nameof(TimeSlotResponse));
+            }
+        }
+
         public TraineeCalanderViewModel()
         {
-            ScheduleList = new ObservableCollection<string>();
+
         }
 
         DateTime currentDate = DateTime.Now;
@@ -93,7 +142,24 @@ namespace DFS.ViewModels
             get
             {
                 return new Command((obj) => {
-                    //IsInfoVisible = true;
+
+                    DateTime dateTime = (DateTime)obj;
+
+                    foreach(var item in TimeSlotResponse.TimeSlots.timeSlot)
+                    {
+                        if(item.day.ToString() == dateTime.Day.ToString())
+                        {
+                            Date = item.day + "/" + item.month + "/" + item.year;
+                            EmailId = App.SelectedView == "Trainee" ? item.trainerEmailId : item.addByEmailID;
+                            TimeSlot = item.startTime + " - " + item.endTime;
+
+                            IsInfoVisible = true;
+
+                            break;
+                        }
+                    }
+
+
                 });
             }
         }
@@ -131,13 +197,13 @@ namespace DFS.ViewModels
                 String currentMonth = currentDate.Month > 9 ? currentDate.Month.ToString() : "0" + (currentDate.Month.ToString());
 
                 var request = new GetTimeSlotRequest { emailID = App.LoginResponse.Email};
-                var response = await App.TodoManager.GetTimeSlots(request);
-                if (response != null && response.TimeSlots.timeSlot.Any())
+                TimeSlotResponse = await App.TodoManager.GetTimeSlots(request);
+                if (TimeSlotResponse != null && TimeSlotResponse.TimeSlots.timeSlot.Any())
                 {
-                    var bookedDates = new List<SpecialDate>();
-                    foreach (var item in response.TimeSlots.timeSlot)
+                    List<SpecialDate> bookedDates = new List<SpecialDate>();
+                    foreach (var item in TimeSlotResponse.TimeSlots.timeSlot)
                     {
-                        var date = new DateTime(Convert.ToInt32(item.year), Convert.ToInt32(item.month), Convert.ToInt32(item.day));
+                        DateTime date = new DateTime(Convert.ToInt32(item.year), Convert.ToInt32(item.month), Convert.ToInt32(item.day));
                         bookedDates.Add(new SpecialDate(date) { BackgroundColor = Color.Red, Selectable = true });
 
                     }
