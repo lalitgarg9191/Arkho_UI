@@ -50,7 +50,12 @@
                     <StackLayout Padding="40">
                         <StackLayout Orientation="Horizontal">
                             <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                
+                                <Label VerticalOptions="CenterAndExpand" Text="{Binding Name}" LineBreakMode="NoWrap" Font="Bold" FontSize="16" />        
+                                
                                 <Label VerticalOptions="CenterAndExpand" Text="{Binding EmailId}" LineBreakMode="NoWrap" Font="Bold" FontSize="16" />        
+                                
+                                <Label VerticalOptions="CenterAndExpand" Text="{Binding PhoneNumber}" LineBreakMode="NoWrap" Font="Bold" FontSize="16" />        
                                 
                                 <Label VerticalOptions="CenterAndExpand" Text="{Binding Date}" LineBreakMode="NoWrap" Font="Bold" FontSize="16" />        
                                 

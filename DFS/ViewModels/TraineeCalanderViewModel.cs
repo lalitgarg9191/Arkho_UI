@@ -64,6 +64,34 @@ namespace DFS.ViewModels
             }
         }
 
+        private String _name;
+        public String Name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                _name = value;
+                RaisePropertyChanged(nameof(Name));
+            }
+        }
+
+        private String _phoneNumber;
+        public String PhoneNumber
+        {
+            get
+            {
+                return _phoneNumber;
+            }
+            set
+            {
+                _phoneNumber = value;
+                RaisePropertyChanged(nameof(PhoneNumber));
+            }
+        }
+
         public ObservableCollection<XamForms.Controls.SpecialDate> Attendances
         {
             get { return attendances; }
@@ -152,6 +180,8 @@ namespace DFS.ViewModels
                             Date = item.day + "/" + item.month + "/" + item.year;
                             EmailId = App.SelectedView == "Trainee" ? item.trainerEmailId : item.addByEmailID;
                             TimeSlot = item.startTime + " - " + item.endTime;
+                            Name = item.name;
+                            PhoneNumber = item.phoneNumber;
 
                             IsInfoVisible = true;
 

@@ -21,6 +21,8 @@ namespace DFS.Models
 
     public class TimeSlot
     {
+        public string name { get; set; }
+        public string phoneNumber { get; set; }
         public string day { get; set; }
         public string month { get; set; }
         public string year { get; set; }
