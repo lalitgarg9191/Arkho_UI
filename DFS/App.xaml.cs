@@ -54,6 +54,17 @@ namespace DFS
                     var account = CredentialsService.GetAccount();
                     var data = JsonConvert.DeserializeObject<Member>(account.Properties["Member"]);
                     App.LoginResponse = data;
+
+                    if(App.LoginResponse == null)
+                    {
+                        LoginResponse = new Models.LoginResponse.Member();
+                        TrainerData = new Models.LoginResponse.Member();
+                        CredentialsService.DeleteCredentials();
+                        MainPage = new HanselmanNavigationPage(new Views.SelectionPage());
+
+                        return;
+                    }
+
                     if(App.LoginResponse.Email.Equals(null))
                     {
                         CredentialsService.DeleteCredentials();

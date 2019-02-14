@@ -106,14 +106,16 @@ namespace DFS
                 }
                 else
                 {
+                    if (userProfileViewModel.IsRememberMe)
+                    {
+                        var member = App.LoginResponse;
+                        CredentialsService.SaveCredentials(userName: App.LoginResponse.Email, password: App.LoginResponse.Password, member: member, userType: App.SelectedView);
+                    }
+
                     Application.Current.MainPage =new NavigationPage(new RootPage(userProfileViewModel.SelectedView));
                 }
 
-                if (userProfileViewModel.IsRememberMe)
-                {
-                    var member = App.SelectedView == "Trainee" ? App.LoginResponse : App.TrainerData;
-                    CredentialsService.SaveCredentials(userName: App.LoginResponse.Email, password: App.LoginResponse.Password, member: member, userType: App.SelectedView);
-                }
+
             });
 
             MessagingCenter.Subscribe<UserProfileViewModel, String>(this, "LoginFailure", async (sender, message) =>
