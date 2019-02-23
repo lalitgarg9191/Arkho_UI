@@ -281,7 +281,7 @@ namespace DFS
                         LoginRequestModel loginRequestModel = new LoginRequestModel(App.SelectedView, signupModel.email, App.SelectedView, signupModel.password);
                         var message = await App.TodoManager.Login(loginRequestModel);
 
-                        if (message == "Success")
+                        if (message == "SUCCESS" || message == "Success")
                         {
                             return "Success";
                         }

@@ -12,6 +12,7 @@ using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
 using DFS.Utils;
 using XamForms.Controls;
+using Newtonsoft.Json;
 
 namespace DFS.ViewModels
 {
@@ -763,6 +764,8 @@ namespace DFS.ViewModels
             // Creating the final object
             signupModel.basicInfo = basicInfo;
             signupModel.professionalInfo = professionalInfo;
+
+            System.Diagnostics.Debug.WriteLine(JsonConvert.SerializeObject(signupModel));
 
             var message = await App.TodoManager.SignUp(signupModel);
 

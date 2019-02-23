@@ -41,7 +41,7 @@ namespace DFS
                         var result = await App.TodoManager.GetInstagramInfo(arg2);
                         await App.TodoManager.GetInstagramMedia(arg2);
 
-                        var loginRequestModel = new Models.LoginRequestModel("App",App.InstagramUser.data.username, App.SelectedView, "fb@trainme");
+                        var loginRequestModel = new Models.LoginRequestModel("Fb",App.InstagramUser.data.username, App.SelectedView, "fb@trainme");
                         var message = await App.TodoManager.Login(loginRequestModel);
 
                         if (message.Equals("Success"))

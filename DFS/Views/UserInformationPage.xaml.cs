@@ -91,7 +91,9 @@ namespace DFS.Views
                     var file = await CrossMedia.Current.PickPhotoAsync(
                     new Plugin.Media.Abstractions.PickMediaOptions
                     {
-                        PhotoSize = Plugin.Media.Abstractions.PhotoSize.Medium,
+                        PhotoSize = Plugin.Media.Abstractions.PhotoSize.Custom,
+                        CustomPhotoSize = 10,
+                        CompressionQuality = 92
 
                     });
 
