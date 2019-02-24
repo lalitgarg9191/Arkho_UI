@@ -173,19 +173,22 @@ namespace DFS.ViewModels
 
                     DateTime dateTime = (DateTime)obj;
 
-                    foreach(var item in TimeSlotResponse.TimeSlots.timeSlot)
+                    if (TimeSlotResponse != null)
                     {
-                        if(item.day.ToString() == dateTime.Day.ToString())
+                        foreach (var item in TimeSlotResponse.TimeSlots.timeSlot)
                         {
-                            Date = item.day + "/" + item.month + "/" + item.year;
-                            EmailId = App.SelectedView == "Trainee" ? item.trainerEmailId : item.addByEmailID;
-                            TimeSlot = item.startTime + " - " + item.endTime;
-                            Name = item.name;
-                            PhoneNumber = item.phoneNumber;
+                            if (item.day.ToString() == dateTime.Day.ToString())
+                            {
+                                Date = item.day + "/" + item.month + "/" + item.year;
+                                EmailId = App.SelectedView == "Trainee" ? item.trainerEmailId : item.addByEmailID;
+                                TimeSlot = item.startTime + " - " + item.endTime;
+                                Name = item.name;
+                                PhoneNumber = item.phoneNumber;
 
-                            IsInfoVisible = true;
+                                IsInfoVisible = true;
 
-                            break;
+                                break;
+                            }
                         }
                     }
 

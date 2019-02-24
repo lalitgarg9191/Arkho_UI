@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Newtonsoft.Json;
+using Xamarin.Forms;
 
 namespace DFS.Models
 {
@@ -40,5 +41,25 @@ namespace DFS.Models
             [JsonProperty("state")]
             public String State { get; set; }
         }
+
+        public class TraineeList
+        {
+            public String Email { get; set; }
+
+            public String Name { get; set; }
+
+            public String Address { get; set; }
+
+            public UriImageSource ImageUrL { get; set; }
+
+            public String SportsInterest { get; set; }
+
+            public String Status { get; set; }
+
+            public String Country { get; set; }
+
+            public String State { get; set; }
+        }
+
     }
 }

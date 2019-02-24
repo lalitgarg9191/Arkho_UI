@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Xamarin.Forms;
 
 namespace DFS
 {
@@ -9,7 +10,11 @@ namespace DFS
     {
         public BaseViewModel()
         {
-            //ImageSource = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
+            String url = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
+
+            ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(url) };
+
+
             //PlaceHolderImageSource = "defaultIcon.png";
         }
 
@@ -87,8 +92,8 @@ namespace DFS
             set { SetProperty(ref canLoadMore, value); }
         }
 
-        private string _imageSource = App.FacebookUser != null ? App.FacebookUser.Picture : App.InstagramUser != null ? App.InstagramUser.data.profile_picture : "profile1.jpeg";
-        public string ImageSource
+        private UriImageSource _imageSource { get; set; } //= App.FacebookUser != null ? App.FacebookUser.Picture : App.InstagramUser != null ? App.InstagramUser.data.profile_picture : "profile1.jpeg";
+        public UriImageSource ImageSource
         {
             get
             {

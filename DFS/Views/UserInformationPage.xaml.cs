@@ -93,7 +93,7 @@ namespace DFS.Views
                     {
                         PhotoSize = Plugin.Media.Abstractions.PhotoSize.Custom,
                         CustomPhotoSize = 10,
-                        CompressionQuality = 92
+                        CompressionQuality = 10
 
                     });
 

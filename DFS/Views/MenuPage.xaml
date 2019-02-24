@@ -19,7 +19,9 @@
             <StackLayout Grid.Row="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource GreenColor}">
                     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
                         
-                        <!--<Frame 
+                        
+                        
+                        <Frame 
                                 CornerRadius="60"
                                 HorizontalOptions="CenterAndExpand"
                                 VerticalOptions="CenterAndExpand"
@@ -30,13 +32,14 @@
                                 MinimumWidthRequest="120"
                                 MinimumHeightRequest="120"
                                 HeightRequest="120">
+                            
                             <Image MinimumWidthRequest="120" MinimumHeightRequest="120" HeightRequest="120" WidthRequest="120" Source="{Binding ImageSource}"/>
-                        </Frame>-->
-                        <ffimageloading:CachedImage HeightRequest="120" WidthRequest="120" DownsampleToViewSize="true" Aspect="AspectFit" Source="{Binding ImageSource}" LoadingPlaceholder="{Binding PlaceHolderImageSource}" ErrorPlaceholder="{Binding PlaceHolderImageSource}">
+                        </Frame>
+                        <!--<ffimageloading:CachedImage HeightRequest="120" WidthRequest="120" DownsampleToViewSize="true" Aspect="AspectFit" Source="{Binding ImageSource}" LoadingPlaceholder="{Binding PlaceHolderImageSource}" ErrorPlaceholder="{Binding PlaceHolderImageSource}">
                                 <ffimageloading:CachedImage.Transformations>
                                     <fftransformations:CircleTransformation />
                                 </ffimageloading:CachedImage.Transformations>
-                            </ffimageloading:CachedImage>
+                         </ffimageloading:CachedImage>-->
                         <Label x:Name="ProfileName" Font="Bold" FontSize="20" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                     </StackLayout>
             </StackLayout>

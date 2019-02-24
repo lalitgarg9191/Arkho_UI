@@ -46,8 +46,8 @@ namespace DFS.ViewModels
 
         private String _traineeGoals;
 
-        private string _imageSource = App.FacebookUser != null ? App.FacebookUser.Picture : App.InstagramUser != null ? App.InstagramUser.data.profile_picture : "profile1.jpeg";
-        public string ImageSource
+        private UriImageSource _imageSource { get; set; } // = App.FacebookUser != null ? App.FacebookUser.Picture : App.InstagramUser != null ? App.InstagramUser.data.profile_picture : "profile1.jpeg";
+        public UriImageSource ImageSource
         {
             get
             {
@@ -60,19 +60,19 @@ namespace DFS.ViewModels
             }
         }
 
-        private string _placeHolderImageSource = App.FacebookUser != null ? App.FacebookUser.Picture : App.InstagramUser != null ? App.InstagramUser.data.profile_picture : "profile1.jpeg";
-        public string PlaceHolderImageSource
-        {
-            get
-            {
-                return _placeHolderImageSource;
-            }
-            set
-            {
-                _placeHolderImageSource = value;
-                RaisePropertyChanged(nameof(PlaceHolderImageSource));
-            }
-        }
+        //private string _placeHolderImageSource = App.FacebookUser != null ? App.FacebookUser.Picture : App.InstagramUser != null ? App.InstagramUser.data.profile_picture : "profile1.jpeg";
+        //public string PlaceHolderImageSource
+        //{
+        //    get
+        //    {
+        //        return _placeHolderImageSource;
+        //    }
+        //    set
+        //    {
+        //        _placeHolderImageSource = value;
+        //        RaisePropertyChanged(nameof(PlaceHolderImageSource));
+        //    }
+        //}
 
         private Boolean _isServiceInProgress;
         public Boolean IsServiceInProgress
@@ -126,7 +126,8 @@ namespace DFS.ViewModels
             TraineeName = App.LoginResponse.basicInfo.Name;
             TraineeGoals = App.LoginResponse.basicInfo.SportsInterest;
             TraineeInterest = App.LoginResponse.basicInfo.SportsInterest;
-            //ImageSource = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
+            String imageUrl = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
+            ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(imageUrl) };
             //PlaceHolderImageSource = "defaultIcon.png";
 
             if (App.InstagramMedia!=null && App.InstagramMedia.data != null) {

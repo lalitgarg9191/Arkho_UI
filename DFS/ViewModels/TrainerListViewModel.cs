@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace DFS.ViewModels
 {
@@ -19,8 +20,8 @@ namespace DFS.ViewModels
             }
         }
 
-        private ObservableCollection<Models.TrainerListModel.Trainee> _listViewData;
-        public ObservableCollection<Models.TrainerListModel.Trainee> ListViewData
+        private ObservableCollection<Models.TrainerListModel.TraineeList> _listViewData;
+        public ObservableCollection<Models.TrainerListModel.TraineeList> ListViewData
         {
             get { return _listViewData; }
             set
@@ -44,7 +45,27 @@ namespace DFS.ViewModels
         {
             var response = await App.TodoManager.FetchTrainerList();
 
-            ListViewData = response.trainee;
+            ListViewData = new ObservableCollection<Models.TrainerListModel.TraineeList>();
+
+            foreach(var item in response.trainee)
+            {
+                Models.TrainerListModel.TraineeList trainee = new Models.TrainerListModel.TraineeList();
+                trainee.Address = item.Address;
+                trainee.Country = item.Country;
+                trainee.Email = item.Email;
+                trainee.Name = item.Name;
+                trainee.SportsInterest = item.SportsInterest;
+                trainee.State = item.State;
+                trainee.Status = item.Status;
+
+                String imageUrl = item.ImageUrL;
+                trainee.ImageUrL = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(imageUrl) };
+
+                ListViewData.Add(trainee);
+
+            }
+
+
 
             IsServiceInProgress = false;
         }

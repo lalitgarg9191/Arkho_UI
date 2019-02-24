@@ -239,8 +239,8 @@ namespace DFS.ViewModels
         public ICommand ProfileCommand { get; set; }
 
 
-        private string _imageSource = App.FacebookUser != null ? App.FacebookUser.Picture : App.InstagramUser != null ? App.InstagramUser.data.profile_picture : "profile1.jpeg";
-        public string ImageSource
+        private UriImageSource _imageSource { get; set; } // = App.FacebookUser != null ? App.FacebookUser.Picture : App.InstagramUser != null ? App.InstagramUser.data.profile_picture : "profile1.jpeg";
+        public UriImageSource ImageSource
         {
             get
             {
@@ -252,19 +252,19 @@ namespace DFS.ViewModels
             }
         }
 
-        private string _placeHolderImageSource = App.FacebookUser != null ? App.FacebookUser.Picture : App.InstagramUser != null ? App.InstagramUser.data.profile_picture : "profile1.jpeg";
-        public string PlaceHolderImageSource
-        {
-            get
-            {
-                return _placeHolderImageSource;
-            }
-            set
-            {
-                _placeHolderImageSource = value;
-                RaisePropertyChanged(nameof(PlaceHolderImageSource));
-            }
-        }
+        //private string _placeHolderImageSource = App.FacebookUser != null ? App.FacebookUser.Picture : App.InstagramUser != null ? App.InstagramUser.data.profile_picture : "profile1.jpeg";
+        //public string PlaceHolderImageSource
+        //{
+        //    get
+        //    {
+        //        return _placeHolderImageSource;
+        //    }
+        //    set
+        //    {
+        //        _placeHolderImageSource = value;
+        //        RaisePropertyChanged(nameof(PlaceHolderImageSource));
+        //    }
+        //}
 
         private Boolean _isServiceInProgress;
         public Boolean IsServiceInProgress
@@ -322,7 +322,10 @@ namespace DFS.ViewModels
                 TrainerAccolades = App.LoginResponse.professionalInfo.Accolades;
                 TrainerExperience = App.LoginResponse.professionalInfo.Experience;
                 TrainerSpeciality = App.LoginResponse.professionalInfo.Speciality;
-                //ImageSource = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
+                String imageUrl = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
+
+
+                ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(imageUrl) };
                 //PlaceHolderImageSource = "defaultIcon.png";
                 ServiceListData = App.LoginResponse.professionalInfo.services;
 
@@ -360,8 +363,8 @@ namespace DFS.ViewModels
                 TrainerAccolades = App.TrainerData.professionalInfo.Accolades;
                 TrainerExperience = App.TrainerData.professionalInfo.Experience;
                 TrainerSpeciality = App.TrainerData.professionalInfo.Speciality;
-                ImageSource = App.TrainerData.basicInfo.ImageUrl != null ? App.TrainerData.basicInfo.ImageUrl : "defaultIcon.png";
-                PlaceHolderImageSource = "defaultIcon.png";
+                String imageUrl = App.TrainerData.basicInfo.ImageUrl != null ? App.TrainerData.basicInfo.ImageUrl : "defaultIcon.png";
+                ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(imageUrl) };
 
                 if (App.TrainerData.professionalInfo.services.Any())
                     ServiceListData = App.TrainerData.professionalInfo.services;

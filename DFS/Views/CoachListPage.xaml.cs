@@ -22,7 +22,7 @@ namespace DFS.Views
                 return; //ItemSelected is called on deselection, which results in SelectedItem being set to null
             }
 
-            var trainee = e.SelectedItem as Models.TrainerListModel.Trainee;
+            var trainee = e.SelectedItem as Models.TrainerListModel.TraineeList;
 
             trainerListViewModel.IsServiceInProgress = true;
             String message = await App.TodoManager.Login(new Models.LoginRequestModel(App.LoginResponse.SignUpMetod,trainee.Email,"Trainer", "qwertyqazxcvbnm"));
@@ -32,6 +32,9 @@ namespace DFS.Views
             }
 
             trainerListViewModel.IsServiceInProgress = false;
+
+            if (sender is ListView lv) lv.SelectedItem = null;
+
         }
     }
 }
