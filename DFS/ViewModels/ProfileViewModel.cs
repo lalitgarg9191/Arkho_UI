@@ -322,10 +322,26 @@ namespace DFS.ViewModels
                 TrainerAccolades = App.LoginResponse.professionalInfo.Accolades;
                 TrainerExperience = App.LoginResponse.professionalInfo.Experience;
                 TrainerSpeciality = App.LoginResponse.professionalInfo.Speciality;
-                String imageUrl = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
 
+                if (App.LoginResponse.basicInfo.ImageUrl != null)
+                {
+                    String url = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
+                    string[] values = url.Split(new string[] { "http" }, StringSplitOptions.None);
 
-                ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(imageUrl) };
+                    String finalUrl;
+
+                    if (values.Length > 2)
+                    {
+                        String tempUrl = "http" + values[values.Length - 1];
+
+                        finalUrl = tempUrl.Substring(0, tempUrl.Length - 5);
+                    }
+                    else
+                    {
+                        finalUrl = "http" + values[values.Length - 1];
+                    }
+                    ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(finalUrl) };
+                }
                 //PlaceHolderImageSource = "defaultIcon.png";
                 ServiceListData = App.LoginResponse.professionalInfo.services;
 
@@ -363,8 +379,29 @@ namespace DFS.ViewModels
                 TrainerAccolades = App.TrainerData.professionalInfo.Accolades;
                 TrainerExperience = App.TrainerData.professionalInfo.Experience;
                 TrainerSpeciality = App.TrainerData.professionalInfo.Speciality;
-                String imageUrl = App.TrainerData.basicInfo.ImageUrl != null ? App.TrainerData.basicInfo.ImageUrl : "defaultIcon.png";
-                ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(imageUrl) };
+
+                if (App.TrainerData.basicInfo.ImageUrl != null)
+                {
+
+                    String url = App.TrainerData.basicInfo.ImageUrl != null ? App.TrainerData.basicInfo.ImageUrl : "defaultIcon.png";
+
+                    string[] values = url.Split(new string[] { "http" }, StringSplitOptions.None);
+
+                    String finalUrl;
+
+                    if (values.Length > 2)
+                    {
+                        String tempUrl = "http" + values[values.Length - 1];
+
+                        finalUrl = tempUrl.Substring(0, tempUrl.Length - 5);
+                    }
+                    else
+                    {
+                        finalUrl = "http" + values[values.Length - 1];
+                    }
+
+                    ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(finalUrl) };
+                }
 
                 if (App.TrainerData.professionalInfo.services.Any())
                     ServiceListData = App.TrainerData.professionalInfo.services;

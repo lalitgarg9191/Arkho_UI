@@ -58,8 +58,26 @@ namespace DFS.ViewModels
                 trainee.State = item.State;
                 trainee.Status = item.Status;
 
-                String imageUrl = item.ImageUrL;
-                trainee.ImageUrL = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(imageUrl) };
+                if (item.ImageUrL != null)
+                {
+                    String url = item.ImageUrL;
+                    string[] values = url.Split(new string[] { "http" }, StringSplitOptions.None);
+
+                    String finalUrl;
+
+                    if (values.Length > 2)
+                    {
+                        String tempUrl = "http" + values[values.Length - 1];
+
+                        finalUrl = tempUrl.Substring(0, tempUrl.Length - 5);
+                    }
+                    else
+                    {
+                        finalUrl = "http" + values[values.Length - 1];
+                    }
+
+                    trainee.ImageUrL = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(finalUrl) };
+                }
 
                 ListViewData.Add(trainee);
 

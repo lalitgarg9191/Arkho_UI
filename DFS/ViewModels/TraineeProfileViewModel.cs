@@ -126,8 +126,29 @@ namespace DFS.ViewModels
             TraineeName = App.LoginResponse.basicInfo.Name;
             TraineeGoals = App.LoginResponse.basicInfo.SportsInterest;
             TraineeInterest = App.LoginResponse.basicInfo.SportsInterest;
-            String imageUrl = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
-            ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(imageUrl) };
+
+            if (App.LoginResponse.basicInfo.ImageUrl != null)
+            {
+                String url = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
+
+                string[] values = url.Split(new string[] { "http" }, StringSplitOptions.None);
+
+                String finalUrl;
+
+                if (values.Length > 2)
+                {
+                    String tempUrl = "http" + values[values.Length - 1];
+
+                    finalUrl = tempUrl.Substring(0, tempUrl.Length - 5);
+                }
+                else
+                {
+                    finalUrl = "http" + values[values.Length - 1];
+                }
+
+                ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(finalUrl) };
+            }
+
             //PlaceHolderImageSource = "defaultIcon.png";
 
             if (App.InstagramMedia!=null && App.InstagramMedia.data != null) {

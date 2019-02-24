@@ -10,10 +10,27 @@ namespace DFS
     {
         public BaseViewModel()
         {
-            String url = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
+            if (App.LoginResponse.basicInfo.ImageUrl != null)
+            {
+                String url = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
+                string[] values = url.Split(new string[] { "http" }, StringSplitOptions.None);
 
-            ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(url) };
+                String finalUrl;
 
+                if (values.Length > 2)
+                {
+                    String tempUrl = "http" + values[values.Length - 1];
+
+                    finalUrl = tempUrl.Substring(0, tempUrl.Length - 5);
+                }
+                else
+                {
+                    finalUrl = "http" + values[values.Length - 1];
+                }
+
+
+                ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(finalUrl) };
+            }
 
             //PlaceHolderImageSource = "defaultIcon.png";
         }

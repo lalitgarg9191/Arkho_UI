@@ -639,7 +639,7 @@ namespace DFS.ViewModels
             basicInfo.address = position.Accuracy + "";
             basicInfo.country = position.Altitude + "";
             basicInfo.id = 1;
-            basicInfo.imageUrl = "NA";
+            basicInfo.imageUrl = (User64String == null && UserIcon != null && UserIcon != "NA") ? UserIcon : "NA" ;
             basicInfo.instaGramId = "NA";
             basicInfo.latitude = position.Latitude + "";
             basicInfo.longitude = position.Longitude + "";

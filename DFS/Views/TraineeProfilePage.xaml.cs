@@ -22,7 +22,11 @@ namespace DFS.Views
         void Handle_Tapped(object sender, System.EventArgs e)
         {
             //this.Navigation.PushAsync(new UserInformationPage(new ViewModels.SignupViewModel()));
-            App.Current.MainPage = new HanselmanNavigationPage(new UserInformationPage(new ViewModels.SignupViewModel()));
+
+            ViewModels.SignupViewModel signupViewModel = new SignupViewModel();
+            signupViewModel.UserIcon = App.LoginResponse.basicInfo.ImageUrl;
+
+            App.Current.MainPage = new HanselmanNavigationPage(new UserInformationPage(signupViewModel));
         }
 
         void Handle_TraineMe(object sender, System.EventArgs e)
