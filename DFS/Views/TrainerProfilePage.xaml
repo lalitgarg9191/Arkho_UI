@@ -5,7 +5,7 @@
             <StackLayout AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0" AbsoluteLayout.LayoutFlags="All">
                 <Grid VerticalOptions="FillAndExpand" RowSpacing="0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="2*" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
@@ -13,11 +13,21 @@
                     </Grid.ColumnDefinitions>
                     <!-- Header View  -->
                     <StackLayout BackgroundColor="Gray" Grid.Row="0" Grid.Column="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                        <Image IsVisible="{Binding IsEditable}" HorizontalOptions="EndAndExpand" HeightRequest="20" WidthRequest="20" Margin="0,20,20,0" Source="edit_icon">
-                            <Image.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="Handle_Tapped" />
-                            </Image.GestureRecognizers>
-                        </Image>
+                        
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                        
+                            <Image Source="lightgray_cal" HeightRequest="25" WidthRequest="25" Margin="0,20,20,0" VerticalOptions="CenterAndExpand">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Handle_Calender" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                        
+                            <Image IsVisible="{Binding IsEditable}" HorizontalOptions="EndAndExpand" HeightRequest="20" WidthRequest="20" Margin="0,20,20,0" Source="edit_icon">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="Handle_Tapped" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </StackLayout>
                         <StackLayout Margin="0,-20,0,0" Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                             <Frame 
                                 CornerRadius="60"
@@ -37,13 +47,9 @@
                                     <fftransformations:CircleTransformation />
                                 </ffimageloading:CachedImage.Transformations>
                             </ffimageloading:CachedImage>-->
-                            <Image Source="lightgray_cal" HeightRequest="25" WidthRequest="25" VerticalOptions="CenterAndExpand">
-                                <Image.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="Handle_Calender" />
-                                </Image.GestureRecognizers>
-                            </Image>
+                            
                         </StackLayout>
-                        <Label Text="{Binding TrainerName}" VerticalOptions="StartAndExpand" TextColor="White" Font="Bold" FontSize="18" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" />
+                        <Label Text="{Binding TrainerName}" VerticalOptions="StartAndExpand" TextColor="White" Font="Bold" FontSize="18" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" Margin="0,0,0,10" />
                     </StackLayout>
                     <!-- Footer View  -->
                     <StackLayout BackgroundColor="White" Grid.Row="1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
