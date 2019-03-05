@@ -7,9 +7,9 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.silva.fitness</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
@@ -68,5 +68,7 @@
 	<string></string>
 	<key>CFBundleName</key>
 	<string>TRAIN ME</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>New Entry</string>
 </dict>
 </plist>

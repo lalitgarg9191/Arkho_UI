@@ -296,7 +296,6 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small_extra%402x.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-83.5%402x.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-76%402x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iTunesArtwork%402x.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-83.5_180_180%403x.png" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone X-02.png" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone X-01.png" />
@@ -311,6 +310,7 @@
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone 6s-01.png" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\9.7 iPadPro-02.png" />
     <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPad.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logos train me_1024px.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
@@ -416,6 +416,10 @@
     <BundleResource Include="Resources\roger.jpeg" />
     <BundleResource Include="Resources\defaultIcon.png" />
     <BundleResource Include="Resources\loginlogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="iTunesArtwork%402x" />
+    <ITunesArtwork Include="iTunesArtwork" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.5.1.444934\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.1.444934\build\netstandard1.0\Xamarin.Forms.targets')" />
