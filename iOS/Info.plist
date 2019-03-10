@@ -7,9 +7,9 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.silva.fitness</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.1</string>
+	<string>1.2</string>
 	<key>CFBundleVersion</key>
-	<string>1.1</string>
+	<string>1.2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
@@ -36,21 +36,19 @@
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>Require to get the current location.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string></string>
+	<string>Require to get the current location.</string>
 	<key>NSCameraUsageDescription</key>
-	<string></string>
+	<string>Require to click the profile picture.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string></string>
+	<string>Require to update the profile picture.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string></string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string></string>
+	<string>Require to click the profile picture.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string></string>
-	<key>Custom Property</key>
-	<string></string>
+	<string>Require to get the current location.</string>
 	<key>XSLaunchImageAssets</key>
 	<string>Assets.xcassets/LaunchImage.launchimage</string>
 	<key>CFBundleURLTypes</key>
@@ -69,6 +67,6 @@
 	<key>CFBundleName</key>
 	<string>TRAIN ME</string>
 	<key>NSCalendarsUsageDescription</key>
-	<string>New Entry</string>
+	<string>Require to display booking details.</string>
 </dict>
 </plist>
