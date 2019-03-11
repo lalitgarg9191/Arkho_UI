@@ -95,6 +95,9 @@ namespace DFS.Models
 
             [JsonProperty("title")]
             public String Title { get; set; }
+
+            [JsonProperty("instaGramImages")]
+            public String InstaGramImages { get; set; }
         }
 
         public class ProfessionalInfo

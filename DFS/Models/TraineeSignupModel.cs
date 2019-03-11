@@ -60,6 +60,8 @@ namespace DFS.Models
             public String latitude { get; set; }
 
             public String longitude { get; set; }
+
+            public String instaGramImages { get; set; }
         }
 
         public class ProfessionalInfo
