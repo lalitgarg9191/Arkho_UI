@@ -48,7 +48,7 @@ namespace DFS.Utils
                     if (instagramMedia != null)
                     {
                         var mediaData = JsonConvert.SerializeObject(instagramMedia);
-                        account.Properties.Add("InstagramMedia", mediaData);
+                        account.Properties.Add("InstgramMedia", mediaData);
                     }
 
                     AccountStore.Create().Save(account, "Fitness");
