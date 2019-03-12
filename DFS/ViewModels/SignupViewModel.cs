@@ -36,6 +36,21 @@ namespace DFS.ViewModels
             }
         }
 
+        private string _instaImages;
+        public string InstaImages
+        {
+            get
+            {
+                return _instaImages;
+            }
+            set
+            {
+                _instaImages = value;
+
+                RaisePropertyChanged(nameof(InstaImages));
+            }
+        }
+
         private ObservableCollection<String> _titleList { get; set; }
 
         public ObservableCollection<String> TitleList
@@ -554,6 +569,8 @@ namespace DFS.ViewModels
 
             User64String = "NA";
 
+            InstaImages = "";
+
             // Intialize commands
             SaveCommand = new Command(() => SaveClicked());
             PictureCommand = new Command(() => SelectImage());
@@ -640,11 +657,12 @@ namespace DFS.ViewModels
             basicInfo.country = position.Altitude + "";
             basicInfo.id = 1;
             basicInfo.imageUrl = (User64String == null && UserIcon != null && UserIcon != "NA") ? UserIcon : "NA" ;
-            basicInfo.instaGramId = "NA";
+            basicInfo.instaGramId = "";
             basicInfo.latitude = position.Latitude + "";
             basicInfo.longitude = position.Longitude + "";
             basicInfo.state = "NA";
             basicInfo.valueAdded = "NA";
+            basicInfo.instaGramImages = InstaImages;
 
             if (StaticListData[0][1].MainSelectedData == null || StaticListData[0][7].MainSelectedData == null)
             {
@@ -931,6 +949,8 @@ namespace DFS.ViewModels
                 Password = App.LoginResponse.Password;
                 User64String = App.LoginResponse.ImagePayload;
                 SelectedView = App.SelectedView;
+
+                InstaImages = App.LoginResponse.basicInfo.InstaGramImages;
 
             }
             

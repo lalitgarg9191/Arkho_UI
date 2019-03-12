@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -149,22 +150,47 @@ namespace DFS.ViewModels
                 ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(finalUrl) };
             }
 
-            //PlaceHolderImageSource = "defaultIcon.png";
 
-            if (App.InstagramMedia!=null && App.InstagramMedia.data != null) {
-                GalleryVisible = true;
-                InstaVisible = false;
+            if (App.LoginResponse.basicInfo.InstaGramImages != null)
+            {
 
-                var list = new List<string>();
-                foreach(var item in App.InstagramMedia.data) {
-                    var media = item.images.standard_resolution.url;
-                    list.Add(media);
+                string s = App.LoginResponse.basicInfo.InstaGramImages;
+                string[] imageurl = s.Split(',').Select(sValue => sValue.Trim()).ToArray();
+
+                if (imageurl.Count() > 0)
+                {
+                    GalleryVisible = true;
+                    InstaVisible = false;
+
+                    var list = new List<string>();
+                    foreach (var item in imageurl)
+                    {
+                        list.Add(item);
+                    }
+                    Gallery = new ObservableCollection<string>(list);
                 }
-                Gallery = new ObservableCollection<string>(list);
             }
-            else {
-                GalleryVisible = false;
-                InstaVisible = true;
+            else
+            {
+                if (App.InstagramMedia != null && App.InstagramMedia.data != null)
+                {
+                    GalleryVisible = true;
+                    InstaVisible = false;
+
+                    var list = new List<string>();
+                    foreach (var item in App.InstagramMedia.data)
+                    {
+                        var media = item.images.standard_resolution.url;
+                        list.Add(media);
+                    }
+                    Gallery = new ObservableCollection<string>(list);
+                }
+
+                else
+                {
+                    GalleryVisible = false;
+                    InstaVisible = true;
+                }
             }
         }
 

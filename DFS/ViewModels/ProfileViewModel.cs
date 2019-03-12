@@ -352,23 +352,45 @@ namespace DFS.ViewModels
                     TrainerCert += item.Certification + " | ";
                 }
 
-                if (App.InstagramMedia != null && App.InstagramMedia.data != null)
+                if (App.LoginResponse.basicInfo.InstaGramImages != null)
                 {
-                    GalleryVisible = true;
-                    InstaVisible = false;
 
-                    var list = new List<string>();
-                    foreach (var item in App.InstagramMedia.data)
+                    string s = App.LoginResponse.basicInfo.InstaGramImages;
+                    string[] imageurl = s.Split(',').Select(sValue => sValue.Trim()).ToArray();
+                    if (imageurl.Count() > 0)
                     {
-                        var media = item.images.standard_resolution.url;
-                        list.Add(media);
+                        GalleryVisible = true;
+                        InstaVisible = false;
+
+                        var list = new List<string>();
+                        foreach (var item in imageurl)
+                        {
+                            list.Add(item);
+                        }
+                        Gallery = new ObservableCollection<string>(list);
                     }
-                    Gallery = new ObservableCollection<string>(list);
                 }
                 else
                 {
-                    GalleryVisible = false;
-                    InstaVisible = true;
+
+                    if (App.InstagramMedia != null && App.InstagramMedia.data != null)
+                    {
+                        GalleryVisible = true;
+                        InstaVisible = false;
+
+                        var list = new List<string>();
+                        foreach (var item in App.InstagramMedia.data)
+                        {
+                            var media = item.images.standard_resolution.url;
+                            list.Add(media);
+                        }
+                        Gallery = new ObservableCollection<string>(list);
+                    }
+                    else
+                    {
+                        GalleryVisible = false;
+                        InstaVisible = true;
+                    }
                 }
             }
             else
@@ -401,6 +423,28 @@ namespace DFS.ViewModels
                     }
 
                     ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(finalUrl) };
+                }
+
+
+                if (App.TrainerData.basicInfo.InstaGramImages != null)
+                {
+
+                    string s = App.TrainerData.basicInfo.InstaGramImages;
+                    string[] imageurl = s.Split(',').Select(sValue => sValue.Trim()).ToArray();
+
+                    if (imageurl.Count() > 0)
+                    {
+
+                        GalleryVisible = true;
+                        InstaVisible = false;
+
+                        var list = new List<string>();
+                        foreach (var item in imageurl)
+                        {
+                            list.Add(item);
+                        }
+                        Gallery = new ObservableCollection<string>(list);
+                    }
                 }
 
                 if (App.TrainerData.professionalInfo.services.Any())

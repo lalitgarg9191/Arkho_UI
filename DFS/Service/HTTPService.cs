@@ -125,7 +125,7 @@ namespace DFS
                         foreach (var item in App.InstagramMedia.data)
                         {
                             var media = item.images.standard_resolution.url;
-                            basicInfo.instaGramImages = basicInfo.instaGramImages + "," + media;
+                            basicInfo.instaGramImages = basicInfo.instaGramImages == "" ? media : basicInfo.instaGramImages + "," + media;
                         }
 
                         signupModel.basicInfo = basicInfo;
@@ -156,11 +156,11 @@ namespace DFS
 
                                     schedule.day = scheduleItem.Day;
                                     schedule.endTime = scheduleItem.EndTime;
-                                    scheduleItem.Month = scheduleItem.Month;
-                                    scheduleItem.ScheduleType = scheduleItem.ScheduleType;
-                                    scheduleItem.StartTime = scheduleItem.StartTime;
-                                    scheduleItem.WeekDay = scheduleItem.WeekDay;
-                                    scheduleItem.Year = scheduleItem.Year;
+                                    schedule.month = scheduleItem.Month;
+                                    schedule.scheduleType = scheduleItem.ScheduleType;
+                                    schedule.startTime = scheduleItem.StartTime;
+                                    schedule.weekDay = scheduleItem.WeekDay;
+                                    schedule.year = scheduleItem.Year;
 
                                     services.schedule.Add(schedule);
                                 }

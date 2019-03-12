@@ -44,6 +44,20 @@ namespace DFS.Views
                 await this.Navigation.PushAsync(new TraineeCalanderPage());
             });
 
+
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            MessagingCenter.Unsubscribe<Object, string>(this, "InstagramMedia");
+            MessagingCenter.Unsubscribe<TraineeProfileViewModel>(this, "CalenderPage");
+        }
+
+        async void Handle_Tapped_1(object sender, System.EventArgs e)
+        {
+            await this.Navigation.PushAsync(new InstagramLoginPage(false));
+
             MessagingCenter.Subscribe<Object, string>(this, "InstagramMedia", async (arg1, arg2) =>
             {
                 try
@@ -72,18 +86,6 @@ namespace DFS.Views
                 traineeProfileViewModel.IsServiceInProgress = false;
             });
 
-        }
-
-        protected override void OnDisappearing()
-        {
-            base.OnDisappearing();
-            MessagingCenter.Unsubscribe<InstagramLoginPage, string>(this, "InstagramMedia");
-            MessagingCenter.Unsubscribe<TraineeProfileViewModel>(this, "CalenderPage");
-        }
-
-        async void Handle_Tapped_1(object sender, System.EventArgs e)
-        {
-            await this.Navigation.PushAsync(new InstagramLoginPage(false));
         }
     }
 }

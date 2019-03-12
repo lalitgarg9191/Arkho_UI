@@ -81,11 +81,11 @@ namespace DFS
                         var instaData = JsonConvert.DeserializeObject<InstagramUser>(account.Properties["InstagramUser"]);
                         App.InstagramUser = instaData;
                     }
-                    if (account.Properties.ContainsKey("InstgramMedia"))
-                    {
-                        var instaMedia = JsonConvert.DeserializeObject<InstagramMedia>(account.Properties["InstgramMedia"]);
-                        App.InstagramMedia = instaMedia;
-                    }
+                    //if (account.Properties.ContainsKey("InstgramMedia"))
+                    //{
+                    //    var instaMedia = JsonConvert.DeserializeObject<InstagramMedia>(account.Properties["InstgramMedia"]);
+                    //    App.InstagramMedia = instaMedia;
+                    //}
                     MainPage =new NavigationPage(new RootPage(App.SelectedView));
                 }
                 else
