@@ -411,16 +411,16 @@ namespace DFS.ViewModels
 
                     String finalUrl;
 
-                    if (values.Length > 2)
-                    {
+                    //if (values.Length > 2)
+                    //{
                         String tempUrl = "http" + values[values.Length - 1];
 
                         finalUrl = tempUrl.Substring(0, tempUrl.Length - 5);
-                    }
-                    else
-                    {
-                        finalUrl = "http" + values[values.Length - 1];
-                    }
+                    //}
+                    //else
+                    //{
+                    //    finalUrl = "http" + values[values.Length - 1];
+                    //}
 
                     ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(finalUrl) };
                 }

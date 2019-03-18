@@ -7,9 +7,9 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.silva.fitness</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.2</string>
+	<string>1.4</string>
 	<key>CFBundleVersion</key>
-	<string>1.2</string>
+	<string>1.4</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
@@ -29,26 +29,19 @@
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Require to get the current location.</string>
+	<string>Required Location. It will help us to locate nearby people.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Require to get the current location.</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Require to click the profile picture.</string>
+	<string>Required Location. It will help us to locate nearby people.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Require to update the profile picture.</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string></string>
+	<string>Gallery access required to upload profile picture.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Require to click the profile picture.</string>
+	<string>Gallery access required to upload profile picture.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Require to get the current location.</string>
+	<string>Required Location. It will help us to locate nearby people.</string>
 	<key>XSLaunchImageAssets</key>
 	<string>Assets.xcassets/LaunchImage.launchimage</string>
 	<key>CFBundleURLTypes</key>
@@ -63,10 +56,10 @@
 	<key>FacebookAppID</key>
 	<string>346722962815727</string>
 	<key>FacebookDisplayName</key>
-	<string></string>
+	<string>Train Me</string>
 	<key>CFBundleName</key>
 	<string>TRAIN ME</string>
 	<key>NSCalendarsUsageDescription</key>
-	<string>Require to display booking details.</string>
+	<string>Calender permission required to display booking details.</string>
 </dict>
 </plist>

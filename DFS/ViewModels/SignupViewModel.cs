@@ -949,7 +949,7 @@ namespace DFS.ViewModels
                 Password = App.LoginResponse.Password;
                 User64String = App.LoginResponse.ImagePayload;
                 SelectedView = App.SelectedView;
-
+                UserIcon = App.LoginResponse.basicInfo.ImageUrl;
                 InstaImages = App.LoginResponse.basicInfo.InstaGramImages;
 
             }

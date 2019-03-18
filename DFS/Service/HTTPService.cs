@@ -130,9 +130,11 @@ namespace DFS
 
                         signupModel.basicInfo = basicInfo;
 
+                        TraineeSignupModel.ProfessionalInfo professionalInfo = new TraineeSignupModel.ProfessionalInfo();
+
                         if (App.SelectedView == "Trainer")
                         {
-                            TraineeSignupModel.ProfessionalInfo professionalInfo = new TraineeSignupModel.ProfessionalInfo();
+
 
                             professionalInfo.accolades = App.LoginResponse.professionalInfo.Accolades;
                             professionalInfo.experience = App.LoginResponse.professionalInfo.Experience;
@@ -177,11 +179,12 @@ namespace DFS
                                 professionalInfo.certifications.Add(certifications);
                             }
 
-                            signupModel.professionalInfo = professionalInfo;
+
                                 //signupModel.professionalInfo.certifications = App.LoginResponse.professionalInfo.certifications;
                             //signupModel.professionalInfo.services = App.LoginResponse.professionalInfo.services;
                         }
 
+                        signupModel.professionalInfo = professionalInfo;
 
                         String signupSuccess = await SignUpAsync(signupModel);
 
