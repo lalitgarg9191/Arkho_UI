@@ -20,6 +20,11 @@ namespace DFS.Views
 
             calendar.MinDate = DateTime.Now;
 
+            if(App.SelectedView == "Trainer")
+            {
+                payButton.IsVisible = false;
+            }
+
             //MessagingCenter.Subscribe<ViewModels.CalenderViewModel, DateTime>(this, "DateSelected", (sender, _selectedDate) =>
             //{
             //    //await this.Navigation.PushAsync(new TimeSelectionPopup());

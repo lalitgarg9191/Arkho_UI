@@ -128,7 +128,7 @@ namespace DFS.ViewModels
             TraineeGoals = App.LoginResponse.basicInfo.SportsInterest;
             TraineeInterest = App.LoginResponse.basicInfo.SportsInterest;
 
-            if (App.LoginResponse.basicInfo.ImageUrl != null)
+            if (App.LoginResponse.basicInfo.ImageUrl != null && App.LoginResponse.basicInfo.ImageUrl != "NA")
             {
                 String url = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
 

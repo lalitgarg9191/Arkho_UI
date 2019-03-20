@@ -5,11 +5,11 @@
 	<key>CFBundleDisplayName</key>
 	<string>TRAIN ME</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.silva.fitness</string>
+	<string>com.silva.trainme</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.4</string>
+	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1.4</string>
+	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>

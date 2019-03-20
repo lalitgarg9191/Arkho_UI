@@ -323,7 +323,7 @@ namespace DFS.ViewModels
                 TrainerExperience = App.LoginResponse.professionalInfo.Experience;
                 TrainerSpeciality = App.LoginResponse.professionalInfo.Speciality;
 
-                if (App.LoginResponse.basicInfo.ImageUrl != null)
+                if (App.LoginResponse.basicInfo.ImageUrl != null && App.LoginResponse.basicInfo.ImageUrl != "NA")
                 {
                     String url = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
                     string[] values = url.Split(new string[] { "http" }, StringSplitOptions.None);
@@ -402,27 +402,13 @@ namespace DFS.ViewModels
                 TrainerExperience = App.TrainerData.professionalInfo.Experience;
                 TrainerSpeciality = App.TrainerData.professionalInfo.Speciality;
 
-                if (App.TrainerData.basicInfo.ImageUrl != null)
+                if (App.TrainerData.basicInfo.ImageUrl != null && App.TrainerData.basicInfo.ImageUrl != "NA")
                 {
 
                     String url = App.TrainerData.basicInfo.ImageUrl != null ? App.TrainerData.basicInfo.ImageUrl : "defaultIcon.png";
 
-                    string[] values = url.Split(new string[] { "http" }, StringSplitOptions.None);
 
-                    String finalUrl;
-
-                    //if (values.Length > 2)
-                    //{
-                        String tempUrl = "http" + values[values.Length - 1];
-
-                        finalUrl = tempUrl.Substring(0, tempUrl.Length - 5);
-                    //}
-                    //else
-                    //{
-                    //    finalUrl = "http" + values[values.Length - 1];
-                    //}
-
-                    ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(finalUrl) };
+                    ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(url) };
                 }
 
 

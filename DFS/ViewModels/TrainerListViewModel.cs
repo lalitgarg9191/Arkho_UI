@@ -57,27 +57,27 @@ namespace DFS.ViewModels
                 trainee.SportsInterest = item.SportsInterest;
                 trainee.State = item.State;
                 trainee.Status = item.Status;
+                trainee.ImageUrL = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(item.ImageUrL) };
+                //if (item.ImageUrL != null)
+                //{
+                //    String url = item.ImageUrL;
+                //    string[] values = url.Split(new string[] { "http" }, StringSplitOptions.None);
 
-                if (item.ImageUrL != null)
-                {
-                    String url = item.ImageUrL;
-                    string[] values = url.Split(new string[] { "http" }, StringSplitOptions.None);
+                //    String finalUrl;
 
-                    String finalUrl;
+                //    if (values.Length > 2)
+                //    {
+                //        String tempUrl = "http" + values[values.Length - 1];
 
-                    if (values.Length > 2)
-                    {
-                        String tempUrl = "http" + values[values.Length - 1];
+                //        finalUrl = tempUrl.Substring(0, tempUrl.Length - 5);
+                //    }
+                //    else
+                //    {
+                //        finalUrl = "http" + values[values.Length - 1];
+                //    }
 
-                        finalUrl = tempUrl.Substring(0, tempUrl.Length - 5);
-                    }
-                    else
-                    {
-                        finalUrl = "http" + values[values.Length - 1];
-                    }
-
-                    trainee.ImageUrL = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(finalUrl) };
-                }
+                //    trainee.ImageUrL = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(finalUrl) };
+                //}
 
                 ListViewData.Add(trainee);
 

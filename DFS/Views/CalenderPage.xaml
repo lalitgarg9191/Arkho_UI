@@ -29,6 +29,7 @@
                        HorizontalOptions="Center"
                        VerticalOptions="CenterAndExpand"
                        CornerRadius="10"
+                       x:Name="payButton"
                        OutlineColor="{StaticResource GreenColor}"
                        BackgroundColor="{StaticResource GreenColor}">
                     <Frame.GestureRecognizers>
