@@ -98,6 +98,7 @@ namespace DFS
             }
             catch(Exception ex) {
                 System.Diagnostics.Debug.WriteLine(ex.ToString());
+                CredentialsService.DeleteCredentials();
                 MainPage = new HanselmanNavigationPage(new Views.SelectionPage());
             }
         }

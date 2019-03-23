@@ -10,26 +10,26 @@ namespace DFS
     {
         public BaseViewModel()
         {
-            if (App.LoginResponse.basicInfo.ImageUrl != null && App.LoginResponse.basicInfo.ImageUrl != "NA")
+            if (App.LoginResponse.basicInfo.ImageUrl != null && App.LoginResponse.basicInfo.ImageUrl != "NA" && App.LoginResponse.basicInfo.ImageUrl != "defaulticon.png")
             {
-                String url = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
-                string[] values = url.Split(new string[] { "http" }, StringSplitOptions.None);
+                //String url = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
+                //string[] values = url.Split(new string[] { "http" }, StringSplitOptions.None);
 
-                String finalUrl;
+                //String finalUrl;
 
-                if (values.Length > 2)
-                {
-                    String tempUrl = "http" + values[values.Length - 1];
+                //if (values.Length > 2)
+                //{
+                //    String tempUrl = "http" + values[values.Length - 1];
 
-                    finalUrl = tempUrl.Substring(0, tempUrl.Length - 5);
-                }
-                else
-                {
-                    finalUrl = "http" + values[values.Length - 1];
-                }
+                //    finalUrl = tempUrl.Substring(0, tempUrl.Length - 5);
+                //}
+                //else
+                //{
+                //    finalUrl = "http" + values[values.Length - 1];
+                //}
 
 
-                ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(finalUrl) };
+                ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(App.LoginResponse.basicInfo.ImageUrl) };
             }
 
             //PlaceHolderImageSource = "defaultIcon.png";
