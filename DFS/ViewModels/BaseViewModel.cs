@@ -10,7 +10,7 @@ namespace DFS
     {
         public BaseViewModel()
         {
-            if (App.LoginResponse.basicInfo.ImageUrl != null && App.LoginResponse.basicInfo.ImageUrl != "NA" && App.LoginResponse.basicInfo.ImageUrl != "defaulticon.png")
+            if (App.LoginResponse.basicInfo.ImageUrl != null && App.LoginResponse.basicInfo.ImageUrl != "NA" && App.LoginResponse.basicInfo.ImageUrl != "defaultIcon.png")
             {
                 //String url = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
                 //string[] values = url.Split(new string[] { "http" }, StringSplitOptions.None);

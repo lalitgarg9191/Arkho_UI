@@ -323,7 +323,7 @@ namespace DFS.ViewModels
                 TrainerExperience = App.LoginResponse.professionalInfo.Experience;
                 TrainerSpeciality = App.LoginResponse.professionalInfo.Speciality;
 
-                if (App.LoginResponse.basicInfo.ImageUrl != null && App.LoginResponse.basicInfo.ImageUrl != "NA" && App.LoginResponse.basicInfo.ImageUrl != "defaulticon.png")
+                if (App.LoginResponse.basicInfo.ImageUrl != null && App.LoginResponse.basicInfo.ImageUrl != "NA" && App.LoginResponse.basicInfo.ImageUrl != "defaultIcon.png")
                 {
                     String url = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
 
@@ -389,7 +389,7 @@ namespace DFS.ViewModels
                 TrainerExperience = App.TrainerData.professionalInfo.Experience;
                 TrainerSpeciality = App.TrainerData.professionalInfo.Speciality;
 
-                if (App.TrainerData.basicInfo.ImageUrl != null && App.TrainerData.basicInfo.ImageUrl != "NA" && App.TrainerData.basicInfo.ImageUrl != "defaulticon.png")
+                if (App.TrainerData.basicInfo.ImageUrl != null && App.TrainerData.basicInfo.ImageUrl != "NA" && App.TrainerData.basicInfo.ImageUrl != "defaultIcon.png")
                 {
 
                     String url = App.TrainerData.basicInfo.ImageUrl != null ? App.TrainerData.basicInfo.ImageUrl : "defaultIcon.png";

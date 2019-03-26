@@ -128,26 +128,11 @@ namespace DFS.ViewModels
             TraineeGoals = App.LoginResponse.basicInfo.SportsInterest;
             TraineeInterest = App.LoginResponse.basicInfo.SportsInterest;
 
-            if (App.LoginResponse.basicInfo.ImageUrl != null && App.LoginResponse.basicInfo.ImageUrl != "NA")
+            if (App.LoginResponse.basicInfo.ImageUrl != null && App.LoginResponse.basicInfo.ImageUrl != "NA" && App.LoginResponse.basicInfo.ImageUrl != "defaultIcon.png")
             {
                 String url = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
 
-                string[] values = url.Split(new string[] { "http" }, StringSplitOptions.None);
-
-                String finalUrl;
-
-                if (values.Length > 2)
-                {
-                    String tempUrl = "http" + values[values.Length - 1];
-
-                    finalUrl = tempUrl.Substring(0, tempUrl.Length - 5);
-                }
-                else
-                {
-                    finalUrl = "http" + values[values.Length - 1];
-                }
-
-                ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(finalUrl) };
+                ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(url) };
             }
 
 

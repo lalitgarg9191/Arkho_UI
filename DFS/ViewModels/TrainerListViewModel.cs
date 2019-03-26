@@ -20,8 +20,8 @@ namespace DFS.ViewModels
             }
         }
 
-        private ObservableCollection<Models.TrainerListModel.TraineeList> _listViewData;
-        public ObservableCollection<Models.TrainerListModel.TraineeList> ListViewData
+        private ObservableCollection<Models.TrainerListModel.Trainee> _listViewData;
+        public ObservableCollection<Models.TrainerListModel.Trainee> ListViewData
         {
             get { return _listViewData; }
             set
@@ -45,8 +45,8 @@ namespace DFS.ViewModels
         {
             var response = await App.TodoManager.FetchTrainerList();
 
-            ListViewData = new ObservableCollection<Models.TrainerListModel.TraineeList>();
-
+            ListViewData = response.trainee;
+            /*
             foreach(var item in response.trainee)
             {
                 Models.TrainerListModel.TraineeList trainee = new Models.TrainerListModel.TraineeList();
@@ -81,7 +81,7 @@ namespace DFS.ViewModels
 
                 ListViewData.Add(trainee);
 
-            }
+            }*/
 
 
 
