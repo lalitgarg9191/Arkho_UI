@@ -339,7 +339,7 @@ namespace DFS.ViewModels
                     TrainerCert += item.Certification + " | ";
                 }
 
-                if (App.LoginResponse.basicInfo.InstaGramImages != null)
+                if (App.LoginResponse.basicInfo.InstaGramImages != null && App.LoginResponse.basicInfo.InstaGramImages != "")
                 {
 
                     string s = App.LoginResponse.basicInfo.InstaGramImages;

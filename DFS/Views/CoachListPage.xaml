@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DFS.Views.CoachListPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DFS.Views.CoachListPage" xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations">
     <ContentPage.Content>
         
         <RelativeLayout>
@@ -34,8 +34,17 @@
                                                     MinimumWidthRequest="80"
                                                     MinimumHeightRequest="80"
                                                     HeightRequest="80">
-                                                <Image MinimumWidthRequest="80" MinimumHeightRequest="80" HeightRequest="80" WidthRequest="80" Source="{Binding ImageUrl}"/>
+                                                <Image MinimumWidthRequest="80" MinimumHeightRequest="80" HeightRequest="80" WidthRequest="80" Source="{Binding ImageUrL}"/>
                                             </Frame>
+                                            
+                                            <!--<ffimageloading:CachedImage HeightRequest="120" WidthRequest="120" DownsampleToViewSize="true" Aspect="AspectFit" Source="{Binding ImageUrL}" LoadingPlaceholder="{Binding PlaceHolderImageSource}" ErrorPlaceholder="{Binding PlaceHolderImageSource}">
+                                                <ffimageloading:CachedImage.Transformations>
+                                                    <fftransformations:CircleTransformation />
+                                                </ffimageloading:CachedImage.Transformations>
+                                            </ffimageloading:CachedImage>-->
+                                            
+                                            
+                                            
                                             <StackLayout MinimumHeightRequest="100" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                                                 <Label Text="{Binding Name}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" Font="Bold" FontSize="18" />        
                                                 <Label Text="{Binding Rating}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />        

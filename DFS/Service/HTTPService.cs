@@ -6,6 +6,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using DFS.Models;
+using ModernHttpClient;
 using Newtonsoft.Json;
 using Plugin.Connectivity;
 using Xamarin.Forms;
@@ -18,7 +19,8 @@ namespace DFS
 
         public HTTPService()
         {
-            client = new HttpClient();
+
+            client = new HttpClient(new NativeMessageHandler());
             client.MaxResponseContentBufferSize = 256000;
 
         }

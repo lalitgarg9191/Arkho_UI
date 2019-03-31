@@ -175,7 +175,7 @@ namespace DFS
                     }
                     else
                     {
-                        var member = App.SelectedView == "Trainee" ? App.LoginResponse : App.TrainerData;
+                        var member = App.LoginResponse;
                         CredentialsService.SaveCredentials(App.FacebookUser.Email, "fb@trainme", member, App.FacebookUser,userType: App.SelectedView);
                         Application.Current.MainPage = new RootPage(App.SelectedView);
                     }

@@ -47,9 +47,11 @@ namespace DFS.ViewModels
 
             ListViewData = response.trainee;
             /*
+            ListViewData = new ObservableCollection<Models.TrainerListModel.Trainee>();
+
             foreach(var item in response.trainee)
             {
-                Models.TrainerListModel.TraineeList trainee = new Models.TrainerListModel.TraineeList();
+                Models.TrainerListModel.Trainee trainee = new Models.TrainerListModel.Trainee();
                 trainee.Address = item.Address;
                 trainee.Country = item.Country;
                 trainee.Email = item.Email;
@@ -57,7 +59,7 @@ namespace DFS.ViewModels
                 trainee.SportsInterest = item.SportsInterest;
                 trainee.State = item.State;
                 trainee.Status = item.Status;
-                trainee.ImageUrL = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(item.ImageUrL) };
+                trainee.ImageUrL = "gray_cal";
                 //if (item.ImageUrL != null)
                 //{
                 //    String url = item.ImageUrL;
@@ -81,8 +83,8 @@ namespace DFS.ViewModels
 
                 ListViewData.Add(trainee);
 
-            }*/
-
+            }
+*/
 
 
             IsServiceInProgress = false;
