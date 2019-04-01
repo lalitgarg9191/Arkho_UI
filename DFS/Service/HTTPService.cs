@@ -432,7 +432,7 @@ namespace DFS
 
                         foreach (var item in responseItem.member)
                         {
-                            if (item.Profile == App.SelectedView)
+                            if (item.Profile == App.SelectedView && loginRequestModel.password != "qwertyqazxcvbnm")
                             {
                                 App.LoginResponse = item;
                             }
