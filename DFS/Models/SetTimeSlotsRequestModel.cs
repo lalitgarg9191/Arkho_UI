@@ -24,6 +24,10 @@ namespace DFS.Models
             public string endTime { get; set; }
 
             public string remarks { get; set; }
+
+            public string serviceId { get; set; }
+
+            public string serviceReferneceId { get; set; }
         }
 
     }

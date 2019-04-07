@@ -314,6 +314,7 @@ namespace DFS.ViewModels
             //Models.LoginResponse.SyncLoginResponse syncLoginResponse = App.DatabaseManager.SyncLoginResponse(App.SelectedView);
 
 
+            // When Trainer checked his/her own profile
             if (App.SelectedView == "Trainer")
             {
                 IsEditable = true;
@@ -380,6 +381,8 @@ namespace DFS.ViewModels
                     }
                 }
             }
+
+            // When profile is checked by trainee
             else
             {
                 IsEditable = false;

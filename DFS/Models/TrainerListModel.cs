@@ -53,6 +53,9 @@ namespace DFS.Models
             [JsonProperty("charges")]
             public String Charges { get; set; }
 
+            [JsonProperty("serviceId")]
+            public String ServiceId { get; set; }
+
             [JsonProperty("chargingPeriod")]
             public String ChargingPeriod { get; set; }
 
@@ -88,6 +91,9 @@ namespace DFS.Models
 
             [JsonProperty("scheduleType")]
             public String ScheduleType { get; set; }
+
+            [JsonProperty("serviceRefId")]
+            public String ServiceRefId { get; set; }
         }
 
         public class TraineeList

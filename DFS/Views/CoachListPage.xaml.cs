@@ -40,6 +40,7 @@ namespace DFS.Views
                     service.ServiceName = serviceItem.ServiceName;
                     service.TeamSize = serviceItem.TeamSize;
                     service.WorkLocaton = serviceItem.WorkLocaton;
+                    service.ServiceId = serviceItem.ServiceId;
 
                     List<Models.LoginResponse.Schedule> schedules = new List<Models.LoginResponse.Schedule>();
 
@@ -53,6 +54,7 @@ namespace DFS.Views
                         schedule.StartTime = scheduleItem.StartTime;
                         schedule.WeekDay = scheduleItem.WeekDay;
                         schedule.Year = scheduleItem.Year;
+                        schedule.ServiceRefId = scheduleItem.ServiceRefId;
 
                         schedules.Add(schedule);
                     }

@@ -37,7 +37,7 @@ namespace DFS
                 ListViewMenu.ItemsSource = menuItems = new List<HomeMenuItem>
                 {
                     new HomeMenuItem { Title = "Profile", MenuType = MenuType.TrainerProfile, Icon ="about.png" },
-                    new HomeMenuItem { Title = "Previous Trransaction", MenuType = MenuType.Contact, Icon ="about.png" },
+                    new HomeMenuItem { Title = "Previous Transaction", MenuType = MenuType.Contact, Icon ="about.png" },
                     new HomeMenuItem { Title = "Settings", MenuType = MenuType.TrainerProfile, Icon ="about.png" },
                     new HomeMenuItem { Title = "Legal", MenuType = MenuType.TrainerProfile, Icon ="about.png" },
                     //new HomeMenuItem { Title = "Connect", MenuType = MenuType.TrainerProfile, Icon ="about.png" },
@@ -51,7 +51,7 @@ namespace DFS
                 ListViewMenu.ItemsSource = menuItems = new List<HomeMenuItem>
                 {
                     new HomeMenuItem { Title = "Find Trainer", MenuType = MenuType.CoachList, Icon ="about.png" },
-                    new HomeMenuItem { Title = "Previous Trransaction", MenuType = MenuType.Contact, Icon ="about.png" },
+                    new HomeMenuItem { Title = "Previous Transaction", MenuType = MenuType.Contact, Icon ="about.png" },
                     new HomeMenuItem { Title = "Profile", MenuType = MenuType.TraineeProfile, Icon ="about.png" },
                     new HomeMenuItem { Title = "Settings", MenuType = MenuType.TraineeProfile, Icon ="about.png" },
                     new HomeMenuItem { Title = "Legal", MenuType = MenuType.TraineeProfile, Icon ="about.png" },

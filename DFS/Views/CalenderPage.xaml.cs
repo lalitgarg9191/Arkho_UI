@@ -93,6 +93,8 @@ namespace DFS.Views
 
                             timeSlot.startTime = calenderViewModel.Schedules[index].StartTime;
                             timeSlot.endTime = calenderViewModel.Schedules[index].EndTime;
+                            timeSlot.serviceReferneceId = calenderViewModel.Schedules[index].ServiceRefId;
+                            timeSlot.serviceId = calenderViewModel.ServiceId;
                             timeSlot.remarks = "Appointment";
 
                             timeSlots.Add(timeSlot);

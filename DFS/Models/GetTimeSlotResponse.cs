@@ -11,9 +11,9 @@ namespace DFS.Models
     public class Service
     {
         public string serviceName { get; set; }
-        public int charges { get; set; }
+        public String charges { get; set; }
         public string chargingPeriod { get; set; }
-        public int serviceId { get; set; }
+        public string serviceId { get; set; }
         public string workLocaton { get; set; }
         public string startDate { get; set; }
         public string endDate { get; set; }
@@ -31,7 +31,7 @@ namespace DFS.Models
         public object remarks { get; set; }
         public string addByEmailID { get; set; }
         public string trainerEmailId { get; set; }
-        public int serviceId { get; set; }
+        public string serviceId { get; set; }
         public object slotId { get; set; }
         public List<Service> services { get; set; }
     }

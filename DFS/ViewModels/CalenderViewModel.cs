@@ -83,6 +83,20 @@ namespace DFS.ViewModels
             }
         }
 
+        private String _serviceId;
+        public String ServiceId
+        {
+            get
+            {
+                return _serviceId;
+            }
+            set
+            {
+                _serviceId = value;
+                RaisePropertyChanged(nameof(ServiceId));
+            }
+        }
+
 
         private bool _isSubmitVisible;
         public bool IsSubmitVisible
@@ -308,6 +322,7 @@ namespace DFS.ViewModels
         {
             IsServiceInProgress = false;
             Schedules = services.schedules;
+            ServiceId = services.ServiceId;
             if (Schedules != null)
             {
 

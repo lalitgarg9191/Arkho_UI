@@ -152,7 +152,11 @@
                                                 <Frame CornerRadius="10" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" IsClippedToBounds="true" BackgroundColor="{StaticResource GreenColor}" Margin="20,0" Padding="0" HeightRequest="40">
                                                     <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
                                                         <Label Text="{Binding ServiceName}" HorizontalOptions="StartAndExpand" HorizontalTextAlignment="Start" Margin="10,0,0,0" TextColor="White" />
-                                                        <Label Text="{Binding Charges}" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" Margin="10,0,10,0" TextColor="White" />
+                                                        <StackLayout HorizontalOptions="EndAndExpand" Orientation="Horizontal" Spacing="0">
+                                                            <Label Text="$" HorizontalTextAlignment="End" TextColor="White" />
+                                                            <Label Text="{Binding Charges}" HorizontalTextAlignment="End" Margin="0,0,10,0" TextColor="White" />
+                                                        </StackLayout>
+                                                        
                                                     </StackLayout>
                                                 </Frame>
                                             </ViewCell>
