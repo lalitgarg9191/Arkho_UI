@@ -69,5 +69,10 @@ namespace DFS.Service
         {
             throw new NotImplementedException();
         }
+
+        public Task<string> SubmitRating(RatingRequestModel ratingRequestModel)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

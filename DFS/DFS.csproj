@@ -197,6 +197,7 @@
     <Compile Include="Views\ScheduleList.xaml.cs">
       <DependentUpon>ScheduleList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\RatingRequestModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />

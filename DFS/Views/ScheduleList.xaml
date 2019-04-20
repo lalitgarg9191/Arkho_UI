@@ -43,6 +43,14 @@
                                                 </StackLayout>
                                                 
                                             </StackLayout>
+                                            
+                                            <StackLayout HorizontalOptions="EndAndExpand" WidthRequest="40" VerticalOptions="FillAndExpand">
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="Handle_Tapped"/>
+                                                </StackLayout.GestureRecognizers>
+                                                <Image Source="Star_Rating.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                                            </StackLayout>
+                                            
                                         </StackLayout>
 
                                     </StackLayout>

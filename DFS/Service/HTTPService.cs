@@ -571,5 +571,39 @@ namespace DFS
             }
             return null;
         }
+
+        public async Task<string> SubmitRating(RatingRequestModel ratingRequestModel)
+        {
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                try
+                {
+                    var uri = new Uri("http://104.238.81.169:4080/FitnessApp/manageservices/v1/addTReview");
+                    var json = JsonConvert.SerializeObject(ratingRequestModel);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                    HttpResponseMessage response = null;
+
+                    response = await client.PostAsync(uri, content);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        return "Success";
+                    }
+                    else
+                    {
+                        return "Failure";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return "Failure";
+                }
+            }
+            else
+            {
+                return "Failure";
+            }
+        }
     }
 }

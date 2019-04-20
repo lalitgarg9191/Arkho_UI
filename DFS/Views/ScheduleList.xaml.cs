@@ -29,5 +29,10 @@ namespace DFS.Views
             OpaqueView.IsVisible = false;
             IndicatorView.IsVisible = false;
         }
+
+        void Handle_Tapped(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

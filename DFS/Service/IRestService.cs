@@ -27,5 +27,7 @@ namespace DFS
         Task<PaymentResponse> StartPayment(Models.PaymentRequest paymentRequest);
 
         Task<GetTimeSlotResponse> GetTimeSlots(GetTimeSlotRequest getTimeSlotRequest);
+
+        Task<string> SubmitRating(RatingRequestModel ratingRequestModel);
     }
 }

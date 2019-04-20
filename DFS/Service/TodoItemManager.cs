@@ -57,5 +57,10 @@ namespace DFS
         {
             return restService.StartPayment(paymentrequest);
         }
+
+        public Task<String> SubmitRating(RatingRequestModel ratingRequestModel)
+        {
+            return restService.SubmitRating(ratingRequestModel);
+        }
     }
 }
