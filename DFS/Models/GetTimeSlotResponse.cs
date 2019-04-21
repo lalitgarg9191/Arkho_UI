@@ -33,6 +33,7 @@ namespace DFS.Models
         public string trainerEmailId { get; set; }
         public string serviceId { get; set; }
         public object slotId { get; set; }
+        public bool IsStarVisible { get; set; }
         public List<Service> services { get; set; }
     }
 

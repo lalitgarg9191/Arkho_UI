@@ -33,6 +33,9 @@ namespace DFS.Models
             [JsonProperty("paypalId")]
             public String PaypalId { get; set; }
 
+            [JsonProperty("reviews")]
+            public ObservableCollection<Reviews> reviews { get; set; }
+
             [JsonProperty("basicInfo")]
             public BasicInfo basicInfo { get; set; }
 
@@ -40,7 +43,25 @@ namespace DFS.Models
             public ProfessionalInfo professionalInfo { get; set; }
         }
 
-        public class BasicInfo
+        public class Reviews
+        {
+            [JsonProperty("rating")]
+            public int Rating { get; set; }
+
+            [JsonProperty("comment")]
+            public String Comment { get; set; }
+
+            [JsonProperty("traineeEmailId")]
+            public String TraineeEmailId { get; set; }
+
+            [JsonProperty("trainerEmailId")]
+            public String TrainerEmailId { get; set; }
+
+            [JsonProperty("name")]
+            public String Name { get; set; }
+        }
+
+            public class BasicInfo
         {
             [JsonProperty("id")]
             public int ID { get; set; }

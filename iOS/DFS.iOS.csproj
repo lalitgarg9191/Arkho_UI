@@ -418,6 +418,9 @@
     <BundleResource Include="Resources\defaultIcon.png" />
     <BundleResource Include="Resources\loginlogo.png" />
     <BundleResource Include="Resources\Star_Rating.png" />
+    <BundleResource Include="Resources\selected.png" />
+    <BundleResource Include="Resources\semi_selected.png" />
+    <BundleResource Include="Resources\unselected.png" />
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="iTunesArtwork%402x" />

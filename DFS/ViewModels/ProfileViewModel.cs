@@ -234,6 +234,17 @@ namespace DFS.ViewModels
             }
         }
 
+        private ObservableCollection<Models.LoginResponse.Reviews> _reviewListData;
+        public ObservableCollection<Models.LoginResponse.Reviews> ReviewListData
+        {
+            get { return _reviewListData; }
+            set
+            {
+                _reviewListData = value;
+                RaisePropertyChanged(nameof(ReviewListData));
+            }
+        }
+
         public ICommand ServiceCommand { get; set; }
         public ICommand ReviewCommand { get; set; }
         public ICommand ProfileCommand { get; set; }
@@ -310,6 +321,9 @@ namespace DFS.ViewModels
         public ProfileViewModel()
         {
             ServiceListData = new ObservableCollection<Models.LoginResponse.Services>();
+            ReviewListData = new ObservableCollection<Reviews>();
+
+            ReviewListData = App.LoginResponse.reviews;
 
             //Models.LoginResponse.SyncLoginResponse syncLoginResponse = App.DatabaseManager.SyncLoginResponse(App.SelectedView);
 
