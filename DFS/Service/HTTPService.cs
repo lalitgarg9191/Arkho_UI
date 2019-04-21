@@ -578,7 +578,7 @@ namespace DFS
             {
                 try
                 {
-                    var uri = new Uri("http://104.238.81.169:4080/FitnessApp/manageservices/v1/addTReview");
+                    var uri = new Uri("http://104.238.81.169:4080/FitnessApp/manageservices/v1/members/addTReview");
                     var json = JsonConvert.SerializeObject(ratingRequestModel);
                     var content = new StringContent(json, Encoding.UTF8, "application/json");
 

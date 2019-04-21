@@ -129,7 +129,7 @@ namespace DFS.Views
 
             LoadingText.Text = "Submitting...";
 
-            RatingRequestModel ratingRequestModel = new RatingRequestModel(RatingIndex * 2, "", timeSlot[0].addByEmailID, timeSlot[0].trainerEmailId);
+            RatingRequestModel ratingRequestModel = new RatingRequestModel(RatingIndex * 2, CommentText.Text, "q", timeSlot[0].trainerEmailId);
 
             String message = await App.TodoManager.SubmitRating(ratingRequestModel);
 

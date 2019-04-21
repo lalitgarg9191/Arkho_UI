@@ -59,6 +59,16 @@ namespace DFS.Models
 
             [JsonProperty("name")]
             public String Name { get; set; }
+
+            public String FirstImageSource { get; set; }
+
+            public String SecondImageSource { get; set; }
+
+            public String ThirdImageSource { get; set; }
+
+            public String FourthImageSource { get; set; }
+
+            public String FifthImageSource { get; set; }
         }
 
             public class BasicInfo

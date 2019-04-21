@@ -318,19 +318,106 @@ namespace DFS.ViewModels
 
         public ObservableCollection<string> Gallery { get; set; }
 
+        private void DisplayReviewList(ObservableCollection<Reviews> mainData)
+        {
+            ObservableCollection<Reviews> reviews = new ObservableCollection<Reviews>();
+
+            foreach (var item in mainData)
+            {
+                Reviews review = new Reviews();
+                review.Comment = item.Comment;
+                review.Name = item.Name;
+                review.TraineeEmailId = item.TraineeEmailId;
+                review.TrainerEmailId = item.TrainerEmailId;
+                review.FirstImageSource = "unselected.png";
+                review.SecondImageSource = "unselected.png";
+                review.ThirdImageSource = "unselected.png";
+                review.FourthImageSource = "unselected.png";
+                review.FifthImageSource = "unselected.png";
+
+                Double starRating = Convert.ToDouble(item.Rating) / 2;
+
+                if (starRating > 0 && starRating < 1)
+                {
+                    review.FirstImageSource = "semi_selected.png";
+                }
+                else if (starRating > 0.99 && starRating < 1.5)
+                {
+                    review.FirstImageSource = "selected.png";
+                }
+                else if (starRating > 1.49 && starRating < 2.0)
+                {
+                    review.FirstImageSource = "selected.png";
+                    review.SecondImageSource = "semi_selected.png";
+                }
+                else if (starRating > 1.99 && starRating < 2.5)
+                {
+                    review.FirstImageSource = "selected.png";
+                    review.SecondImageSource = "selected.png";
+                }
+                else if (starRating > 2.49 && starRating < 3.0)
+                {
+                    review.FirstImageSource = "selected.png";
+                    review.SecondImageSource = "selected.png";
+                    review.ThirdImageSource = "semi_selected.png";
+                }
+                else if (starRating > 2.99 && starRating < 3.5)
+                {
+                    review.FirstImageSource = "selected.png";
+                    review.SecondImageSource = "selected.png";
+                    review.ThirdImageSource = "selected.png";
+                }
+                else if (starRating > 3.49 && starRating < 4.0)
+                {
+                    review.FirstImageSource = "selected.png";
+                    review.SecondImageSource = "selected.png";
+                    review.ThirdImageSource = "selected.png";
+                    review.FourthImageSource = "semi_selected.png";
+                }
+                else if (starRating > 3.99 && starRating < 4.5)
+                {
+                    review.FirstImageSource = "selected.png";
+                    review.SecondImageSource = "selected.png";
+                    review.ThirdImageSource = "selected.png";
+                    review.FourthImageSource = "selected.png";
+                }
+                else if (starRating > 4.49 && starRating < 5.0)
+                {
+                    review.FirstImageSource = "selected.png";
+                    review.SecondImageSource = "selected.png";
+                    review.ThirdImageSource = "selected.png";
+                    review.FourthImageSource = "selected.png";
+                    review.FifthImageSource = "semi_selected.png";
+                }
+                else if (starRating > 4.9)
+                {
+                    review.FirstImageSource = "selected.png";
+                    review.SecondImageSource = "selected.png";
+                    review.ThirdImageSource = "selected.png";
+                    review.FourthImageSource = "selected.png";
+                    review.FifthImageSource = "selected.png";
+                }
+
+                reviews.Add(review);
+            }
+
+            ReviewListData = reviews;
+
+        }
+
         public ProfileViewModel()
         {
             ServiceListData = new ObservableCollection<Models.LoginResponse.Services>();
             ReviewListData = new ObservableCollection<Reviews>();
 
-            ReviewListData = App.LoginResponse.reviews;
-
-            //Models.LoginResponse.SyncLoginResponse syncLoginResponse = App.DatabaseManager.SyncLoginResponse(App.SelectedView);
 
 
             // When Trainer checked his/her own profile
             if (App.SelectedView == "Trainer")
             {
+                // Review data process
+                DisplayReviewList(App.LoginResponse.reviews);
+
                 IsEditable = true;
                 TrainerName = App.LoginResponse.basicInfo.Name;
                 TrainingPlace = App.LoginResponse.basicInfo.Address;
@@ -399,6 +486,10 @@ namespace DFS.ViewModels
             // When profile is checked by trainee
             else
             {
+
+                // Review data process
+                DisplayReviewList(App.TrainerData.reviews);
+
                 IsEditable = false;
                 TrainerName = App.TrainerData.basicInfo.Name;
                 TrainingPlace = App.TrainerData.basicInfo.Address;
