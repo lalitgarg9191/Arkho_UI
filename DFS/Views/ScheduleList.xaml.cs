@@ -10,6 +10,8 @@ namespace DFS.Views
     {
         int RatingIndex = 0;
         List<TimeSlot> timeSlot;
+
+        string TraineeEmailId, TrainerEmailId;
         public ScheduleList()
         {
             InitializeComponent();
@@ -82,6 +84,10 @@ namespace DFS.Views
 
             var response = await App.TodoManager.GetTimeSlots(new Models.GetTimeSlotRequest{emailID=App.LoginResponse.Email});
 
+            if (response != null)
+            {
+                TraineeEmailId = response.TimeSlots.emailID;
+            }
             foreach (var item in response.TimeSlots.timeSlot)
             {
                 int month = Convert.ToInt32(item.month);
@@ -111,6 +117,11 @@ namespace DFS.Views
 
         void Handle_Tapped(object sender, System.EventArgs e)
         {
+            var obj = ((TappedEventArgs)e).Parameter;
+
+            var selectedObject = obj as TimeSlot;
+            TrainerEmailId = selectedObject.trainerEmailId;
+
             RatingIndex = 0;
             FirstImage.Source = "unselected.png";
             SecondImage.Source = "unselected.png";
@@ -129,7 +140,7 @@ namespace DFS.Views
 
             LoadingText.Text = "Submitting...";
 
-            RatingRequestModel ratingRequestModel = new RatingRequestModel(RatingIndex * 2, CommentText.Text, "q", timeSlot[0].trainerEmailId);
+            RatingRequestModel ratingRequestModel = new RatingRequestModel(RatingIndex * 2, CommentText.Text, TraineeEmailId, TrainerEmailId);
 
             String message = await App.TodoManager.SubmitRating(ratingRequestModel);
 

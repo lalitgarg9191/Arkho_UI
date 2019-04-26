@@ -46,7 +46,7 @@
                                             
                                             <StackLayout IsVisible="{Binding IsStarVisible}" HorizontalOptions="EndAndExpand" WidthRequest="40" VerticalOptions="FillAndExpand">
                                                 <StackLayout.GestureRecognizers>
-                                                    <TapGestureRecognizer Tapped="Handle_Tapped"/>
+                                                    <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="Handle_Tapped"/>
                                                 </StackLayout.GestureRecognizers>
                                                 <Image Source="Star_Rating.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                                             </StackLayout>
@@ -103,56 +103,58 @@
                                     RelativeLayout.HeightConstraint="{ConstraintExpression
                                         Type=RelativeToParent,Property=Height,Factor=1,Constant=0}"  >
             
-                <StackLayout Margin="30,10" Padding="10" HeightRequest="220" BackgroundColor="White">
-                    <Label HorizontalTextAlignment="Center">Please Rate Trainer. It will help others make better choices.</Label>
-                    <StackLayout Orientation="Horizontal">
-                        <Grid  VerticalOptions="FillAndExpand" Margin="0,10,0,0">
-                          <Grid.RowDefinitions >
-                           
-                            <RowDefinition Height="*" />
+                <ScrollView Margin="30,10" Padding="10" HeightRequest="220" BackgroundColor="White">
+                    <StackLayout>
+                        <Label HorizontalTextAlignment="Center">Please Rate Trainer. It will help others make better choices.</Label>
+                        <StackLayout Orientation="Horizontal">
+                            <Grid  VerticalOptions="FillAndExpand" Margin="0,10,0,0">
+                              <Grid.RowDefinitions >
+                               
+                                <RowDefinition Height="60" />
 
-                          </Grid.RowDefinitions>
-                          <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                          </Grid.ColumnDefinitions>
-                            
-                                <Image x:Name="FirstImage" Source="unselected.png" Grid.Column="0">
-                                    <Image.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="FirstImageSelected"/>
-                                    </Image.GestureRecognizers>
-                                </Image>
+                              </Grid.RowDefinitions>
+                              <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                              </Grid.ColumnDefinitions>
                                 
-                                <Image x:Name="SecondImage" Source="unselected.png" Grid.Column="1">
-                                    <Image.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="SecondImageSelected"/>
-                                    </Image.GestureRecognizers>
-                                </Image>
-                                <Image x:Name="ThirdImage" Source="unselected.png" Grid.Column="2">
-                                    <Image.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="ThirdImageSelected"/>
-                                    </Image.GestureRecognizers>
-                                </Image>
-                                <Image x:Name="FourthImage" Source="unselected.png" Grid.Column="3">
-                                    <Image.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="FourthImageSelected"/>
-                                    </Image.GestureRecognizers>
-                                </Image>
-                                <Image x:Name="FifthImage" Source="unselected.png" Grid.Column="4">
-                                    <Image.GestureRecognizers>
-                                        <TapGestureRecognizer Tapped="FifthImageSelected"/>
-                                    </Image.GestureRecognizers>
-                                </Image>
-                        </Grid>
+                                    <Image x:Name="FirstImage" Source="unselected.png" Grid.Column="0">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="FirstImageSelected"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    
+                                    <Image x:Name="SecondImage" Source="unselected.png" Grid.Column="1">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="SecondImageSelected"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Image x:Name="ThirdImage" Source="unselected.png" Grid.Column="2">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="ThirdImageSelected"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Image x:Name="FourthImage" Source="unselected.png" Grid.Column="3">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="FourthImageSelected"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Image x:Name="FifthImage" Source="unselected.png" Grid.Column="4">
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="FifthImageSelected"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                            </Grid>
+                        </StackLayout>
+                        <Frame Padding="0" OutlineColor="Silver" HasShadow="false" CornerRadius="5">
+                            <Editor x:Name="CommentText" FontSize="14" HeightRequest="32" MinimumHeightRequest="32"></Editor>
+                        </Frame>
+                        <Button Text="Done" Clicked="Done_Clicked" BackgroundColor="{StaticResource GreenColor}" TextColor="Black"/>
                     </StackLayout>
-                    <Frame Padding="0" OutlineColor="Silver" HasShadow="false" CornerRadius="5">
-                        <Editor x:Name="CommentText" FontSize="14" HeightRequest="32" MinimumHeightRequest="32"></Editor>
-                    </Frame>
-                    <Button Text="Done" Clicked="Done_Clicked" BackgroundColor="{StaticResource GreenColor}" TextColor="Black"/>
-                </StackLayout>
+                </ScrollView>
                 
              </StackLayout>
             
