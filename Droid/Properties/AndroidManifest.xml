@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.guilford.dfs">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.silva.trainme">
 	<uses-sdk android:minSdkVersion="27" android:targetSdkVersion="27" />
 	<!--<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
 	<uses-feature android:name="android.hardware.camera" android:required="true" />
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-	<application android:label="DFS">
+	<application android:label="Train Me">
 		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyDoXdTaPhf4w3EQpjciwMVsQJ4TPcMGXjY" />
 		<!--<provider android:name="android.support.v4.content.FileProvider" 
                 android:authorities="${applicationId}.fileprovider" 
