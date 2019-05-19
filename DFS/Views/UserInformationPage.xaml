@@ -5,7 +5,7 @@
             <DataTemplate x:Key="entryTemplate">
                 <ViewCell>
                     <StackLayout VerticalOptions="FillAndExpand" >
-                        <Entry Text="{Binding MainSelectedData}" Placeholder="{Binding PlaceholderText}" Margin="0,5" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" PlaceholderColor="{StaticResource UserText}"/>
+                        <Entry FontSize="12" Text="{Binding MainSelectedData}" Placeholder="{Binding PlaceholderText}" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" PlaceholderColor="{StaticResource UserText}"/>
                     </StackLayout>
                     
                 </ViewCell>
@@ -14,7 +14,7 @@
             <DataTemplate x:Key="numericTemplate">
                 <ViewCell>
                     <StackLayout VerticalOptions="FillAndExpand" >
-                        <Entry Text="{Binding MainSelectedData}" Keyboard="Numeric" Placeholder="{Binding PlaceholderText}" Margin="0,5" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" PlaceholderColor="{StaticResource UserText}"/>
+                        <Entry FontSize="12" Text="{Binding MainSelectedData}" Keyboard="Numeric" Placeholder="{Binding PlaceholderText}" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" PlaceholderColor="{StaticResource UserText}"/>
                     </StackLayout>
                     
                 </ViewCell>
@@ -24,7 +24,7 @@
                 <ViewCell>
                     
                     <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackColor}">
-                        <Picker ItemsSource="{Binding SelectionData}" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"  Title="{Binding PlaceholderText}" Margin="0,5" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}"></Picker>
+                        <Picker ItemsSource="{Binding SelectionData}" SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"  Title="{Binding PlaceholderText}" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}"></Picker>
                     </StackLayout>
                     
                 </ViewCell>
@@ -34,24 +34,24 @@
                 <ViewCell>
                     
                     <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackColor}">
-                        <DatePicker Date="{Binding SelectedDate}" Margin="0,5" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}"></DatePicker>
+                        <DatePicker Date="{Binding SelectedDate}" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}"></DatePicker>
                     </StackLayout>
                     
                 </ViewCell>
             </DataTemplate>
             
             <DataTemplate x:Key="labelTemplate">
-                <ViewCell Height="30">
+                <ViewCell Height="20">
                         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackColor}" Orientation="Horizontal" >
-                            <Label  VerticalOptions="CenterAndExpand" Text="{Binding PlaceholderText}" TextColor="White" FontAttributes="Bold" FontSize="16"/>
+                            <Label  VerticalOptions="CenterAndExpand" Text="{Binding PlaceholderText}" TextColor="White" FontAttributes="Bold" FontSize="12"/>
                         </StackLayout>
                     </ViewCell>
             </DataTemplate>
             <DataTemplate x:Key="labelButtonTemplate">
                 <ViewCell Height="30">
                         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackColor}" Orientation="Horizontal" >
-                            <Label VerticalOptions="CenterAndExpand" Text="{Binding PlaceholderText}" TextColor="White" FontSize="16"/>
-                            <Image Source="plus_green" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Margin="15,0" HeightRequest="25" WidthRequest="25">
+                            <Label VerticalOptions="CenterAndExpand" Text="{Binding PlaceholderText}" FontAttributes="Bold" TextColor="White" FontSize="12"/>
+                            <Image Source="plus_green" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Margin="15,0" HeightRequest="20" WidthRequest="20">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding Path=BindingContext.AddCommand, Source={x:Reference Name=UserInfoPage}}"
                                     CommandParameter="{Binding .}" />
@@ -65,7 +65,7 @@
             <DataTemplate x:Key="headerTemplate">
                 <ViewCell>
                     <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackColor}">
-                        <Label Text="{Binding HeaderName}" VerticalOptions="CenterAndExpand" FontSize="Large" Font="Bold,Italic"  HorizontalTextAlignment="Start" TextColor="{StaticResource GreenColor}"/>
+                        <Label Text="{Binding HeaderName}" VerticalOptions="CenterAndExpand" FontSize="12" Font="Bold,Italic"  HorizontalTextAlignment="Start" TextColor="{StaticResource GreenColor}"/>
                     </StackLayout>
                     
                 </ViewCell>
@@ -74,7 +74,7 @@
             <DataTemplate x:Key="editorTemplate">
                 <ViewCell>
                     <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackColor}">
-                        <Editor Text="{Binding MainSelectedData}" HeightRequest="50" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}"/>
+                        <Editor Text="{Binding MainSelectedData}" HeightRequest="50" BackgroundColor="{StaticResource UserBack}" FontSize="12" TextColor="{StaticResource UserText}"/>
                     </StackLayout>
                     
                 </ViewCell>
@@ -85,8 +85,8 @@
                     <StackLayout>
                                     
                         <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="FillAndExpand" Margin="0,5,0,0">
-                            <Entry Text="{Binding MainSelectedData}" HorizontalOptions="FillAndExpand" Placeholder="Enter Services" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" PlaceholderColor="{StaticResource UserText}"/>
-                            <Entry HorizontalOptions="EndAndExpand" Text="{Binding SessionAmount}" Keyboard="Numeric" Placeholder="Price" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" PlaceholderColor="{StaticResource UserText}"/>
+                            <Entry FontSize="12" Text="{Binding MainSelectedData}" HorizontalOptions="FillAndExpand" Placeholder="Enter Services" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" PlaceholderColor="{StaticResource UserText}"/>
+                            <Entry FontSize="12" HorizontalOptions="EndAndExpand" Text="{Binding SessionAmount}" Keyboard="Numeric" Placeholder="Price" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" PlaceholderColor="{StaticResource UserText}"/>
                             <Image Source="green_cal" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" HeightRequest="25" WidthRequest="25">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding Path=BindingContext.CalendarCommand, Source={x:Reference Name=UserInfoPage}}"
@@ -95,11 +95,11 @@
                             </Image>
                         </StackLayout>
                         
-                        <Editor Text="{Binding SessionDesc}" HeightRequest="50" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}"/>
+                        <Editor FontSize="12" Text="{Binding SessionDesc}" HeightRequest="50" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}"/>
                         
                         <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                            <Entry Text="{Binding SessionLocation}" HorizontalOptions="FillAndExpand" Placeholder="Enter Location" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" PlaceholderColor="{StaticResource UserText}"/>
-                            <Entry HorizontalOptions="EndAndExpand" Text="{Binding SessionTeam}" Keyboard="Telephone" Placeholder="Batch Size" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" PlaceholderColor="{StaticResource UserText}"/>
+                            <Entry FontSize="12" Text="{Binding SessionLocation}" HorizontalOptions="FillAndExpand" Placeholder="Enter Location" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" PlaceholderColor="{StaticResource UserText}"/>
+                            <Entry FontSize="12" HorizontalOptions="EndAndExpand" Text="{Binding SessionTeam}" Keyboard="Telephone" Placeholder="Batch Size" BackgroundColor="{StaticResource UserBack}" TextColor="{StaticResource UserText}" PlaceholderColor="{StaticResource UserText}"/>
                         </StackLayout>
                     
                     </StackLayout>
@@ -128,13 +128,13 @@
         
                 <StackLayout  VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackColor}" HorizontalOptions="FillAndExpand">
                     
-                        <StackLayout Margin="0,20" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                             <StackLayout>
-                                <Label Text="PERSONAL INFORMATION" Margin="20" Font="Bold,Italic"  HorizontalTextAlignment="Start" TextColor="{StaticResource GreenColor}"/>
+                                <Label Text="PERSONAL INFORMATION" Margin="20,10" Font="Bold,Italic"  HorizontalTextAlignment="Start" TextColor="{StaticResource GreenColor}"/>
                                 <!-- Image View -->
                                 <StackLayout Orientation="Horizontal">
                                     <Frame CornerRadius="10" Padding="0" Margin="20,0">
-                                        <Image Source="{Binding UserIcon}" HorizontalOptions="Start" HeightRequest="120" WidthRequest="120" />
+                                        <Image Source="{Binding UserIcon}" HorizontalOptions="Start" HeightRequest="80" WidthRequest="80" />
                                     </Frame>
                                     <Label Text="Upload Photo" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" TextColor="White">
                                         <Label.GestureRecognizers>
@@ -150,7 +150,7 @@
             
                             </local:CustomListView>
                         
-                            <Button WidthRequest="120" Command="{Binding SaveCommand}" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0" Text="SAVE" TextColor="Black" BackgroundColor="{StaticResource GreenColor}"/>
+                            <Button WidthRequest="120" Font="10" HeightRequest="32" Command="{Binding SaveCommand}" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0" Text="SAVE" TextColor="Black" BackgroundColor="{StaticResource GreenColor}"/>
                             
                         </StackLayout>
                     

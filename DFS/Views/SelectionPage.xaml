@@ -3,7 +3,7 @@
     <ContentPage.Content>
         <AbsoluteLayout>
 
-             <Image Source="trainmeback"
+             <Image Source="trainmeback.png"
                     Aspect="AspectFill"
                     BackgroundColor="{StaticResource BackColor}"
                     AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
@@ -12,7 +12,8 @@
             
         
             <StackLayout AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
-                        AbsoluteLayout.LayoutFlags="All" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        AbsoluteLayout.LayoutFlags="All" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                         Margin="30,0">
                 <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
                     <Frame WidthRequest="220"                          
                            HorizontalOptions="Center"

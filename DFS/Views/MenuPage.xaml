@@ -28,10 +28,10 @@
                                 IsClippedToBounds="true"
                                 Margin="0"
                                 Padding="0"
-                                WidthRequest="120"
-                                MinimumWidthRequest="120"
-                                MinimumHeightRequest="120"
-                                HeightRequest="120">
+                                WidthRequest="80"
+                                MinimumWidthRequest="80"
+                                MinimumHeightRequest="80"
+                                HeightRequest="80">
                             
                             <Image MinimumWidthRequest="120" MinimumHeightRequest="120" HeightRequest="120" WidthRequest="120" Source="{Binding ImageSource}"/>
                         </Frame>
