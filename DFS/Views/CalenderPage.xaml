@@ -10,10 +10,10 @@
                  AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
                 AbsoluteLayout.LayoutFlags="All">
                 <StackLayout Margin="0,20,0,0">
-                    <Image HeightRequest="50" WidthRequest="50" Source="green_cal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" ></Image>
+                    <Image HeightRequest="20" WidthRequest="20" Source="green_cal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" ></Image>
                 </StackLayout>
                 
-                <ScrollView Margin="0,40,0,0">
+                <ScrollView Margin="0,10,0,0">
                     <controls:Calendar 
                         SelectedDate="{Binding Date}"
                         SpecialDates="{Binding Attendances}"

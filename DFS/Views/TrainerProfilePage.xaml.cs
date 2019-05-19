@@ -38,7 +38,7 @@ namespace DFS.Views
             {
                 Models.LoginResponse.Services service = (Models.LoginResponse.Services)e.SelectedItem;
                 profileViewModel.ServiceDesc = service.ChargingPeriod;
-                ServiceLabel.IsVisible = true;
+
                 lv.SelectedItem = null;
 
                 this.Navigation.PushAsync(new CalenderPage(service));

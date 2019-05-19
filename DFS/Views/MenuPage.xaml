@@ -22,7 +22,7 @@
                         
                         
                         <Frame 
-                                CornerRadius="60"
+                                CornerRadius="40"
                                 HorizontalOptions="CenterAndExpand"
                                 VerticalOptions="CenterAndExpand"
                                 IsClippedToBounds="true"
