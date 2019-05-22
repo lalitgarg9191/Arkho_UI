@@ -40,6 +40,10 @@
     <WarningLevel>4</WarningLevel>
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
     <AndroidSupportedAbis>armeabi-v7a;armeabi;x86;arm64-v8a;x86_64</AndroidSupportedAbis>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <AndroidCreatePackagePerAbi>true</AndroidCreatePackagePerAbi>
+    <EnableProguard>true</EnableProguard>
+    <AndroidEnableMultiDex>true</AndroidEnableMultiDex>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -219,6 +223,12 @@
     <Reference Include="Xamarin.Auth">
       <HintPath>..\packages\Xamarin.Auth.1.6.0.4\lib\MonoAndroid10\Xamarin.Auth.dll</HintPath>
     </Reference>
+    <Reference Include="XamForms.Controls.Calendar">
+      <HintPath>..\packages\XamForms.Controls.Calendar.1.1.0\lib\MonoAndroid10\XamForms.Controls.Calendar.dll</HintPath>
+    </Reference>
+    <Reference Include="XamForms.Controls.Calendar.Droid">
+      <HintPath>..\packages\XamForms.Controls.Calendar.1.1.0\lib\MonoAndroid10\XamForms.Controls.Calendar.Droid.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DFS\DFS.csproj">
@@ -257,6 +267,11 @@
     <AndroidResource Include="Resources\drawable\plus_green.png" />
     <AndroidResource Include="Resources\drawable\trainmeback.png" />
     <AndroidResource Include="Resources\drawable\username.png" />
+    <AndroidResource Include="Resources\drawable\home_icon.png" />
+    <AndroidResource Include="Resources\drawable\selected.png" />
+    <AndroidResource Include="Resources\drawable\semi_selected.png" />
+    <AndroidResource Include="Resources\drawable\Star_Rating.png" />
+    <AndroidResource Include="Resources\drawable\unselected.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

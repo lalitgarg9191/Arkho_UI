@@ -11,7 +11,7 @@
                              RelativeLayout.HeightConstraint="{ConstraintExpression
                                 Type=RelativeToParent,Property=Height,Factor=1,Constant=0}">
             
-                <StackLayout BackgroundColor="{StaticResource BackColor}">
+                <StackLayout BackgroundColor="{StaticResource WhiteColor}">
                     
                     <ListView x:Name="ItemsListView" VerticalOptions="FillAndExpand" SeparatorColor="Gray" HasUnevenRows="true">
                         <ListView.ItemTemplate>
@@ -19,27 +19,27 @@
                                 <ViewCell>
                                     <StackLayout Padding="10">
                                         <StackLayout Orientation="Horizontal">
-                                            <StackLayout MinimumHeightRequest="100" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
                                                 
-                                                <Label VerticalOptions="CenterAndExpand" Text="{Binding name}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" Font="Bold" FontSize="18" />        
+                                                <Label VerticalOptions="CenterAndExpand" Text="{Binding name}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" Font="Bold" FontSize="14" />        
                                                 
-                                                <Label VerticalOptions="CenterAndExpand" Text="{Binding trainerEmailId}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" Font="Bold" FontSize="18" />        
-                                                <Label VerticalOptions="CenterAndExpand" Text="{Binding addByEmailID}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" Font="Bold" FontSize="18" />        
+                                                <Label VerticalOptions="CenterAndExpand" Text="{Binding trainerEmailId}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" Font="Bold" FontSize="14" />        
+                                                <Label VerticalOptions="CenterAndExpand" Text="{Binding addByEmailID}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" Font="Bold" FontSize="14" />        
                                                 
-                                                <Label VerticalOptions="CenterAndExpand" Text="{Binding phoneNumber}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" Font="Bold" FontSize="18" />        
+                                                <Label VerticalOptions="CenterAndExpand" Text="{Binding phoneNumber}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" Font="Bold" FontSize="14" />        
                                                 
                                                 <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
-                                                    <Label VerticalOptions="CenterAndExpand" Text="{Binding day}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />        
-                                                    <Label VerticalOptions="CenterAndExpand" Text="/" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />        
-                                                    <Label VerticalOptions="CenterAndExpand" Text="{Binding month}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />        
-                                                    <Label VerticalOptions="CenterAndExpand" Text="/" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />        
-                                                    <Label VerticalOptions="CenterAndExpand" Text="{Binding year}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />        
+                                                    <Label VerticalOptions="CenterAndExpand" Text="{Binding day}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="14" />        
+                                                    <Label VerticalOptions="CenterAndExpand" Text="/" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="14" />        
+                                                    <Label VerticalOptions="CenterAndExpand" Text="{Binding month}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="14" />        
+                                                    <Label VerticalOptions="CenterAndExpand" Text="/" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="14" />        
+                                                    <Label VerticalOptions="CenterAndExpand" Text="{Binding year}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="14" />        
                                                 </StackLayout>
                                                 
                                                 <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand">
-                                                    <Label VerticalOptions="CenterAndExpand" Text="{Binding startTime}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />        
-                                                    <Label VerticalOptions="CenterAndExpand" Text="-" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />        
-                                                    <Label VerticalOptions="CenterAndExpand" Text="{Binding endTime}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="18" />        
+                                                    <Label VerticalOptions="CenterAndExpand" Text="{Binding startTime}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="14" />        
+                                                    <Label VerticalOptions="CenterAndExpand" Text="-" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="14" />        
+                                                    <Label VerticalOptions="CenterAndExpand" Text="{Binding endTime}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="14" />        
                                                 </StackLayout>
                                                 
                                             </StackLayout>
@@ -95,7 +95,7 @@
             <StackLayout
                     x:Name="RatingView"
                     RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,
-                                            ElementName=outerLayout,Property=Height,Factor=0.3,Constant=0}"
+                                            ElementName=outerLayout,Property=Height,Factor=0,Constant=0}"
                                     RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,
                                         ElementName=outerLayout,Property=Width,Factor=0,Constant=0}"
                                     RelativeLayout.WidthConstraint="{ConstraintExpression

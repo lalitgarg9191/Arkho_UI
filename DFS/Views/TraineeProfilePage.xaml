@@ -57,7 +57,7 @@
                         </StackLayout>
                         <!-- Main Content view  -->
                         <ScrollView>
-                            <StackLayout>
+                            <StackLayout Margin="20,0">
                                 <!-- Content view  -->
                                 <StackLayout>
                                     <Label Text="Interest" TextColor="Black" Font="14" HorizontalOptions="StartAndExpand" />

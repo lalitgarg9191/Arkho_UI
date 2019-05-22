@@ -12,10 +12,10 @@
                              RelativeLayout.HeightConstraint="{ConstraintExpression
                                 Type=RelativeToParent,Property=Height,Factor=1,Constant=0}">
             
-                <StackLayout BackgroundColor="{StaticResource BackColor}">
-                    <Image Margin="-6,0,0,0" HeightRequest="40" WidthRequest="40" Source="home_icon.png"/>
+                <StackLayout BackgroundColor="{StaticResource WhiteColor}">
+                    <Image Margin="-6,0,0,0" HeightRequest="25" WidthRequest="25" Source="home_icon.png"/>
 
-                    <Entry BackgroundColor="{StaticResource LightBackgroundColor}" Margin="40,0" Placeholder="Example, Scuba Diving" HorizontalTextAlignment="Start" TextColor="{StaticResource MediumGrayTextColor}" />
+                    <Entry BackgroundColor="{StaticResource LightBackgroundColor}" FontSize="15" Margin="25,0" Placeholder="Example, Scuba Diving" HorizontalTextAlignment="Start" TextColor="{StaticResource MediumGrayTextColor}" />
                     
                     <ListView x:Name="ItemsListView" ItemSelected="Handle_ItemSelected" ItemsSource="{Binding ListViewData}" VerticalOptions="FillAndExpand" SeparatorColor="Gray" HasUnevenRows="true">
                         <ListView.ItemTemplate>
@@ -24,17 +24,17 @@
                                     <StackLayout Padding="10">
                                         <StackLayout Orientation="Horizontal">
                                             <Frame 
-                                                    CornerRadius="40"
+                                                    CornerRadius="20"
                                                     HorizontalOptions="Center"
                                                     VerticalOptions="CenterAndExpand"
                                                     IsClippedToBounds="true"
                                                     Margin="0"
                                                     Padding="0"
-                                                    WidthRequest="80"
-                                                    MinimumWidthRequest="80"
-                                                    MinimumHeightRequest="80"
-                                                    HeightRequest="80">
-                                                <Image MinimumWidthRequest="80" MinimumHeightRequest="80" HeightRequest="80" WidthRequest="80" Source="{Binding ImageUrL}"/>
+                                                    WidthRequest="40"
+                                                    MinimumWidthRequest="40"
+                                                    MinimumHeightRequest="40"
+                                                    HeightRequest="40">
+                                                <Image MinimumWidthRequest="40" MinimumHeightRequest="40" HeightRequest="40" WidthRequest="40" Source="{Binding ImageUrL}"/>
                                             </Frame>
                                             
                                             <!--<ffimageloading:CachedImage HeightRequest="120" WidthRequest="120" DownsampleToViewSize="true" Aspect="AspectFit" Source="{Binding ImageUrL}" LoadingPlaceholder="{Binding PlaceHolderImageSource}" ErrorPlaceholder="{Binding PlaceHolderImageSource}">
@@ -45,10 +45,10 @@
                                             
                                             
                                             
-                                            <StackLayout MinimumHeightRequest="100" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
-                                                <Label Text="{Binding Name}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" Font="Bold" FontSize="18" />        
-                                                <Label Text="{Binding Rating}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="16" />        
-                                                <Label Text="{Binding SportsInterest}" LineBreakMode="WordWrap" Style="{DynamicResource ListItemTextStyle}" Font="Italic" FontSize="16" />    
+                                            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                                <Label Text="{Binding Name}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" Font="Bold" FontSize="16" />        
+                                                <Label Text="{Binding Rating}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="13" />        
+                                                <Label Text="{Binding SportsInterest}" LineBreakMode="WordWrap" Style="{DynamicResource ListItemTextStyle}" Font="Italic" FontSize="13" />    
                                                 
                                             </StackLayout>
                                         </StackLayout>
