@@ -4082,6 +4082,9 @@ namespace DFS.Droid
 			// aapt resource value: 0x7f080039
 			public const int abc_toolbar_collapse_description = 2131230777;
 			
+			// aapt resource value: 0x7f080050
+			public const int app_name = 2131230800;
+			
 			// aapt resource value: 0x7f080048
 			public const int appbar_scrolling_view_behavior = 2131230792;
 			

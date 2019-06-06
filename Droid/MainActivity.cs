@@ -9,6 +9,7 @@ using Android.Widget;
 using Android.OS;
 using Plugin.Geolocator;
 using Plugin.CurrentActivity;
+using Com.Cloudrail.SI;
 
 namespace DFS.Droid
 {
@@ -30,6 +31,9 @@ namespace DFS.Droid
             //FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: true);
             Xamarin.Forms.DependencyService.Register<Platform_Implementation_Android>();
             Xamarin.Forms.DependencyService.Register<Camera_Implementation_Android>();
+
+
+            CloudRail.AppKey = "5c27501221b62e522887898e";
 
             LoadApplication(new App());
         }
