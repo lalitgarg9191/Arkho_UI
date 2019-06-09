@@ -141,27 +141,34 @@ namespace DFS
             {
                 IsServiceInProgress = true;
 
-                Models.LoginRequestModel loginRequestModel = new Models.LoginRequestModel("App", Username, SelectedView, UserPassword);
-                var message = await App.TodoManager.Login(loginRequestModel);
-
-                if (message == "Success")
+                try
                 {
 
-                    var data = App.LoginResponse;
+                    Models.LoginRequestModel loginRequestModel = new Models.LoginRequestModel("App", Username, SelectedView, UserPassword);
+                    var message = await App.TodoManager.Login(loginRequestModel);
 
-                    if (data.Profile == null || data.Profile == "")
+                    if (message == "Success")
                     {
-                        MessagingCenter.Send<UserProfileViewModel, String>(this, "LoginSuccess", "NAV");
+
+                        var data = App.LoginResponse;
+
+                        if (data.Profile == null || data.Profile == "")
+                        {
+                            MessagingCenter.Send<UserProfileViewModel, String>(this, "LoginSuccess", "NAV");
+                        }
+                        else
+                        {
+                            MessagingCenter.Send<UserProfileViewModel, String>(this, "LoginSuccess", "AV");
+                        }
+
                     }
                     else
                     {
-                        MessagingCenter.Send<UserProfileViewModel, String>(this, "LoginSuccess", "AV");
+                        MessagingCenter.Send<UserProfileViewModel, string>(this, "LoginFailure", message);
                     }
-
-                }
-                else
+                }catch(Exception ex)
                 {
-                    MessagingCenter.Send<UserProfileViewModel, string>(this, "LoginFailure", message);
+                    System.Diagnostics.Debug.WriteLine(ex.ToString());
                 }
 
                 IsServiceInProgress = false;

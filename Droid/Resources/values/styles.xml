@@ -1,5 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    
+    <string name="facebook_app_id">380691056124536</string>
+        <string name="fb_login_protocol_scheme">fb380691056124536</string>
+        
+    
 	<style name="MyTheme" parent="MyTheme.Base">
 	</style>
 	<!-- Base theme applied no matter what API -->
@@ -20,6 +25,8 @@
          colorControlHighlight and colorSwitchThumbNormal. -->
 		<item name="windowActionModeOverlay">true</item>
 		<item name="android:datePickerDialogTheme">@style/AppCompatDialogStyle</item>
+        
+        
 	</style>
 	<style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
 		<item name="colorAccent">#FF4081</item>

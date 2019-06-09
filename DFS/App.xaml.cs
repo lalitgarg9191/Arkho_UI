@@ -38,7 +38,7 @@ namespace DFS
             try
             {
                 InitializeComponent();
-                var ignore = new CircleTransformation();
+                //var ignore = new CircleTransformation();
                 FlowListView.Init();
 
                 TodoManager = new TodoItemManager(new HTTPService());

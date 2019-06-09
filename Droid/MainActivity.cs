@@ -11,6 +11,8 @@ using Plugin.Geolocator;
 using Plugin.CurrentActivity;
 using Com.Cloudrail.SI;
 
+using Xamarin.Facebook; using Xamarin.Forms; using DFS.Droid.Implementations; 
+
 namespace DFS.Droid
 {
     [Activity(Label = "Train Me", Icon = "@drawable/icon", Theme = "@style/MyTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
@@ -22,7 +24,8 @@ namespace DFS.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(bundle);
-
+            FacebookSdk.ApplicationId = "380691056124536";
+            FacebookSdk.SdkInitialize(this);
             Rg.Plugins.Popup.Popup.Init(this, bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
@@ -49,10 +52,12 @@ namespace DFS.Droid
                 // Do something if there are not any pages in the `PopupStack`
             }
         }
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)         {             base.OnActivityResult(requestCode, resultCode, data);             var manager = DependencyService.Get<IFacebookManager>();             if (manager != null)             {                 (manager as FacebookManager)._callbackManager.OnActivityResult(requestCode, (int)resultCode, data);             }         }
 
 
 
-       // public override void OnRes
+
+        // public override void OnRes
 
         //public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)
         //{
