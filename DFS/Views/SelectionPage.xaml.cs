@@ -18,6 +18,9 @@ namespace DFS.Views
             TraineeFrame.BackgroundColor = Color.FromRgba(0.55f, 0.80f, 0.04f, 1.0f);
             App.SelectedView = "Trainee";
             await this.Navigation.PushAsync(new LoginPage("Trainee"));
+
+            TraineeLabel.TextColor = Color.FromHex("#9BD000");
+            TraineeFrame.BackgroundColor = Color.Transparent;
         }
 
         async void Handle_TrainerAsync(object sender, System.EventArgs e)
@@ -26,6 +29,10 @@ namespace DFS.Views
             TrainerFrame.BackgroundColor = Color.FromRgba(0.55f, 0.80f, 0.04f, 1.0f);
             App.SelectedView = "Trainer";
             await this.Navigation.PushAsync(new LoginPage("Trainer"));
+
+            TrainerLabel.TextColor = Color.FromHex("#9BD000");
+            TrainerFrame.BackgroundColor = Color.Transparent;
+
         }
 
     }
