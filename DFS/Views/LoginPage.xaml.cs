@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Threading.Tasks;
 using Xamarin.Forms;
-using Plugin.Media;
-using Xamarin.Auth;
-using System.Linq;
 using DFS.Utils;
-using DFS.Dependency;
 using DFS.Views;
 
 namespace DFS
@@ -76,7 +70,7 @@ namespace DFS
                 catch(Exception ex)
                 {
                     System.Diagnostics.Debug.WriteLine(ex.ToString());
-                    await DisplayAlert("Alert", "something went wrong", "Ok");
+                    await DisplayAlert("Alert", "Something went wrong. Please Try Again.", "Ok");
                 }
                 userProfileViewModel.IsServiceInProgress = false;
             });
@@ -182,12 +176,12 @@ namespace DFS
                 }
                 else
                 {
-                    await DisplayAlert("Alert", message, "Ok");
+                    await DisplayAlert("Alert", "Something went wrong. Please Try Again.", "Ok");
                 }
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Alert", ex.Message, "Ok");
+                await DisplayAlert("Alert", "Something went wrong. Please Try Again.", "Ok");
             }
         }
 

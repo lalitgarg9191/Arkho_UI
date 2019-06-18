@@ -88,28 +88,38 @@ namespace DFS.Views
             {
                 TraineeEmailId = response.TimeSlots.emailID;
             }
-            foreach (var item in response.TimeSlots.timeSlot)
-            {
-                int month = Convert.ToInt32(item.month);
-                int day = Convert.ToInt32(item.day);
 
-                if(month == DateTime.Now.Month && App.SelectedView == "Trainee")
+            if (response.TimeSlots.timeSlot.Count == 0)
+            {
+                await DisplayAlert("Alert", "No Time Slots Available.", "Ok");
+            }
+            else
+            {
+
+                foreach (var item in response.TimeSlots.timeSlot)
                 {
-                    if(day <= DateTime.Now.Day)
+                    int month = Convert.ToInt32(item.month);
+                    int day = Convert.ToInt32(item.day);
+
+                    if (month == DateTime.Now.Month && App.SelectedView == "Trainee")
+                    {
+                        if (day <= DateTime.Now.Day)
+                        {
+                            item.IsStarVisible = true;
+                        }
+                    }
+                    else if (month < DateTime.Now.Month && App.SelectedView == "Trainee")
                     {
                         item.IsStarVisible = true;
                     }
-                }
-                else if(month < DateTime.Now.Month && App.SelectedView == "Trainee")
-                {
-                    item.IsStarVisible = true;
-                }
 
-                timeSlot.Add(item);
+                    timeSlot.Add(item);
 
+                }
+                ItemsListView.ItemsSource = timeSlot;
             }
 
-            ItemsListView.ItemsSource = timeSlot;
+
 
             OpaqueView.IsVisible = false;
             IndicatorView.IsVisible = false;
