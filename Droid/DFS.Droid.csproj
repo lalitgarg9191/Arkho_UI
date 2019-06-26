@@ -269,13 +269,13 @@
     <AndroidResource Include="Resources\drawable\trainmeback.png" />
     <AndroidResource Include="Resources\drawable\username.png" />
     <AndroidResource Include="Resources\drawable\home_icon.png" />
-    <AndroidResource Include="Resources\drawable\selected.png" />
-    <AndroidResource Include="Resources\drawable\semi_selected.png" />
     <AndroidResource Include="Resources\drawable\Star_Rating.png" />
-    <AndroidResource Include="Resources\drawable\unselected.png" />
     <AndroidResource Include="Resources\drawable\icon.png" />
     <AndroidResource Include="Resources\layout\Tabbar.axml" />
     <AndroidResource Include="Resources\layout\Toolbar.axml" />
+    <AndroidResource Include="Resources\drawable\unselected.jpg" />
+    <AndroidResource Include="Resources\drawable\selected.jpg" />
+    <AndroidResource Include="Resources\drawable\semi_selected.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
