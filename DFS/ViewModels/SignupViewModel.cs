@@ -986,6 +986,31 @@ namespace DFS.ViewModels
         {
             ListViewData = new ObservableCollection<String>();
 
+            ListViewData.Add("3:00 AM");
+            ListViewData.Add("3:15 AM");
+            ListViewData.Add("3:30 AM");
+            ListViewData.Add("3:45 AM");
+            ListViewData.Add("4:00 AM");
+            ListViewData.Add("4:15 AM");
+            ListViewData.Add("4:30 AM");
+            ListViewData.Add("4:45 AM");
+            ListViewData.Add("5:00 AM");
+            ListViewData.Add("5:15 AM");
+            ListViewData.Add("5:30 AM");
+            ListViewData.Add("5:45 AM");
+            ListViewData.Add("6:00 AM");
+            ListViewData.Add("6:15 AM");
+            ListViewData.Add("6:30 AM");
+            ListViewData.Add("6:45 AM");
+            ListViewData.Add("7:00 AM");
+            ListViewData.Add("7:15 AM");
+            ListViewData.Add("7:30 AM");
+            ListViewData.Add("7:45 AM");
+            ListViewData.Add("8:00 AM");
+            ListViewData.Add("8:15 AM");
+            ListViewData.Add("8:30 AM");
+            ListViewData.Add("8:45 AM");
+            ListViewData.Add("9:00 AM");
             ListViewData.Add("9:00 AM");
             ListViewData.Add("9:15 AM");
             ListViewData.Add("9:30 AM");
@@ -1019,6 +1044,26 @@ namespace DFS.ViewModels
             ListViewData.Add("4:30 PM");
             ListViewData.Add("4:45 PM");
             ListViewData.Add("5:00 PM");
+            ListViewData.Add("5:15 PM");
+            ListViewData.Add("5:30 PM");
+            ListViewData.Add("5:45 PM");
+            ListViewData.Add("6:00 PM");
+            ListViewData.Add("6:15 PM");
+            ListViewData.Add("6:30 PM");
+            ListViewData.Add("6:45 PM");
+            ListViewData.Add("7:00 PM");
+            ListViewData.Add("7:15 PM");
+            ListViewData.Add("7:30 PM");
+            ListViewData.Add("7:45 PM");
+            ListViewData.Add("8:00 PM");
+            ListViewData.Add("8:15 PM");
+            ListViewData.Add("8:30 PM");
+            ListViewData.Add("8:45 PM");
+            ListViewData.Add("9:00 PM");
+            ListViewData.Add("9:15 PM");
+            ListViewData.Add("9:30 PM");
+            ListViewData.Add("9:45 PM");
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
