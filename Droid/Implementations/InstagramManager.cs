@@ -14,7 +14,7 @@ namespace DFS.Droid.Implementations
         public void Login()
         {
             //Context context = ;
-            var cRInstagram = new Instagram(Android.App.Application.Context, "33c8f1v15f9d499c891305d9bf12ef8e", "3b93f768d948405984fd8ad3e94512d7");
+            var cRInstagram = new Instagram(Android.App.Application.Context, "821083700e44427d9f50832f4a47bf87", "07b4baabfb6549a19ab938088a998de7");
             cRInstagram.Login();
         }
     }

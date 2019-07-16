@@ -7,7 +7,7 @@
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	<uses-permission android:name="android.permission.INTERNET" />
-	<application android:label="Train Me" android:icon="@drawable/icon" android:largeHeap="true">
+	<application android:label="ARKHO" android:icon="@drawable/icon" android:largeHeap="true">
 		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyDoXdTaPhf4w3EQpjciwMVsQJ4TPcMGXjY" />
 		<meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id" />
 		<activity android:name="com.facebook.FacebookActivity" android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation" android:label="@string/app_name" />
