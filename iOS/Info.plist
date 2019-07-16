@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>TRAIN ME</string>
+	<string>ARKHO</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.silva.trainme</string>
 	<key>CFBundleShortVersionString</key>
@@ -49,16 +49,16 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb346722962815727</string>
+				<string>fb927246030950646</string>
 			</array>
 		</dict>
 	</array>
 	<key>FacebookAppID</key>
-	<string>346722962815727</string>
+	<string>927246030950646</string>
 	<key>FacebookDisplayName</key>
-	<string>Train Me</string>
+	<string>ARKHO</string>
 	<key>CFBundleName</key>
-	<string>TRAIN ME</string>
+	<string>ARKHO</string>
 	<key>NSCalendarsUsageDescription</key>
 	<string>Calender permission required to display booking details.</string>
 </dict>

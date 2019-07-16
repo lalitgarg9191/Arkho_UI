@@ -13,7 +13,7 @@ namespace DFS.Views
             Title = "Instagram Profile";
             BackgroundColor = Color.White;
 
-            var url = "https://api.instagram.com/oauth/authorize/?client_id=4573363c81554c7293268d33e1de8d09&redirect_uri=https://instagram.com&response_type=token&scope=basic";
+            var url = "https://api.instagram.com/oauth/authorize/?client_id=821083700e44427d9f50832f4a47bf87&redirect_uri=https://instagram.com&response_type=token&scope=basic";
 
             WebView webView = new WebView
             {
