@@ -28,7 +28,7 @@ namespace DFS.Droid
         public void Login(Action<FacebookUser, string> onLoginComplete)
         {
             _onLoginComplete = onLoginComplete;
-            LoginManager.Instance.SetLoginBehavior(LoginBehavior.NativeWithFallback);
+            LoginManager.Instance.SetLoginBehavior(LoginBehavior.WebOnly);
             LoginManager.Instance.LogInWithReadPermissions(Xamarin.Forms.Forms.Context as Activity, new List<string> { "public_profile", "email" });
         }
 
