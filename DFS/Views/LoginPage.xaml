@@ -21,7 +21,7 @@
                         <StackLayout>
                             <StackLayout VerticalOptions="StartAndExpand" Margin="40">
                             
-                                <Image Margin="0,20,0,0" Source="loginlogo.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" WidthRequest="120" HeightRequest="120"/>
+                                <Image Margin="0,20,0,0" Source="arkhologo.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" WidthRequest="120" HeightRequest="120"/>
                                 
                                 <!--    Username Entry   -->
                                 <Frame CornerRadius="10" BackgroundColor="White" Margin="0,10,0,0" Padding="0">

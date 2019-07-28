@@ -13,13 +13,13 @@
       "idiom": "iphone"
     },
     {
-      "filename": "settings2.png",
+      "filename": "58*58.png",
       "size": "29x29",
       "scale": "2x",
       "idiom": "iphone"
     },
     {
-      "filename": "settings3.png",
+      "filename": "87*87.png",
       "size": "29x29",
       "scale": "3x",
       "idiom": "iphone"
@@ -30,19 +30,19 @@
       "idiom": "iphone"
     },
     {
-      "filename": "spot25png.png",
+      "filename": "120*120.png",
       "size": "40x40",
       "scale": "3x",
       "idiom": "iphone"
     },
     {
-      "filename": "spot2.png",
+      "filename": "120*120.png",
       "size": "60x60",
       "scale": "2x",
       "idiom": "iphone"
     },
     {
-      "filename": "spot3.png",
+      "filename": "180*180.png",
       "size": "60x60",
       "scale": "3x",
       "idiom": "iphone"
@@ -53,7 +53,7 @@
       "idiom": "ipad"
     },
     {
-      "filename": "ee.png",
+      "filename": "40*40.png",
       "size": "20x20",
       "scale": "2x",
       "idiom": "ipad"
@@ -64,13 +64,13 @@
       "idiom": "ipad"
     },
     {
-      "filename": "settings232.png",
+      "filename": "58*58.png",
       "size": "29x29",
       "scale": "2x",
       "idiom": "ipad"
     },
     {
-      "filename": "eeqe.png",
+      "filename": "40*40.png",
       "size": "40x40",
       "scale": "1x",
       "idiom": "ipad"
@@ -81,7 +81,7 @@
       "idiom": "ipad"
     },
     {
-      "filename": "arkho-logo-2x-ipadPro.png",
+      "filename": "167*167.png",
       "size": "83.5x83.5",
       "scale": "2x",
       "idiom": "ipad"
@@ -92,13 +92,13 @@
       "idiom": "ipad"
     },
     {
-      "filename": "arkho-logo-2x-ipadMini.png",
+      "filename": "152*152.png",
       "size": "76x76",
       "scale": "2x",
       "idiom": "ipad"
     },
     {
-      "filename": "arkho-logo-1x-Appstore.png",
+      "filename": "1024*1024.png",
       "size": "1024x1024",
       "scale": "1x",
       "idiom": "ios-marketing"

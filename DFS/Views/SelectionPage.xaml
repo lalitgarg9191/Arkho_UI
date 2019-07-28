@@ -3,7 +3,7 @@
     <ContentPage.Content>
         <AbsoluteLayout>
 
-             <Image Source="trainmeback"
+             <Image Source="backimage"
                     Aspect="AspectFill"
                     BackgroundColor="{StaticResource BackColor}"
                     AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
