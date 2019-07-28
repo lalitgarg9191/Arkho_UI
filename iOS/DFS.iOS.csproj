@@ -298,20 +298,21 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-83.5%402x.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-76%402x.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-83.5_180_180%403x.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone X-02.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone X-01.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone SE-01.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone SE-01 copy.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone SE-01 copy 5.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone SE-01 copy 4.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone SE-01 copy 3.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone 8 Plus-02.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone 8 Plus-01.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone 6s-02 copy.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPhone 6s-01.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\9.7 iPadPro-02.png" />
-    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\iPad.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\logos train me_1024px.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\output-onlinepngtools %281%29.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\output-onlinepngtools %282%29.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\output-onlinepngtools.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\output-onlinepngtools %2811%29.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\output-onlinepngtools %2812%29.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\output-onlinepngtools %2822%29.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\output-onlinepngtools %2825%29.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\output-onlinepngtools %2816%29.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\output-onlinepngtools %288%29.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\output-onlinepngtools %2820%29.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\640.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\6401.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\1536.png" />
+    <ImageAsset Include="Assets.xcassets\LaunchImage.launchimage\2048.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />

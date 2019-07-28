@@ -20,7 +20,7 @@
       "minimum-system-version": "11.0",
       "orientation": "portrait",
       "extent": "full-screen",
-      "filename": "iPhone X-01.png",
+      "filename": "output-onlinepngtools (22).png",
       "size": "375x812",
       "subtype": "2436h",
       "scale": "3x",
@@ -30,7 +30,7 @@
       "minimum-system-version": "11.0",
       "orientation": "landscape",
       "extent": "full-screen",
-      "filename": "iPhone X-02.png",
+      "filename": "output-onlinepngtools (25).png",
       "size": "812x375",
       "subtype": "2436h",
       "scale": "3x",
@@ -40,7 +40,7 @@
       "minimum-system-version": "8.0",
       "orientation": "portrait",
       "extent": "full-screen",
-      "filename": "iPhone 8 Plus-01.png",
+      "filename": "output-onlinepngtools (11).png",
       "size": "414x736",
       "subtype": "736h",
       "scale": "3x",
@@ -50,7 +50,7 @@
       "minimum-system-version": "8.0",
       "orientation": "portrait",
       "extent": "full-screen",
-      "filename": "iPhone 6s-01.png",
+      "filename": "output-onlinepngtools (12).png",
       "size": "375x667",
       "subtype": "667h",
       "scale": "2x",
@@ -60,7 +60,7 @@
       "minimum-system-version": "8.0",
       "orientation": "landscape",
       "extent": "full-screen",
-      "filename": "iPhone 8 Plus-02.png",
+      "filename": "output-onlinepngtools (16).png",
       "size": "736x414",
       "subtype": "736h",
       "scale": "3x",
@@ -70,6 +70,7 @@
       "minimum-system-version": "7.0",
       "orientation": "portrait",
       "extent": "full-screen",
+      "filename": "output-onlinepngtools (8).png",
       "size": "1024x1366",
       "scale": "2x",
       "idiom": "ipad"
@@ -78,7 +79,7 @@
       "minimum-system-version": "7.0",
       "orientation": "portrait",
       "extent": "full-screen",
-      "filename": "iPhone SE-01 copy 3.png",
+      "filename": "6401.png",
       "size": "320x480",
       "scale": "2x",
       "idiom": "iphone"
@@ -87,7 +88,7 @@
       "minimum-system-version": "7.0",
       "orientation": "portrait",
       "extent": "full-screen",
-      "filename": "iPhone SE-01 copy 4.png",
+      "filename": "output-onlinepngtools (20).png",
       "size": "320x568",
       "subtype": "retina4",
       "scale": "2x",
@@ -105,6 +106,7 @@
       "minimum-system-version": "7.0",
       "orientation": "portrait",
       "extent": "full-screen",
+      "filename": "output-onlinepngtools (1).png",
       "size": "768x1024",
       "scale": "2x",
       "idiom": "ipad"
@@ -113,7 +115,6 @@
       "minimum-system-version": "7.0",
       "orientation": "landscape",
       "extent": "full-screen",
-      "filename": "iPhone 6s-02 copy.png",
       "size": "1024x768",
       "scale": "1x",
       "idiom": "ipad"
@@ -122,7 +123,7 @@
       "minimum-system-version": "7.0",
       "orientation": "landscape",
       "extent": "full-screen",
-      "filename": "9.7 iPadPro-02.png",
+      "filename": "output-onlinepngtools (2).png",
       "size": "1024x768",
       "scale": "2x",
       "idiom": "ipad"
@@ -130,7 +131,6 @@
     {
       "orientation": "portrait",
       "extent": "full-screen",
-      "filename": "iPhone SE-01 copy.png",
       "size": "320x480",
       "scale": "1x",
       "idiom": "iphone"
@@ -138,7 +138,7 @@
     {
       "orientation": "portrait",
       "extent": "full-screen",
-      "filename": "iPhone SE-01 copy 5.png",
+      "filename": "640.png",
       "size": "320x480",
       "scale": "2x",
       "idiom": "iphone"
@@ -146,7 +146,7 @@
     {
       "orientation": "portrait",
       "extent": "full-screen",
-      "filename": "iPhone SE-01.png",
+      "filename": "output-onlinepngtools (20).png",
       "size": "320x568",
       "subtype": "retina4",
       "scale": "2x",
@@ -162,7 +162,6 @@
     {
       "orientation": "portrait",
       "extent": "to-status-bar",
-      "filename": "iPad.png",
       "size": "768x1004",
       "scale": "2x",
       "idiom": "ipad"
@@ -177,6 +176,7 @@
     {
       "orientation": "portrait",
       "extent": "full-screen",
+      "filename": "1536.png",
       "size": "768x1024",
       "scale": "2x",
       "idiom": "ipad"
@@ -191,6 +191,7 @@
     {
       "orientation": "landscape",
       "extent": "to-status-bar",
+      "filename": "2048.png",
       "size": "1024x748",
       "scale": "2x",
       "idiom": "ipad"
@@ -205,6 +206,7 @@
     {
       "orientation": "landscape",
       "extent": "full-screen",
+      "filename": "output-onlinepngtools.png",
       "size": "1024x768",
       "scale": "2x",
       "idiom": "ipad"

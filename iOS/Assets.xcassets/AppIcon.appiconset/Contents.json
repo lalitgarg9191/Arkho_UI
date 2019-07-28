@@ -1,49 +1,48 @@
 {
   "images": [
     {
-      "filename": "Icon-Small-40.png",
+      "filename": "arkho-logo-2x.png",
       "size": "20x20",
       "scale": "2x",
       "idiom": "iphone"
     },
     {
-      "filename": "Icon-Notification@3x.png",
+      "filename": "arkho-logo-3x.png",
       "size": "20x20",
       "scale": "3x",
       "idiom": "iphone"
     },
     {
-      "filename": "Icon-Small@2x.png",
+      "filename": "settings2.png",
       "size": "29x29",
       "scale": "2x",
       "idiom": "iphone"
     },
     {
-      "filename": "Icon-Small@3x.png",
+      "filename": "settings3.png",
       "size": "29x29",
       "scale": "3x",
       "idiom": "iphone"
     },
     {
-      "filename": "Icon-Small-40@2x.png",
       "size": "40x40",
       "scale": "2x",
       "idiom": "iphone"
     },
     {
-      "filename": "iphone120*120.png",
+      "filename": "spot25png.png",
       "size": "40x40",
       "scale": "3x",
       "idiom": "iphone"
     },
     {
-      "filename": "iphone120*120 2.png",
+      "filename": "spot2.png",
       "size": "60x60",
       "scale": "2x",
       "idiom": "iphone"
     },
     {
-      "filename": "Icon-83.5_180_180@3x.png",
+      "filename": "spot3.png",
       "size": "60x60",
       "scale": "3x",
       "idiom": "iphone"
@@ -54,6 +53,7 @@
       "idiom": "ipad"
     },
     {
+      "filename": "ee.png",
       "size": "20x20",
       "scale": "2x",
       "idiom": "ipad"
@@ -64,12 +64,13 @@
       "idiom": "ipad"
     },
     {
-      "filename": "Icon-Small_extra@2x.png",
+      "filename": "settings232.png",
       "size": "29x29",
       "scale": "2x",
       "idiom": "ipad"
     },
     {
+      "filename": "eeqe.png",
       "size": "40x40",
       "scale": "1x",
       "idiom": "ipad"
@@ -80,7 +81,7 @@
       "idiom": "ipad"
     },
     {
-      "filename": "Icon-83.5@2x.png",
+      "filename": "arkho-logo-2x-ipadPro.png",
       "size": "83.5x83.5",
       "scale": "2x",
       "idiom": "ipad"
@@ -91,13 +92,13 @@
       "idiom": "ipad"
     },
     {
-      "filename": "Icon-76@2x.png",
+      "filename": "arkho-logo-2x-ipadMini.png",
       "size": "76x76",
       "scale": "2x",
       "idiom": "ipad"
     },
     {
-      "filename": "logos train me_1024px.png",
+      "filename": "arkho-logo-1x-Appstore.png",
       "size": "1024x1024",
       "scale": "1x",
       "idiom": "ios-marketing"
