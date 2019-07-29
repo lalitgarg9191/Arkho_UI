@@ -513,11 +513,11 @@ namespace DFS.ViewModels
             // Index Number 7 (Phone)
             basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Phone Number" });
 
-            basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Height (in cm)", IsAdditionAvailable = false });
+            basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Height (in inches)", IsAdditionAvailable = false });
             // Index Number 9 (Height)
             basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Height" });
 
-            basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Weight (in kg)", IsAdditionAvailable = false });
+            basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Weight (in lbs)", IsAdditionAvailable = false });
             // Index Number 11 (Weight)
             basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Weight" });
 
@@ -541,7 +541,7 @@ namespace DFS.ViewModels
                 // Index Number 1 (Specialty)
                 serviceSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Select Specialty", IsAdditionAvailable = false, SelectionData = SpecialityList });
 
-                serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Experience", IsAdditionAvailable = false });
+                serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Experience (in years)", IsAdditionAvailable = false });
                 // Index Number 1 (Experiance)
                 serviceSignUpModel.Add(new Models.SignupData { InputType = "Entry", PlaceholderText = "Enter Experience", IsAdditionAvailable = true });
 
