@@ -305,7 +305,6 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\arkho-logo-3x.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58*58.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\87*87.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120*120.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\180*180.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40*40.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\152*152.png" />
