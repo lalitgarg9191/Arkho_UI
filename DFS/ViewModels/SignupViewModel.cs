@@ -986,6 +986,18 @@ namespace DFS.ViewModels
         {
             ListViewData = new ObservableCollection<String>();
 
+            ListViewData.Add("12:00 AM");
+            ListViewData.Add("12:15 AM");
+            ListViewData.Add("12:30 AM");
+            ListViewData.Add("12:45 AM");
+            ListViewData.Add("1:00 AM");
+            ListViewData.Add("1:15 AM");
+            ListViewData.Add("1:30 AM");
+            ListViewData.Add("1:45 AM");
+            ListViewData.Add("2:00 AM");
+            ListViewData.Add("2:15 AM");
+            ListViewData.Add("2:30 AM");
+            ListViewData.Add("2:45 AM");
             ListViewData.Add("3:00 AM");
             ListViewData.Add("3:15 AM");
             ListViewData.Add("3:30 AM");
@@ -1063,6 +1075,14 @@ namespace DFS.ViewModels
             ListViewData.Add("9:15 PM");
             ListViewData.Add("9:30 PM");
             ListViewData.Add("9:45 PM");
+            ListViewData.Add("10:00 PM");
+            ListViewData.Add("10:15 PM");
+            ListViewData.Add("10:30 PM");
+            ListViewData.Add("10:45 PM");
+            ListViewData.Add("11:00 PM");
+            ListViewData.Add("11:15 PM");
+            ListViewData.Add("11:30 PM");
+            ListViewData.Add("11:45 PM");
 
         }
 

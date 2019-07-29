@@ -28,7 +28,7 @@ namespace DFS.Views
             await this.Navigation.PushAsync(new TraineeCalanderPage());
         }
 
-        void Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
+        async void Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
         {
             // don't do anything if we just de-selected the row.
             if (e.SelectedItem == null) return;
@@ -41,7 +41,8 @@ namespace DFS.Views
                 ServiceLabel.IsVisible = true;
                 lv.SelectedItem = null;
 
-                this.Navigation.PushAsync(new CalenderPage(service));
+                await DisplayAlert("Service Description", service.ChargingPeriod, "OK");
+                await this.Navigation.PushAsync(new CalenderPage(service));
 
             }
 
