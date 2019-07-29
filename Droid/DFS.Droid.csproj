@@ -277,6 +277,8 @@
     <AndroidResource Include="Resources\drawable\semi_selected.jpg" />
     <AndroidResource Include="Resources\drawable\splash_background.xml" />
     <AndroidResource Include="Resources\drawable\logo_splash.jpg" />
+    <AndroidResource Include="Resources\drawable\backimage.png" />
+    <AndroidResource Include="Resources\drawable\arkhoback.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

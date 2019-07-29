@@ -21,7 +21,7 @@
                         <StackLayout VerticalOptions="Start">
                             <StackLayout VerticalOptions="Start" Margin="30,0">
                             
-                                <Image Source="loginlogo.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" WidthRequest="100" HeightRequest="100"/>
+                                <Image Source="backimage.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" WidthRequest="100" HeightRequest="100"/>
                                 
                                 <!--    Username Entry   -->
                                 <Frame CornerRadius="10" BackgroundColor="White" Margin="0,10,0,0" Padding="0">
