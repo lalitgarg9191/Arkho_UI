@@ -623,6 +623,8 @@ namespace DFS.ViewModels
 
             int index = StaticListData[1].IndexOf(item);
 
+
+
             if(item.PlaceholderText == "Awards")
             {
                 StaticListData[1].Insert(index + 1, new Models.SignupData { InputType = "Entry", IsAdditionAvailable = false, PlaceholderText = "Enter Awards"});
@@ -633,7 +635,21 @@ namespace DFS.ViewModels
             }
             else if (item.PlaceholderText == "Service")
             {
-                StaticListData[1].Insert(index + 1, new Models.SignupData { InputType = "Service" });
+                for (var i = index + 1; i < StaticListData[1].Count; i++)
+                {
+                    if(StaticListData[1][i].InputType == "Service")
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        index = i;
+                        break;
+                    }
+
+                }
+
+                StaticListData[1].Insert(index, new Models.SignupData { InputType = "Service" });
             }
 
 
