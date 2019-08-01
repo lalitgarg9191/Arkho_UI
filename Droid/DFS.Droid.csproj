@@ -196,9 +196,6 @@
     <Reference Include="Rg.Plugins.Popup.Droid">
       <HintPath>..\packages\Rg.Plugins.Popup.1.1.4.145-pre\lib\MonoAndroid\Rg.Plugins.Popup.Droid.dll</HintPath>
     </Reference>
-    <Reference Include="Xamarin.Facebook">
-      <HintPath>..\packages\Xamarin.Facebook.Android.4.26.0\lib\MonoAndroid70\Xamarin.Facebook.dll</HintPath>
-    </Reference>
     <Reference Include="Xamarin.GooglePlayServices.Basement">
       <HintPath>..\packages\Xamarin.GooglePlayServices.Basement.42.1021.1\lib\MonoAndroid70\Xamarin.GooglePlayServices.Basement.dll</HintPath>
     </Reference>
@@ -228,6 +225,9 @@
     </Reference>
     <Reference Include="XamForms.Controls.Calendar.Droid">
       <HintPath>..\packages\XamForms.Controls.Calendar.1.1.0\lib\MonoAndroid10\XamForms.Controls.Calendar.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Facebook">
+      <HintPath>..\packages\Xamarin.Facebook.Android.4.26.0\lib\MonoAndroid70\Xamarin.Facebook.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
