@@ -7,7 +7,7 @@
       "idiom": "iphone"
     },
     {
-      "filename": "arkho-logo-3x.png",
+      "filename": "60*60.png",
       "size": "20x20",
       "scale": "3x",
       "idiom": "iphone"
@@ -31,7 +31,7 @@
       "idiom": "iphone"
     },
     {
-      "filename": "arkho-logo-2x.png",
+      "filename": "120*120.png",
       "size": "40x40",
       "scale": "3x",
       "idiom": "iphone"
@@ -77,6 +77,7 @@
       "idiom": "ipad"
     },
     {
+      "filename": "80*80.png",
       "size": "40x40",
       "scale": "2x",
       "idiom": "ipad"
@@ -88,6 +89,7 @@
       "idiom": "ipad"
     },
     {
+      "filename": "76*76.png",
       "size": "76x76",
       "scale": "1x",
       "idiom": "ipad"
