@@ -25,7 +25,7 @@ namespace DFS.Views
             var trainee = e.SelectedItem as Models.TrainerListModel.Trainee;
 
             trainerListViewModel.IsServiceInProgress = true;
-            String message = await App.TodoManager.Login(new Models.LoginRequestModel(App.LoginResponse.SignUpMetod,trainee.Email,"Trainer", "qwertyqazxcvbnm"));
+            String message = await App.TodoManager.Login(new Models.LoginRequestModel("INT",trainee.Email,"Trainer", "qwertyqazxcvbnm"));
             if (message == "Success")
             {
                 //App.TrainerData.professionalInfo.services = trainee.services;

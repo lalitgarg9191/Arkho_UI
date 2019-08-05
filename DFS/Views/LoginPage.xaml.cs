@@ -95,7 +95,7 @@ namespace DFS
                     }
                     else
                     {
-                        await DisplayAlert("Alert", "No user exist. Please sign up.", "OK");
+                        await DisplayAlert("Alert", "Incorrect Username or Password. Please try again.", "OK");
                     }
                 }
                 else
