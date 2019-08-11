@@ -301,17 +301,22 @@
     <ImageAsset Include="Assets.xcassets\backimage.imageset\2x.png" />
     <ImageAsset Include="Assets.xcassets\backimage.imageset\3x.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\60*60.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40*40.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\87*87.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58*58.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\180*180.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\arkho-logo-2x.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\167*167.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\152*152.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\1024*1024.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80*80.png" />
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\76*76.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\60.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\87.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\120.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\180.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\1024.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\20.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\40ipad.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\29.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\58ipad.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\80ipad.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\76.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\152.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\167.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
