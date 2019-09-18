@@ -42,7 +42,14 @@ namespace DFS.Views
                 var member = App.SelectedView == "Trainee" ? App.LoginResponse : App.TrainerData;
                 CredentialsService.SaveCredentials(signupViewModel.EmailAddress, signupViewModel.Password, member, App.FacebookUser, userType: App.SelectedView);
 
-                Application.Current.MainPage = new RootPage(signupViewModel.SelectedView);
+                if (App.TrainerStripeUrl != "")
+                {
+                    Application.Current.MainPage = new StripeSelectionPage();
+                }
+                else
+                {
+                    Application.Current.MainPage = new RootPage(signupViewModel.SelectedView);
+                }
             });
 
             MessagingCenter.Subscribe<ViewModels.SignupViewModel, String>(this, "SignUpFailure", async (sender, message) =>

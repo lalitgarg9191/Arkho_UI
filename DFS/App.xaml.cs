@@ -19,6 +19,8 @@ namespace DFS
 
         public static string SelectedView { get; set; }
 
+        public static string TrainerStripeUrl { get; set; }
+
         public static Models.LoginResponse.Member LoginResponse { get; set; }
 
         public static Models.LoginResponse.Member TrainerData { get; set; }

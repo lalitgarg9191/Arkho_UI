@@ -425,11 +425,18 @@ namespace DFS.ViewModels
                 TrainerExperience = App.LoginResponse.professionalInfo.Experience;
                 TrainerSpeciality = App.LoginResponse.professionalInfo.Speciality;
 
-                if (App.LoginResponse.basicInfo.ImageUrl != null && App.LoginResponse.basicInfo.ImageUrl != "NA" && App.LoginResponse.basicInfo.ImageUrl != "defaultIcon.png")
+                try
                 {
-                    String url = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
 
-                    ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(url) };
+                    if (App.LoginResponse.basicInfo.ImageUrl != null && App.LoginResponse.basicInfo.ImageUrl != "NA" && App.LoginResponse.basicInfo.ImageUrl != "defaultIcon.png")
+                    {
+                        String url = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
+
+                        ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(url) };
+                    }
+                }catch(Exception ex)
+                {
+
                 }
                 //PlaceHolderImageSource = "defaultIcon.png";
                 ServiceListData = App.LoginResponse.professionalInfo.services;
@@ -502,15 +509,21 @@ namespace DFS.ViewModels
                 TrainerExperience = App.TrainerData.professionalInfo.Experience;
                 TrainerSpeciality = App.TrainerData.professionalInfo.Speciality;
 
-                if (App.TrainerData.basicInfo.ImageUrl != null && App.TrainerData.basicInfo.ImageUrl != "NA" && App.TrainerData.basicInfo.ImageUrl != "defaultIcon.png")
+                try
+                {
+                    if (App.TrainerData.basicInfo.ImageUrl != null && App.TrainerData.basicInfo.ImageUrl != "NA" && App.TrainerData.basicInfo.ImageUrl != "defaultIcon.png")
+                    {
+
+                        String url = App.TrainerData.basicInfo.ImageUrl != null ? App.TrainerData.basicInfo.ImageUrl : "defaultIcon.png";
+
+
+                        ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(url) };
+                    }
+                }
+                catch (Exception ex)
                 {
 
-                    String url = App.TrainerData.basicInfo.ImageUrl != null ? App.TrainerData.basicInfo.ImageUrl : "defaultIcon.png";
-
-
-                    ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(url) };
                 }
-
 
                 if (App.TrainerData.basicInfo.InstaGramImages != null)
                 {

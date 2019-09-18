@@ -128,13 +128,19 @@ namespace DFS.ViewModels
             TraineeGoals = App.LoginResponse.basicInfo.SportsInterest;
             TraineeInterest = App.LoginResponse.basicInfo.SportsInterest;
 
-            if (App.LoginResponse.basicInfo.ImageUrl != null && App.LoginResponse.basicInfo.ImageUrl != "NA" && App.LoginResponse.basicInfo.ImageUrl != "defaultIcon.png")
+            try
             {
-                String url = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
+                if (App.LoginResponse.basicInfo.ImageUrl != null && App.LoginResponse.basicInfo.ImageUrl != "NA" && App.LoginResponse.basicInfo.ImageUrl != "defaultIcon.png")
+                {
+                    String url = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
 
-                ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(url) };
+                    ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(url) };
+                }
             }
+            catch (Exception ex)
+            {
 
+            }
 
             if (App.LoginResponse.basicInfo.InstaGramImages != null && App.LoginResponse.basicInfo.InstaGramImages != "")
             {
