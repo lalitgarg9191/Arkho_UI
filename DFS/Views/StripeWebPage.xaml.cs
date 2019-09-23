@@ -12,6 +12,7 @@ namespace DFS.Views
             InitializeComponent();
 
             webView.Source = App.TrainerStripeUrl;
+            App.TrainerStripeUrl = "";
             webView.Navigated += WebView_Navigated;
         }
 

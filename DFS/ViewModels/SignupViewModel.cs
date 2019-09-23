@@ -809,7 +809,7 @@ namespace DFS.ViewModels
                 basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Sports Interest", IsAdditionAvailable = false });
                 // Index Number 13 (Sports Interest)
                 //basicSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Ente Sport", IsAdditionAvailable = false, SelectionData = SportsList , SelectedIndex = SportsList.IndexOf(App.LoginResponse.basicInfo.SportsInterest) });
-                basicSignUpModel.Add(new Models.SignupData { MainSelectedData = App.LoginResponse.basicInfo.SportsInterest, InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Sport Interest" });
+                basicSignUpModel.Add(new Models.SignupData { MainSelectedData = App.LoginResponse.basicInfo.SportsInterest, InputType = "Entry", IsAdditionAvailable = false, PlaceholderText = "Enter Sport Interest" });
 
                 basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Medical Information", IsAdditionAvailable = false });
                 // Index Number 15 (Medical Info)
@@ -817,7 +817,7 @@ namespace DFS.ViewModels
 
                 basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Location", IsAdditionAvailable = false });
                 // Index Number 17 (Location)
-                basicSignUpModel.Add(new Models.SignupData { MainSelectedData = App.LoginResponse.basicInfo.State, InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Location" });
+                basicSignUpModel.Add(new Models.SignupData { MainSelectedData = App.LoginResponse.basicInfo.State, InputType = "Entry", IsAdditionAvailable = false, PlaceholderText = "Enter Location" });
 
 
                 StaticListData.Add(basicSignUpModel);
@@ -829,7 +829,7 @@ namespace DFS.ViewModels
                     serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Specialty", IsAdditionAvailable = false });
                     // Index Number 1 (Specialty)
                     //serviceSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Select Specialty", IsAdditionAvailable = false, SelectionData = SpecialityList, SelectedIndex = SpecialityList.IndexOf(App.LoginResponse.professionalInfo.Speciality) });
-                    serviceSignUpModel.Add(new Models.SignupData { MainSelectedData = App.LoginResponse.professionalInfo.Speciality, InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Specialty" });
+                    serviceSignUpModel.Add(new Models.SignupData { MainSelectedData = App.LoginResponse.professionalInfo.Speciality, InputType = "Entry", IsAdditionAvailable = false, PlaceholderText = "Enter Specialty" });
 
                     serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Experience", IsAdditionAvailable = false });
                     // Index Number 1 (Experiance)
