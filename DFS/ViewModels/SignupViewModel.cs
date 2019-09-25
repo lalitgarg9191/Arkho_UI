@@ -194,72 +194,6 @@ namespace DFS.ViewModels
             }
         }
 
-
-        private ObservableCollection<String> _sportsList { get; set; }
-
-        public ObservableCollection<String> SportsList
-        {
-            get
-            {
-                return _sportsList;
-            }
-            set
-            {
-                _sportsList = value;
-
-                RaisePropertyChanged(nameof(SportsList));
-            }
-        }
-
-        private int _sportsIndex { get; set; }
-
-        public int SportsIndex
-        {
-            get
-            {
-                return _sportsIndex;
-            }
-            set
-            {
-                _sportsIndex = value;
-
-                RaisePropertyChanged(nameof(SportsIndex));
-            }
-        }
-
-        private ObservableCollection<String> _specialityList { get; set; }
-
-        public ObservableCollection<String> SpecialityList
-        {
-            get
-            {
-                return _specialityList;
-            }
-            set
-            {
-                _specialityList = value;
-
-                RaisePropertyChanged(nameof(SpecialityList));
-            }
-        }
-
-        private int _specialityIndex { get; set; }
-
-        public int SpecialityIndex
-        {
-            get
-            {
-                return _specialityIndex;
-            }
-            set
-            {
-                _specialityIndex = value;
-
-                RaisePropertyChanged(nameof(SpecialityIndex));
-            }
-        }
-
-
         private String _userIcon { get; set; }
 
         public String UserIcon
@@ -465,28 +399,6 @@ namespace DFS.ViewModels
             GenderList.Add("Male");
             GenderList.Add("Female");
 
-            SportsList = new ObservableCollection<String>();
-            SportsList.Add("Cricket");
-            SportsList.Add("Baseball");
-            SportsList.Add("Football");
-            SportsList.Add("Tennis");
-            SportsList.Add("Table Tennis");
-            SportsList.Add("Basketball");
-            SportsList.Add("Swimming");
-            SportsList.Add("Athletics");
-            SportsList.Add("Others");
-
-            SpecialityList = new ObservableCollection<String>();
-            SpecialityList.Add("Cricket");
-            SpecialityList.Add("Baseball");
-            SpecialityList.Add("Football");
-            SpecialityList.Add("Tennis");
-            SpecialityList.Add("Table Tennis");
-            SpecialityList.Add("Basketball");
-            SpecialityList.Add("Swimming");
-            SpecialityList.Add("Athletics");
-            SpecialityList.Add("Others");
-
             DateOfBirth = new DateTime(2000, 1, 1);
 
             TimeSelectionVisible = false;
@@ -523,11 +435,16 @@ namespace DFS.ViewModels
 
             basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Sports Interest", IsAdditionAvailable = false });
             // Index Number 13 (Sports Interest)
-            basicSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Select Sport", IsAdditionAvailable = false, SelectionData = SportsList });
+            //basicSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Select Sport", IsAdditionAvailable = false, SelectionData = SportsList });
+            basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = false, PlaceholderText = "Enter Sports Interest" });
 
             basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Medical Information", IsAdditionAvailable = false });
             // Index Number 15 (Medical Info)
             basicSignUpModel.Add(new Models.SignupData { InputType = "Editor", PlaceholderText = "Enter Medical Information" });
+
+            basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Location", IsAdditionAvailable = false });
+            // Index Number 17 (Location)
+            basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = false, PlaceholderText = "Enter Location" });
 
 
             StaticListData.Add(basicSignUpModel);
@@ -539,7 +456,8 @@ namespace DFS.ViewModels
 
                 serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Specialty", IsAdditionAvailable = false });
                 // Index Number 1 (Specialty)
-                serviceSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Select Specialty", IsAdditionAvailable = false, SelectionData = SpecialityList });
+                //serviceSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Select Specialty", IsAdditionAvailable = false, SelectionData = SpecialityList });
+                serviceSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = false, PlaceholderText = "Enter Specialty" });
 
                 serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Experience (in years)", IsAdditionAvailable = false });
                 // Index Number 1 (Experiance)
@@ -660,7 +578,7 @@ namespace DFS.ViewModels
             basicInfo.instaGramId = "";
             basicInfo.latitude = position.Latitude + "";
             basicInfo.longitude = position.Longitude + "";
-            basicInfo.state = "NA";
+            //basicInfo.state = "NA";
             basicInfo.valueAdded = "NA";
             basicInfo.instaGramImages = InstaImages;
 
@@ -679,9 +597,9 @@ namespace DFS.ViewModels
             basicInfo.phoneNumber = StaticListData[0][7].MainSelectedData;
             basicInfo.height = StaticListData[0][9].MainSelectedData;
             basicInfo.weight = StaticListData[0][11].MainSelectedData;
-            basicInfo.sportsInterest = StaticListData[0][13].SelectionData[StaticListData[0][13].SelectedIndex];
+            basicInfo.sportsInterest = StaticListData[0][13].MainSelectedData;
             basicInfo.anyMedicalCondition = StaticListData[0][15].MainSelectedData;
-
+            basicInfo.state = StaticListData[0][17].MainSelectedData;
 
             Models.TraineeSignupModel.ProfessionalInfo professionalInfo = new Models.TraineeSignupModel.ProfessionalInfo();
 
@@ -698,9 +616,9 @@ namespace DFS.ViewModels
                 var enteredProfessionalInfo = StaticListData[1];
                 foreach (var item in enteredProfessionalInfo)
                 {
-                    if (item.PlaceholderText == "Select Specialty" && item.InputType == "Picker")
+                    if (item.PlaceholderText == "Enter Specialty" && item.InputType == "Entry")
                     {
-                        professionalInfo.speciality = item.SelectionData[item.SelectedIndex];
+                        professionalInfo.speciality = item.MainSelectedData;
                     }
                     else if (item.PlaceholderText == "Enter Experience" && item.InputType == "Entry")
                     {
@@ -874,11 +792,15 @@ namespace DFS.ViewModels
 
                 basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Sports Interest", IsAdditionAvailable = false });
                 // Index Number 13 (Sports Interest)
-                basicSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Select Sport", IsAdditionAvailable = false, SelectionData = SportsList , SelectedIndex = SportsList.IndexOf(App.LoginResponse.basicInfo.SportsInterest) });
+                basicSignUpModel.Add(new Models.SignupData { MainSelectedData = App.LoginResponse.basicInfo.SportsInterest, InputType = "Entry", IsAdditionAvailable = false, PlaceholderText = "Enter Sport Interest" });
 
                 basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Medical Information", IsAdditionAvailable = false });
                 // Index Number 15 (Medical Info)
                 basicSignUpModel.Add(new Models.SignupData { MainSelectedData= App.LoginResponse.basicInfo.AnyMedicalCondition, InputType = "Editor", PlaceholderText = "Enter Medical Information" });
+
+                basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Location", IsAdditionAvailable = false });
+                // Index Number 17 (Location)
+                basicSignUpModel.Add(new Models.SignupData { MainSelectedData = App.LoginResponse.basicInfo.State, InputType = "Entry", IsAdditionAvailable = false, PlaceholderText = "Enter Location" });
 
 
                 StaticListData.Add(basicSignUpModel);
@@ -890,7 +812,7 @@ namespace DFS.ViewModels
 
                     serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Specialty", IsAdditionAvailable = false });
                     // Index Number 1 (Specialty)
-                    serviceSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Select Specialty", IsAdditionAvailable = false, SelectionData = SpecialityList, SelectedIndex = SpecialityList.IndexOf(App.LoginResponse.professionalInfo.Speciality) });
+                    serviceSignUpModel.Add(new Models.SignupData { MainSelectedData = App.LoginResponse.professionalInfo.Speciality, InputType = "Entry", IsAdditionAvailable = false, PlaceholderText = "Enter Specialty" });
 
                     serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Experience", IsAdditionAvailable = false });
                     // Index Number 1 (Experiance)

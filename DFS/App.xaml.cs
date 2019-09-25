@@ -19,6 +19,8 @@ namespace DFS
 
         public static string SelectedView { get; set; }
 
+        public static string TrainerStripeUrl { get; set; }
+
         public static Models.LoginResponse.Member LoginResponse { get; set; }
 
         public static Models.LoginResponse.Member TrainerData { get; set; }
@@ -47,6 +49,7 @@ namespace DFS
 
                 MainPage = new HanselmanNavigationPage(new Views.SelectionPage());
 
+                TrainerStripeUrl = "";
 
                 var isExist = CredentialsService.DoCredentialsExist();
                 if (isExist)
@@ -65,9 +68,14 @@ namespace DFS
                         return;
                     }
 
-                    if(App.LoginResponse.Email.Equals(null))
+                    if(App.LoginResponse.Email == null)
                     {
+                        LoginResponse = new Models.LoginResponse.Member();
+                        TrainerData = new Models.LoginResponse.Member();
                         CredentialsService.DeleteCredentials();
+                        MainPage = new HanselmanNavigationPage(new Views.SelectionPage());
+
+                        return;
                     }
 
                     App.SelectedView = account.Properties["UserType"];

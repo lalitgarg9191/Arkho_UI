@@ -375,13 +375,28 @@ namespace DFS
 
                     if (response.IsSuccessStatusCode)
                     {
+                        var responseJson = response.Content.ReadAsStringAsync().Result;
+                        SignUpResponseModel responseItem = JsonConvert.DeserializeObject<Models.SignUpResponseModel>(responseJson);
 
-                        LoginRequestModel loginRequestModel = new LoginRequestModel(App.SelectedView, signupModel.email, App.SelectedView, signupModel.password);
-                        var message = await App.TodoManager.Login(loginRequestModel);
-
-                        if (message == "SUCCESS" || message == "Success")
+                        if (responseItem.status.status == "SUCCESS" || responseItem.status.status == "Success")
                         {
-                            return "Success";
+                            if (signupModel.profile == "Trainer" && responseItem.status.IsStripeAccountCreated == "false")
+                            {
+                                App.TrainerStripeUrl = responseItem.status.StripeRedirectUrl;
+                            }
+
+
+                            LoginRequestModel loginRequestModel = new LoginRequestModel(App.SelectedView, signupModel.email, App.SelectedView, signupModel.password);
+                            var message = await App.TodoManager.Login(loginRequestModel);
+
+                            if (message == "SUCCESS" || message == "Success")
+                            {
+                                return "Success";
+                            }
+                            else
+                            {
+                                return "Internal Server Error. Please try again.";
+                            }
                         }
                         else
                         {

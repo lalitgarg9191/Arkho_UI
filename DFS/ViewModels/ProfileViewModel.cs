@@ -420,17 +420,26 @@ namespace DFS.ViewModels
 
                 IsEditable = true;
                 TrainerName = App.LoginResponse.basicInfo.Name;
-                TrainingPlace = App.LoginResponse.basicInfo.Address;
+                TrainingPlace = App.LoginResponse.basicInfo.State;
                 TrainerAccolades = App.LoginResponse.professionalInfo.Accolades;
                 TrainerExperience = App.LoginResponse.professionalInfo.Experience;
                 TrainerSpeciality = App.LoginResponse.professionalInfo.Speciality;
 
-                if (App.LoginResponse.basicInfo.ImageUrl != null && App.LoginResponse.basicInfo.ImageUrl != "NA" && App.LoginResponse.basicInfo.ImageUrl != "defaultIcon.png")
+                try
                 {
-                    String url = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
 
-                    ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(url) };
+                    if (App.LoginResponse.basicInfo.ImageUrl != null && App.LoginResponse.basicInfo.ImageUrl != "NA" && App.LoginResponse.basicInfo.ImageUrl != "defaultIcon.png")
+                    {
+                        String url = App.LoginResponse.basicInfo.ImageUrl != null ? App.LoginResponse.basicInfo.ImageUrl : "defaultIcon.png";
+
+                        ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(url) };
+                    }
                 }
+                catch (Exception ex)
+                {
+
+                }
+
                 //PlaceHolderImageSource = "defaultIcon.png";
                 ServiceListData = App.LoginResponse.professionalInfo.services;
 
@@ -439,6 +448,11 @@ namespace DFS.ViewModels
                 foreach (var item in App.LoginResponse.professionalInfo.certifications)
                 {
                     TrainerCert += item.Certification + " | ";
+                }
+
+                if (TrainerCert.Contains(" | "))
+                {
+                    TrainerCert = TrainerCert.Substring(0, TrainerCert.Length - 2);
                 }
 
                 if (App.LoginResponse.basicInfo.InstaGramImages != null && App.LoginResponse.basicInfo.InstaGramImages != "")
@@ -492,18 +506,25 @@ namespace DFS.ViewModels
 
                 IsEditable = false;
                 TrainerName = App.TrainerData.basicInfo.Name;
-                TrainingPlace = App.TrainerData.basicInfo.Address;
+                TrainingPlace = App.TrainerData.basicInfo.State;
                 TrainerAccolades = App.TrainerData.professionalInfo.Accolades;
                 TrainerExperience = App.TrainerData.professionalInfo.Experience;
                 TrainerSpeciality = App.TrainerData.professionalInfo.Speciality;
 
-                if (App.TrainerData.basicInfo.ImageUrl != null && App.TrainerData.basicInfo.ImageUrl != "NA" && App.TrainerData.basicInfo.ImageUrl != "defaultIcon.png")
+                try
+                {
+                    if (App.TrainerData.basicInfo.ImageUrl != null && App.TrainerData.basicInfo.ImageUrl != "NA" && App.TrainerData.basicInfo.ImageUrl != "defaultIcon.png")
+                    {
+
+                        String url = App.TrainerData.basicInfo.ImageUrl != null ? App.TrainerData.basicInfo.ImageUrl : "defaultIcon.png";
+
+
+                        ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(url) };
+                    }
+                }
+                catch (Exception ex)
                 {
 
-                    String url = App.TrainerData.basicInfo.ImageUrl != null ? App.TrainerData.basicInfo.ImageUrl : "defaultIcon.png";
-
-
-                    ImageSource = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(url) };
                 }
 
 
@@ -538,6 +559,11 @@ namespace DFS.ViewModels
                 foreach (var item in App.TrainerData.professionalInfo.certifications)
                 {
                     TrainerCert += item.Certification + " | ";
+                }
+
+                if (TrainerCert.Contains(" | "))
+                {
+                    TrainerCert = TrainerCert.Substring(0, TrainerCert.Length - 2);
                 }
             }
 

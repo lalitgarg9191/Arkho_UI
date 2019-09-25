@@ -91,6 +91,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\StripeSelectionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\StripeWebPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -198,6 +206,13 @@
       <DependentUpon>ScheduleList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\RatingRequestModel.cs" />
+    <Compile Include="Models\SignUpResponseModel.cs" />
+    <Compile Include="Views\StripeSelectionPage.xaml.cs">
+      <DependentUpon>StripeSelectionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StripeWebPage.xaml.cs">
+      <DependentUpon>StripeWebPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
