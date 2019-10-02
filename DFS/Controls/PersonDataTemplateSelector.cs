@@ -13,6 +13,7 @@ namespace DFS
         public DataTemplate ServiceTemplate { get; set; }
         public DataTemplate NumericTemplate { get; set; }
         public DataTemplate EditorTemplate { get; set; }
+        public DataTemplate ButtonTemplate { get; set; }
 
 
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
@@ -50,6 +51,10 @@ namespace DFS
             else if (actualItem.InputType == "Editor")
             {
                 return EditorTemplate;
+            }
+            else if (actualItem.InputType == "Button")
+            {
+                return ButtonTemplate;
             }
 
 

@@ -20,6 +20,16 @@
                 </ViewCell>
             </DataTemplate>
             
+            <DataTemplate x:Key="buttonTemplate">
+                <ViewCell>
+                    
+                    <Button Command="{Binding Path=BindingContext.SaveCommand, Source={x:Reference Name=UserInfoPage}}"
+                                    CommandParameter="{Binding .}"  Text="{Binding MainSelectedData}" Margin="0,5" TextColor="{StaticResource GreenColor}"/>
+                    
+                    
+                </ViewCell>
+            </DataTemplate>
+            
             <DataTemplate x:Key="pickerTemplate">
                 <ViewCell>
                     
@@ -108,7 +118,7 @@
             </DataTemplate>
             
 <!--            <local:PersonDataTemplateSelector x:Key="personDataTemplateSelector" NumericTemplate="{StaticResource numericTemplate}" DatePickerTemplate="{StaticResource datePickerTemplate}" LabelTemplate="{StaticResource labelTemplate}" LabelButtonTemplate="{StaticResource labelButtonTemplate}"  EntryTemplate="{StaticResource entryTemplate}" PickerTemplate"{StaticResource pickerTemplate}" ServiceTemplate="{StaticResource serviceTemplate}" />-->
-            <local:PersonDataTemplateSelector x:Key="personDataTemplateSelector" EditorTemplate="{StaticResource editorTemplate}" NumericTemplate="{StaticResource numericTemplate}" DatePickerTemplate="{StaticResource datePickerTemplate}" EntryTemplate="{StaticResource entryTemplate}" PickerTemplate="{StaticResource pickerTemplate}" ServiceTemplate="{StaticResource serviceTemplate}" LabelTemplate="{StaticResource labelTemplate}" LabelButtonTemplate="{StaticResource labelButtonTemplate}" />
+            <local:PersonDataTemplateSelector x:Key="personDataTemplateSelector" EditorTemplate="{StaticResource editorTemplate}" NumericTemplate="{StaticResource numericTemplate}" DatePickerTemplate="{StaticResource datePickerTemplate}" EntryTemplate="{StaticResource entryTemplate}" PickerTemplate="{StaticResource pickerTemplate}" ServiceTemplate="{StaticResource serviceTemplate}" LabelTemplate="{StaticResource labelTemplate}" LabelButtonTemplate="{StaticResource labelButtonTemplate}" ButtonTemplate="{StaticResource buttonTemplate}" />
             <local:CustomGroupHeaderTemplate x:Key="customGroupTemplateSelector" HeaderTemplate="{StaticResource headerTemplate}"/>
         </ResourceDictionary>
     </ContentPage.Resources>
