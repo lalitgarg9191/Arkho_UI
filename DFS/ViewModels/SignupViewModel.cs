@@ -315,11 +315,18 @@ namespace DFS.ViewModels
                 }
                 else
                 {
-                    TimeSelectionVisible = false;
-                    TimeHeader = "Please Select Starting Time";
-                    //SelectedTime[SelectedTime.Count - 1].EndTime = value;
-                    StaticListData[1][SelectedCalenderIndex].selectedTime[(StaticListData[1][SelectedCalenderIndex].selectedTime.Count) - 1].EndTime = value;
-                    //InitializeCalender();
+
+                    if(ListViewData.IndexOf(StaticListData[1][SelectedCalenderIndex].selectedTime[(StaticListData[1][SelectedCalenderIndex].selectedTime.Count) - 1].StartTime) >= ListViewData.IndexOf(value))
+                    {
+                        MessagingCenter.Send<SignupViewModel, String>(this, "Alert", "End time can't be earlier than Starting time.");
+                    }
+                    else
+                    {
+                        TimeSelectionVisible = false;
+                        TimeHeader = "Please Select Starting Time";
+                        StaticListData[1][SelectedCalenderIndex].selectedTime[(StaticListData[1][SelectedCalenderIndex].selectedTime.Count) - 1].EndTime = value;
+
+                    }
 
 
                 }
@@ -642,7 +649,7 @@ namespace DFS.ViewModels
                     }
                     else if (item.PlaceholderText == "Enter Awards")
                     {
-                        professionalInfo.accolades = item.MainSelectedData;
+                        professionalInfo.accolades += item.MainSelectedData + " | ";
                     }
                     else if (item.PlaceholderText == "Enter PayPal ID")
                     {
@@ -663,13 +670,6 @@ namespace DFS.ViewModels
                         service.charges = (item.SessionAmount == "" || item.SessionAmount == null) ? 0 : Convert.ToDouble(item.SessionAmount);
                         service.workLocaton = item.SessionLocation;
                         service.teamSize = item.SessionTeam;
-
-                        //if(item.selectedTime == null)
-                        //{
-                        //    MessagingCenter.Send<SignupViewModel, String>(this, "SignUpFailure", "Please Select Time.");
-                        //    IsServiceInProgress = false;
-                        //    return;
-                        //}
 
                         List<Models.TraineeSignupModel.Schedule> schedules = new List<Models.TraineeSignupModel.Schedule>();
 
@@ -699,6 +699,13 @@ namespace DFS.ViewModels
                     }
 
 
+                }// end of foreach
+
+
+
+                if (professionalInfo.accolades.Contains(" | "))
+                {
+                    professionalInfo.accolades = professionalInfo.accolades.Substring(0, professionalInfo.accolades.Length - 2);
                 }
 
                 professionalInfo.certifications = certifications;
