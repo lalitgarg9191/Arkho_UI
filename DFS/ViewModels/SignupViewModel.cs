@@ -738,7 +738,7 @@ namespace DFS.ViewModels
                 basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Sports Interest", IsAdditionAvailable = false });
                 // Index Number 13 (Sports Interest)
                 //basicSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Select Sport", IsAdditionAvailable = false, SelectionData = SportsList });
-                basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Sports Interest" });
+                basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = false, PlaceholderText = "Enter Sports Interest" });
 
                 basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Medical Information", IsAdditionAvailable = false });
                 // Index Number 15 (Medical Info)
@@ -746,7 +746,7 @@ namespace DFS.ViewModels
 
                 basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Location", IsAdditionAvailable = false });
                 // Index Number 17 (Location)
-                basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Location" });
+                basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = false, PlaceholderText = "Enter Location" });
 
 
                 StaticListData.Add(basicSignUpModel);
@@ -759,7 +759,7 @@ namespace DFS.ViewModels
                     serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Specialty", IsAdditionAvailable = false });
                     // Index Number 1 (Specialty)
                     //serviceSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Select Specialty", IsAdditionAvailable = false, SelectionData = SpecialityList });
-                    serviceSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Specialty" });
+                    serviceSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = false, PlaceholderText = "Enter Specialty" });
 
                     serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Experience (in years)", IsAdditionAvailable = false });
                     // Index Number 1 (Experiance)
