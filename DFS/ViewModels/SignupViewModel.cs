@@ -315,13 +315,7 @@ namespace DFS.ViewModels
                 }
                 else
                 {
-                    TimeSelectionVisible = false;
-                    TimeHeader = "Please Select Starting Time";
-                    //SelectedTime[SelectedTime.Count - 1].EndTime = value;
-                    StaticListData[1][SelectedCalenderIndex].selectedTime[(StaticListData[1][SelectedCalenderIndex].selectedTime.Count) - 1].EndTime = value;
-                    //InitializeCalender();
-
-
+                    if (ListViewData.IndexOf(StaticListData[1][SelectedCalenderIndex].selectedTime[(StaticListData[1][SelectedCalenderIndex].selectedTime.Count) - 1].StartTime) >= ListViewData.IndexOf(value))                     {                         MessagingCenter.Send<SignupViewModel, String>(this, "Alert", "End time can't be earlier than Starting time.");                     }                     else                     {                         TimeSelectionVisible = false;                         TimeHeader = "Please Select Starting Time";                         StaticListData[1][SelectedCalenderIndex].selectedTime[(StaticListData[1][SelectedCalenderIndex].selectedTime.Count) - 1].EndTime = value;                      }
                 }
 
 
@@ -404,84 +398,6 @@ namespace DFS.ViewModels
             TimeSelectionVisible = false;
 
             _timeHeader = "Please Select Starting Time";
-
-            StaticListData = new ObservableCollection<Models.CustomSignupModel>();
-
-            Models.CustomSignupModel basicSignUpModel = new Models.CustomSignupModel { HeaderName = "Basic Information" };
-
-            basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Name (*)", IsAdditionAvailable = false });
-            // Index Number 1 (Name)
-            basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", PlaceholderText = "Enter Name", IsAdditionAvailable = false });
-
-            basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Gender", IsAdditionAvailable = false });
-            // Index Number 3 (Gender)
-            basicSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Select Gender", IsAdditionAvailable = false, SelectionData = GenderList });
-
-            basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Date of Birth", IsAdditionAvailable = false });
-            // Index Number 5 (DOB)
-            basicSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Date of Birth", SelectedDate = DateOfBirth, IsAdditionAvailable = true });
-
-            basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Phone Number (*)", IsAdditionAvailable = false });
-            // Index Number 7 (Phone)
-            basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Phone Number" });
-
-            basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Height (in inches)", IsAdditionAvailable = false });
-            // Index Number 9 (Height)
-            basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Height" });
-
-            basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Weight (in lbs)", IsAdditionAvailable = false });
-            // Index Number 11 (Weight)
-            basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Weight" });
-
-            basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Sports Interest", IsAdditionAvailable = false });
-            // Index Number 13 (Sports Interest)
-            //basicSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Select Sport", IsAdditionAvailable = false, SelectionData = SportsList });
-            basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = false, PlaceholderText = "Enter Sports Interest" });
-
-            basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Medical Information", IsAdditionAvailable = false });
-            // Index Number 15 (Medical Info)
-            basicSignUpModel.Add(new Models.SignupData { InputType = "Editor", PlaceholderText = "Enter Medical Information" });
-
-            basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Location", IsAdditionAvailable = false });
-            // Index Number 17 (Location)
-            basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = false, PlaceholderText = "Enter Location" });
-
-
-            StaticListData.Add(basicSignUpModel);
-
-            if (App.SelectedView == "Trainer")
-            {
-
-                Models.CustomSignupModel serviceSignUpModel = new Models.CustomSignupModel { HeaderName = "Services" };
-
-                serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Specialty", IsAdditionAvailable = false });
-                // Index Number 1 (Specialty)
-                //serviceSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Select Specialty", IsAdditionAvailable = false, SelectionData = SpecialityList });
-                serviceSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = false, PlaceholderText = "Enter Specialty" });
-
-                serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Experience (in years)", IsAdditionAvailable = false });
-                // Index Number 1 (Experiance)
-                serviceSignUpModel.Add(new Models.SignupData { InputType = "Entry", PlaceholderText = "Enter Experience", IsAdditionAvailable = true });
-
-                serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Awards", IsAdditionAvailable = true });
-                // Index Number 1 (Awards)
-                serviceSignUpModel.Add(new Models.SignupData { InputType = "Entry", PlaceholderText = "Enter Awards", IsAdditionAvailable = false });
-
-                serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Certification", IsAdditionAvailable = true });
-                // Index Number 1 (Certification)
-                serviceSignUpModel.Add(new Models.SignupData { InputType = "Entry", PlaceholderText = "Enter Certification", IsAdditionAvailable = false });
-
-                serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Service", IsAdditionAvailable = true });
-                // Index Number 1 (Service)
-                serviceSignUpModel.Add(new Models.SignupData { InputType = "Service" });
-
-                serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "PayPal ID", IsAdditionAvailable = false });
-                // Index Number 1 (Experiance)
-                serviceSignUpModel.Add(new Models.SignupData { InputType = "Entry", PlaceholderText = "Enter PayPal ID", IsAdditionAvailable = false });
-
-
-                StaticListData.Add(serviceSignUpModel);
-            }
 
             UserIcon = "defaultIcon.png";
 
@@ -582,7 +498,7 @@ namespace DFS.ViewModels
             basicInfo.valueAdded = "NA";
             basicInfo.instaGramImages = InstaImages;
 
-            if (StaticListData[0][1].MainSelectedData == null || StaticListData[0][7].MainSelectedData == null)
+            if (StaticListData[0][1].MainSelectedData == null || StaticListData[0][7].MainSelectedData == null || StaticListData[0][1].MainSelectedData == "" || StaticListData[0][7].MainSelectedData == "")
             {
                 MessagingCenter.Send<SignupViewModel, String>(this, "SignUpFailure", "Please enter all manadatory fields.");
                 IsServiceInProgress = false;
@@ -626,7 +542,7 @@ namespace DFS.ViewModels
                     }
                     else if (item.PlaceholderText == "Enter Awards")
                     {
-                        professionalInfo.accolades = item.MainSelectedData;
+                        professionalInfo.accolades += item.MainSelectedData + " | ";
                     }
                     else if (item.PlaceholderText == "Enter PayPal ID")
                     {
@@ -685,6 +601,8 @@ namespace DFS.ViewModels
 
                 }
 
+                if (professionalInfo.accolades.Contains(" | "))                 {                     professionalInfo.accolades = professionalInfo.accolades.Substring(0, professionalInfo.accolades.Length - 2);                 }
+
                 professionalInfo.certifications = certifications;
 
                 professionalInfo.services = services;
@@ -724,6 +642,9 @@ namespace DFS.ViewModels
 
             try
             {
+
+                IsServiceInProgress = true;                 Models.LoginRequestModel loginRequestModel = new Models.LoginRequestModel("App", App.LoginResponse.Email, App.SelectedView, App.LoginResponse.Password);                 var message = await App.TodoManager.Login(loginRequestModel);                 IsServiceInProgress = false;
+
                 CheckUpdateProfile();
 
                 var status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.Location);
@@ -758,7 +679,8 @@ namespace DFS.ViewModels
         {
             if (App.LoginResponse == null || App.LoginResponse.Email == "" || App.LoginResponse.Email == null)
             {
-                // Do nothing if no data is available
+                StaticListData = new ObservableCollection<Models.CustomSignupModel>();                  Models.CustomSignupModel basicSignUpModel = new Models.CustomSignupModel { HeaderName = "Basic Information" };                  basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Name", IsAdditionAvailable = false });                 // Index Number 1 (Name)                 basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", PlaceholderText = "Enter Name", IsAdditionAvailable = false });                  basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Gender", IsAdditionAvailable = false });                 // Index Number 3 (Gender)                 basicSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Select Gender", IsAdditionAvailable = false, SelectionData = GenderList });                  basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Date of Birth", IsAdditionAvailable = false });                 // Index Number 5 (DOB)                 basicSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Date of Birth", SelectedDate = DateOfBirth, IsAdditionAvailable = true });                  basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Phone Number", IsAdditionAvailable = false });                 // Index Number 7 (Phone)                 basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Phone Number" });                  basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Height (in inches)", IsAdditionAvailable = false });                 // Index Number 9 (Height)                 basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Height" });                  basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Weight (in lbs)", IsAdditionAvailable = false });                 // Index Number 11 (Weight)                 basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Weight" });                  basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Sports Interest", IsAdditionAvailable = false });                 // Index Number 13 (Sports Interest)                 //basicSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Select Sport", IsAdditionAvailable = false, SelectionData = SportsList });                 basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Sports Interest" });                  basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Medical Information", IsAdditionAvailable = false });                 // Index Number 15 (Medical Info)                 basicSignUpModel.Add(new Models.SignupData { InputType = "Editor", PlaceholderText = "Enter Medical Information" });                  basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Location", IsAdditionAvailable = false });                 // Index Number 17 (Location)                 basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Location" });                   StaticListData.Add(basicSignUpModel);                  if (App.SelectedView == "Trainer")                 {                      Models.CustomSignupModel serviceSignUpModel = new Models.CustomSignupModel { HeaderName = "Services" };                      serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Specialty", IsAdditionAvailable = false });                     // Index Number 1 (Specialty)                     //serviceSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Select Specialty", IsAdditionAvailable = false, SelectionData = SpecialityList });                     serviceSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Specialty" });                      serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Experience (in years)", IsAdditionAvailable = false });                     // Index Number 1 (Experiance)                     serviceSignUpModel.Add(new Models.SignupData { InputType = "Entry", PlaceholderText = "Enter Experience", IsAdditionAvailable = true });                      serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Awards", IsAdditionAvailable = true });                     // Index Number 1 (Awards)                     serviceSignUpModel.Add(new Models.SignupData { InputType = "Entry", PlaceholderText = "Enter Awards", IsAdditionAvailable = false });                      serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Certification", IsAdditionAvailable = true });                     // Index Number 1 (Certification)                     serviceSignUpModel.Add(new Models.SignupData { InputType = "Entry", PlaceholderText = "Enter Certification", IsAdditionAvailable = false });                      serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Service", IsAdditionAvailable = true });                     // Index Number 1 (Service)                     serviceSignUpModel.Add(new Models.SignupData { InputType = "Service" });                      if(App.TrainerStripeUrl != "" && App.TrainerStripeUrl != null)                     {                         serviceSignUpModel.Add(new Models.SignupData { InputType = "Button", MainSelectedData = "Connect Stripe Account", IsAdditionAvailable = false });                     }                     else                     {                         serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "You stripe account is connected.", IsAdditionAvailable = false });                     }                      StaticListData.Add(serviceSignUpModel);                 } 
+
             }
             else
             {
@@ -856,10 +778,7 @@ namespace DFS.ViewModels
                         serviceSignUpModel.Add(new Models.SignupData { SessionLocation=serviceItem.WorkLocaton,SessionTeam=serviceItem.TeamSize, selectedTime=selectedTimes, MainSelectedData = serviceItem.ServiceName, SessionDesc = serviceItem.ChargingPeriod, SessionAmount = serviceItem.Charges, InputType = "Service" });
                     }
 
-                    serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "PayPal ID", IsAdditionAvailable = false });
-                    // Index Number 1 (PayPal ID)
-                    serviceSignUpModel.Add(new Models.SignupData { InputType = "Entry", PlaceholderText = "Enter PayPal ID", IsAdditionAvailable = false, MainSelectedData= App.LoginResponse.PaypalId });
-
+                    if (App.TrainerStripeUrl != "" && App.TrainerStripeUrl != null)                     {                         serviceSignUpModel.Add(new Models.SignupData { InputType = "Button", MainSelectedData = "Connect Stripe Account", IsAdditionAvailable = false });                     }                     else                     {                         serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "You stripe account is connected.", IsAdditionAvailable = false });                     } 
 
                     StaticListData.Add(serviceSignUpModel);
                 }

@@ -42,13 +42,15 @@ namespace DFS.Views
             {
                 await this.Navigation.PopAsync();
             });
+
+            MessagingCenter.Subscribe<ViewModels.SignupViewModel, String>(this, "Alert", async (arg1, message) =>             {                 await DisplayAlert("Alert", message, "OK");             });
         }
 
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
             MessagingCenter.Unsubscribe<ViewModels.SignupViewModel>(this, "MoveBack");
-
+            MessagingCenter.Unsubscribe<ViewModels.SignupViewModel, String>(this, "Alert"); 
         }
 
     }

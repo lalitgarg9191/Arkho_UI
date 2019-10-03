@@ -7,6 +7,7 @@ namespace DFS.Models
 {
     public class LoginResponse
     {
+        [JsonProperty("StripeInfo")]         public StripeInfo stripeInfo { get; set; }          public class StripeInfo         {             [JsonProperty("isStripeAccountCreated")]             public String IsStripeAccountCreated { get; set; }              [JsonProperty("stripeRedirectUrl")]             public String StripeRedirectUrl { get; set; }          } 
         [JsonProperty("Member")]
         public List<Member> member { get; set; }
 

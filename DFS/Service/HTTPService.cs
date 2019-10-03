@@ -445,6 +445,9 @@ namespace DFS
                         var responseJson = response.Content.ReadAsStringAsync().Result;
                         LoginResponse responseItem = JsonConvert.DeserializeObject<Models.LoginResponse>(responseJson);
 
+
+                        if (loginRequestModel.profile == "Trainer" && responseItem.stripeInfo.IsStripeAccountCreated == "false")                         {                             App.TrainerStripeUrl = responseItem.stripeInfo.StripeRedirectUrl;                         } 
+
                         foreach (var item in responseItem.member)
                         {
                             if (item.Profile == App.SelectedView && loginRequestModel.password != "qwertyqazxcvbnm")
