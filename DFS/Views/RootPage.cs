@@ -69,6 +69,13 @@ namespace DFS
                         Pages.Add(id, new HanselmanNavigationPage(new Views.ScheduleList()));
                         break;
 
+                    case (int)MenuType.Settings:
+                        ViewModels.SignupViewModel signupViewModel = new ViewModels.SignupViewModel();
+                        signupViewModel.UserIcon = App.LoginResponse.basicInfo.ImageUrl;
+
+                        App.Current.MainPage = new HanselmanNavigationPage(new Views.UserInformationPage(signupViewModel));
+                        return;
+
 
                     case (int)MenuType.Logout:
                         App.LoginResponse = new Models.LoginResponse.Member();
