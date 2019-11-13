@@ -350,6 +350,7 @@ namespace DFS.ViewModels
         public ICommand AddCommand { get; set; }
         public ICommand CalendarCommand { get; set; }
         public ICommand HideCalenderCommand { get; private set; }
+        public ICommand ResetCommand { get; set; }
 
         void SelectImage()
         {
@@ -411,6 +412,7 @@ namespace DFS.ViewModels
             AddCommand = new Command(AddRow);
             CalendarCommand = new Command(CalenderSelction);
             HideCalenderCommand = new Command(() => OnDateSelection());
+            ResetCommand = new Command(ResetCalender);
 
             //SelectedTime = new ObservableCollection<Models.SelectedTime>();
             Attendances = new ObservableCollection<SpecialDate>();
@@ -419,6 +421,12 @@ namespace DFS.ViewModels
 
             Initialization = InitializeAsync();
 
+        }
+
+        private void ResetCalender()
+        {
+            Attendances = new ObservableCollection<SpecialDate>();
+            StaticListData[1][SelectedCalenderIndex].selectedTime = new ObservableCollection<Models.SelectedTime>();
         }
 
         private void OnDateSelection()
