@@ -26,10 +26,10 @@ namespace DFS.Droid
             base.OnCreate(bundle);
             FacebookSdk.ApplicationId = "380691056124536";
             FacebookSdk.SdkInitialize(this);
-            Rg.Plugins.Popup.Popup.Init(this, bundle);
+            //Rg.Plugins.Popup.Popup.Init(this, bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            Xamarin.FormsGoogleMaps.Init(this, bundle);
+            //Xamarin.FormsGoogleMaps.Init(this, bundle);
             CrossCurrentActivity.Current.Init(this, bundle);
             //FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer: true);
             Xamarin.Forms.DependencyService.Register<Platform_Implementation_Android>();
@@ -41,17 +41,6 @@ namespace DFS.Droid
             LoadApplication(new App());
         }
 
-        public override void OnBackPressed()
-        {
-            if (Rg.Plugins.Popup.Popup.SendBackPressed(base.OnBackPressed))
-            {
-                // Do something if there are some pages in the `PopupStack`
-            }
-            else
-            {
-                // Do something if there are not any pages in the `PopupStack`
-            }
-        }
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)         {             base.OnActivityResult(requestCode, resultCode, data);             var manager = DependencyService.Get<IFacebookManager>();             if (manager != null)             {                 (manager as FacebookManager)._callbackManager.OnActivityResult(requestCode, (int)resultCode, data);             }         }
 
 
