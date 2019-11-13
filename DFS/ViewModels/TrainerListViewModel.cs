@@ -20,6 +20,22 @@ namespace DFS.ViewModels
             }
         }
 
+        private String _searchText;
+        public String SearchText
+        {
+            get
+            {
+                return _searchText;
+            }
+            set
+            {
+                _searchText = value;
+                RaisePropertyChanged(nameof(SearchText));
+
+                FilterList();
+            }
+        }
+
         private ObservableCollection<Models.TrainerListModel.Trainee> _listViewData;
         public ObservableCollection<Models.TrainerListModel.Trainee> ListViewData
         {
@@ -31,6 +47,16 @@ namespace DFS.ViewModels
             }
         }
 
+        private ObservableCollection<Models.TrainerListModel.Trainee> _mainListData;
+        public ObservableCollection<Models.TrainerListModel.Trainee> MainListData
+        {
+            get { return _mainListData; }
+            set
+            {
+                _mainListData = value;
+                RaisePropertyChanged(nameof(MainListData));
+            }
+        }
 
         public Task Initialization { get; private set; }
 
@@ -44,50 +70,29 @@ namespace DFS.ViewModels
         private async Task InitializeAsync()
         {
             var response = await App.TodoManager.FetchTrainerList();
-
-            ListViewData = response.trainee;
-            /*
             ListViewData = new ObservableCollection<Models.TrainerListModel.Trainee>();
-
-            foreach(var item in response.trainee)
-            {
-                Models.TrainerListModel.Trainee trainee = new Models.TrainerListModel.Trainee();
-                trainee.Address = item.Address;
-                trainee.Country = item.Country;
-                trainee.Email = item.Email;
-                trainee.Name = item.Name;
-                trainee.SportsInterest = item.SportsInterest;
-                trainee.State = item.State;
-                trainee.Status = item.Status;
-                trainee.ImageUrL = "gray_cal";
-                //if (item.ImageUrL != null)
-                //{
-                //    String url = item.ImageUrL;
-                //    string[] values = url.Split(new string[] { "http" }, StringSplitOptions.None);
-
-                //    String finalUrl;
-
-                //    if (values.Length > 2)
-                //    {
-                //        String tempUrl = "http" + values[values.Length - 1];
-
-                //        finalUrl = tempUrl.Substring(0, tempUrl.Length - 5);
-                //    }
-                //    else
-                //    {
-                //        finalUrl = "http" + values[values.Length - 1];
-                //    }
-
-                //    trainee.ImageUrL = new UriImageSource { CachingEnabled = true, Uri = new System.Uri(finalUrl) };
-                //}
-
-                ListViewData.Add(trainee);
-
-            }
-*/
-
-
+            MainListData = response.trainee;
+            FilterList();
             IsServiceInProgress = false;
+        }
+
+        private void FilterList()
+        {
+            if (SearchText == "" || SearchText == null)
+            {
+                ListViewData = MainListData;
+            }
+            else
+            {
+                ListViewData = new ObservableCollection<Models.TrainerListModel.Trainee>();
+                foreach (var item in MainListData)
+                {
+                    if (item.SportsInterest.ToUpper().Contains(SearchText.ToUpper()))
+                    {
+                        ListViewData.Add(item);
+                    }
+                }
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged = delegate { };

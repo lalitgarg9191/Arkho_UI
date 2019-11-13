@@ -428,9 +428,6 @@
     <BundleResource Include="Resources\semi_selected.png" />
     <BundleResource Include="Resources\unselected.png" />
     <BundleResource Include="Resources\arkhologo.png" />
-    <BundleResource Include="Resources\selected.jpg" />
-    <BundleResource Include="Resources\semi_selected.jpg" />
-    <BundleResource Include="Resources\unselected.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="iTunesArtwork%402x" />
