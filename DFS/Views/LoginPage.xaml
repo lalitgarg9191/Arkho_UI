@@ -27,7 +27,7 @@
                                 <Frame CornerRadius="10" BackgroundColor="White" Margin="0,10,0,0" Padding="0">
                                     <StackLayout x:Name="userLayout"  HeightRequest="40" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                                         <Image Source="username" HeightRequest="20" WidthRequest="20" Margin="8,0" />
-                                        <Entry Text="{Binding Username}" Keyboard="Email" TextColor="{StaticResource GreyTextColor}" FontSize="18"  HeightRequest="40" x:Name="usernameEntry" Placeholder="Username" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" />
+                                        <Entry Text="{Binding Username}" Keyboard="Email" TextColor="{StaticResource GreyTextColor}" FontSize="18"  HeightRequest="40" x:Name="usernameEntry" Placeholder="Email ID" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" />
                                     </StackLayout>
                                 </Frame>
                                 <!--    Password Entry   -->
