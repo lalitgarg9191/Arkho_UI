@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using DFS.Utils;
 using DFS.ViewModels;
+using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
 
 namespace DFS.Views
@@ -17,6 +18,12 @@ namespace DFS.Views
             this.root = root;
 
             BindingContext =traineeProfileViewModel= new TraineeProfileViewModel();
+        }
+
+        private async void GalleryListView_FlowItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var item = e.Item as string;
+            await PopupNavigation.Instance.PushAsync(new ImagePopupPage(item));
         }
 
         void Handle_Tapped(object sender, System.EventArgs e)
@@ -37,6 +44,7 @@ namespace DFS.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            traineeProfileViewModel.UpdateInstagramMedia();
 
             MessagingCenter.Subscribe<TraineeProfileViewModel>(this, "CalenderPage", async (sender) =>
             {

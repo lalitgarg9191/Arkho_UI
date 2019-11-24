@@ -35,6 +35,7 @@ namespace DFS.Views
                     if (arr1.Length > 0)
                     {
                         var accessToken = arr1[1];
+                        App.InstaAccessToken = accessToken;
                         if (_flag)
                             MessagingCenter.Send<Object, string>(this, "InstagramLogin", accessToken);
                         else

@@ -69,7 +69,7 @@ namespace DFS
                         }
                         else
                         {
-                            await DisplayAlert("Alert", result, "Ok");
+                            await DisplayAlert("Alert", message, "Ok");
                         }
                     }
                 }

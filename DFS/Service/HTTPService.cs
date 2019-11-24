@@ -144,11 +144,11 @@ namespace DFS
                             professionalInfo.services = new List<TraineeSignupModel.Services>();
                             professionalInfo.certifications = new List<TraineeSignupModel.Certifications>();
 
-                            foreach(var item in App.LoginResponse.professionalInfo.services)
+                            foreach (var item in App.LoginResponse.professionalInfo.services)
                             {
                                 TraineeSignupModel.Services services = new TraineeSignupModel.Services();
 
-                                services.charges = Convert.ToDouble( item.Charges);
+                                services.charges = Convert.ToDouble(item.Charges);
                                 services.chargingPeriod = item.ChargingPeriod;
                                 services.serviceName = item.ServiceName;
                                 services.teamSize = item.TeamSize;
@@ -182,7 +182,7 @@ namespace DFS
                             }
 
 
-                                //signupModel.professionalInfo.certifications = App.LoginResponse.professionalInfo.certifications;
+                            //signupModel.professionalInfo.certifications = App.LoginResponse.professionalInfo.certifications;
                             //signupModel.professionalInfo.services = App.LoginResponse.professionalInfo.services;
                         }
 
@@ -211,6 +211,49 @@ namespace DFS
             }
 
         }
+
+        public async Task<string> UpdateInstagramMedia(string accessToken)
+        {
+
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                var url = "https://api.instagram.com/v1/users/self/media/recent/?access_token=" + accessToken;
+
+                var uri = new Uri(url);
+
+                try
+                { 
+                    HttpResponseMessage response = null;
+
+                    response = await client.GetAsync(uri);
+
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var responseJson = response.Content.ReadAsStringAsync().Result;
+
+                        var instagramMedia = JsonConvert.DeserializeObject<InstagramMedia>(responseJson);
+                        App.InstagramMedia = instagramMedia;
+                        return "Success";
+                    }
+                    else
+                    {
+                        return "Internal Server Error. Please try again.";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(@"ERROR {0}", ex.Message);
+                    return "Internal Server Error. Please try again.";
+                }
+
+            }
+            else
+            {
+                return "Internet Connectivity error. Please try again.";
+            }
+        }
+
         public async Task<string> GetFacebookInfo()
         {
             if (CrossConnectivity.Current.IsConnected)
@@ -378,9 +421,9 @@ namespace DFS
                         var responseJson = response.Content.ReadAsStringAsync().Result;
                         SignUpResponseModel responseItem = JsonConvert.DeserializeObject<Models.SignUpResponseModel>(responseJson);
 
-                        if(responseItem.status.status == "SUCCESS" || responseItem.status.status == "Success")
+                        if (responseItem.status.status == "SUCCESS" || responseItem.status.status == "Success")
                         {
-                            if(signupModel.profile == "Trainer" && responseItem.status.IsStripeAccountCreated == "false")
+                            if (signupModel.profile == "Trainer" && responseItem.status.IsStripeAccountCreated == "false")
                             {
                                 App.TrainerStripeUrl = responseItem.status.StripeRedirectUrl;
                             }
@@ -529,7 +572,7 @@ namespace DFS
                 {
                     Uri uri;
 
-                    if(App.SelectedView == "Trainee")
+                    if (App.SelectedView == "Trainee")
                     {
                         uri = new Uri("http://104.238.81.169:4080/FitnessApp/manageservices/v1/members/trainee/getTimeSlots");
                     }

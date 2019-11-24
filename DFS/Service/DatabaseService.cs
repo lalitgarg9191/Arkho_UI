@@ -74,5 +74,10 @@ namespace DFS.Service
         {
             throw new NotImplementedException();
         }
+
+        public Task<string> UpdateInstagramMedia(string accessToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

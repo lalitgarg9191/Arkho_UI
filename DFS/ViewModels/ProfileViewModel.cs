@@ -316,7 +316,16 @@ namespace DFS.ViewModels
             }
         }
 
-        public ObservableCollection<string> Gallery { get; set; }
+        private ObservableCollection<string> gallery;
+        public ObservableCollection<string> Gallery
+        {
+            get { return gallery; }
+            set
+            {
+                gallery = value;
+                RaisePropertyChanged(nameof(Gallery));
+            }
+        }
 
         private void DisplayReviewList(ObservableCollection<Reviews> mainData)
         {
@@ -611,6 +620,32 @@ namespace DFS.ViewModels
             ServiceColor = Color.White;
             ReviewColor = Color.LimeGreen;
             ProfileColor = Color.White;
+        }
+
+        public async void UpdateInstagramMedia()
+        {
+            var result =await App.TodoManager.UpdateInstagramMedia(App.InstaAccessToken);
+            if (result.Equals("Success"))
+            {
+                if (App.InstagramMedia != null && App.InstagramMedia.data != null)
+                {
+                    GalleryVisible = true;
+                    InstaVisible = false;
+
+                    var list = new List<string>();
+                    foreach (var item in App.InstagramMedia.data)
+                    {
+                        var media = item.images.standard_resolution.url;
+                        list.Add(media);
+                    }
+                    Gallery = new ObservableCollection<string>(list);
+                }
+                else
+                {
+                    GalleryVisible = false;
+                    InstaVisible = true;
+                }
+            }
         }
 
         public void HandleProfileSelection()
