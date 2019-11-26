@@ -211,6 +211,49 @@ namespace DFS
             }
 
         }
+
+        public async Task<string> UpdateInstagramMedia(string accessToken)
+        {
+
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                var url = "https://api.instagram.com/v1/users/self/media/recent/?access_token=" + accessToken;
+
+                var uri = new Uri(url);
+
+                try
+                {
+                    HttpResponseMessage response = null;
+
+                    response = await client.GetAsync(uri);
+
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var responseJson = response.Content.ReadAsStringAsync().Result;
+
+                        var instagramMedia = JsonConvert.DeserializeObject<InstagramMedia>(responseJson);
+                        App.InstagramMedia = instagramMedia;
+                        return "Success";
+                    }
+                    else
+                    {
+                        return "Internal Server Error. Please try again.";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(@"ERROR {0}", ex.Message);
+                    return "Internal Server Error. Please try again.";
+                }
+
+            }
+            else
+            {
+                return "Internet Connectivity error. Please try again.";
+            }
+        }
+
         public async Task<string> GetFacebookInfo()
         {
             if (CrossConnectivity.Current.IsConnected)

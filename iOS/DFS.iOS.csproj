@@ -420,6 +420,8 @@
     <BundleResource Include="Resources\selected.png" />
     <BundleResource Include="Resources\semi_selected.png" />
     <BundleResource Include="Resources\unselected.png" />
+    <BundleResource Include="Resources\close.png" />
+    <BundleResource Include="Resources\close%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="iTunesArtwork%402x" />

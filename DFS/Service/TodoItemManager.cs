@@ -43,6 +43,11 @@ namespace DFS
             return restService.GetInstagramMedia(accessToken);
         }
 
+        public Task<String> UpdateInstagramMedia(string accessToken)
+        {
+            return restService.UpdateInstagramMedia(accessToken);
+        }
+
         public Task<SetTimeSlotResponseModel> SetTimeSlot(Models.SetTimeSlotsRequestModel setTimeSlots)
         {
             return restService.SetCalenderEvent(setTimeSlots);

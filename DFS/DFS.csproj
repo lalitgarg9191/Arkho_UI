@@ -99,6 +99,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\ImagePopupPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -213,6 +217,11 @@
     <Compile Include="Views\StripeWebPage.xaml.cs">
       <DependentUpon>StripeWebPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ImagePopupPage.xaml.cs">
+      <DependentUpon>ImagePopupPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ImagePopupViewModel.cs" />
+    <Compile Include="Controls\PinchToZoomContainer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />

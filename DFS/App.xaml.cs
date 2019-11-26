@@ -35,6 +35,8 @@ namespace DFS
 
         public static Models.InstagramMedia InstagramMedia { get; set; }
 
+        public static string InstaAccessToken { get; set; }
+
         public App()
         {
             try

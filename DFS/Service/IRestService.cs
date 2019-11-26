@@ -22,6 +22,8 @@ namespace DFS
 
         Task<string> GetInstagramMedia(string accessToken);
 
+        Task<string> UpdateInstagramMedia(string accessToken);
+
         Task<SetTimeSlotResponseModel> SetCalenderEvent(Models.SetTimeSlotsRequestModel setTimeSlots);
 
         Task<PaymentResponse> StartPayment(Models.PaymentRequest paymentRequest);

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using DFS.Utils;
+using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
 
 namespace DFS.Views
@@ -17,6 +18,13 @@ namespace DFS.Views
 
             
         }
+
+        private async void GalleryListView_FlowItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var item = e.Item as string;
+            await PopupNavigation.Instance.PushAsync(new ImagePopupPage(item));
+        }
+
         void Handle_Tapped(object sender, System.EventArgs e)
         {
             //this.Navigation.PushAsync(new UserInformationPage(new ViewModels.SignupViewModel()));
@@ -80,7 +88,7 @@ namespace DFS.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
+            profileViewModel.UpdateInstagramMedia();
             MessagingCenter.Subscribe<Object, string>(this, "InstagramMedia", async (arg1, arg2) =>
             {
                 try
