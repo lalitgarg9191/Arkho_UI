@@ -43,7 +43,7 @@ namespace DFS
 
 
 
-        public void NavigateAsync(int id)
+        public async void NavigateAsync(int id)
         {
 
 
@@ -86,7 +86,7 @@ namespace DFS
                         //App.FacebookProfile = new Models.FacebookProfile();
                         App.SelectedView = null;
                         App.access_code = null;
-                        CredentialsService.DeleteCredentials();
+                        await CredentialsService.DeleteCredentials();
 
                         Application.Current.MainPage = new NavigationPage(new Views.SelectionPage());
 

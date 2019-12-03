@@ -5,7 +5,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>ARKHO</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.infodart.DemoPushNotification</string>
+	<string>com.silva.trainme</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>

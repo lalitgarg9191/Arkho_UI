@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using DFS.Models;
 using DFS.Service;
 using DFS.Utils;
@@ -37,43 +38,34 @@ namespace DFS
 
         public static string InstaAccessToken { get; set; }
 
-        public App()
+        public Task Initialization { get; private set; }
+
+        private async Task InitializeAsync()
         {
             try
             {
-                InitializeComponent();
-                var ignore = new CircleTransformation();
-                FlowListView.Init();
-
-                TodoManager = new TodoItemManager(new HTTPService());
-
-                DatabaseManager = new Service.DatabaseManager(new DatabaseService());
-
-                MainPage = new HanselmanNavigationPage(new Views.SelectionPage());
-                TrainerStripeUrl = "";
-
-                var isExist = CredentialsService.DoCredentialsExist();
+                var isExist = await CredentialsService.DoCredentialsExist();
                 if (isExist)
                 {
-                    var account = CredentialsService.GetAccount();
+                    var account = await CredentialsService.GetAccount();
                     var data = JsonConvert.DeserializeObject<Member>(account.Properties["Member"]);
                     App.LoginResponse = data;
 
-                    if(App.LoginResponse == null)
+                    if (App.LoginResponse == null)
                     {
                         LoginResponse = new Models.LoginResponse.Member();
                         TrainerData = new Models.LoginResponse.Member();
-                        CredentialsService.DeleteCredentials();
+                        await CredentialsService.DeleteCredentials();
                         MainPage = new HanselmanNavigationPage(new Views.SelectionPage());
 
                         return;
                     }
 
-                    if(App.LoginResponse.Email  == null)
+                    if (App.LoginResponse.Email == null)
                     {
                         LoginResponse = new Models.LoginResponse.Member();
                         TrainerData = new Models.LoginResponse.Member();
-                        CredentialsService.DeleteCredentials();
+                        await CredentialsService.DeleteCredentials();
                         MainPage = new HanselmanNavigationPage(new Views.SelectionPage());
 
                         return;
@@ -95,7 +87,7 @@ namespace DFS
                     //    var instaMedia = JsonConvert.DeserializeObject<InstagramMedia>(account.Properties["InstgramMedia"]);
                     //    App.InstagramMedia = instaMedia;
                     //}
-                    MainPage =new NavigationPage(new RootPage(App.SelectedView));
+                    MainPage = new NavigationPage(new RootPage(App.SelectedView));
                 }
                 else
                 {
@@ -103,12 +95,36 @@ namespace DFS
                     TrainerData = new Models.LoginResponse.Member();
                 }
 
-                //FacebookProfile = new Models.FacebookProfile();
             }
-            catch(Exception ex) {
-                System.Diagnostics.Debug.WriteLine(ex.ToString());
-                CredentialsService.DeleteCredentials();
+            catch (Exception ex)
+            {
+                await CredentialsService.DeleteCredentials();
                 MainPage = new HanselmanNavigationPage(new Views.SelectionPage());
+            }
+        }
+
+        public App()
+        {
+            try
+            {
+                InitializeComponent();
+                var ignore = new CircleTransformation();
+                FlowListView.Init();
+
+                TodoManager = new TodoItemManager(new HTTPService());
+
+                DatabaseManager = new Service.DatabaseManager(new DatabaseService());
+
+                MainPage = new HanselmanNavigationPage(new Views.SelectionPage());
+                TrainerStripeUrl = "";
+
+                Initialization = InitializeAsync();
+
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
+
             }
         }
 
