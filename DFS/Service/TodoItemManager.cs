@@ -67,5 +67,15 @@ namespace DFS
         {
             return restService.SubmitRating(ratingRequestModel);
         }
+
+        public Task<String> CreateOtpService(CreateOtpModel createOtpModel)
+        {
+            return restService.CreateOtpService(createOtpModel);
+        }
+
+        public Task<String> SubmitOtpService(SubmitOtpModel submitOtpModel)
+        {
+            return restService.SubmitOtpService(submitOtpModel);
+        }
     }
 }

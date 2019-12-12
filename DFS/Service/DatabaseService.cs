@@ -79,5 +79,15 @@ namespace DFS.Service
         {
             throw new NotImplementedException();
         }
+
+        public Task<string> CreateOtpService(CreateOtpModel createOtpModel)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<string> SubmitOtpService(SubmitOtpModel submitOtpModel)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
