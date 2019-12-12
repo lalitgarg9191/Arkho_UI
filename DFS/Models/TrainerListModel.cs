@@ -23,6 +23,9 @@ namespace DFS.Models
             [JsonProperty("name")]
             public String Name { get; set; }
 
+            [JsonProperty("rating")]
+            public Double Rating { get; set; }
+
             [JsonProperty("address")]
             public String Address { get; set; }
 
@@ -40,6 +43,16 @@ namespace DFS.Models
 
             [JsonProperty("state")]
             public String State { get; set; }
+
+            public String FirstImageSource { get; set; }
+
+            public String SecondImageSource { get; set; }
+
+            public String ThirdImageSource { get; set; }
+
+            public String FourthImageSource { get; set; }
+
+            public String FifthImageSource { get; set; }
 
             [JsonProperty("services")]
             public ObservableCollection<Services> services { get; set; }
