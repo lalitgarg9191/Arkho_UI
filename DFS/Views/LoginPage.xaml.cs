@@ -22,6 +22,12 @@ namespace DFS
             userProfileViewModel.SelectedView = _selectedView;
         }
 
+        async void Forgot_Tapped(object sender, EventArgs e)
+        {
+            //string result = await App.Current.MainPage.DisplayPromptAsync("Question 2", "What's 5 + 5?", maxLength: 2, keyboard: Keyboard.Numeric);
+            await this.Navigation.PushAsync(new Views.ResetPasswordPage());
+        }
+
         protected override void OnAppearing()
         {
             base.OnAppearing();

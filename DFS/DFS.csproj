@@ -104,6 +104,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\ResetPasswordPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -223,6 +227,13 @@
     </Compile>
     <Compile Include="ViewModels\ImagePopupViewModel.cs" />
     <Compile Include="Controls\PinchToZoomContainer.cs" />
+    <Compile Include="Views\ResetPasswordPage.xaml.cs">
+      <DependentUpon>ResetPasswordPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ResetPasswordViewModel.cs" />
+    <Compile Include="Models\CreateOtpModel.cs" />
+    <Compile Include="Models\SubmitOtpModel.cs" />
+    <Compile Include="Models\ResetResponseModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />

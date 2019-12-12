@@ -667,5 +667,77 @@ namespace DFS
                 return "Failure";
             }
         }
+
+        public async Task<string> CreateOtpService(CreateOtpModel createOtpModel)
+        {
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                try
+                {
+                    var uri = new Uri("http://104.238.81.169:4080/FitnessApp/manageservices/v1/members/startPasswordReset");
+                    var json = JsonConvert.SerializeObject(createOtpModel);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                    HttpResponseMessage response = null;
+
+                    response = await client.PostAsync(uri, content);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var responseJson = response.Content.ReadAsStringAsync().Result;
+                        var result = JsonConvert.DeserializeObject<ResetResponseModel>(responseJson);
+                        return result.statusInfo.Status == "Sent" ? "Success" : "Failure";
+                    }
+                    else
+                    {
+                        return "Failure";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return "Failure";
+                }
+            }
+            else
+            {
+                return "Failure";
+            }
+        }
+
+        public async Task<string> SubmitOtpService(SubmitOtpModel submitOtpModel)
+        {
+            if (CrossConnectivity.Current.IsConnected)
+            {
+                try
+                {
+                    var uri = new Uri("http://104.238.81.169:4080/FitnessApp/manageservices/v1/members/updatePassword");
+                    var json = JsonConvert.SerializeObject(submitOtpModel);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                    HttpResponseMessage response = null;
+
+                    response = await client.PostAsync(uri, content);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var responseJson = response.Content.ReadAsStringAsync().Result;
+                        var result = JsonConvert.DeserializeObject<ResetResponseModel>(responseJson);
+                        return result.statusInfo.Status;
+                    }
+                    else
+                    {
+                        return "Failure";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return "Failure";
+                }
+            }
+            else
+            {
+                return "Failure";
+            }
+        }
     }
 }

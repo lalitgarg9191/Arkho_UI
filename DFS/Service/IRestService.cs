@@ -31,5 +31,9 @@ namespace DFS
         Task<GetTimeSlotResponse> GetTimeSlots(GetTimeSlotRequest getTimeSlotRequest);
 
         Task<string> SubmitRating(RatingRequestModel ratingRequestModel);
+
+        Task<string> CreateOtpService(CreateOtpModel createOtpModel);
+
+        Task<string> SubmitOtpService(SubmitOtpModel submitOtpModel);
     }
 }

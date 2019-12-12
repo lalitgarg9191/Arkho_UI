@@ -45,7 +45,11 @@
                                         <Label Text="Remember Me" TextColor="White" Margin="10,0" FontSize="13" VerticalOptions="Center"/>
                                     </StackLayout>
 
-                                    <Label Text="Forgot Password?" TextColor="White" Margin="10,0" FontSize="13" VerticalOptions="Center" HorizontalOptions="EndAndExpand"/>
+                                    <Label Text="Forgot Password?" TextColor="White" Margin="10,0" FontSize="13" VerticalOptions="Center" HorizontalOptions="EndAndExpand">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="Forgot_Tapped"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
 
                                 </StackLayout>
                             
