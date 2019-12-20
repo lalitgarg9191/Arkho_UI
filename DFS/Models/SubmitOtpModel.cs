@@ -9,11 +9,14 @@ namespace DFS.Models
 
         public string newPassword { get; set; }
 
+        public string profile { get; set; }
+
         public SubmitOtpModel(String _email, string _otp, string _newPass)
         {
             emailID = _email;
             OTP = _otp;
             newPassword = _newPass;
+            profile = App.SelectedView;
         }
     }
 }

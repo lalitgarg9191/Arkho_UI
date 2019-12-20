@@ -11,6 +11,19 @@ namespace DFS
     {
 
         #region Prop
+        private string _boxImage;
+        public string BoxImage
+        {
+            get
+            {
+                return _boxImage;
+            }
+            set
+            {
+                _boxImage = value;
+                RaisePropertyChanged(nameof(BoxImage));
+            }
+        }
 
         private string _selectedView;
         public string SelectedView
@@ -79,7 +92,8 @@ namespace DFS
 
         public ICommand SignUpCommand { get; private set; }
         public ICommand LoginCommand { get; private set; }
-
+        public ICommand CheckBoxCommand { get; private set; }
+        public ICommand TermsCommand { get; private set; }
 
         public UserProfileViewModel()
         {
@@ -88,9 +102,28 @@ namespace DFS
 
             LoginCommand = new Command(() => OnLogin());
             SignUpCommand = new Command(() => OnSignUp());
+            CheckBoxCommand = new Command(() => CheckBoxClicked());
+            TermsCommand = new Command(() => TermsClicked());
 
+            BoxImage = "selected_check";
         }
 
+        private void TermsClicked()
+        {
+            Device.OpenUri(new Uri("http://104.238.81.169:4080/TrainMeApp/PrivacyPolicy_new.html"));
+        }
+
+        private void CheckBoxClicked()
+        {
+            if(BoxImage == "selected_check")
+            {
+                BoxImage = "unselected_check";
+            }
+            else
+            {
+                BoxImage = "selected_check";
+            }
+        }
 
         public void DisplayAlert(string title, string message)
         {
@@ -136,6 +169,10 @@ namespace DFS
             if (Username == null || UserPassword == null || Username == "" || UserPassword == "")
             {
                 MessagingCenter.Send<UserProfileViewModel, string>(this, "LoginFailure", "Please provide Username/Password");
+            }
+            else if(UserPassword != "fb@trainme" && BoxImage == "unselected_check")
+            {
+                MessagingCenter.Send<UserProfileViewModel, string>(this, "LoginFailure", "Please select Terms & Conditions.");
             }
             else
             {
