@@ -3172,22 +3172,28 @@ namespace DFS.Droid
 			public const int selected = 2131165512;
 			
 			// aapt resource value: 0x7F070149
-			public const int semi_selected = 2131165513;
+			public const int selected_check = 2131165513;
 			
 			// aapt resource value: 0x7F07014A
-			public const int splash_background = 2131165514;
+			public const int semi_selected = 2131165514;
 			
 			// aapt resource value: 0x7F07014B
-			public const int Star_Rating = 2131165515;
+			public const int splash_background = 2131165515;
 			
 			// aapt resource value: 0x7F07014C
-			public const int trainmeback = 2131165516;
+			public const int Star_Rating = 2131165516;
 			
 			// aapt resource value: 0x7F07014D
-			public const int unselected = 2131165517;
+			public const int trainmeback = 2131165517;
 			
 			// aapt resource value: 0x7F07014E
-			public const int username = 2131165518;
+			public const int unselected = 2131165518;
+			
+			// aapt resource value: 0x7F07014F
+			public const int unselected_check = 2131165519;
+			
+			// aapt resource value: 0x7F070150
+			public const int username = 2131165520;
 			
 			static Drawable()
 			{
