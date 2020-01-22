@@ -13,8 +13,6 @@
                                 Type=RelativeToParent,Property=Height,Factor=1,Constant=0}">
             
                 <StackLayout BackgroundColor="{StaticResource WhiteColor}">
-                    <Image Margin="-6,0,0,0" HeightRequest="40" WidthRequest="40" Source="home_icon.png"/>
-
                     <Entry Text="{Binding SearchText}" BackgroundColor="{StaticResource LightBackgroundColor}" Margin="40,0" Placeholder="Example, Scuba Diving" HorizontalTextAlignment="Start" TextColor="{StaticResource MediumGrayTextColor}" />
                     
                     <ListView x:Name="ItemsListView" ItemSelected="Handle_ItemSelected" ItemsSource="{Binding ListViewData}" VerticalOptions="FillAndExpand" SeparatorColor="Gray" HasUnevenRows="true">
