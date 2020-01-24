@@ -126,9 +126,10 @@ namespace DFS.ViewModels
                 {
                     MessagingCenter.Send<ViewModels.ResetPasswordViewModel, String>(this, "Alert", "Something went wrong. Please try again");
                 }
-                
-
-                IsOtpSent = true;
+                else
+                {
+                    IsOtpSent = true;
+                }
             }
 
             IsServiceInProgress = false;
