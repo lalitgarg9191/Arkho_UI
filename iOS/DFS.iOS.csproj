@@ -353,6 +353,7 @@
     <Compile Include="Implementations\FacebookManager.cs" />
     <Compile Include="Implementations\InstagramManager.cs" />
     <Compile Include="Controls\CustomListViewRenderer.cs" />
+    <Compile Include="Implementations\CacheManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\truck.png" />
