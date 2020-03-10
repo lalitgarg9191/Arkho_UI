@@ -1000,10 +1000,10 @@ namespace DFS.ViewModels
             ListViewData.Add("11:15 AM");
             ListViewData.Add("11:30 AM");
             ListViewData.Add("11:45 AM");
-            ListViewData.Add("12:00 AM");
-            ListViewData.Add("12:15 AM");
-            ListViewData.Add("12:30 AM");
-            ListViewData.Add("12:45 AM");
+            ListViewData.Add("12:00 PM");
+            ListViewData.Add("12:15 PM");
+            ListViewData.Add("12:30 PM");
+            ListViewData.Add("12:45 PM");
             ListViewData.Add("1:00 PM");
             ListViewData.Add("1:15 PM");
             ListViewData.Add("1:30 PM");
