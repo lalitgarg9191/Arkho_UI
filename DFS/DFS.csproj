@@ -234,6 +234,7 @@
     <Compile Include="Models\CreateOtpModel.cs" />
     <Compile Include="Models\SubmitOtpModel.cs" />
     <Compile Include="Models\ResetResponseModel.cs" />
+    <Compile Include="Dependency\ICacheManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />

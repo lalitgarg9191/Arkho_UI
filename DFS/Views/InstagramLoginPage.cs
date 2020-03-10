@@ -1,5 +1,5 @@
 ﻿using System;
-
+using DFS.Dependency;
 using Xamarin.Forms;
 
 namespace DFS.Views
@@ -45,6 +45,12 @@ namespace DFS.Views
                     }
                 }
             }
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            DependencyService.Get<ICacheManager>().Clear();
         }
 
     }
