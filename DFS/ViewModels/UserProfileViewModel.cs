@@ -105,7 +105,7 @@ namespace DFS
             CheckBoxCommand = new Command(() => CheckBoxClicked());
             TermsCommand = new Command(() => TermsClicked());
 
-            BoxImage = "selected_check";
+            BoxImage = "unselected_check";
         }
 
         private void TermsClicked()

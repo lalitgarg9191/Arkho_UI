@@ -217,36 +217,42 @@ namespace DFS
 
             if (CrossConnectivity.Current.IsConnected)
             {
-                var url = "https://api.instagram.com/v1/users/self/media/recent/?access_token=" + accessToken;
+                if (accessToken != null)
+                {
+                    var url = "https://api.instagram.com/v1/users/self/media/recent/?access_token=" + accessToken;
 
-                var uri = new Uri(url);
+                    var uri = new Uri(url);
 
-                try
-                { 
-                    HttpResponseMessage response = null;
-
-                    response = await client.GetAsync(uri);
-
-
-                    if (response.IsSuccessStatusCode)
+                    try
                     {
-                        var responseJson = response.Content.ReadAsStringAsync().Result;
+                        HttpResponseMessage response = null;
 
-                        var instagramMedia = JsonConvert.DeserializeObject<InstagramMedia>(responseJson);
-                        App.InstagramMedia = instagramMedia;
-                        return "Success";
+                        response = await client.GetAsync(uri);
+
+
+                        if (response.IsSuccessStatusCode)
+                        {
+                            var responseJson = response.Content.ReadAsStringAsync().Result;
+
+                            var instagramMedia = JsonConvert.DeserializeObject<InstagramMedia>(responseJson);
+                            App.InstagramMedia = instagramMedia;
+                            return "Success";
+                        }
+                        else
+                        {
+                            return "Internal Server Error. Please try again.";
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
+                        Debug.WriteLine(@"ERROR {0}", ex.Message);
                         return "Internal Server Error. Please try again.";
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    Debug.WriteLine(@"ERROR {0}", ex.Message);
-                    return "Internal Server Error. Please try again.";
+                    return "Authentication Error. Please try again";
                 }
-
             }
             else
             {

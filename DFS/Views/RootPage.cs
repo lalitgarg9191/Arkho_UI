@@ -86,6 +86,7 @@ namespace DFS
                         //App.FacebookProfile = new Models.FacebookProfile();
                         App.SelectedView = null;
                         App.access_code = null;
+                        App.InstaAccessToken = null;
                         await CredentialsService.DeleteCredentials();
 
                         Application.Current.MainPage = new NavigationPage(new Views.SelectionPage());
