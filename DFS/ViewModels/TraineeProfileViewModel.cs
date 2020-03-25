@@ -113,6 +113,20 @@ namespace DFS.ViewModels
             }
         }
 
+        private bool _disconnectVisible;
+        public bool DisconnectVisible
+        {
+            get
+            {
+                return _disconnectVisible;
+            }
+            set
+            {
+                _disconnectVisible = value;
+                RaisePropertyChanged(nameof(DisconnectVisible));
+            }
+        }
+
         private ObservableCollection<string> gallery;
         public ObservableCollection<string> Gallery {
             get { return gallery; }
@@ -157,6 +171,7 @@ namespace DFS.ViewModels
 
                 if (imageurl.Count() > 0)
                 {
+                    DisconnectVisible = true;
                     GalleryVisible = true;
                     InstaVisible = false;
 
@@ -172,6 +187,7 @@ namespace DFS.ViewModels
             {
                 if (App.InstagramMedia != null && App.InstagramMedia.data != null)
                 {
+                    DisconnectVisible = true;
                     GalleryVisible = true;
                     InstaVisible = false;
 
@@ -186,6 +202,7 @@ namespace DFS.ViewModels
 
                 else
                 {
+                    DisconnectVisible = false;
                     GalleryVisible = false;
                     InstaVisible = true;
                 }
@@ -205,6 +222,7 @@ namespace DFS.ViewModels
             {
                 if (App.InstagramMedia != null && App.InstagramMedia.data != null)
                 {
+                    DisconnectVisible = true;
                     GalleryVisible = true;
                     InstaVisible = false;
 
@@ -218,6 +236,7 @@ namespace DFS.ViewModels
                 }
                 else
                 {
+                    DisconnectVisible = false;
                     GalleryVisible = false;
                     InstaVisible = true;
                 }

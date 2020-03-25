@@ -89,5 +89,10 @@ namespace DFS.Service
         {
             throw new NotImplementedException();
         }
+
+        public Task<string> DeleteInstaImages()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

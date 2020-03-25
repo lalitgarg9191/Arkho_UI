@@ -77,5 +77,10 @@ namespace DFS
         {
             return restService.SubmitOtpService(submitOtpModel);
         }
+
+        public Task<String> DeleteInstaImages()
+        {
+            return restService.DeleteInstaImages();
+        }
     }
 }

@@ -35,5 +35,7 @@ namespace DFS
         Task<string> CreateOtpService(CreateOtpModel createOtpModel);
 
         Task<string> SubmitOtpService(SubmitOtpModel submitOtpModel);
+
+        Task<string> DeleteInstaImages();
     }
 }

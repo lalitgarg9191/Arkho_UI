@@ -89,6 +89,18 @@
                                             <Label Text="Go to Instagram" FontSize="11" VerticalOptions="CenterAndExpand" TextColor="White" />
                                         </StackLayout>
                                     </Frame>
+
+                                    <!-- Instagram Disconnect button View -->
+                                    <Frame IsVisible="{Binding DisconnectVisible}" CornerRadius="5" HorizontalOptions="EndAndExpand" BackgroundColor="{StaticResource InstaColor}" Padding="10,2">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="Insta_Disconnect"/>
+                                            </Frame.GestureRecognizers>
+                                        <StackLayout HeightRequest="20" HorizontalOptions="EndAndExpand" Orientation="Horizontal">
+                                            <Image Source="instagram" VerticalOptions="CenterAndExpand" HorizontalOptions="Start" HeightRequest="15" WidthRequest="15">
+                                            </Image>
+                                            <Label Text="Disconnect" FontSize="11" VerticalOptions="CenterAndExpand" TextColor="White" />
+                                        </StackLayout>
+                                    </Frame>
                                 </StackLayout>
                             </StackLayout>
                         </ScrollView>
@@ -98,7 +110,7 @@
             <StackLayout IsVisible="{Binding IsServiceInProgress}" Padding="12" AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0" AbsoluteLayout.LayoutFlags="All">
                 <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                     <ActivityIndicator IsRunning="true" Color="{StaticResource GreenColor}" />
-                    <Label Text="Logging In..." HorizontalOptions="Center" TextColor="{StaticResource GreenColor}" />
+                    <Label Text="Loading..." HorizontalOptions="Center" TextColor="{StaticResource GreenColor}" />
                 </StackLayout>
             </StackLayout>
         </AbsoluteLayout>

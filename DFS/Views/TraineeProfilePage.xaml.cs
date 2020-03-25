@@ -62,6 +62,28 @@ namespace DFS.Views
             MessagingCenter.Unsubscribe<TraineeProfileViewModel>(this, "CalenderPage");
         }
 
+        async void Insta_Disconnect(object sender, System.EventArgs e)
+        {
+            traineeProfileViewModel.IsServiceInProgress = true;
+            var response = await App.TodoManager.DeleteInstaImages();
+
+            if(response == "Success")
+            {
+                App.InstagramMedia = null;
+                App.InstaAccessToken = null;
+                //traineeProfileViewModel.UpdateInstagramMedia();
+                traineeProfileViewModel.GalleryVisible = false;
+                traineeProfileViewModel.InstaVisible = true;
+                traineeProfileViewModel.DisconnectVisible = false;
+            }
+            else
+            {
+                await DisplayAlert("Alert", "Something went wrong. Please try again later.", "Ok");
+            }
+
+            traineeProfileViewModel.IsServiceInProgress = false;
+        }
+
         async void Handle_Tapped_1(object sender, System.EventArgs e)
         {
             await this.Navigation.PushAsync(new InstagramLoginPage(false));

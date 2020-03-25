@@ -70,6 +70,98 @@ namespace DFS
             }
         }
 
+        public async Task<string> DeleteInstaImages()
+        {
+            TraineeSignupModel signupModel = new TraineeSignupModel();
+            signupModel.email = App.LoginResponse.Email;
+            signupModel.imagePayload = App.LoginResponse.ImagePayload;
+            signupModel.password = App.LoginResponse.Password;
+            signupModel.paypalId = App.LoginResponse.PaypalId;
+            signupModel.profile = App.LoginResponse.Profile;
+            signupModel.signUpMetod = App.LoginResponse.SignUpMetod;
+            TraineeSignupModel.BasicInfo basicInfo = new TraineeSignupModel.BasicInfo();
+
+
+            basicInfo.address = App.LoginResponse.basicInfo.Address;
+            basicInfo.anyMedicalCondition = App.LoginResponse.basicInfo.AnyMedicalCondition;
+            basicInfo.country = App.LoginResponse.basicInfo.Country;
+            basicInfo.dateOfBirth = App.LoginResponse.basicInfo.DateOfBirth;
+            basicInfo.gender = App.LoginResponse.basicInfo.Gender;
+            basicInfo.height = App.LoginResponse.basicInfo.Height;
+            basicInfo.imageUrl = App.LoginResponse.basicInfo.ImageUrl;
+            basicInfo.instaGramId = "";
+            basicInfo.latitude = App.LoginResponse.basicInfo.Latitude;
+            basicInfo.longitude = App.LoginResponse.basicInfo.Longitude;
+            basicInfo.mobileNumber = App.LoginResponse.basicInfo.PhoneNumber;
+            basicInfo.name = App.LoginResponse.basicInfo.Name;
+            basicInfo.phoneNumber = App.LoginResponse.basicInfo.PhoneNumber;
+            basicInfo.sportsInterest = App.LoginResponse.basicInfo.SportsInterest;
+            basicInfo.state = App.LoginResponse.basicInfo.State;
+            basicInfo.title = App.LoginResponse.basicInfo.Title;
+            basicInfo.weight = App.LoginResponse.basicInfo.Weight;
+            basicInfo.instaGramImages = "";
+
+            signupModel.basicInfo = basicInfo;
+
+            TraineeSignupModel.ProfessionalInfo professionalInfo = new TraineeSignupModel.ProfessionalInfo();
+
+            if (App.SelectedView == "Trainer")
+            {
+                professionalInfo.accolades = App.LoginResponse.professionalInfo.Accolades;
+                professionalInfo.experience = App.LoginResponse.professionalInfo.Experience;
+                professionalInfo.speciality = App.LoginResponse.professionalInfo.Speciality;
+                professionalInfo.services = new List<TraineeSignupModel.Services>();
+                professionalInfo.certifications = new List<TraineeSignupModel.Certifications>();
+
+                foreach (var item in App.LoginResponse.professionalInfo.services)
+                {
+                    TraineeSignupModel.Services services = new TraineeSignupModel.Services();
+
+                    services.charges = Convert.ToDouble(item.Charges);
+                    services.chargingPeriod = item.ChargingPeriod;
+                    services.serviceName = item.ServiceName;
+                    services.teamSize = item.TeamSize;
+                    services.workLocaton = item.WorkLocaton;
+                    services.schedule = new List<TraineeSignupModel.Schedule>();
+                    foreach (var scheduleItem in item.schedules)
+                    {
+                        TraineeSignupModel.Schedule schedule = new TraineeSignupModel.Schedule();
+
+                        schedule.day = scheduleItem.Day;
+                        schedule.endTime = scheduleItem.EndTime;
+                        schedule.month = scheduleItem.Month;
+                        schedule.scheduleType = scheduleItem.ScheduleType;
+                        schedule.startTime = scheduleItem.StartTime;
+                        schedule.weekDay = scheduleItem.WeekDay;
+                        schedule.year = scheduleItem.Year;
+
+                        services.schedule.Add(schedule);
+                    }
+
+                    professionalInfo.services.Add(services);
+                }
+
+
+                foreach (var certItem in App.LoginResponse.professionalInfo.certifications)
+                {
+                    TraineeSignupModel.Certifications certifications = new TraineeSignupModel.Certifications();
+                    certifications.certification = certItem.Certification;
+
+                    professionalInfo.certifications.Add(certifications);
+                }
+
+
+                //signupModel.professionalInfo.certifications = App.LoginResponse.professionalInfo.certifications;
+                //signupModel.professionalInfo.services = App.LoginResponse.professionalInfo.services;
+            }
+
+            signupModel.professionalInfo = professionalInfo;
+
+            String signupSuccess = await SignUpAsync(signupModel);
+
+            return signupSuccess;
+        }
+
         public async Task<string> GetInstagramMedia(string accessToken)
         {
 
