@@ -86,6 +86,28 @@ namespace DFS.Views
             }
         }
 
+        async void Insta_Disconnect(object sender, System.EventArgs e)
+        {
+            profileViewModel.IsServiceInProgress = true;
+            var response = await App.TodoManager.DeleteInstaImages();
+
+            if (response == "Success")
+            {
+                App.InstagramMedia = null;
+                App.InstaAccessToken = null;
+                //traineeProfileViewModel.UpdateInstagramMedia();
+                profileViewModel.GalleryVisible = false;
+                profileViewModel.InstaVisible = true;
+                profileViewModel.DisconnectVisible = false;
+            }
+            else
+            {
+                await DisplayAlert("Alert", "Something went wrong. Please try again later.", "Ok");
+            }
+
+            profileViewModel.IsServiceInProgress = false;
+        }
+
         protected override void OnAppearing()
         {
             base.OnAppearing();

@@ -166,6 +166,20 @@ namespace DFS.ViewModels
             }
         }
 
+        private bool _disconnectVisible;
+        public bool DisconnectVisible
+        {
+            get
+            {
+                return _disconnectVisible;
+            }
+            set
+            {
+                _disconnectVisible = value;
+                RaisePropertyChanged(nameof(DisconnectVisible));
+            }
+        }
+
 
         private Color _profileColor;
         public Color ProfileColor
@@ -428,6 +442,7 @@ namespace DFS.ViewModels
                 DisplayReviewList(App.LoginResponse.reviews);
 
                 IsEditable = true;
+                DisconnectVisible = false;
                 TrainerName = App.LoginResponse.basicInfo.Name;
                 TrainingPlace = App.LoginResponse.basicInfo.State;
                 TrainerAccolades = App.LoginResponse.professionalInfo.Accolades;
@@ -471,6 +486,7 @@ namespace DFS.ViewModels
                     {
                         GalleryVisible = true;
                         InstaVisible = false;
+                        DisconnectVisible = true;
 
                         var list = new List<string>();
                         foreach (var item in imageurl)
@@ -487,6 +503,7 @@ namespace DFS.ViewModels
                     {
                         GalleryVisible = true;
                         InstaVisible = false;
+                        DisconnectVisible = true;
 
                         var list = new List<string>();
                         foreach (var item in App.InstagramMedia.data)
@@ -500,6 +517,7 @@ namespace DFS.ViewModels
                     {
                         GalleryVisible = false;
                         InstaVisible = true;
+                        DisconnectVisible = false;
                     }
                 }
             }
@@ -545,6 +563,7 @@ namespace DFS.ViewModels
 
                         GalleryVisible = true;
                         InstaVisible = false;
+                        DisconnectVisible = false;
 
                         var list = new List<string>();
                         foreach (var item in imageurl)
@@ -631,6 +650,7 @@ namespace DFS.ViewModels
                 {
                     GalleryVisible = true;
                     InstaVisible = false;
+                    DisconnectVisible = true;
 
                     var list = new List<string>();
                     foreach (var item in App.InstagramMedia.data)
@@ -644,6 +664,7 @@ namespace DFS.ViewModels
                 {
                     GalleryVisible = false;
                     InstaVisible = true;
+                    DisconnectVisible = false;
                 }
             }
         }
