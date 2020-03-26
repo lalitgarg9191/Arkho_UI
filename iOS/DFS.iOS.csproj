@@ -150,10 +150,10 @@
       <HintPath>..\packages\Xam.Plugin.Geolocator.4.5.0.6\lib\xamarinios10\Plugin.Geolocator.dll</HintPath>
     </Reference>
     <Reference Include="Rg.Plugins.Popup">
-      <HintPath>..\packages\Rg.Plugins.Popup.1.1.4.145-pre\lib\Xamarin.IOS\Rg.Plugins.Popup.dll</HintPath>
+      <HintPath>..\packages\Rg.Plugins.Popup.1.2.0.223\lib\Xamarin.IOS\Rg.Plugins.Popup.dll</HintPath>
     </Reference>
     <Reference Include="Rg.Plugins.Popup.IOS">
-      <HintPath>..\packages\Rg.Plugins.Popup.1.1.4.145-pre\lib\Xamarin.IOS\Rg.Plugins.Popup.IOS.dll</HintPath>
+      <HintPath>..\packages\Rg.Plugins.Popup.1.2.0.223\lib\Xamarin.IOS\Rg.Plugins.Popup.IOS.dll</HintPath>
     </Reference>
     <Reference Include="SignaturePad">
       <HintPath>..\packages\Xamarin.Controls.SignaturePad.2.3.0\lib\Xamarin.iOS\SignaturePad.dll</HintPath>
