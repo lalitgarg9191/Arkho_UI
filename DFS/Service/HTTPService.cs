@@ -6,6 +6,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using DFS.Models;
+using DFS.Utils;
 using ModernHttpClient;
 using Newtonsoft.Json;
 using Plugin.Connectivity;
@@ -158,7 +159,7 @@ namespace DFS
             signupModel.professionalInfo = professionalInfo;
 
             String signupSuccess = await SignUpAsync(signupModel);
-
+            await CredentialsService.SaveCredentials(userName: App.LoginResponse.Email, password: App.LoginResponse.Password, member: App.LoginResponse, userType: App.SelectedView);
             return signupSuccess;
         }
 
@@ -281,7 +282,7 @@ namespace DFS
                         signupModel.professionalInfo = professionalInfo;
 
                         String signupSuccess = await SignUpAsync(signupModel);
-
+                        await CredentialsService.SaveCredentials(userName: App.LoginResponse.Email, password: App.LoginResponse.Password, member: App.LoginResponse, userType: App.SelectedView);
                         return signupSuccess;
                     }
                     else
