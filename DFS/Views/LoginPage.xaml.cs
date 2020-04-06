@@ -68,8 +68,8 @@ namespace DFS
                             }
                             else
                             {
-                                var member = App.SelectedView == "Trainee" ? App.LoginResponse : App.TrainerData;
-                                CredentialsService.SaveCredentials(App.InstagramUser.data.username, "fb@trainme", member,instagramUser:App.InstagramUser,instagramMedia:App.InstagramMedia,userType: App.SelectedView);
+                                //var member = App.SelectedView == "Trainee" ? App.LoginResponse : App.TrainerData;
+                                CredentialsService.SaveCredentials(App.InstagramUser.data.username, "fb@trainme", App.LoginResponse, instagramUser:App.InstagramUser,instagramMedia:App.InstagramMedia,userType: App.SelectedView);
                                 Application.Current.MainPage = new RootPage(App.SelectedView);
                             }
                         }

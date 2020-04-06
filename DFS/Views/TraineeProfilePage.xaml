@@ -65,7 +65,7 @@
                                 </StackLayout>
                                 <!-- Goals view  -->
                                 <StackLayout Margin="0,5,0,0">
-                                    <Label Text="Goals" TextColor="Black" Font="14" HorizontalOptions="StartAndExpand" />
+                                    <Label Text="Goal" TextColor="Black" Font="14" HorizontalOptions="StartAndExpand" />
                                     <Label Text="{Binding TraineeGoals}" TextColor="{StaticResource GreyTextColor}" Font="14" HorizontalOptions="StartAndExpand" />
                                 </StackLayout>
                                 <!-- Goals view  -->
