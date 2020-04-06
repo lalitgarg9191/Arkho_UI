@@ -60,11 +60,24 @@
                                             <TapGestureRecognizer Command="{Binding CheckBoxCommand}"/>
                                         </Image.GestureRecognizers>
                                     </Image>
-                                    <Label FontAttributes="Italic" FontSize="15" Text="By signin up to our app, you agree to our Terms and Condition and Privacy Policy" TextColor="#ffffff" VerticalOptions="CenterAndExpand" HorizontalOptions="Start">
-                                        <Label.GestureRecognizers>
-                                            <TapGestureRecognizer Command="{Binding TermsCommand}"/>
-                                        </Label.GestureRecognizers>
-                                    </Label>
+                                    <StackLayout Spacing="0" HorizontalOptions="FillAndExpand">
+                                        
+                                        <Label FontAttributes="Italic" FontSize="15" Text="By signin up to our app, you agree to our" TextColor="#ffffff" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand">
+                                            
+                                        </Label>
+                                        <Label FontAttributes="Bold" FontSize="15" Text="Terms and Condition" TextColor="#ffffff" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding TermsCommand}"/>
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                        <Label FontAttributes="Bold" FontSize="15" Text="Privacy Policy" TextColor="#ffffff" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding PrivacyCommand}"/>
+                                            </Label.GestureRecognizers>
+                                        </Label>
+                                            
+                                    </StackLayout>
+                                    
                                 </StackLayout>
                             
                                 <!--    Login Button   -->
@@ -170,7 +183,7 @@
                                         <ColumnDefinition Width="*" />
                                       </Grid.ColumnDefinitions>
 
-                                        <Label Text="Want new account?" TextColor="{StaticResource WhiteColor}" FontSize="14" Grid.Column="0"  HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" ></Label>
+                                        <Label Text="Need an account?" TextColor="{StaticResource WhiteColor}" FontSize="14" Grid.Column="0"  HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" ></Label>
                                         <Button Grid.Column="1" Font="15" Clicked="Handle_SignUpClickedAsync" Text="SIGN UP" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource GreenColor}" TextColor="Black"/>
 
                                     </Grid>

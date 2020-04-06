@@ -94,6 +94,7 @@ namespace DFS
         public ICommand LoginCommand { get; private set; }
         public ICommand CheckBoxCommand { get; private set; }
         public ICommand TermsCommand { get; private set; }
+        public ICommand PrivacyCommand { get; private set; }
 
         public UserProfileViewModel()
         {
@@ -104,13 +105,19 @@ namespace DFS
             SignUpCommand = new Command(() => OnSignUp());
             CheckBoxCommand = new Command(() => CheckBoxClicked());
             TermsCommand = new Command(() => TermsClicked());
+            PrivacyCommand = new Command(() => PrivacyClicked());
 
             BoxImage = "unselected_check";
         }
 
         private void TermsClicked()
         {
-            Device.OpenUri(new Uri("http://104.238.81.169:4080/TrainMeApp/PrivacyPolicy_new.html"));
+            Device.OpenUri(new Uri("https://www.arkho-app.com/terms"));
+        }
+
+        private void PrivacyClicked()
+        {
+            Device.OpenUri(new Uri("https://www.arkho-app.com/privacy"));
         }
 
         private void CheckBoxClicked()
