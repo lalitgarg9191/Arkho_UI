@@ -59,10 +59,10 @@
                         <ScrollView>
                             <StackLayout Margin="20">
                                 <!-- Content view  -->
-                                <StackLayout>
+                                <!--<StackLayout>
                                     <Label Text="Interest" TextColor="Black" Font="14" HorizontalOptions="StartAndExpand" />
                                     <Label Text="{Binding TraineeInterest}" TextColor="{StaticResource GreyTextColor}" Font="14" HorizontalOptions="StartAndExpand" />
-                                </StackLayout>
+                                </StackLayout>-->
                                 <!-- Goals view  -->
                                 <StackLayout Margin="0,5,0,0">
                                     <Label Text="Goal" TextColor="Black" Font="14" HorizontalOptions="StartAndExpand" />

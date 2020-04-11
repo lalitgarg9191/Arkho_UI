@@ -59,7 +59,9 @@
                                 
                                 <Label VerticalOptions="CenterAndExpand" Text="{Binding Date}" LineBreakMode="NoWrap" Font="Bold" FontSize="16" />        
                                 
-                                <Label VerticalOptions="CenterAndExpand" Text="{Binding TimeSlot}" LineBreakMode="NoWrap" Font="Bold" FontSize="16" />        
+                                <Label VerticalOptions="CenterAndExpand" Text="{Binding TimeSlot}" LineBreakMode="NoWrap" Font="Bold" FontSize="16" />
+
+                                <Label VerticalOptions="CenterAndExpand" Text="{Binding Location}" LineBreakMode="NoWrap" Font="Bold" FontSize="16" />        
                                 
                             </StackLayout>
                         </StackLayout>

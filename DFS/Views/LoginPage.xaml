@@ -62,7 +62,7 @@
                                     </Image>
                                     <StackLayout Spacing="0" HorizontalOptions="FillAndExpand">
                                         
-                                        <Label FontAttributes="Italic" FontSize="15" Text="By signin up to our app, you agree to our" TextColor="#ffffff" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand">
+                                        <Label FontAttributes="Italic" FontSize="15" Text="By signing up to our app, you agree to our" TextColor="#ffffff" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand">
                                             
                                         </Label>
                                         <Label FontAttributes="Bold" FontSize="15" Text="Terms and Condition" TextColor="#ffffff" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center">
@@ -70,7 +70,7 @@
                                                 <TapGestureRecognizer Command="{Binding TermsCommand}"/>
                                             </Label.GestureRecognizers>
                                         </Label>
-                                        <Label FontAttributes="Bold" FontSize="15" Text="Privacy Policy" TextColor="#ffffff" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                        <Label FontAttributes="Bold" FontSize="15" Text="and Privacy Policy" TextColor="#ffffff" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
                                             <Label.GestureRecognizers>
                                                 <TapGestureRecognizer Command="{Binding PrivacyCommand}"/>
                                             </Label.GestureRecognizers>

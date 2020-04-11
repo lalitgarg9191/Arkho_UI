@@ -92,6 +92,20 @@ namespace DFS.ViewModels
             }
         }
 
+        private String _location;
+        public String Location
+        {
+            get
+            {
+                return _location;
+            }
+            set
+            {
+                _location = value;
+                RaisePropertyChanged(nameof(Location));
+            }
+        }
+
         public ObservableCollection<XamForms.Controls.SpecialDate> Attendances
         {
             get { return attendances; }
@@ -184,6 +198,7 @@ namespace DFS.ViewModels
                                 TimeSlot = item.startTime + " - " + item.endTime;
                                 Name = item.name;
                                 PhoneNumber = item.phoneNumber;
+                                Location = item.services.Count > 0 ? item.services[0].workLocaton : "";
 
                                 IsInfoVisible = true;
 
