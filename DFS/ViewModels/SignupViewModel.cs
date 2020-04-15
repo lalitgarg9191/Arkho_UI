@@ -744,10 +744,10 @@ namespace DFS.ViewModels
                 // Index Number 11 (Weight)
                 basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Weight" });
 
-                basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Sports Interest", IsAdditionAvailable = false });
+                basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Goal", IsAdditionAvailable = false });
                 // Index Number 13 (Sports Interest)
                 //basicSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Select Sport", IsAdditionAvailable = false, SelectionData = SportsList });
-                basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = false, PlaceholderText = "Enter Sports Interest" });
+                basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = false, PlaceholderText = "Enter Goal" });
 
                 basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Medical Information", IsAdditionAvailable = false });
                 // Index Number 15 (Medical Info)
@@ -828,10 +828,10 @@ namespace DFS.ViewModels
                 // Index Number 11 (Weight)
                 basicSignUpModel.Add(new Models.SignupData { MainSelectedData = App.LoginResponse.basicInfo.Weight, InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Weight" });
 
-                basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Sports Interest", IsAdditionAvailable = false });
+                basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Goal", IsAdditionAvailable = false });
                 // Index Number 13 (Sports Interest)
                 //basicSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Ente Sport", IsAdditionAvailable = false, SelectionData = SportsList , SelectedIndex = SportsList.IndexOf(App.LoginResponse.basicInfo.SportsInterest) });
-                basicSignUpModel.Add(new Models.SignupData { MainSelectedData = App.LoginResponse.basicInfo.SportsInterest, InputType = "Entry", IsAdditionAvailable = false, PlaceholderText = "Enter Sport Interest" });
+                basicSignUpModel.Add(new Models.SignupData { MainSelectedData = App.LoginResponse.basicInfo.SportsInterest, InputType = "Entry", IsAdditionAvailable = false, PlaceholderText = "Enter Goal" });
 
                 basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Medical Information", IsAdditionAvailable = false });
                 // Index Number 15 (Medical Info)
