@@ -361,6 +361,7 @@ namespace DFS.ViewModels
         public ICommand SaveCommand { get; set; }
         public ICommand PictureCommand { get; set; }
         public ICommand AddCommand { get; set; }
+        public ICommand MinusCommand { get; set; }
         public ICommand CalendarCommand { get; set; }
         public ICommand HideCalenderCommand { get; private set; }
         public ICommand ResetCommand { get; set; }
@@ -423,6 +424,7 @@ namespace DFS.ViewModels
             SaveCommand = new Command(() => SaveClicked());
             PictureCommand = new Command(() => SelectImage());
             AddCommand = new Command(AddRow);
+            MinusCommand = new Command(DeleteRow);
             CalendarCommand = new Command(CalenderSelction);
             HideCalenderCommand = new Command(() => OnDateSelection());
             ResetCommand = new Command(ResetCalender);
@@ -433,6 +435,18 @@ namespace DFS.ViewModels
 
             Initialization = InitializeAsync();
 
+        }
+
+        private void DeleteRow(object obj)
+        {
+            var item = obj as Models.SignupData;
+
+            int index = StaticListData[1].IndexOf(item);
+
+            if (StaticListData[1][index + 1].InputType == "Service")
+            {
+                StaticListData[1].RemoveAt(index + 1);
+            }
         }
 
         private void ResetCalender()
@@ -788,8 +802,9 @@ namespace DFS.ViewModels
                     // Index Number 1 (Certification)
                     serviceSignUpModel.Add(new Models.SignupData { InputType = "Entry", PlaceholderText = "Enter Certification", IsAdditionAvailable = false });
 
-                    serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Service", IsAdditionAvailable = true });
+                    //serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Service", IsAdditionAvailable = true });
                     // Index Number 1 (Service)
+                    serviceSignUpModel.Add(new Models.SignupData { InputType = "Minus", PlaceholderText = "Service" });
                     serviceSignUpModel.Add(new Models.SignupData { InputType = "Service" });
 
                     if(App.TrainerStripeUrl != "" && App.TrainerStripeUrl != null)
@@ -876,8 +891,8 @@ namespace DFS.ViewModels
                     }
 
 
-
-                    serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Service", IsAdditionAvailable = true });
+                    serviceSignUpModel.Add(new Models.SignupData { InputType = "Minus", PlaceholderText = "Service" });
+                    //serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Service", IsAdditionAvailable = true });
                     // Index Number 1 (Service)
                     foreach (var serviceItem in App.LoginResponse.professionalInfo.services)
                     {

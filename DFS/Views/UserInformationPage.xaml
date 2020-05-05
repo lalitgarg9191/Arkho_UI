@@ -72,6 +72,27 @@
                     </ViewCell>
             </DataTemplate>
             
+            <DataTemplate x:Key="minusButtonTemplate">
+                <ViewCell Height="30">
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackColor}" Orientation="Horizontal" >
+                            <Label HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" Text="{Binding PlaceholderText}" TextColor="White" FontSize="16"/>
+                            <Image Source="plus_green" VerticalOptions="End" HorizontalOptions="End" Margin="15,0" HeightRequest="25" WidthRequest="25">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.AddCommand, Source={x:Reference Name=UserInfoPage}}"
+                                    CommandParameter="{Binding .}" />
+                                </Image.GestureRecognizers>
+                            </Image>
+                        <Image Source="plus_green" VerticalOptions="End" HorizontalOptions="End" Margin="15,0" HeightRequest="25" WidthRequest="25">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.MinusCommand, Source={x:Reference Name=UserInfoPage}}"
+                                    CommandParameter="{Binding .}" />
+                                </Image.GestureRecognizers>
+                            </Image>
+<!--                            <Button FontSize="16"   Text="Add" TextColor="White"/>-->
+                        </StackLayout>
+                    </ViewCell>
+            </DataTemplate>
+            
             <DataTemplate x:Key="headerTemplate">
                 <ViewCell>
                     <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackColor}">
@@ -118,7 +139,7 @@
             </DataTemplate>
             
 <!--            <local:PersonDataTemplateSelector x:Key="personDataTemplateSelector" NumericTemplate="{StaticResource numericTemplate}" DatePickerTemplate="{StaticResource datePickerTemplate}" LabelTemplate="{StaticResource labelTemplate}" LabelButtonTemplate="{StaticResource labelButtonTemplate}"  EntryTemplate="{StaticResource entryTemplate}" PickerTemplate"{StaticResource pickerTemplate}" ServiceTemplate="{StaticResource serviceTemplate}" />-->
-            <local:PersonDataTemplateSelector x:Key="personDataTemplateSelector" EditorTemplate="{StaticResource editorTemplate}" NumericTemplate="{StaticResource numericTemplate}" DatePickerTemplate="{StaticResource datePickerTemplate}" EntryTemplate="{StaticResource entryTemplate}" PickerTemplate="{StaticResource pickerTemplate}" ServiceTemplate="{StaticResource serviceTemplate}" LabelTemplate="{StaticResource labelTemplate}" LabelButtonTemplate="{StaticResource labelButtonTemplate}" ButtonTemplate="{StaticResource buttonTemplate}" />
+            <local:PersonDataTemplateSelector x:Key="personDataTemplateSelector" MinusButtonTemplate="{StaticResource minusButtonTemplate}" EditorTemplate="{StaticResource editorTemplate}" NumericTemplate="{StaticResource numericTemplate}" DatePickerTemplate="{StaticResource datePickerTemplate}" EntryTemplate="{StaticResource entryTemplate}" PickerTemplate="{StaticResource pickerTemplate}" ServiceTemplate="{StaticResource serviceTemplate}" LabelTemplate="{StaticResource labelTemplate}" LabelButtonTemplate="{StaticResource labelButtonTemplate}" ButtonTemplate="{StaticResource buttonTemplate}" />
             <local:CustomGroupHeaderTemplate x:Key="customGroupTemplateSelector" HeaderTemplate="{StaticResource headerTemplate}"/>
         </ResourceDictionary>
     </ContentPage.Resources>

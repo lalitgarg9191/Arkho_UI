@@ -7,6 +7,7 @@ namespace DFS
     {
         public DataTemplate LabelTemplate { get; set; }
         public DataTemplate LabelButtonTemplate { get; set; }
+        public DataTemplate MinusButtonTemplate { get; set; }
         public DataTemplate EntryTemplate { get; set; }
         public DataTemplate PickerTemplate { get; set; }
         public DataTemplate DatePickerTemplate { get; set; }
@@ -23,6 +24,10 @@ namespace DFS
             if (actualItem.InputType == "Label" && actualItem.IsAdditionAvailable)
             {
                 return LabelButtonTemplate;
+            }
+            else if(actualItem.InputType == "Minus")
+            {
+                return MinusButtonTemplate;
             }
             else if (actualItem.InputType == "Label")
             {
