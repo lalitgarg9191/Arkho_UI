@@ -596,37 +596,43 @@ namespace DFS.ViewModels
                     else if (item.InputType == "Service")
                     {
                         Models.TraineeSignupModel.Services service = new Models.TraineeSignupModel.Services();
-                        service.chargingPeriod = item.SessionDesc;
-                        service.serviceName = item.MainSelectedData;
-                        service.charges = (item.SessionAmount == "" || item.SessionAmount == null) ? 0 : Convert.ToDouble(item.SessionAmount);
-                        service.workLocaton = item.SessionLocation;
-                        service.teamSize = item.SessionTeam;
 
-                        List<Models.TraineeSignupModel.Schedule> schedules = new List<Models.TraineeSignupModel.Schedule>();
-
-                        if (item.selectedTime != null)
+                        if (item.SessionDesc != null && item.MainSelectedData != null && item.SessionLocation != null && item.SessionTeam != null)
                         {
 
-                            foreach (var timeItem in item.selectedTime)
+                            service.chargingPeriod = item.SessionDesc;
+                            service.serviceName = item.MainSelectedData;
+                            service.charges = (item.SessionAmount == "" || item.SessionAmount == null) ? 0 : Convert.ToDouble(item.SessionAmount);
+                            service.workLocaton = item.SessionLocation;
+                            service.teamSize = item.SessionTeam;
+
+                            List<Models.TraineeSignupModel.Schedule> schedules = new List<Models.TraineeSignupModel.Schedule>();
+
+                            if (item.selectedTime != null)
                             {
-                                Models.TraineeSignupModel.Schedule schedule = new Models.TraineeSignupModel.Schedule();
 
-                                schedule.day = timeItem.Day;
-                                schedule.month = timeItem.Month;
-                                schedule.year = timeItem.Year;
-                                schedule.scheduleType = "Week";
-                                schedule.startTime = timeItem.StartTime;
-                                schedule.endTime = timeItem.EndTime;
-                                schedule.weekDay = timeItem.WeekDay;
+                                foreach (var timeItem in item.selectedTime)
+                                {
+                                    Models.TraineeSignupModel.Schedule schedule = new Models.TraineeSignupModel.Schedule();
 
-                                schedules.Add(schedule);
+                                    schedule.day = timeItem.Day;
+                                    schedule.month = timeItem.Month;
+                                    schedule.year = timeItem.Year;
+                                    schedule.scheduleType = "Week";
+                                    schedule.startTime = timeItem.StartTime;
+                                    schedule.endTime = timeItem.EndTime;
+                                    schedule.weekDay = timeItem.WeekDay;
+
+                                    schedules.Add(schedule);
+                                }
+
+                                service.schedule = schedules;
+
+
+                                services.Add(service);
                             }
+
                         }
-
-                        service.schedule = schedules;
-
-
-                        services.Add(service);
                     }
 
 
