@@ -13,6 +13,7 @@ using Plugin.Permissions.Abstractions;
 using DFS.Utils;
 using XamForms.Controls;
 using Newtonsoft.Json;
+using System.Linq;
 
 namespace DFS.ViewModels
 {
@@ -33,6 +34,52 @@ namespace DFS.ViewModels
                 _isTrainerView = value;
 
                 RaisePropertyChanged(nameof(IsTrainerView));
+            }
+        }
+
+        private Boolean _isModifyViewVisible { get; set; }
+
+        public Boolean IsModifyViewVisible
+        {
+            get
+            {
+                return _isModifyViewVisible;
+            }
+            set
+            {
+                _isModifyViewVisible = value;
+
+                RaisePropertyChanged(nameof(IsModifyViewVisible));
+            }
+        }
+
+        private string _startTime;
+        public string StartTime
+        {
+            get
+            {
+                return _startTime;
+            }
+            set
+            {
+                _startTime = value;
+
+                RaisePropertyChanged(nameof(StartTime));
+            }
+        }
+
+        private string _endTime;
+        public string EndTime
+        {
+            get
+            {
+                return _endTime;
+            }
+            set
+            {
+                _endTime = value;
+
+                RaisePropertyChanged(nameof(EndTime));
             }
         }
 
@@ -365,7 +412,9 @@ namespace DFS.ViewModels
         public ICommand CalendarCommand { get; set; }
         public ICommand HideCalenderCommand { get; private set; }
         public ICommand ResetCommand { get; set; }
-
+        public ICommand ModifyCommand { get; set; }
+        public ICommand DeleteEventCommand { get; set; }
+        public ICommand CancelEventCommand { get; set; }
         void SelectImage()
         {
 
@@ -379,6 +428,30 @@ namespace DFS.ViewModels
                     System.Diagnostics.Debug.WriteLine(obj as DateTime?);
 
                     DateTime dateTime = (DateTime)obj;
+
+                    foreach(var item in Attendances)
+                    {
+                        if (item.Date == dateTime)
+                        {
+                            var index = Attendances.IndexOf(item);
+                            Attendances.Move(index, Attendances.Count - 1);
+
+                            //StaticListData[1][SelectedCalenderIndex].selectedTime.Contains()
+                            //var data = StaticListData[1][SelectedCalenderIndex].selectedTime.Where(x => x.Day == dateTime.Day + "");
+                            for(int TimeIndex = 0; TimeIndex < StaticListData[1][SelectedCalenderIndex].selectedTime.Count; TimeIndex++)
+                            {
+                                if(StaticListData[1][SelectedCalenderIndex].selectedTime[index].Day == dateTime.Day + "")
+                                {
+                                    StaticListData[1][SelectedCalenderIndex].selectedTime.Move(TimeIndex, StaticListData[1][SelectedCalenderIndex].selectedTime.Count - 1);
+                                    StartTime = StaticListData[1][SelectedCalenderIndex].selectedTime[TimeIndex].StartTime;
+                                    EndTime = StaticListData[1][SelectedCalenderIndex].selectedTime[TimeIndex].EndTime;
+                                    break;
+                                }
+                            }
+                            IsModifyViewVisible = true;
+                            return;
+                        }
+                    }
 
                     Attendances.Add(new SpecialDate(dateTime) { BackgroundColor = Color.Red, Selectable = true });
 
@@ -403,7 +476,7 @@ namespace DFS.ViewModels
         public SignupViewModel()
         {
             InitializeCalender();
-
+            IsModifyViewVisible = false;
             GenderList = new ObservableCollection<String>();
             GenderList.Add("Male");
             GenderList.Add("Female");
@@ -428,6 +501,26 @@ namespace DFS.ViewModels
             CalendarCommand = new Command(CalenderSelction);
             HideCalenderCommand = new Command(() => OnDateSelection());
             ResetCommand = new Command(ResetCalender);
+            CancelEventCommand = new Command(() =>
+            {
+                IsModifyViewVisible = false;
+            });
+
+            ModifyCommand = new Command(() =>
+            {
+                IsModifyViewVisible = false;
+                TimeSelectionVisible = true;
+            });
+
+            DeleteEventCommand = new Command(() =>
+            {
+                Attendances.RemoveAt(Attendances.Count - 1);
+                var listData = Attendances.ToList();
+                Attendances = new ObservableCollection<SpecialDate>(listData);
+                StaticListData[1][SelectedCalenderIndex].selectedTime.RemoveAt(StaticListData[1][SelectedCalenderIndex].selectedTime.Count - 1);
+                IsModifyViewVisible = false;
+            });
+
             //SelectedTime = new ObservableCollection<Models.SelectedTime>();
             Attendances = new ObservableCollection<SpecialDate>();
             IsServiceInProgress = false;

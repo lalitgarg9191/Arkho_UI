@@ -38,7 +38,7 @@
                     <Label FontAttributes="Bold" FontSize="22" HorizontalTextAlignment="Center" Text="Done" TextColor="{StaticResource BlackColor}"/>
                  </Frame>
                 
-                <Frame WidthRequest="100"                          
+                <!--<Frame WidthRequest="100"                          
                        HorizontalOptions="Center"
                        VerticalOptions="StartAndExpand"
                        CornerRadius="10"
@@ -52,8 +52,31 @@
                         <TapGestureRecognizer Command="{Binding ResetCommand}"/>
                     </Frame.GestureRecognizers>
                     <Label FontAttributes="Bold" FontSize="22" HorizontalTextAlignment="Center" Text="Reset" TextColor="{StaticResource BlackColor}"/>
-                 </Frame>
+                 </Frame>-->
                 
+            </StackLayout>
+            
+            <StackLayout
+                IsVisible="{Binding IsModifyViewVisible}"
+                AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
+                AbsoluteLayout.LayoutFlags="All"
+                Opacity="0.2" 
+                BackgroundColor="Black">
+            </StackLayout>
+            
+            <StackLayout
+                IsVisible="{Binding IsModifyViewVisible}"
+                AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
+                AbsoluteLayout.LayoutFlags="All">
+                <StackLayout BackgroundColor="White" WidthRequest="200" Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Label Text="Start Time" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
+                    <Label Text="{Binding StartTime}" HorizontalOptions="StartAndExpand"/>
+                    <Label Text="End Time" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
+                    <Label Text="{Binding EndTime}" HorizontalOptions="StartAndExpand"/>
+                    <Button Command="{Binding ModifyCommand}" Text="Modify" WidthRequest="100" BackgroundColor="{StaticResource GreenColor}" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
+                    <Button Command="{Binding DeleteEventCommand}" Text="Delete" WidthRequest="100" BackgroundColor="{StaticResource GreenColor}" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
+                    <Button Command="{Binding CancelEventCommand}" Text="Cancel" WidthRequest="100" BackgroundColor="{StaticResource GreenColor}" TextColor="Black" HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
             </StackLayout>
             
             <StackLayout
@@ -96,18 +119,6 @@
                 </StackLayout>
                 
             </StackLayout>
-            
-            <!--<StackLayout IsVisible="{Binding IsServiceInProgress}"
-                             Padding="12"
-                     AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
-                    AbsoluteLayout.LayoutFlags="All" >
-                    
-                    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                       <ActivityIndicator IsRunning="true" Color="{StaticResource GreenColor}"/>
-
-                       <Label Text="Loading..." HorizontalOptions="Center" TextColor="{StaticResource GreenColor}"/>
-                    </StackLayout>
-                </StackLayout>-->
             
         </AbsoluteLayout>
     </ContentPage.Content>
