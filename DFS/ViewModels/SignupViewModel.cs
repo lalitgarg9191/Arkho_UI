@@ -440,11 +440,12 @@ namespace DFS.ViewModels
                             //var data = StaticListData[1][SelectedCalenderIndex].selectedTime.Where(x => x.Day == dateTime.Day + "");
                             for(int TimeIndex = 0; TimeIndex < StaticListData[1][SelectedCalenderIndex].selectedTime.Count; TimeIndex++)
                             {
-                                if(StaticListData[1][SelectedCalenderIndex].selectedTime[index].Day == dateTime.Day + "")
+                                if(StaticListData[1][SelectedCalenderIndex].selectedTime[TimeIndex].Day == dateTime.Day + "")
                                 {
-                                    StaticListData[1][SelectedCalenderIndex].selectedTime.Move(TimeIndex, StaticListData[1][SelectedCalenderIndex].selectedTime.Count - 1);
                                     StartTime = StaticListData[1][SelectedCalenderIndex].selectedTime[TimeIndex].StartTime;
                                     EndTime = StaticListData[1][SelectedCalenderIndex].selectedTime[TimeIndex].EndTime;
+
+                                    StaticListData[1][SelectedCalenderIndex].selectedTime.Move(TimeIndex, StaticListData[1][SelectedCalenderIndex].selectedTime.Count - 1);
                                     break;
                                 }
                             }

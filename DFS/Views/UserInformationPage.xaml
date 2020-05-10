@@ -82,7 +82,7 @@
                                     CommandParameter="{Binding .}" />
                                 </Image.GestureRecognizers>
                             </Image>
-                        <Image Source="plus_green" VerticalOptions="End" HorizontalOptions="End" Margin="15,0" HeightRequest="25" WidthRequest="25">
+                        <Image Source="minus_green" VerticalOptions="End" HorizontalOptions="End" Margin="15,0" HeightRequest="25" WidthRequest="25">
                                 <Image.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding Path=BindingContext.MinusCommand, Source={x:Reference Name=UserInfoPage}}"
                                     CommandParameter="{Binding .}" />
