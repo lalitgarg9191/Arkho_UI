@@ -537,9 +537,23 @@ namespace DFS.ViewModels
 
             int index = StaticListData[1].IndexOf(item);
 
-            if (StaticListData[1][index + 1].InputType == "Service")
+            if(StaticListData[1][index].InputType == "OnlyMinus")
             {
                 StaticListData[1].RemoveAt(index + 1);
+                StaticListData[1].RemoveAt(index);
+                if (StaticListData[1][index - 1].InputType == "Minus")
+                {
+                    StaticListData[1].RemoveAt(index);
+                }
+
+            }
+            else if (StaticListData[1][index + 1].InputType == "Service")
+            {
+                StaticListData[1].RemoveAt(index + 1);
+                if (StaticListData[1][index + 1].InputType == "OnlyMinus")
+                {
+                    StaticListData[1].RemoveAt(index + 1);
+                }
             }
         }
 
@@ -599,6 +613,7 @@ namespace DFS.ViewModels
             }
             else if (item.PlaceholderText == "Service")
             {
+                int intialIndex = index;
                 for (var i = index + 1; i < StaticListData[1].Count; i++)
                 {
                     if(StaticListData[1][i].InputType == "Service")
@@ -613,7 +628,15 @@ namespace DFS.ViewModels
 
                 }
 
-                StaticListData[1].Insert(index, new Models.SignupData { InputType = "Service" });
+                if (intialIndex + 1 == index)
+                {
+                    StaticListData[1].Insert(index, new Models.SignupData { InputType = "Service" });
+                }
+                else
+                {
+                    StaticListData[1].Insert(index, new Models.SignupData { InputType = "OnlyMinus" });
+                    StaticListData[1].Insert(index + 1, new Models.SignupData { InputType = "Service" });
+                }
             }
 
 
@@ -901,7 +924,7 @@ namespace DFS.ViewModels
                     serviceSignUpModel.Add(new Models.SignupData { InputType = "Minus", PlaceholderText = "Service" });
                     serviceSignUpModel.Add(new Models.SignupData { InputType = "Service" });
 
-                    if(App.TrainerStripeUrl != "" && App.TrainerStripeUrl != null)
+                    if(App.TrainerStripeUrl == "" || App.TrainerStripeUrl == null)
                     {
                         serviceSignUpModel.Add(new Models.SignupData { InputType = "Button", MainSelectedData = "Connect Stripe Account", IsAdditionAvailable = false });
                     }
@@ -988,6 +1011,7 @@ namespace DFS.ViewModels
                     serviceSignUpModel.Add(new Models.SignupData { InputType = "Minus", PlaceholderText = "Service" });
                     //serviceSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Service", IsAdditionAvailable = true });
                     // Index Number 1 (Service)
+                    var isMoreThanOne = false;
                     foreach (var serviceItem in App.LoginResponse.professionalInfo.services)
                     {
                         ObservableCollection<Models.SelectedTime> selectedTimes = new ObservableCollection<Models.SelectedTime>();
@@ -1006,11 +1030,15 @@ namespace DFS.ViewModels
                             selectedTimes.Add(selectedTime);
 
                         }
-
+                        if(isMoreThanOne)
+                        {
+                            serviceSignUpModel.Add(new Models.SignupData { InputType = "OnlyMinus" });
+                        }
+                        isMoreThanOne = true;
                         serviceSignUpModel.Add(new Models.SignupData { SessionLocation = serviceItem.WorkLocaton, SessionTeam = serviceItem.TeamSize, selectedTime = selectedTimes, MainSelectedData = serviceItem.ServiceName, SessionDesc = serviceItem.ChargingPeriod, SessionAmount = serviceItem.Charges, InputType = "Service" });
                     }
 
-                    if (App.TrainerStripeUrl != "" && App.TrainerStripeUrl != null)
+                    if (App.TrainerStripeUrl == "" || App.TrainerStripeUrl == null)
                     {
                         serviceSignUpModel.Add(new Models.SignupData { InputType = "Button", MainSelectedData = "Connect Stripe Account", IsAdditionAvailable = false });
                     }

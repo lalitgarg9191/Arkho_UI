@@ -29,6 +29,10 @@ namespace DFS.Views
 
         }
 
+        async void Handle_BackClicked(object sender, System.EventArgs e)
+        {
+            await this.Navigation.PopAsync();
+        }
 
         private void RegisterEvent()
         {

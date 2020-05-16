@@ -15,6 +15,7 @@ namespace DFS
         public DataTemplate NumericTemplate { get; set; }
         public DataTemplate EditorTemplate { get; set; }
         public DataTemplate ButtonTemplate { get; set; }
+        public DataTemplate OnlyMinusButtonTemplate { get; set; }
 
 
         protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
@@ -28,6 +29,10 @@ namespace DFS
             else if(actualItem.InputType == "Minus")
             {
                 return MinusButtonTemplate;
+            }
+            else if (actualItem.InputType == "OnlyMinus")
+            {
+                return OnlyMinusButtonTemplate;
             }
             else if (actualItem.InputType == "Label")
             {

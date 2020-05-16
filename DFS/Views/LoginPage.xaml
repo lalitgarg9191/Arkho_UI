@@ -19,12 +19,12 @@
                    <ScrollView>
 
                         <StackLayout>
-                            <StackLayout VerticalOptions="StartAndExpand" Margin="40">
+                            <StackLayout VerticalOptions="StartAndExpand" Margin="40,20">
                             
-                                <Image Margin="0,20,0,0" Source="arkhologo.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" WidthRequest="120" HeightRequest="120"/>
+                                <Image Margin="0,0,0,0" Source="arkhologo.png" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" WidthRequest="120" HeightRequest="120"/>
                                 
                                 <!--    Username Entry   -->
-                                <Frame CornerRadius="10" BackgroundColor="White" Margin="0,10,0,0" Padding="0">
+                                <Frame CornerRadius="10" BackgroundColor="White" Margin="0,0,0,0" Padding="0">
                                     <StackLayout x:Name="userLayout"  HeightRequest="40" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                                         <Image Source="username" HeightRequest="20" WidthRequest="20" Margin="8,0" />
                                         <Entry Text="{Binding Username}" Keyboard="Email" TextColor="{StaticResource GreyTextColor}" FontSize="18"  HeightRequest="40" x:Name="usernameEntry" Placeholder="Email Address" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" />
@@ -70,7 +70,10 @@
                                                 <TapGestureRecognizer Command="{Binding TermsCommand}"/>
                                             </Label.GestureRecognizers>
                                         </Label>
-                                        <Label FontAttributes="Bold" FontSize="15" Text="and Privacy Policy" TextColor="#ffffff" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                                        <Label FontAttributes="Italic" FontSize="15" Text="and" TextColor="#ffffff" VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand">
+                                            
+                                        </Label>
+                                        <Label FontAttributes="Bold" FontSize="15" Text="Privacy Policy" TextColor="#ffffff" HorizontalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
                                             <Label.GestureRecognizers>
                                                 <TapGestureRecognizer Command="{Binding PrivacyCommand}"/>
                                             </Label.GestureRecognizers>
@@ -194,7 +197,7 @@
 
                    </ScrollView>
 
-                   <Label Text="Copyright© 2018 All rights Reserved | Template by IndoMex" TextColor="{StaticResource WhiteColor}" FontSize="10" Grid.Column="0"  HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" Margin="0,0,0,10" ></Label>
+                   <Label Text="Copyright© 2020 All rights Reserved | Powered by SeyerMedia" TextColor="{StaticResource WhiteColor}" FontSize="10" Grid.Column="0"  HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" Margin="0,0,0,10" ></Label>
 		            
 		       </StackLayout>
                <!--End of actual body-->

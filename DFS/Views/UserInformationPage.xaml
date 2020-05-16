@@ -93,6 +93,21 @@
                     </ViewCell>
             </DataTemplate>
             
+            <DataTemplate x:Key="onlyMinusButtonTemplate">
+                <ViewCell Height="30">
+                        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackColor}" Orientation="Horizontal" >
+                            
+                            <Image Source="minus_green" VerticalOptions="End" HorizontalOptions="EndAndExpand" Margin="15,0" HeightRequest="25" WidthRequest="25">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.MinusCommand, Source={x:Reference Name=UserInfoPage}}"
+                                    CommandParameter="{Binding .}" />
+                                </Image.GestureRecognizers>
+                            </Image>
+<!--                            <Button FontSize="16"   Text="Add" TextColor="White"/>-->
+                        </StackLayout>
+                    </ViewCell>
+            </DataTemplate>
+            
             <DataTemplate x:Key="headerTemplate">
                 <ViewCell>
                     <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource BackColor}">
@@ -139,7 +154,7 @@
             </DataTemplate>
             
 <!--            <local:PersonDataTemplateSelector x:Key="personDataTemplateSelector" NumericTemplate="{StaticResource numericTemplate}" DatePickerTemplate="{StaticResource datePickerTemplate}" LabelTemplate="{StaticResource labelTemplate}" LabelButtonTemplate="{StaticResource labelButtonTemplate}"  EntryTemplate="{StaticResource entryTemplate}" PickerTemplate"{StaticResource pickerTemplate}" ServiceTemplate="{StaticResource serviceTemplate}" />-->
-            <local:PersonDataTemplateSelector x:Key="personDataTemplateSelector" MinusButtonTemplate="{StaticResource minusButtonTemplate}" EditorTemplate="{StaticResource editorTemplate}" NumericTemplate="{StaticResource numericTemplate}" DatePickerTemplate="{StaticResource datePickerTemplate}" EntryTemplate="{StaticResource entryTemplate}" PickerTemplate="{StaticResource pickerTemplate}" ServiceTemplate="{StaticResource serviceTemplate}" LabelTemplate="{StaticResource labelTemplate}" LabelButtonTemplate="{StaticResource labelButtonTemplate}" ButtonTemplate="{StaticResource buttonTemplate}" />
+            <local:PersonDataTemplateSelector x:Key="personDataTemplateSelector" OnlyMinusButtonTemplate="{StaticResource onlyMinusButtonTemplate}" MinusButtonTemplate="{StaticResource minusButtonTemplate}" EditorTemplate="{StaticResource editorTemplate}" NumericTemplate="{StaticResource numericTemplate}" DatePickerTemplate="{StaticResource datePickerTemplate}" EntryTemplate="{StaticResource entryTemplate}" PickerTemplate="{StaticResource pickerTemplate}" ServiceTemplate="{StaticResource serviceTemplate}" LabelTemplate="{StaticResource labelTemplate}" LabelButtonTemplate="{StaticResource labelButtonTemplate}" ButtonTemplate="{StaticResource buttonTemplate}" />
             <local:CustomGroupHeaderTemplate x:Key="customGroupTemplateSelector" HeaderTemplate="{StaticResource headerTemplate}"/>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -181,8 +196,10 @@
             
                             </local:CustomListView>
                         
-                            <Button WidthRequest="120" Command="{Binding SaveCommand}" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0" Text="SAVE" TextColor="Black" BackgroundColor="{StaticResource GreenColor}"/>
-                            
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                <Button WidthRequest="120" Command="{Binding SaveCommand}" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0" Text="SAVE" TextColor="Black" BackgroundColor="{StaticResource GreenColor}"/>
+                                <Button WidthRequest="120" Clicked="Handle_BackClicked" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0" Text="Cancel" TextColor="Black" BackgroundColor="{StaticResource GreenColor}"/>
+                            </StackLayout>                           
                         </StackLayout>
                     
                 </StackLayout>
