@@ -69,6 +69,7 @@
                 AbsoluteLayout.LayoutBounds="0.0, 0.0, 1.0, 1.0"
                 AbsoluteLayout.LayoutFlags="All">
                 <StackLayout BackgroundColor="White" WidthRequest="200" Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Label Text="{Binding DisplayDate}" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
                     <Label Text="Start Time" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
                     <Label Text="{Binding StartTime}" HorizontalOptions="StartAndExpand"/>
                     <Label Text="End Time" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
@@ -101,7 +102,7 @@
                     <StackLayout MinimumHeightRequest="40" HeightRequest="40" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White">
                         <Label Text="{Binding TimeHeader}" FontAttributes="Bold" FontSize="16" TextColor="Black" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
                     </StackLayout>
-                    <ListView SelectedItem="{Binding RecentlySelectedItem}" ItemSelected="Handle_ItemSelected" ItemsSource="{Binding ListViewData}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                    <ListView SelectedItem="{Binding RecentlySelectedItem}" ItemsSource="{Binding ListViewData}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                         <ListView.ItemTemplate>
                           <DataTemplate>
                                 <ViewCell>

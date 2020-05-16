@@ -67,6 +67,21 @@ namespace DFS.ViewModels
                 RaisePropertyChanged(nameof(StartTime));
             }
         }
+        private string _displayDate;
+        public string DisplayDate
+        {
+            get
+            {
+                return _displayDate;
+            }
+            set
+            {
+                _displayDate = value;
+
+                RaisePropertyChanged(nameof(DisplayDate));
+            }
+        }
+
 
         private string _endTime;
         public string EndTime
@@ -444,7 +459,7 @@ namespace DFS.ViewModels
                                 {
                                     StartTime = StaticListData[1][SelectedCalenderIndex].selectedTime[TimeIndex].StartTime;
                                     EndTime = StaticListData[1][SelectedCalenderIndex].selectedTime[TimeIndex].EndTime;
-
+                                    DisplayDate = StaticListData[1][SelectedCalenderIndex].selectedTime[TimeIndex].Month + "/" + StaticListData[1][SelectedCalenderIndex].selectedTime[TimeIndex].Day + "/" + StaticListData[1][SelectedCalenderIndex].selectedTime[TimeIndex].Year;
                                     StaticListData[1][SelectedCalenderIndex].selectedTime.Move(TimeIndex, StaticListData[1][SelectedCalenderIndex].selectedTime.Count - 1);
                                     break;
                                 }
@@ -464,6 +479,8 @@ namespace DFS.ViewModels
                     selectedTime.SelectedIndex = SelectedCalenderIndex;
 
                     StaticListData[1][SelectedCalenderIndex].selectedTime.Add(selectedTime);
+
+                    InitializeCalender();
                     TimeSelectionVisible = true;
 
                 });
@@ -509,6 +526,7 @@ namespace DFS.ViewModels
 
             ModifyCommand = new Command(() =>
             {
+                InitializeCalender();
                 IsModifyViewVisible = false;
                 TimeSelectionVisible = true;
             });
