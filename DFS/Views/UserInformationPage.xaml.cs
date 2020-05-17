@@ -31,7 +31,14 @@ namespace DFS.Views
 
         async void Handle_BackClicked(object sender, System.EventArgs e)
         {
-            await this.Navigation.PopAsync();
+            if (this.Navigation.NavigationStack.Count == 0)
+            {
+                Application.Current.MainPage = new RootPage(signupViewModel.SelectedView);
+            }
+            else
+            {
+                await this.Navigation.PopAsync();
+            }
         }
 
         private void RegisterEvent()

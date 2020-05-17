@@ -875,7 +875,7 @@ namespace DFS.ViewModels
 
                 Models.CustomSignupModel basicSignUpModel = new Models.CustomSignupModel { HeaderName = "Basic Information" };
 
-                basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Name", IsAdditionAvailable = false });
+                basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Name *", IsAdditionAvailable = false });
                 // Index Number 1 (Name)
                 basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", PlaceholderText = "Enter Name", IsAdditionAvailable = false });
 
@@ -887,7 +887,7 @@ namespace DFS.ViewModels
                 // Index Number 5 (DOB)
                 basicSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Date of Birth", SelectedDate = DateOfBirth, IsAdditionAvailable = true });
 
-                basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Phone Number", IsAdditionAvailable = false });
+                basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Phone Number *", IsAdditionAvailable = false });
                 // Index Number 7 (Phone)
                 basicSignUpModel.Add(new Models.SignupData { InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Phone Number" });
 
@@ -960,7 +960,7 @@ namespace DFS.ViewModels
 
                 Models.CustomSignupModel basicSignUpModel = new Models.CustomSignupModel { HeaderName = "Basic Information" };
 
-                basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Name", IsAdditionAvailable = false });
+                basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Name *", IsAdditionAvailable = false });
                 // Index Number 1 (Name)
                 basicSignUpModel.Add(new Models.SignupData { MainSelectedData = App.LoginResponse.basicInfo.Name, InputType = "Entry", PlaceholderText = "Enter Name", IsAdditionAvailable = false });
 
@@ -972,7 +972,7 @@ namespace DFS.ViewModels
                 // Index Number 5 (DOB)
                 basicSignUpModel.Add(new Models.SignupData { InputType = "Picker", PlaceholderText = "Date of Birth", SelectedDate = DateTime.Parse(App.LoginResponse.basicInfo.DateOfBirth), IsAdditionAvailable = true });
 
-                basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Phone Number", IsAdditionAvailable = false });
+                basicSignUpModel.Add(new Models.SignupData { InputType = "Label", PlaceholderText = "Phone Number *", IsAdditionAvailable = false });
                 // Index Number 7 (Phone)
                 basicSignUpModel.Add(new Models.SignupData { MainSelectedData = App.LoginResponse.basicInfo.PhoneNumber, InputType = "Entry", IsAdditionAvailable = true, PlaceholderText = "Enter Phone Number" });
 
