@@ -31,13 +31,19 @@ namespace DFS.Views
 
         async void Handle_BackClicked(object sender, System.EventArgs e)
         {
-            if (this.Navigation.NavigationStack.Count == 0)
+
+            System.Diagnostics.Debug.WriteLine(this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 1].ToString());
+            if (this.Navigation.NavigationStack.Count == 0 || this.Navigation.NavigationStack.Count == 1)
             {
                 Application.Current.MainPage = new RootPage(signupViewModel.SelectedView);
             }
-            else
+            else if (this.Navigation.NavigationStack[this.Navigation.NavigationStack.Count - 2].ToString() == "DFS.Views.SignUp")
             {
                 await this.Navigation.PopAsync();
+            }
+            else
+            {
+                Application.Current.MainPage = new RootPage(signupViewModel.SelectedView);
             }
         }
 
