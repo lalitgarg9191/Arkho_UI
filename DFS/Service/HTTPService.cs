@@ -457,7 +457,7 @@ namespace DFS
 
             if (CrossConnectivity.Current.IsConnected)
             {
-                var uri = new Uri("http://104.238.81.169:4080/FitnessApp/manageservices/v1/members/trainerlist");
+                var uri = new Uri("https://arkho-app.org:8443/FitnessApp/manageservices/v1/members/trainerlist");
 
                 try
                 {
@@ -503,7 +503,7 @@ namespace DFS
 
             if (CrossConnectivity.Current.IsConnected)
             {
-                var uri = new Uri("http://104.238.81.169:4080/FitnessApp/manageservices/v1/members/signup");
+                var uri = new Uri("https://arkho-app.org:8443/FitnessApp/manageservices/v1/members/signup");
 
                 try
                 {
@@ -570,7 +570,7 @@ namespace DFS
             if (CrossConnectivity.Current.IsConnected)
             {
 
-                var uri = new Uri("http://104.238.81.169:4080/FitnessApp/manageservices/v1/members/validateMember");
+                var uri = new Uri("https://arkho-app.org:8443/FitnessApp/manageservices/v1/members/validateMember");
                 //var uri = new Uri("https://trainmeapp.in:8443/FitnessApp/manageservices/v1/members/validateMember");
                 try
                 {
@@ -640,7 +640,7 @@ namespace DFS
             {
                 try
                 {
-                    var uri = new Uri("http://104.238.81.169:4080/FitnessApp/manageservices/v1/members/addTimeSlots");
+                    var uri = new Uri("https://arkho-app.org:8443/FitnessApp/manageservices/v1/members/addTimeSlots");
                     var json = JsonConvert.SerializeObject(setTimeSlots);
                     var content = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -673,11 +673,11 @@ namespace DFS
 
                     if (App.SelectedView == "Trainee")
                     {
-                        uri = new Uri("http://104.238.81.169:4080/FitnessApp/manageservices/v1/members/trainee/getTimeSlots");
+                        uri = new Uri("https://arkho-app.org:8443/FitnessApp/manageservices/v1/members/trainee/getTimeSlots");
                     }
                     else
                     {
-                        uri = new Uri("http://104.238.81.169:4080/FitnessApp/manageservices/v1/members/getTimeSlots");
+                        uri = new Uri("https://arkho-app.org:8443/FitnessApp/manageservices/v1/members/getTimeSlots");
                     }
 
 
@@ -710,7 +710,7 @@ namespace DFS
             {
                 try
                 {
-                    var uri = new Uri("http://104.238.81.169:4080/FitnessApp/manageservices/v1/members/startPayment");
+                    var uri = new Uri("https://arkho-app.org:8443/FitnessApp/manageservices/v1/members/startPayment");
                     var json = JsonConvert.SerializeObject(paymentRequest);
                     var content = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -739,7 +739,7 @@ namespace DFS
             {
                 try
                 {
-                    var uri = new Uri("http://104.238.81.169:4080/FitnessApp/manageservices/v1/members/addTReview");
+                    var uri = new Uri("https://arkho-app.org:8443/FitnessApp/manageservices/v1/members/addTReview");
                     var json = JsonConvert.SerializeObject(ratingRequestModel);
                     var content = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -773,7 +773,7 @@ namespace DFS
             {
                 try
                 {
-                    var uri = new Uri("http://104.238.81.169:4080/FitnessApp/manageservices/v1/members/startPasswordReset");
+                    var uri = new Uri("https://arkho-app.org:8443/FitnessApp/manageservices/v1/members/startPasswordReset");
                     var json = JsonConvert.SerializeObject(createOtpModel);
                     var content = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -809,7 +809,7 @@ namespace DFS
             {
                 try
                 {
-                    var uri = new Uri("http://104.238.81.169:4080/FitnessApp/manageservices/v1/members/updatePassword");
+                    var uri = new Uri("https://arkho-app.org:8443/FitnessApp/manageservices/v1/members/updatePassword");
                     var json = JsonConvert.SerializeObject(submitOtpModel);
                     var content = new StringContent(json, Encoding.UTF8, "application/json");
 
